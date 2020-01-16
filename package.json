@@ -1,0 +1,47 @@
+{
+  "name": "gettinginvolved",
+  "version": "1.0.0",
+  "description": "Get involved in the issues",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start:open": "webpack && webpack-dev-server --open --env development",
+    "start": "webpack-dev-server --open --env development",
+    "build:webpack": "webpack --env development",
+    "build": "webpack --env production",
+    "watch": "npm run build:webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/plugin-transform-runtime": "^7.8.0",
+    "@babel/polyfill": "^7.8.0",
+    "@babel/preset-env": "^7.8.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.0.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "npm-install-webpack-plugin": "^4.0.5",
+    "style-loader": "^1.1.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "workbox-webpack-plugin": "^4.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webtalk16/GettingInvolved.git"
+  },
+  "author": "Jimmy Levy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webtalk16/GettingInvolved/issues"
+  },
+  "homepage": "https://github.com/webtalk16/GettingInvolved#readme"
+}
