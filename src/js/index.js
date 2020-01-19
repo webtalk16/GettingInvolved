@@ -1,6 +1,3 @@
-// import { App } from './app.js'; 
-// const app = new App(); 
-// app.loadApp(); 
 import '../css/main.css';
 import { app } from './app'
 
@@ -12,12 +9,14 @@ try {
       console.log('@@ SW in navigator');
       
       navigator.serviceWorker.register('/service-worker.js').then(registration => {
-        console.log('@@ registered');
         console.log('SW registered: ', registration);
-        app.loadApp();
-        console.log('now loading!');
+        try {
+          app.loadApp();
+        }
+        catch (e) {
+          console.error('app load error ' + e);
+        }
       }).catch(registrationError => {
-        console.log('@@ registered failed');
         console.log('SW registration failed: ', registrationError);
       });
     }
