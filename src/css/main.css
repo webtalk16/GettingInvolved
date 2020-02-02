@@ -1,3 +1,81 @@
 body {
-    color: blue;
+    color: #408ac9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body.layoutRTL {
+    direction: rtl;
+    text-align: right;
+}
+#btnPwa {
+    display: inline-block;
+    margin: 10px 0px;
+    padding: 20px 10px;
+    border-radius: 3px 3px 3px 3px;
+    background-color: #408ac9;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+#loginContainer {
+    background: url(../images/loginIconSmall.png) left top no-repeat;
+    padding-left: 45px;
+    height: 40px;
+    line-height: 40px;
+}
+#headerMain {}
+#headerMain #headerContainer {
+    display: flex;
+}
+#headerMain #headerContainer #headerLogo {
+    background: url(../images/Theme/Liberalim-Web-Logo.jpg) left top / 100% auto no-repeat;
+    width: 20%;
+    /* border:1px solid blue; */
+}
+#headerMain #headerContainer #headerNav {
+    width: 70%;
+    /* border:1px solid green; */
+}
+#headerMain #headerContainer #headerLang {
+    width: 10%;
+    /* border:1px solid red; */
+}
+#contentMain {}
+#contentMain #contentContainer {
+    display: flex;
+}
+#contentMain #contentContainer main {
+    width:340px;
+    /* border:1px solid blue; */
+}
+#contentMain #contentContainer aside {
+    width:calc(100% - 340px);
+    padding-left: 1%;
+    /* border:1px solid green; */
+}
+#contentMain #contentContainer aside #teamPic {
+    position: relative;
+}
+#contentMain #contentContainer aside #liberalimTeamPic {
+    width:100%;
+}
+#contentMain #contentContainer aside #teamPicText {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-height: 70%;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+}
+#contentMain #contentContainer aside #teamPiclabel {
+    position: absolute;
+    bottom: -20px;
+    right: 0px;
+    left: 0px;
+    height: 24px;
+    line-height: 24px;
+    padding:0px 10px;
+    background-color: #408ac9;
+    color: #FFFFFF;
 }

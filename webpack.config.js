@@ -53,11 +53,16 @@ module.exports = function (env) {
             new CopyPlugin([
                 { from: 'src/css', to: 'css' },
                 { from: 'src/images', to: 'images' },
-                { from: './manifest.json', to: '' }
+                { from: 'manifest.webmanifest', to: '' }
             ]),
             new GenerateSW({
                 clientsClaim: true,
                 skipWaiting: true,
+                // Files to exclude from the precache
+                exclude: [/\.(?:png|jpg|jpeg|svg)$/, /\.map$/, /manifest\.webmanifest$/, /service-worker\.js$/],
+                // modifyUrlPrefix: {
+                //     '/': ''
+                // }
                 // runtimeCaching: [{
                 //     // these options encourage the ServiceWorkers to get in there fast
                 //     // and not allow any straggling "old" SWs to hang around

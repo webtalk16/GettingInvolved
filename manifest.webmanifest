@@ -1,11 +1,19 @@
 {
   "name": "Getting Involved",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
-  "display": "browser",
+	"short_name" : "Get Involved",
+	"description" : "",
+  "display": "minimal-ui",
   "orientation": "portrait",
+  "theme_color": "#408ac9",
+  "background_color": "#408ac9",
   "Scope": "/",
-  "start_url": "/",
+	"scope" : "/",
+  "start_url": "https://likudliberal.jimmylevy.com/",
+  "dir" : "ltr",
+	"lang" : "en",
+	"related_applications" : [],
+	"prefer_related_applications" : false,
+  "generated" : "true",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
@@ -47,6 +55,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+  ]
 }
