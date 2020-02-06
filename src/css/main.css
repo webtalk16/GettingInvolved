@@ -1,6 +1,16 @@
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
 body {
     color: #408ac9;
     font-family: Arial, Helvetica, sans-serif;
+    margin:0px;
+    padding: 0px;
 }
 body.layoutRTL {
     direction: rtl;
@@ -24,19 +34,26 @@ body.layoutRTL {
 #headerMain {}
 #headerMain #headerContainer {
     display: flex;
+    height: 50px;
+    padding:10px 20px;
+    align-items: center;
 }
 #headerMain #headerContainer #headerLogo {
-    background: url(../images/Theme/Liberalim-Web-Logo.jpg) left top / 100% auto no-repeat;
-    width: 20%;
-    /* border:1px solid blue; */
+    background: url(../images/Theme/Liberalim-Web-Logo.jpg) left center / 122.4px 50px no-repeat;
+    min-width: 122.4px;
+    height: 100%;
+}
+.layoutRTL #headerMain #headerContainer #headerLogo {
+    background-position: right center;
 }
 #headerMain #headerContainer #headerNav {
-    width: 70%;
-    /* border:1px solid green; */
+    flex: 1;
 }
 #headerMain #headerContainer #headerLang {
-    width: 10%;
-    /* border:1px solid red; */
+    width: 100px;
+}
+#headerMain #headerContainer #headerLang select {
+    width: 100%;
 }
 #contentMain {}
 #contentMain #contentContainer {
@@ -79,3 +96,78 @@ body.layoutRTL {
     background-color: #408ac9;
     color: #FFFFFF;
 }
+
+/* The slider */
+#langSlider {
+    position: relative;
+    height: 33px;
+    width: 100px;
+    text-align: right;
+}
+.layoutRTL #langSlider {
+    text-align: left;
+}
+#langSlider input {
+    margin:10px;
+    z-index: -1;
+}
+#langSlider .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .4s;
+    transition: .4s;
+    z-index: 1;
+  }
+  #langSlider .sliderText {
+    position: absolute;
+    background-color: #FFFFFF;
+    top: 50%;
+    left: 0px;
+    right: 0px;
+    transform: translateY(-50%);
+    text-indent: 37px;
+    font-size: 20px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    z-index: 0;
+  }
+  
+  #langSlider .slider:before {
+    position: absolute;
+    content: "";
+    background: url(../images/iconUsFlagRoundSquare.png);
+    height: 29px;
+    width: 29px;
+    left: 3px;
+    bottom: 2px;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  /* input:checked + .slider {
+    background-color: #2196F3;
+  } */
+  
+  #langSlider input:focus + .slider {
+    box-shadow: 0 0 1px #FFFFFF;
+  }
+  
+  #langSlider input:checked + .slider:before {
+    -webkit-transform: translateX(66px);
+    -ms-transform: translateX(66px);
+    transform: translateX(66px);
+    background: url(../images/iconIlFlagRoundSquare.png);
+  }
+  
+  /* Rounded sliders */
+  #langSlider .slider.round {
+    border-radius: 34px;
+  }
+  
+  #langSlider .slider.round:before {
+    border-radius: 50%;
+  }

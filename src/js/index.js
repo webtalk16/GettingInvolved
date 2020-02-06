@@ -1,5 +1,4 @@
 import '../css/main.css';
-// import '../../manifest.json';
 import { app } from './app'
 
 try {

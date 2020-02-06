@@ -5,23 +5,81 @@ const rootEl = document.querySelector('#appMain');
 class Header {
 
   constructor () {
-    const global = new Global();
-    this.resources = global.getResources();
-    this.resourceLangs = global.getResourceLangs();
-    this.config = global.getConfig();
+    this.global = new Global();
+    this.resources = this.global.getResources();
+    this.config = this.global.getConfig();
   } 
 
-  loadHeader(){
+  loadHeader () {
     console.log('Header component is loaded');
     this.buildHtml();
+    this.bindLangSelect();
+  }
+
+  setLayoutByLang () {
+    document.querySelector('body').className = 'heb' === this.config.uiLang.get.call(this.config.uiLang) ? 'layoutRTL' : '';
+  }
+
+  bindLangSelect () {
+    this.setLayoutByLang();
+
+    const elSliderText = document.querySelector('#sliderText');
+    const objLangs = this.global.getResourceLangs();
+    let currentLang = this.config.uiLang.get.call(this.config.uiLang);
+    let isHeb = currentLang === 'heb';
+    elSliderText.innerHTML = objLangs[isHeb ? 'heb' : 'eng'].langName;
+    elSliderText.style.textAlign = isHeb ? 'right' : 'left';
+    elSliderText.style.direction = isHeb ? 'rtl' : 'ltr';
+    const langCheckbox = document.querySelector('#langSlider input');
+    langCheckbox.checked = isHeb;
+    function check() {
+      document.getElementById("myCheck").checked = true;
+    }
+    
+    function uncheck() {
+        document.getElementById("myCheck").checked = false;
+    }
+
+    // langCheckbox.addEventListener('click', (event) => {
+    //   currentLang = this.config.uiLang.get.call(this.config.uiLang);
+    //   isHeb = currentLang === 'heb';
+    //   console.log('currentLang ' + currentLang);
+    //   elSliderText.innerHTML = objLangs[isHeb ? 'eng' : 'heb'].langName;
+    //   elSliderText.style.textAlign = isHeb ? 'left' : 'right';
+    //   elSliderText.style.direction = isHeb ? 'ltr' : 'rtl';
+    // //change lang
+    //   this.config.uiLang.set(isHeb ? 'eng' : 'heb');
+    //   //remove event lister
+    //   // event.target.removeEventListener('click', );
+    //   //reload
+    // });
+    const eventListerCallback = onLangChange.bind(this);
+    langCheckbox.addEventListener('click', eventListerCallback);
+
+    function onLangChange (event) {
+      currentLang = this.config.uiLang.get.call(this.config.uiLang);
+      isHeb = currentLang === 'heb';
+      console.log('currentLang ' + currentLang);
+      elSliderText.innerHTML = objLangs[isHeb ? 'eng' : 'heb'].langName;
+      elSliderText.style.textAlign = isHeb ? 'left' : 'right';
+      elSliderText.style.direction = isHeb ? 'ltr' : 'rtl';
+      //change lang
+      this.config.uiLang.set(isHeb ? 'eng' : 'heb');
+
+      // make unclickable
+      event.target.removeEventListener('click', eventListerCallback);
+      langCheckbox.disabled = true;
+
+      //reload
+      // location.reload();
+      setTimeout(() => location.reload(), 400);
+    }
+
   }
 
   buildHtml () {
-    // const global = new Global();
-    // const resources = global.getResources();
-    let langOptions = '';
-    for (let lang in this.resourceLangs) {
-      langOptions += `<option${lang == this.config.uiLang ? ' selected=selected' : ''}>${lang}</option>`;
+    const objLangs = this.global.getResourceLangs();
+    for (let lang in objLangs) {
     }
 
     const html = `
@@ -35,14 +93,18 @@ class Header {
             </ul>
           </nav>
           <div id="headerLang">
-            <select>${langOptions}<select>
+            <div id="langSlider">
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+              <span id="sliderText" class="sliderText noselect"></span>
+            </div>
           </div>
         </div>
       </div>
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
-    // <option>${this.resources.lang}</option>
-    // <option>${this.config.uiLang}</option>
   }
 
 }
