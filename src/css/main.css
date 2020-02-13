@@ -17,13 +17,17 @@ body.layoutRTL {
     text-align: right;
 }
 #btnPwa {
-    display: inline-block;
-    margin: 10px 0px;
-    padding: 20px 10px;
-    border-radius: 3px 3px 3px 3px;
-    background-color: #408ac9;
-    color: #FFFFFF;
+    display: block;
+    background: url(../images/iconInstall.png) right center / auto 30px no-repeat;
+    margin: 10px;
+    border-bottom: 6px solid #408ac9;
+}
+#btnPwa #btnPwaInner {
+    display: block;
+    background: url(../images/icons/icon-72x72.png) left center / 30px auto no-repeat;
+    padding: 10px 0px 10px 38px;
     cursor: pointer;
+    text-align: left;
 }
 #loginContainer {
     background: url(../images/loginIconSmall.png) left top no-repeat;
@@ -31,7 +35,7 @@ body.layoutRTL {
     height: 40px;
     line-height: 40px;
 }
-#headerMain {}
+#headerMain { }
 #headerMain #headerContainer {
     display: flex;
     height: 50px;
@@ -48,31 +52,60 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerNav {
     flex: 1;
+    font-size: 24px;
 }
+#headerLogo { order:1 }
+#headerNav { order:2 }
+#headerLang { order:3 }
 #headerMain #headerContainer #headerLang {
     width: 100px;
 }
 #headerMain #headerContainer #headerLang select {
     width: 100%;
 }
+#menuIcon {
+    display: none;
+}
+#menuIcon div {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    cursor: pointer;
+}
+#headerMain #headerContainer #headerNav ul,
+#headerMain #headerContainer #headerNav li {
+    margin:0px;
+    text-indent: 0px;
+    list-style: none;
+}
+#headerMain #headerContainer #headerNav ul {
+    display: flex;
+}
+#headerMain #headerContainer #headerNav li {
+    flex: 1;
+    cursor:pointer;
+}
 #contentMain {}
 #contentMain #contentContainer {
     display: flex;
 }
-#contentMain #contentContainer main {
+#contentMain #contentContainer main.contentMain {
     width:340px;
+    margin:0px auto;
     /* border:1px solid blue; */
 }
-#contentMain #contentContainer aside {
-    width:calc(100% - 340px);
+#contentMain #contentContainer aside.contentAside {
+    width: calc(100% - 340px);
     padding-left: 1%;
+    margin: 0px auto;
     /* border:1px solid green; */
 }
 #contentMain #contentContainer aside #teamPic {
     position: relative;
 }
 #contentMain #contentContainer aside #liberalimTeamPic {
-    width:100%;
+    width: 100%;
 }
 #contentMain #contentContainer aside #teamPicText {
     position: absolute;
@@ -170,4 +203,60 @@ body.layoutRTL {
   
   #langSlider .slider.round:before {
     border-radius: 50%;
+  }
+
+  @media only screen and (min-width: 650px) {
+      #headerNav li.about {
+          display:none;
+      } 
+  }
+  @media only screen and (max-width: 650px) {
+    #appMain #menuIcon { display: inline-block; }
+    #appMain #headerMain #headerContainer #headerLogo { order:1; }
+    #appMain #headerMain #headerContainer #headerNav { order:3; position: relative; width: 35px; flex:unset; }
+    #appMain #headerMain #headerContainer #headerLang {
+        display: flex;
+        order:2;
+        width:auto;
+        margin: 0px 20px;
+        flex:1;
+        justify-content: flex-end;
+    }
+    #appMain #headerMain #headerContainer #headerNav ul {
+        display: none;
+    }
+    #appMain #headerMain #headerContainer #headerNav.showMenu ul {
+        display: block;
+    }
+    #appMain #headerMain #headerContainer #headerNav ul {
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        border:1px solid rgba(0,0,0,.2);
+        border-radius: 3px 3px 3px 3px;
+    }
+    .layoutRTL #appMain #headerMain #headerContainer #headerNav ul {
+        right: auto;
+        left: 0px;
+    }
+    #appMain #headerMain #headerContainer #headerNav ul {
+        flex-direction: column;
+        width: 150px;
+        padding:5px 10px;
+        background-color: #FFFFFF;
+        z-index: 1;
+    }
+    #appMain #headerLang {
+        flex:1;
+    }
+    #appMain.home #contentMain .contentAside {
+        display: none;
+    }
+    #appMain.about .contentMain {
+        display: none;
+    }
+    #appMain #contentMain #contentContainer aside.contentAside {
+      width:95%;
+      padding-left:0px;
+    }
   }

@@ -59,24 +59,28 @@ module.exports = function (env) {
                 clientsClaim: true,
                 skipWaiting: true,
                 // Files to exclude from the precache
-                exclude: [/\.(?:png|jpg|jpeg|svg)$/, /\.map$/, /manifest\.webmanifest$/, /service-worker\.js$/],
+                exclude: [/\.map$/, /manifest\.webmanifest$/, /service-worker\.js$/],
+                // exclude: [/\.(?:png|jpg|jpeg|svg)$/, /\.map$/, /manifest\.webmanifest$/, /service-worker\.js$/],
                 // modifyUrlPrefix: {
                 //     '/': ''
                 // }
-                // runtimeCaching: [{
-                //     // these options encourage the ServiceWorkers to get in there fast
-                //     // and not allow any straggling "old" SWs to hang around
-                //     // Match any same-origin request that contains 'api'.
-                //     // urlPattern: /api/,
-                //     // Apply a network-first strategy.
-                //     handler: 'NetworkFirst',
-                //     options: {
-                //       // Fall back to the cache after 10 seconds.
-                //       networkTimeoutSeconds: 10,
-                //       // Use a custom cache name for this route.
-                //       cacheName: 'getting-involved-cache'
-                //     }
-                // }]
+                runtimeCaching: [{
+                    handler: 'NetworkFirst',
+                    // Match any request that ends with .png, .jpg, .jpeg or .svg.
+                    // urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+                    urlPattern: new RegExp('\\.(?:png|gif|jpg|jpeg|svg)$'),
+                    options: {
+                        // Use a custom cache name.
+                        // cacheName: 'images',
+                      // Fall back to the cache after 10 seconds.
+                      networkTimeoutSeconds: 10,
+                      // Use a custom cache name for this route.
+                    //   cacheName: 'getting-involved-cache'// Only cache 10 images.
+                    //   expiration: {
+                    //     maxEntries: 10,
+                    //   },
+                    }
+                }]
             })
         ],
         module: {

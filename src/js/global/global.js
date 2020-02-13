@@ -5,6 +5,7 @@ class Global {
     constructor () {
         // this.resources = Resources.lang[Config.uiLang];
         this.resourceLangs = Resources.lang;
+        // this.resourceNavItems = Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
         // this.config = Config;
     }
 
@@ -16,9 +17,50 @@ class Global {
         return this.resourceLangs;
     }
 
+    // getResourceNavItems () {
+    //     return Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
+    // }
+
     getConfig () {
         return Config;
     }
+
+    checkPwa (rootEl) {
+        setTimeout(() => {
+          if (window.deferredPrompt) {
+            // add install button
+            const node = document.createElement('DIV');
+            node.id = 'btnPwa';
+            const span = document.createElement('SPAN');
+            span.id = 'btnPwaInner';
+            node.appendChild(span);
+            const textnode = document.createTextNode('Install on Home Screen');
+            span.appendChild(textnode);
+            rootEl.appendChild(node);
+    
+            const btnPwa = document.querySelector('#btnPwaInner');
+            btnPwa.addEventListener('click', e => {
+              window.addEventListener('appinstalled', e => {
+                console.log('app is now installed on this device, thank you and enjoy :)');
+              });
+              this.doPwaInstall();
+            });
+          }
+        }, 2000);
+      }
+    
+      async doPwaInstall() {
+        window.deferredPrompt.prompt();
+        console.log('deferredPrompt' + window.deferredPrompt)
+        window.deferredPrompt.userChoice.then(function(choiceResult){
+          if (choiceResult.outcome === 'accepted') {
+            console.log('Your PWA has been installed');
+          } else {
+            console.log('User chose to not install your PWA');
+          }
+          window.deferredPrompt = null;
+        });
+      }
 }
   
 export { Global };

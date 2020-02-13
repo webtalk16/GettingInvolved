@@ -9,7 +9,7 @@
     "build:webpack": "webpack --env development",
     "build": "webpack --env production",
     "watch": "npm run build:webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "qunit src/tests/*-test.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.8.0"

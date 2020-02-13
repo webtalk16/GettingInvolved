@@ -14,10 +14,19 @@ class Header {
     console.log('Header component is loaded');
     this.buildHtml();
     this.bindLangSelect();
+    this.bindMenuIcon();
+    this.global.checkPwa(document.querySelector('#headerMain'));
   }
 
   setLayoutByLang () {
     document.querySelector('body').className = 'heb' === this.config.uiLang.get.call(this.config.uiLang) ? 'layoutRTL' : '';
+  }
+
+  bindMenuIcon () {
+    document.addEventListener('click', () => {
+      const menuIcon = document.querySelector('#menuIcon');
+      menuIcon.parentNode.classList.toggle('showMenu');
+    });
   }
 
   bindLangSelect () {
@@ -40,19 +49,6 @@ class Header {
         document.getElementById("myCheck").checked = false;
     }
 
-    // langCheckbox.addEventListener('click', (event) => {
-    //   currentLang = this.config.uiLang.get.call(this.config.uiLang);
-    //   isHeb = currentLang === 'heb';
-    //   console.log('currentLang ' + currentLang);
-    //   elSliderText.innerHTML = objLangs[isHeb ? 'eng' : 'heb'].langName;
-    //   elSliderText.style.textAlign = isHeb ? 'left' : 'right';
-    //   elSliderText.style.direction = isHeb ? 'ltr' : 'rtl';
-    // //change lang
-    //   this.config.uiLang.set(isHeb ? 'eng' : 'heb');
-    //   //remove event lister
-    //   // event.target.removeEventListener('click', );
-    //   //reload
-    // });
     const eventListerCallback = onLangChange.bind(this);
     langCheckbox.addEventListener('click', eventListerCallback);
 
@@ -82,15 +78,23 @@ class Header {
     for (let lang in objLangs) {
     }
 
+    let navListItems = '';
+    // const objNav = this.global.resourceNavItems;
+    let menuOnclick = '';
+
+    for (let navItem in this.resources.nav) {
+      menuOnclick = `document.querySelector('#appMain').className='${this.resources.nav[navItem].name}'`;
+      navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name}">${this.resources.nav[navItem].text}</li>`;
+    }
+
     const html = `
       <div id="headerMain">
         <div id="headerContainer">
           <div id="headerLogo">
           </div>
           <nav id="headerNav">
-            <ul>
-              <li>${this.resources.nav.home}</li>
-            </ul>
+            <div id="menuIcon"><div></div><div></div><div></div></div>
+            <ul>${navListItems}</ul>
           </nav>
           <div id="headerLang">
             <div id="langSlider">
