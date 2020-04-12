@@ -43,7 +43,7 @@ body.layoutRTL {
     align-items: center;
 }
 #headerMain #headerContainer #headerLogo {
-    background: url(../images/Theme/Liberalim-Web-Logo.jpg) left center / 122.4px 50px no-repeat;
+    background: url(../images/Theme/IFC-Web-Logo.png) left center / auto 50px no-repeat;
     min-width: 122.4px;
     height: 100%;
 }
@@ -104,7 +104,7 @@ body.layoutRTL {
 #contentMain #contentContainer aside #teamPic {
     position: relative;
 }
-#contentMain #contentContainer aside #liberalimTeamPic {
+#contentMain #contentContainer aside #ifcTeamPic {
     width: 100%;
 }
 #contentMain #contentContainer aside #teamPicText {

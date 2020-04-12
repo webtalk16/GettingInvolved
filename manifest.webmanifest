@@ -1,7 +1,7 @@
 {
-  "name": "Getting Involved",
-	"short_name" : "Get Involved",
-	"description" : "",
+  "name": "IFC",
+	"short_name" : "Israeli Free-Market Coalition",
+	"description" : "Coalition of Free-Market Groups in Israel",
   "display": "minimal-ui",
   "orientation": "portrait",
   "theme_color": "#408ac9",
