@@ -245,11 +245,14 @@ body.layoutRTL {
     #appMain.fbPage .contentFbPage  {
         display: block;
     }
+    #appMain .contentDonate {
+        margin:0px auto;
+    }
     #appMain .contentDonate .donateButton {
         text-align: center;
     }
     #appMain .contentDonate .donateTitle {
-        margin:10px 0px;
+        margin:30px 0px 10px 0px;
         text-align: center;
         font-size: 1.2em;
     }
