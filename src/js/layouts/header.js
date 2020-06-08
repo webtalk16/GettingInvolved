@@ -12,9 +12,6 @@ class Header {
 
   loadHeader () {
     console.log('Header component is loaded');
-    this.global = new Global();
-    this.resources = this.global.getResources();
-    this.config = this.global.getConfig();
     this.buildHtml();
     this.bindLangSelect();
     this.bindMenuIcon();
@@ -85,9 +82,17 @@ class Header {
     // const objNav = this.global.resourceNavItems;
     let menuOnclick = '';
 
+    // Set Homepage
+    const homepage = 'donate';
+    document.querySelector('#appMain').className = homepage;
+    let selected = '';
+
+    //document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});
+
     for (let navItem in this.resources.nav) {
-      menuOnclick = `document.querySelector('#appMain').className='${this.resources.nav[navItem].name}';document.querySelector('#menuIcon').parentNode.classList.toggle('showMenu');`;
-      navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name}">${this.resources.nav[navItem].text}</li>`;
+      selected = this.resources.nav[navItem].name == homepage ? ' selected' : '';
+      menuOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});this.classList.add('selected');document.querySelector('#appMain').className='${this.resources.nav[navItem].name}';document.querySelector('#menuIcon').parentNode.classList.toggle('showMenu');`;
+      navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name + selected}">${this.resources.nav[navItem].text}</li>`;
     }
 
     const html = `

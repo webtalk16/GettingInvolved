@@ -245,6 +245,25 @@ body.layoutRTL {
     #appMain.fbPage .contentFbPage  {
         display: block;
     }
+    #appMain .contentDonate .donateButton {
+        text-align: center;
+    }
+    #appMain .contentDonate .donateTitle {
+        margin:10px 0px;
+        text-align: center;
+        font-size: 1.2em;
+    }
+    #appMain .contentDonate .donateButton {
+        display: inline-block;
+        margin:0px auto;
+        padding:5px 30px;
+        border-radius: 5px 5px 5px 5px;
+        background-color:#106eb5;
+    }
+    #appMain .contentDonate .donateButton .donateButtonText {
+        font-size: 1.5em;
+        color:#FFFFFF;
+    }
 
   @media only screen and (min-width: 650px) {
       /* #headerNav li.about {

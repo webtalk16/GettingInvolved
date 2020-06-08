@@ -10,6 +10,8 @@ class Content {
   loadContent(){
     console.log('Content component is loaded');
     this.buildHtml();
+    this.bindEvents();
+    
   }
 
   buildHtml () {
@@ -31,13 +33,25 @@ class Content {
           </main>
           <main class="contentDonate">
             <div style="text-align: center;">
-              Donate here
+              <img id="mainPhotoStreetMeetup" src="/images/MainPhotoStreetMeetup.jpg" width="100%" />
+              <div class="donateTitle">${this.resources.donate.title}</div>
+              <div class='donateButton'>
+                <span class="donateButtonText">${this.resources.donate.button}</span>
+              </div>
             </div>
           </main>
         </div>
       </div>
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
+  }
+
+  bindEvents () {
+    const donateBtn = document.querySelector('.donateButton');
+    const ifcDonatePaypal = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9EGG93TWBLKMQ&source=url';
+    donateBtn.addEventListener('click', function () {
+      window.open(ifcDonatePaypal, '_blank');
+    });
   }
 }
 

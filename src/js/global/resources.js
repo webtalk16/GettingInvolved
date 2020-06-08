@@ -6,18 +6,22 @@ const Resources = {
             },
             langName: 'English',
             nav: {
-                home: {
-                    text: 'Home',
-                    name: 'home'
+                donate: {
+                    text: 'Donate',
+                    name: 'donate'
+                },
+                fbPage: {
+                    text: 'Facebook',
+                    name: 'fbPage'
                 },
                 about: {
                     text: 'About Us',
                     name: 'about'
-                },
-                donate: {
-                    text: 'Donate',
-                    name: 'donate'
                 }
+            },
+            donate: {
+                title: 'To help us in funding our next event',
+                button: 'Donate Here'
             },
             about: {
                 oragizationPlan: `<p><span class="title">Vision</span>
@@ -43,18 +47,22 @@ const Resources = {
             },
             langName: 'עברית',
             nav: {
-                home: {
-                    text: 'ראשי',
-                    name: 'home'
+                donate: {
+                    text: 'לתרומה',
+                    name: 'donate'
+                },
+                fbPage: {
+                    text: 'פייסבוק',
+                    name: 'fbPage'
                 },
                 about: {
                     text: 'אודות',
                     name: 'about'
-                },
-                donate: {
-                    text: 'לתרומה',
-                    name: 'donate'
                 }
+            },
+            donate: {
+                title: 'כדי לעזור לנו לממן את האירוע הבא',
+                button: 'תרמו כאן'
             },
             about: {
                 oragizationPlan: `<p><span class="title">חזון</span>
