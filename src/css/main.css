@@ -29,6 +29,19 @@ body.layoutRTL {
     cursor: pointer;
     text-align: left;
 }
+.layoutRTL #btnPwa {
+    display: block;
+    background: url(../images/iconInstall.png) left center / auto 30px no-repeat;
+    margin: 10px;
+    border-bottom: 6px solid #408ac9;
+}
+.layoutRTL #btnPwa #btnPwaInner {
+    display: block;
+    background: url(../images/icons/icon-72x72.png) right center / 30px auto no-repeat;
+    padding: 10px 38px 10px 0px;
+    cursor: pointer;
+    text-align: right;
+}
 #loginContainer {
     background: url(../images/loginIconSmall.png) left top no-repeat;
     padding-left: 45px;
@@ -43,12 +56,12 @@ body.layoutRTL {
     align-items: center;
 }
 #headerMain #headerContainer #headerLogo {
-    background: url(../images/Theme/IFC-Web-Logo.png) left center / auto 50px no-repeat;
+    background: url(../images/Theme/IFC-LogoEnglish.jpg) left center / auto 50px no-repeat;
     min-width: 122.4px;
     height: 100%;
 }
 .layoutRTL #headerMain #headerContainer #headerLogo {
-    background-position: right center;
+    background: url(../images/Theme/IFC-Logohebrew.jpg) right center / auto 50px no-repeat;
 }
 #headerMain #headerContainer #headerNav {
     flex: 1;
@@ -81,33 +94,41 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerNav ul {
     display: flex;
+    padding:0px;
 }
 #headerMain #headerContainer #headerNav li {
-    flex: 1;
+    /* flex: 1; */
+    padding:0px 10px;
     cursor:pointer;
+    white-space: nowrap;
 }
 #contentMain {}
 #contentMain #contentContainer {
     display: flex;
 }
-#contentMain #contentContainer main.contentMain {
+#contentMain #contentContainer main.contentFbPage {
     width:340px;
     margin:0px auto;
     /* border:1px solid blue; */
 }
-#contentMain #contentContainer aside.contentAside {
+/* #appMain #contentMain #contentContainer main.contentAbout {
     width: calc(100% - 340px);
     padding-left: 1%;
     margin: 0px auto;
+  } */
+#contentMain #contentContainer main.contentAbout {
+    width:95%;
+    padding:0px;
+    margin: 0px auto;
     /* border:1px solid green; */
 }
-#contentMain #contentContainer aside #teamPic {
+#contentMain #contentContainer main.contentAbout #teamPic {
     position: relative;
 }
-#contentMain #contentContainer aside #ifcTeamPic {
+#contentMain #contentContainer main.contentAbout #ifcTeamPic {
     width: 100%;
 }
-#contentMain #contentContainer aside #teamPicText {
+/* #contentMain #contentContainer main #teamPicText {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -117,8 +138,16 @@ body.layoutRTL {
     background-color: rgba(0, 0, 0, .4);
     border-radius: 5px 5px 5px 5px;
     color: #FFFFFF;
+} */
+#contentMain #contentContainer main.contentAbout #teamPicText {
+    margin:40px 0px 40px 0px;
+    color:#333333;
 }
-#contentMain #contentContainer aside #teamPiclabel {
+#contentMain #contentContainer main.contentAbout #teamPicText span.title {
+    display: block;
+    font-weight: bold;
+}
+#contentMain #contentContainer main.contentAbout #teamPiclabel {
     position: absolute;
     bottom: -20px;
     right: 0px;
@@ -205,10 +234,22 @@ body.layoutRTL {
     border-radius: 50%;
   }
 
+  #appMain .contentAbout,
+    #appMain .contentFbPage,
+    #appMain .contentDonate {
+        display: none;
+    }
+
+    #appMain.donate .contentDonate,
+    #appMain.about .contentAbout,
+    #appMain.fbPage .contentFbPage  {
+        display: block;
+    }
+
   @media only screen and (min-width: 650px) {
-      #headerNav li.about {
+      /* #headerNav li.about {
           display:none;
-      } 
+      }  */
   }
   @media only screen and (max-width: 650px) {
     #appMain #menuIcon { display: inline-block; }
@@ -248,15 +289,5 @@ body.layoutRTL {
     }
     #appMain #headerLang {
         flex:1;
-    }
-    #appMain.home #contentMain .contentAside {
-        display: none;
-    }
-    #appMain.about .contentMain {
-        display: none;
-    }
-    #appMain #contentMain #contentContainer aside.contentAside {
-      width:95%;
-      padding-left:0px;
     }
   }

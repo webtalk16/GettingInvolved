@@ -5,6 +5,7 @@ class Global {
     constructor () {
         // this.resources = Resources.lang[Config.uiLang];
         this.resourceLangs = Resources.lang;
+        this.resources = this.getResources();
         // this.resourceNavItems = Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
         // this.config = Config;
     }
@@ -34,7 +35,7 @@ class Global {
             const span = document.createElement('SPAN');
             span.id = 'btnPwaInner';
             node.appendChild(span);
-            const textnode = document.createTextNode('Install on Home Screen');
+            const textnode = document.createTextNode(this.resources.pwa.InstallTitle);
             span.appendChild(textnode);
             rootEl.appendChild(node);
     

@@ -12,6 +12,9 @@ class Header {
 
   loadHeader () {
     console.log('Header component is loaded');
+    this.global = new Global();
+    this.resources = this.global.getResources();
+    this.config = this.global.getConfig();
     this.buildHtml();
     this.bindLangSelect();
     this.bindMenuIcon();
@@ -23,8 +26,8 @@ class Header {
   }
 
   bindMenuIcon () {
-    document.addEventListener('click', () => {
-      const menuIcon = document.querySelector('#menuIcon');
+    const menuIcon = document.querySelector('#menuIcon');
+    menuIcon.addEventListener('click', () => {
       menuIcon.parentNode.classList.toggle('showMenu');
     });
   }
@@ -36,11 +39,11 @@ class Header {
     const objLangs = this.global.getResourceLangs();
     let currentLang = this.config.uiLang.get.call(this.config.uiLang);
     let isHeb = currentLang === 'heb';
-    elSliderText.innerHTML = objLangs[isHeb ? 'heb' : 'eng'].langName;
-    elSliderText.style.textAlign = isHeb ? 'right' : 'left';
-    elSliderText.style.direction = isHeb ? 'rtl' : 'ltr';
+    elSliderText.innerHTML = objLangs[isHeb ? 'eng' : 'heb'].langName;
+    elSliderText.style.textAlign = isHeb ? 'left' : 'right';
+    elSliderText.style.direction = isHeb ? 'ltr' : 'rtl';
     const langCheckbox = document.querySelector('#langSlider input');
-    langCheckbox.checked = isHeb;
+    langCheckbox.checked = !isHeb;
     function check() {
       document.getElementById("myCheck").checked = true;
     }
@@ -56,9 +59,9 @@ class Header {
       currentLang = this.config.uiLang.get.call(this.config.uiLang);
       isHeb = currentLang === 'heb';
       console.log('currentLang ' + currentLang);
-      elSliderText.innerHTML = objLangs[isHeb ? 'eng' : 'heb'].langName;
-      elSliderText.style.textAlign = isHeb ? 'left' : 'right';
-      elSliderText.style.direction = isHeb ? 'ltr' : 'rtl';
+      elSliderText.innerHTML = objLangs[isHeb ? 'heb' : 'eng'].langName;
+      elSliderText.style.textAlign = isHeb ? 'right' : 'rigleftht';
+      elSliderText.style.direction = isHeb ? 'rtl' : 'ltr';
       //change lang
       this.config.uiLang.set(isHeb ? 'eng' : 'heb');
 
@@ -83,7 +86,7 @@ class Header {
     let menuOnclick = '';
 
     for (let navItem in this.resources.nav) {
-      menuOnclick = `document.querySelector('#appMain').className='${this.resources.nav[navItem].name}'`;
+      menuOnclick = `document.querySelector('#appMain').className='${this.resources.nav[navItem].name}';document.querySelector('#menuIcon').parentNode.classList.toggle('showMenu');`;
       navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name}">${this.resources.nav[navItem].text}</li>`;
     }
 
