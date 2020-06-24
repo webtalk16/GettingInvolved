@@ -69,7 +69,7 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerNav {
     flex: 1;
-    font-size: 24px;
+    font-size: 22px;
 }
 #headerLogo { order:1 }
 #headerNav { order:2 }
@@ -104,10 +104,14 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerNav li {
     flex: 1;
-    padding:0px 5px;
+    padding:3px 5px;
     text-align: center;
     white-space: nowrap;
     cursor:pointer;
+}
+#headerMain #headerContainer #headerNav li.selected {
+    background-color: #408ac9;
+    color: white;
 }
 #contentMain {}
 #contentMain #contentContainer {
@@ -321,7 +325,7 @@ body.layoutRTL {
         right: 0px;
         width: 150px;
         margin:0px;
-        padding:5px 10px;
+        padding:5px;
         border:1px solid rgba(0,0,0,.2);
         border-radius: 3px 3px 3px 3px;
         background-color: #FFFFFF;

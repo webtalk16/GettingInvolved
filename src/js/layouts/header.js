@@ -83,7 +83,9 @@ class Header {
     let menuOnclick = '';
 
     // Set Homepage
-    const homepage = 'donate';
+    let urlparams = (new URL(document.location)).searchParams;
+    let pageParam = urlparams.get("page");
+    const homepage = pageParam ? pageParam : 'about';
     document.querySelector('#appMain').className = homepage;
     let selected = '';
 
