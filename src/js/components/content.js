@@ -33,10 +33,17 @@ class Content {
           </main>
           <main class="contentDonate">
             <div style="text-align: center;">
-              <img id="mainPhotoStreetMeetup" src="/images/MainPhotoStreetMeetup.jpg" width="100%" />
-              <div class="donateTitle">${this.resources.donate.title}</div>
-              <div class='donateButton'>
-                <span class="donateButtonText">${this.resources.donate.button}</span>
+              <div class="donationImage">
+                <img id="mainPhotoStreetMeetup" src="/images/MainPhotoStreetMeetup.jpg" width="100%" />
+                <div class="donateButtons">
+                  <div class="donateTitle">${this.resources.donate.title}</div>
+                </div>
+              </div>
+              <div class='donateButton campaign'>
+                <span class="donateButtonText">${this.resources.donate.buttonCampaign}</span>
+              </div>
+              <div class='donateButton general'>
+                <span class="donateButtonText">${this.resources.donate.buttonGeneral}</span>
               </div>
             </div>
           </main>
@@ -47,10 +54,16 @@ class Content {
   }
 
   bindEvents () {
-    const donateBtn = document.querySelector('.donateButton');
+    const donateBtnGeneral = document.querySelector('.donateButton.general');
     const ifcDonatePaypal = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9EGG93TWBLKMQ&source=url';
-    donateBtn.addEventListener('click', function () {
+    donateBtnGeneral.addEventListener('click', function () {
       window.open(ifcDonatePaypal, '_blank');
+    });
+
+    const donateBtnCampaign = document.querySelector('.donateButton.campaign');
+    const ifcDonateDrove = 'https://drove.com/.294k';
+    donateBtnCampaign.addEventListener('click', function () {
+      window.open(ifcDonateDrove, '_blank');
     });
   }
 }

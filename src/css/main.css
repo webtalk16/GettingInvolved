@@ -16,6 +16,10 @@ body.layoutRTL {
     direction: rtl;
     text-align: right;
 }
+#appMain {
+    max-width: 650px;
+    margin: 0px auto;
+}
 #btnPwa {
     display: block;
     background: url(../images/iconInstall.png) right center / auto 30px no-repeat;
@@ -51,17 +55,17 @@ body.layoutRTL {
 #headerMain { }
 #headerMain #headerContainer {
     display: flex;
-    height: 50px;
-    padding:10px 20px;
+    height: 80px;
+    padding:0px 10px;
     align-items: center;
 }
 #headerMain #headerContainer #headerLogo {
-    background: url(../images/Theme/IFC-LogoEnglish.jpg) left center / auto 50px no-repeat;
-    min-width: 122.4px;
+    background: url(../images/Theme/IFC-LogoEnglish.jpg) left center / auto 68px no-repeat;
+    min-width: 165px;
     height: 100%;
 }
 .layoutRTL #headerMain #headerContainer #headerLogo {
-    background: url(../images/Theme/IFC-Logohebrew.jpg) right center / auto 50px no-repeat;
+    background: url(../images/Theme/IFC-Logohebrew.jpg) right center / auto 68px no-repeat;
 }
 #headerMain #headerContainer #headerNav {
     flex: 1;
@@ -78,10 +82,11 @@ body.layoutRTL {
 }
 #menuIcon {
     display: none;
+    margin-top: 7px;
 }
 #menuIcon div {
-    width: 35px;
-    height: 5px;
+    width: 30px;
+    height: 4px;
     background-color: black;
     margin: 6px 0;
     cursor: pointer;
@@ -94,13 +99,15 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerNav ul {
     display: flex;
+    margin: 0px 20px;
     padding:0px;
 }
 #headerMain #headerContainer #headerNav li {
-    /* flex: 1; */
-    padding:0px 10px;
-    cursor:pointer;
+    flex: 1;
+    padding:0px 5px;
+    text-align: center;
     white-space: nowrap;
+    cursor:pointer;
 }
 #contentMain {}
 #contentMain #contentContainer {
@@ -243,28 +250,49 @@ body.layoutRTL {
     #appMain.donate .contentDonate,
     #appMain.about .contentAbout,
     #appMain.fbPage .contentFbPage  {
+        position: relative;
         display: block;
     }
     #appMain .contentDonate {
         margin:0px auto;
     }
-    #appMain .contentDonate .donateButton {
-        text-align: center;
+    #appMain .contentDonate .donationImage {
+        position: relative;
+        margin-bottom: 10px;
     }
-    #appMain .contentDonate .donateTitle {
-        margin:30px 0px 10px 0px;
-        text-align: center;
-        font-size: 1.2em;
+    #appMain .contentDonate .donationImage #mainPhotoStreetMeetup {
+        opacity: .2;
+    }
+    #appMain .contentDonate .donateButtons {
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: 0px;
+        right: 0px;
     }
     #appMain .contentDonate .donateButton {
         display: inline-block;
-        margin:0px auto;
-        padding:5px 30px;
+        text-align: center;
+    }
+    #appMain .contentDonate .donateTitle {
+        max-width: 600px;
+        margin:0px 5% 0px 5%;
+        text-align: center;
+        font-size: 1.8em;
+        color: #000000;
+        text-shadow: .6px .6px #999;
+    }
+    #appMain .contentDonate .donateButton {
+        display: inline-block;
+        margin:0px 5px 10px 5px;
+        padding:5px 18px;
         border-radius: 5px 5px 5px 5px;
         background-color:#106eb5;
+        cursor: pointer;
     }
     #appMain .contentDonate .donateButton .donateButtonText {
-        font-size: 1.5em;
+        font-size: 1.2em;
         color:#FFFFFF;
     }
 
@@ -287,29 +315,29 @@ body.layoutRTL {
     }
     #appMain #headerMain #headerContainer #headerNav ul {
         display: none;
+        position: absolute;
+        flex-direction: column;
+        top: 100%;
+        right: 0px;
+        width: 150px;
+        margin:0px;
+        padding:5px 10px;
+        border:1px solid rgba(0,0,0,.2);
+        border-radius: 3px 3px 3px 3px;
+        background-color: #FFFFFF;
+        z-index: 1;
     }
     #appMain #headerMain #headerContainer #headerNav.showMenu ul {
         display: block;
-    }
-    #appMain #headerMain #headerContainer #headerNav ul {
-        position: absolute;
-        top: 100%;
-        right: 0px;
-        border:1px solid rgba(0,0,0,.2);
-        border-radius: 3px 3px 3px 3px;
     }
     .layoutRTL #appMain #headerMain #headerContainer #headerNav ul {
         right: auto;
         left: 0px;
     }
-    #appMain #headerMain #headerContainer #headerNav ul {
-        flex-direction: column;
-        width: 150px;
-        padding:5px 10px;
-        background-color: #FFFFFF;
-        z-index: 1;
-    }
     #appMain #headerLang {
         flex:1;
+    }
+    #appMain .contentDonate .donateTitle {
+        font-size: 1.3em;
     }
   }

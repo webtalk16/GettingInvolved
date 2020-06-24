@@ -20,8 +20,9 @@ const Resources = {
                 }
             },
             donate: {
-                title: 'To help us in funding our next event',
-                button: 'Donate Here'
+                title: 'Every donation will be used to help achieve even greater accomplishiments in taking Israel towards a true Free Market economy.',
+                buttonGeneral: 'General Donation',
+                buttonCampaign: 'Help Fund our Steet Meet-Up Event'
             },
             about: {
                 oragizationPlan: `<p><span class="title">Vision</span>
@@ -61,8 +62,9 @@ const Resources = {
                 }
             },
             donate: {
-                title: 'כדי לעזור לנו לממן את האירוע הבא',
-                button: 'תרמו כאן'
+                title: 'כל תרומה תשמש לסייע בהישגים גדולים עוד יותר ביוכלת לאזרחי ישראל ליצור, לשגשג ולהצליח על ידי יישום עקרונות של שוק חופשי.',
+                buttonGeneral: 'תרומה כללית',
+                buttonCampaign: 'תרמו לעזור לנו לממן את האירוע הבא'
             },
             about: {
                 oragizationPlan: `<p><span class="title">חזון</span>
