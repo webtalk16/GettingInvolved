@@ -40,6 +40,218 @@ const Resources = {
                 <span class="title">Approach</span>
                 To unite the groups and use a top down approach in advancing the agenda and at the same time use a bottom up approach to promote Liberty and Free Market to the average citizen.
                 </p>`
+            },
+            groups: {
+                SFL: {
+                    acronym: 'SFL',
+                    heb: 'סטודנטים למען חירות - ישראל',
+                    eng: 'Students For Liberty - Israel',
+                    logo: '',
+                    Link: {
+                        fb: 'https://www.facebook.com/SFL.Israel/',
+                        website: 'http://studentsforliberty.org/europe',
+                        donate: '',
+                        email: ''
+                    }
+                },
+                JIMS: {
+                    acronym: '',
+                    heb: 'מכון ירושלים לחקר שווקים',
+                    eng: 'Jerusalem Institute for Market Studies',
+                    Link: {
+                        fb: 'https://www.facebook.com/JIMSIsrael/',
+                        website: 'http://www.jims-israel.org',
+                        donate: '',
+                        email: ''
+                    }
+                },
+                SelfEmployed: {
+                    acronym: '',
+                    heb: 'עצמאים למען שוק חופשי בישראל',
+                    eng: 'Self Employed for Free Market in Israel',
+                    Link: {
+                        fb: 'https://www.facebook.com/groups/1067617170278650/',
+                        website: '',
+                        donate: '',
+                        email: ''
+                    }
+                },
+                EasyEconomy: {
+                    acronym: '',
+                    heb: 'כלכלה קלה',
+                    eng: 'Easy Economy',
+                    Link: {
+                        fb: 'https://www.facebook.com/easyconomy/',
+                        website: 'http://easyconomy.com',
+                        donate: '',
+                        email: 'contact.us@easyconomy.com'
+                    }
+                },
+                OurInterest: {
+                    acronym: '',
+                    heb: 'האינטרס שלנו - הלובי שלך בכנסת',
+                    eng: 'Our Interest - Your Lobby in the Knesset',
+                    Link: {
+                        fb: 'https://www.facebook.com/profile.php?id=115819226483879&ref=br_rs',
+                        website: 'https://our-interes.com',
+                        donate: 'https://drove.com/.ZpT',
+                        email: 'eladm@our-interes.com'
+                    }
+                },
+                Talach: {
+                    acronym: '',
+                    heb: 'התנועה הליברלית החדשה',
+                    eng: 'The Israeli Freedom Movement',
+                    Link: {
+                        fb: 'https://www.facebook.com/IsraeliFreedomMovement/',
+                        website: 'https://event.ravpage.co.il/JoinFreedom',
+                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KGQUVD9EVGBFS&source=url',
+                        email: ''
+                    }
+                },
+                LikudLiberals: {
+                    acronym: '',
+                    heb: 'הליברלים בליכוד',
+                    eng: 'Likud Liberals',
+                    Link: {
+                        fb: 'https://www.facebook.com/likudliberal/',
+                        website: 'http://likudliberal.org',
+                        donate: 'http://pbme.co/pbj?v=j&g=5ca4676e5cb4430016baa87f',
+                        email: 'yoni076@gmail.com'
+                    }
+                },
+                ARCI: {
+                    acronym: 'ARCI',
+                    heb: 'איין ראנד ישראל',
+                    eng: 'AYN Rand Center Israel',
+                    Link: {
+                        fb: 'https://www.facebook.com/AYNRANDISRAEL/',
+                        website: 'https://www.aynrand.org.il/donate',
+                        donate: 'http://paypal.me/AynRandCenterIsrael',
+                        email: ''
+                    }
+                },
+                BneiHorin: {
+                    acronym: '',
+                    heb: 'פורום בני חורין',
+                    eng: 'Bnei Horin Forum',
+                    Link: {
+                        fb: 'https://www.facebook.com/FreeJewishHouse/',
+                        website: '',
+                        donate: '',
+                        email: ''
+                    }
+                },
+                LibertyYeshAtid: {
+                    acronym: '',
+                    heb: 'חירות יש עתיד',
+                    eng: 'Liberty Yesh Atid',
+                    Link: {
+                        fb: 'https://www.facebook.com/%D7%97%D7%99%D7%A8%D7%95%D7%AA-%D7%99%D7%A9-%D7%A2%D7%AA%D7%99%D7%93-107091957345099/',
+                        website: '',
+                        donate: '',
+                        email: ''
+                    }
+                },
+                NewLiberalParty: {
+                    acronym: '',
+                    heb: 'המפלגה הליברלית החדשה',
+                    eng: 'The New Liberal Party',
+                    Link: {
+                        fb: 'https://www.facebook.com/LiberalPartyIsrael/',
+                        website: 'https://event.ravpage.co.il/LPI',
+                        donate: '',
+                        email: ''
+                    }
+                },
+                Hofesh: {
+                    acronym: '',
+                    heb: 'חופש לכולנו الحرية لنا جميعاً',
+                    eng: 'Freedom For Us ALL',
+                    Link: {
+                        fb: 'https://www.facebook.com/hofeshku/',
+                        website: '',
+                        donate: '',
+                        email: ''
+                    }
+                },
+                MeretzLiberals: {
+                    acronym: '',
+                    heb: 'הליברלים במרצ',
+                    eng: 'Liberal in Meretz',
+                    Link: {
+                        fb: 'https://www.facebook.com/libmeretz/',
+                        website: '',
+                        donate: '',
+                        email: 'libmeretz@gmail.com'
+                    }
+                },
+                Hazit: {
+                    acronym: '',
+                    heb: 'חזית - לוחמים למען צבא התנדבותי',
+                    eng: 'All Volunteer Military',
+                    Link: {
+                        fb: 'https://www.facebook.com/hazitallvolunteerforce/',
+                        website: 'https://www.allvolunteerforce.org.il',
+                        donate: '',
+                        email: 'hazitallvolunteerforce@gmail.com'
+                    }
+                },
+                Congress: {
+                    acronym: '',
+                    heb: 'הקונגרס- פודקאסט ליברלי',
+                    eng: 'Congress - Liberal Podcast',
+                    Link: {
+                        fb: 'https://www.facebook.com/hacongres/',
+                        website: 'http://hacongress.podbean.com',
+                        donate: '',
+                        email: ''
+                    }
+                },
+                Zoom2Freedom: {
+                    acronym: '',
+                    heb: 'זום לחירות',
+                    eng: 'Zoom2Freedom',
+                    Link: {
+                        fb: '',
+                        website: 'https://event.ravpage.co.il/Zoom2Freedom',
+                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8ULT6DFUXYN5W&source=url',
+                        email: ''
+                    }
+                },
+                LibertyIndex: {
+                    acronym: '',
+                    heb: 'מדד החירות',
+                    eng: 'The Liberty Index',
+                    Link: {
+                        fb: '',
+                        website: 'https://www.freeindex.info/',
+                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=S35WTBY4LR4YG&source=url',
+                        email: ''
+                    }
+                },
+                DebateClub: {
+                    acronym: '',
+                    heb: 'מועדון הדיבייט הליברלי',
+                    eng: 'Liberal Debate Club',
+                    Link: {
+                        fb: '',
+                        website: 'http://event.ravpage.co.il/Debate',
+                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AAGB7U4VE2ZSS&source=ur',
+                        email: ''
+                    }
+                },
+                FreedomCon: {
+                    acronym: '',
+                    heb: 'כנס החירות',
+                    eng: 'FreedomCon',
+                    Link: {
+                        fb: 'https://www.facebook.com/%D7%9B%D7%A0%D7%A1-%D7%94%D7%97%D7%99%D7%A8%D7%95%D7%AA-FreedomCon-1099335593559205/',
+                        website: '',
+                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=77XLZ4UNLE8HN&source=url',
+                        email: ''
+                    }
+                }
             }
         },
         heb: {

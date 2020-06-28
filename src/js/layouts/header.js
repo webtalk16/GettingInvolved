@@ -36,7 +36,7 @@ class Header {
     const objLangs = this.global.getResourceLangs();
     let currentLang = this.config.uiLang.get.call(this.config.uiLang);
     let isHeb = currentLang === 'heb';
-    elSliderText.innerHTML = objLangs[isHeb ? 'eng' : 'heb'].langName;
+    elSliderText.innerHTML = '<span>' + objLangs[isHeb ? 'eng' : 'heb'].langName + '</span>';
     elSliderText.style.textAlign = isHeb ? 'left' : 'right';
     elSliderText.style.direction = isHeb ? 'ltr' : 'rtl';
     const langCheckbox = document.querySelector('#langSlider input');
@@ -56,7 +56,7 @@ class Header {
       currentLang = this.config.uiLang.get.call(this.config.uiLang);
       isHeb = currentLang === 'heb';
       console.log('currentLang ' + currentLang);
-      elSliderText.innerHTML = objLangs[isHeb ? 'heb' : 'eng'].langName;
+      elSliderText.innerHTML = '<span>' + objLangs[isHeb ? 'heb' : 'eng'].langName + '</span>';
       elSliderText.style.textAlign = isHeb ? 'right' : 'rigleftht';
       elSliderText.style.direction = isHeb ? 'rtl' : 'ltr';
       //change lang
@@ -85,7 +85,7 @@ class Header {
     // Set Homepage
     let urlparams = (new URL(document.location)).searchParams;
     let pageParam = urlparams.get("page");
-    const homepage = pageParam ? pageParam : 'about';
+    const homepage = pageParam ? pageParam : 'donate';
     document.querySelector('#appMain').className = homepage;
     let selected = '';
 
@@ -94,7 +94,7 @@ class Header {
     for (let navItem in this.resources.nav) {
       selected = this.resources.nav[navItem].name == homepage ? ' selected' : '';
       menuOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});this.classList.add('selected');document.querySelector('#appMain').className='${this.resources.nav[navItem].name}';document.querySelector('#menuIcon').parentNode.classList.toggle('showMenu');`;
-      navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name + selected}">${this.resources.nav[navItem].text}</li>`;
+      navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name + selected}"><span>${this.resources.nav[navItem].text}</span></li>`;
     }
 
     const html = `

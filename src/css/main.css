@@ -69,13 +69,23 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerNav {
     flex: 1;
-    font-size: 22px;
+    font-size: 18px;
 }
 #headerLogo { order:1 }
 #headerNav { order:2 }
 #headerLang { order:3 }
 #headerMain #headerContainer #headerLang {
     width: 100px;
+}
+#headerMain #headerContainer #headerLang span.sliderText span {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    color: #000000;
+}
+#headerMain #headerContainer #headerLang:hover span.sliderText span {
+    border-bottom: 2px solid #408ac9;
+    color: #408ac9;
 }
 #headerMain #headerContainer #headerLang select {
     width: 100%;
@@ -108,7 +118,24 @@ body.layoutRTL {
     text-align: center;
     white-space: nowrap;
     cursor:pointer;
+    color: #333333;
 }
+#headerMain #headerContainer #headerNav li span {
+    display: inline-block;
+    margin-top:2px;
+    margin-bottom:2px;
+    padding-bottom:2px;
+    border-bottom:2px solid transparent;
+}
+#headerMain #headerContainer #headerNav li:hover span {
+    color: #408ac9;
+    border-bottom:2px solid #408ac9;
+}
+#headerMain #headerContainer #headerNav li.selected:hover span {
+    color: #FFFFFF;
+    border-bottom: 2px solid transparent;
+}
+#headerMain #headerContainer #headerNav li.selected:hover,
 #headerMain #headerContainer #headerNav li.selected {
     background-color: #408ac9;
     color: white;
@@ -203,7 +230,7 @@ body.layoutRTL {
     right: 0px;
     transform: translateY(-50%);
     text-indent: 37px;
-    font-size: 20px;
+    font-size: 18px;
     -webkit-transition: .4s;
     transition: .4s;
     z-index: 0;
@@ -265,7 +292,7 @@ body.layoutRTL {
         margin-bottom: 10px;
     }
     #appMain .contentDonate .donationImage #mainPhotoStreetMeetup {
-        opacity: .2;
+        /* opacity: .2; */
     }
     #appMain .contentDonate .donateButtons {
         position: absolute;
@@ -274,6 +301,8 @@ body.layoutRTL {
         transform: translateY(-50%);
         left: 0px;
         right: 0px;
+        padding: 12% 0px;
+        background-color: rgba(0,0,0,.5);
     }
     #appMain .contentDonate .donateButton {
         display: inline-block;
@@ -284,7 +313,7 @@ body.layoutRTL {
         margin:0px 5% 0px 5%;
         text-align: center;
         font-size: 1.8em;
-        color: #000000;
+        color: #FFFFFF;
         text-shadow: .6px .6px #999;
     }
     #appMain .contentDonate .donateButton {
@@ -299,6 +328,69 @@ body.layoutRTL {
         font-size: 1.2em;
         color:#FFFFFF;
     }
+    .suportOrg {
+        white-space: nowrap;
+    }
+    .suportOrg div.orgTitle {
+        display: inline-block;
+        color: #333333;
+    }
+    .supportOthers h2 {
+        display: inline-block;
+        width: 90%;
+        max-width: 450px;
+        margin-bottom:25px;
+    }
+    .supportOthers p {
+        margin: 0px;
+        padding: 0px;
+    }
+    .groupLinkedIcons {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px 7px 15px 7px;
+    }
+    .groupLinkedIcons a {
+        display: inline-block;
+    }
+    .groupLinkedIcons a:link,
+    .groupLinkedIcons a:visited,
+    .groupLinkedIcons a:hover,
+    .groupLinkedIcons a:active {
+        color: #888888;
+    }
+    .groupLinkedIcons .iconDivider {
+        display: inline-block;
+        width: 1px;;
+        height: 18px;;
+        border-left: 1px solid #CCCCCC;
+        margin-left:5px;
+        margin-right:5px;
+    }
+    .groupLinkedIcons .iconFacebook,
+    .groupLinkedIcons .iconWebsite,
+    .groupLinkedIcons .iconEmail {
+        display: inline-block;
+        background-size: contain;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+    }
+
+    .groupLinkedIcons .iconFacebook { background-image: url(../images/icons/icon-facebook.png) }
+    .groupLinkedIcons .iconWebsite { background-image: url(../images/icons/icon-website.png) }
+    .groupLinkedIcons .iconEmail { background-image: url(../images/icons/icon-email.png) }
+    .groupLinkedIcons .iconDonate { 
+        display: inline-block;
+        font-size: 14px;
+     }
+    .groupLinkedIcons a:hover .iconFacebook { background-image: url(../images/icons/icon-facebook-blue.png) }
+    .groupLinkedIcons a:hover .iconWebsite { background-image: url(../images/icons/icon-website-blue.png) }
+    .groupLinkedIcons a:hover .iconEmail { background-image: url(../images/icons/icon-email-blue.png) }
+    .groupLinkedIcons a:hover .iconDonate { 
+        color: #106fb3;
+     }
 
   @media only screen and (min-width: 650px) {
       /* #headerNav li.about {

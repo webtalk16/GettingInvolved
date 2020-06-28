@@ -1,10 +1,12 @@
 import { Global } from '../global/global.js';
+import { Config } from '../global/config.js'
 
 class Content {
 
   constructor () {
     this.global = new Global();
     this.resources = this.global.getResources();
+    this.uiLang = Config.uiLang.get.call(Config.uiLang)
   } 
 
   loadContent(){
@@ -15,6 +17,38 @@ class Content {
   }
 
   buildHtml () {
+    const groupLinks = [];
+    let groupsHtml= '';
+    let group = '';
+    let initialized = false;
+    for (let prop in this.resources.groups) {
+      initialized = false;
+      group = this.resources.groups[prop];
+      groupLinks.push(`<div class="suportOrg ${prop}"><div class="orgTitle">${group[this.uiLang]}</div><div class="groupLinkedIcons">`);
+
+      if (group.Link.fb) { 
+        groupLinks.push(`<a href="${group.Link.fb}"><span class="iconFacebook"></span></a>`);
+        initialized = true;
+      }
+      if (group.Link.website) { 
+        if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
+        groupLinks.push(`<a href="${group.Link.website}"><span class="iconWebsite"></span></a>`);
+        initialized = true;
+      }
+      if (group.Link.email) {
+        if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
+        groupLinks.push(`<a href="${group.Link.email}"><span class="iconEmail"></span></a>`);
+        initialized = true;
+      }
+      if (group.Link.donate) {
+        if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
+        groupLinks.push(`<a href="${group.Link.donate}"><span class="iconDonate">Donate</span></a>`);
+      }
+
+      groupLinks.push(`</div></div>`);
+    }
+    groupsHtml = groupLinks.join('');
+
     const rootEl = document.querySelector('#appMain');
     const html = `
       <div id="contentMain">
@@ -44,6 +78,13 @@ class Content {
               </div>
               <div class='donateButton general'>
                 <span class="donateButtonText">${this.resources.donate.buttonGeneral}</span>
+              </div>
+              <div class="supportOthers">
+                <h2>ניתן גם לתמוך ולתרום באופן ישיר לארגונים
+                   ש-IFC תומכת בהם
+                  כגון:
+                </h2>
+                <div>${groupsHtml}</div>
               </div>
             </div>
           </main>
