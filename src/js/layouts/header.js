@@ -85,7 +85,7 @@ class Header {
     // Set Homepage
     let urlparams = (new URL(document.location)).searchParams;
     let pageParam = urlparams.get("page");
-    const homepage = pageParam ? pageParam : 'donate';
+    const homepage = pageParam ? pageParam : 'about';
     document.querySelector('#appMain').className = homepage;
     let selected = '';
 

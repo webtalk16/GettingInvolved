@@ -1,4 +1,5 @@
 import '../css/main.css';
+import '../css/widgets.css';
 import { app } from './app'
 
 try {

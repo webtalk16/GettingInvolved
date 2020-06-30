@@ -24,8 +24,13 @@ class Content {
     for (let prop in this.resources.groups) {
       initialized = false;
       group = this.resources.groups[prop];
-      groupLinks.push(`<div class="suportOrg ${prop}"><div class="orgTitle">${group[this.uiLang]}</div><div class="groupLinkedIcons">`);
+      groupLinks.push(`<div class="suportOrg ${prop}">`);
+      if (group.banner) {
+        groupLinks.push(`<div class="groupBanner"><img src="images/groups/Banners/${group.banner}" /></div>`);
+      }
+      groupLinks.push(`<div class="orgTitle">${group[this.uiLang]}</div><div class="groupLinkedIcons">`);
 
+      
       if (group.Link.fb) { 
         groupLinks.push(`<a href="${group.Link.fb}"><span class="iconFacebook"></span></a>`);
         initialized = true;
@@ -44,10 +49,25 @@ class Content {
         if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
         groupLinks.push(`<a href="${group.Link.donate}"><span class="iconDonate">Donate</span></a>`);
       }
-
       groupLinks.push(`</div></div>`);
     }
     groupsHtml = groupLinks.join('');
+
+    const planItems = [];
+    let planHtml= '';
+    let item = '';
+    planItems.push(`<h2>${this.resources.about.organizationalPlan.title}</h2>`);
+    planItems.push('<div class="infoBoxes">');
+    for (let prop in this.resources.about.organizationalPlan.info) {
+      item = this.resources.about.organizationalPlan.info[prop];
+      planItems.push(`<div class="infoBox">
+                        <h3>${item.title}</h3>
+                        <conent>${item.content}<conent>
+                        <footer></footer>
+                      </div>`);
+    }
+    planItems.push('</div>');
+    planHtml = planItems.join('');
 
     const rootEl = document.querySelector('#appMain');
     const html = `
@@ -58,7 +78,9 @@ class Content {
               <img id="ifcTeamPic" src="/images/Theme/MeetUp5-ZoomCover.jpg" />
               <div id="teamPiclabel"></div>
             </div>
-            <div id="teamPicText">${this.resources.about.oragizationPlan}</div>
+            <div id="teamPicText">
+              ${planHtml}
+            </div>
           </main>
           <main class="contentFbPage">
             <div style="text-align: center;">

@@ -17,8 +17,8 @@ body.layoutRTL {
     text-align: right;
 }
 #appMain {
-    max-width: 650px;
-    margin: 0px auto;
+    /* max-width: 650px;
+    margin: 0px auto; */
 }
 #btnPwa {
     display: block;
@@ -155,9 +155,9 @@ body.layoutRTL {
     margin: 0px auto;
   } */
 #contentMain #contentContainer main.contentAbout {
-    width:95%;
+    /* width:95%;
     padding:0px;
-    margin: 0px auto;
+    margin: 0px auto; */
     /* border:1px solid green; */
 }
 #contentMain #contentContainer main.contentAbout #teamPic {
@@ -178,8 +178,14 @@ body.layoutRTL {
     color: #FFFFFF;
 } */
 #contentMain #contentContainer main.contentAbout #teamPicText {
-    margin:40px 0px 40px 0px;
+    margin:0px 0px 40px 0px;
+    padding: 18px 0px;
+    background-color: #f3f5f8;
     color:#333333;
+}
+#contentMain #contentContainer main.contentAbout #teamPicText h2 {
+    margin: 40px 6% 40px 6%;
+    font-weight: normal;
 }
 #contentMain #contentContainer main.contentAbout #teamPicText span.title {
     display: block;
@@ -309,7 +315,7 @@ body.layoutRTL {
         text-align: center;
     }
     #appMain .contentDonate .donateTitle {
-        max-width: 600px;
+        /* max-width: 600px; */
         margin:0px 5% 0px 5%;
         text-align: center;
         font-size: 1.8em;
@@ -330,6 +336,8 @@ body.layoutRTL {
     }
     .suportOrg {
         white-space: nowrap;
+        margin-top:5px;
+        margin-bottom:25px;
     }
     .suportOrg div.orgTitle {
         display: inline-block;
@@ -349,7 +357,7 @@ body.layoutRTL {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        margin: 5px 7px 15px 7px;
+        margin: 0px 7px 0px 7px;
     }
     .groupLinkedIcons a {
         display: inline-block;
@@ -390,6 +398,10 @@ body.layoutRTL {
     .groupLinkedIcons a:hover .iconEmail { background-image: url(../images/icons/icon-email-blue.png) }
     .groupLinkedIcons a:hover .iconDonate { 
         color: #106fb3;
+     }
+     .groupBanner img {
+         max-width: 45%;
+         margin-bottom: 7px;
      }
 
   @media only screen and (min-width: 650px) {
