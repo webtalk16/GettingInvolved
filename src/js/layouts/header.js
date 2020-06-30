@@ -68,7 +68,7 @@ class Header {
 
       //reload
       // location.reload();
-      setTimeout(() => location.reload(), 400);
+      setTimeout(() => location.reload(), 200);
     }
 
   }

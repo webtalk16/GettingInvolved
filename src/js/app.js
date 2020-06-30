@@ -1,6 +1,7 @@
 import { Login } from './components/login.js';
 import { Header } from './layouts/header.js';
 import { Content } from './components/content.js';
+import { Footer } from './layouts/footer.js';
 
 class App {
   loadApp(){
@@ -15,7 +16,8 @@ class App {
     const content = new Content();
     content.loadContent();
 
-    // setTimeout(()=> {throw 'this is my error'}, 0);
+    const footer = new Footer();
+    footer.loadFooter();
 
     console.log('App component is loaded!');
   }

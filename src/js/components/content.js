@@ -75,8 +75,7 @@ class Content {
         <div id="contentContainer">
           <main class="contentAbout">
             <div id="teamPic">
-              <img id="ifcTeamPic" src="/images/Theme/MeetUp5-ZoomCover.jpg" />
-              <div id="teamPiclabel"></div>
+              <img id="ifcTeamPic" src="/images/Theme/MeetUp5-ZoomScreenshot.png" />
             </div>
             <div id="teamPicText">
               ${planHtml}

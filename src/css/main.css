@@ -60,12 +60,12 @@ body.layoutRTL {
     align-items: center;
 }
 #headerMain #headerContainer #headerLogo {
-    background: url(../images/Theme/IFC-LogoEnglish.jpg) left center / auto 68px no-repeat;
-    min-width: 165px;
+    background: url(../images/Theme/IFC-LogoEnglish.jpg) left center / auto 64px no-repeat;
+    min-width: 160px;
     height: 100%;
 }
 .layoutRTL #headerMain #headerContainer #headerLogo {
-    background: url(../images/Theme/IFC-Logohebrew.jpg) right center / auto 68px no-repeat;
+    background: url(../images/Theme/Logo-Title-Hebrew.png) right center / auto 64px no-repeat;
 }
 #headerMain #headerContainer #headerNav {
     flex: 1;
@@ -85,7 +85,7 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerLang:hover span.sliderText span {
     border-bottom: 2px solid #408ac9;
-    color: #408ac9;
+    /* color: #408ac9; */
 }
 #headerMain #headerContainer #headerLang select {
     width: 100%;
@@ -124,11 +124,11 @@ body.layoutRTL {
     display: inline-block;
     margin-top:2px;
     margin-bottom:2px;
-    padding-bottom:2px;
+    padding-bottom:3px;
     border-bottom:2px solid transparent;
 }
 #headerMain #headerContainer #headerNav li:hover span {
-    color: #408ac9;
+    /* color: #408ac9; */
     border-bottom:2px solid #408ac9;
 }
 #headerMain #headerContainer #headerNav li.selected:hover span {
@@ -137,8 +137,25 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerNav li.selected:hover,
 #headerMain #headerContainer #headerNav li.selected {
-    background-color: #408ac9;
+    background-color: #343d46;
     color: white;
+}
+#footerMain {
+    position: relative;
+    height: 80px;
+    background-color: #2a2f36;
+    color: #ffffff;
+}
+#footerMain .copyright {
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    right:0px;
+    padding:8px;
+    direction: ltr;
+    text-align: center;
+    font-size: 14px;
+    color: #c5d1d8;
 }
 #contentMain {}
 #contentMain #contentContainer {
@@ -184,23 +201,12 @@ body.layoutRTL {
     color:#333333;
 }
 #contentMain #contentContainer main.contentAbout #teamPicText h2 {
-    margin: 40px 6% 40px 6%;
+    margin: 3% 6% 3% 6%;
     font-weight: normal;
 }
 #contentMain #contentContainer main.contentAbout #teamPicText span.title {
     display: block;
     font-weight: bold;
-}
-#contentMain #contentContainer main.contentAbout #teamPiclabel {
-    position: absolute;
-    bottom: -20px;
-    right: 0px;
-    left: 0px;
-    height: 24px;
-    line-height: 24px;
-    padding:0px 10px;
-    background-color: #408ac9;
-    color: #FFFFFF;
 }
 
 /* The slider */
@@ -216,6 +222,11 @@ body.layoutRTL {
 #langSlider input {
     margin:10px;
     z-index: -1;
+}
+#langSlider input:disabled {
+    border-color: white;
+    background-color: white;
+    color: white;
 }
 #langSlider .slider {
     position: absolute;
