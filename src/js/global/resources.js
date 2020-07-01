@@ -44,7 +44,10 @@ const Resources = {
                             title: 'Approach',
                             content: 'To unite the groups and use a top down approach in advancing the agenda and at the same time use a bottom up approach to promote Liberty and Free Market to the average citizen.'
                         }
-                    }
+                    },
+                    planUpdateLink: 'https://docs.google.com/document/d/e/2PACX-1vSHBhDUCCTL8rzch_RnlKX7YI-ZEOisMA0CCNyGQHB1PaC5W7QH2cvTbsC_czwsckaw56924tJdUSt8/pub',
+                    planUpdateText: 'Organizational Plan Update',
+                    planUpdateDate: 'April 19, 2020'
                 }
             },
             groups: {
@@ -342,7 +345,10 @@ const Resources = {
                             title: 'גישה',
                             content: 'נאחד את הקבוצות השונות, תוך שימוש בגישה של מלמעלה למטה כדי לקדם את המטרה, כאשר במקביל נשתמש בגישה של מלמטה למעלה על מנת לקדם תפיסות חירות ושוק חופשי גם אצל האזרח הממוצע.'
                         }
-                    }
+                    },
+                    planUpdateLink: 'https://docs.google.com/document/d/e/2PACX-1vSHBhDUCCTL8rzch_RnlKX7YI-ZEOisMA0CCNyGQHB1PaC5W7QH2cvTbsC_czwsckaw56924tJdUSt8/pub',
+                    planUpdateText: 'עדכון תכנית ארגונית',
+                    planUpdateDate: '20 אפריל, 2020'
                 }
             },
             groups: {

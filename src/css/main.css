@@ -7,10 +7,16 @@
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 body {
-    color: #408ac9;
+    color: #246ea6;
     font-family: Arial, Helvetica, sans-serif;
     margin:0px;
     padding: 0px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 body.layoutRTL {
     direction: rtl;
@@ -55,7 +61,7 @@ body.layoutRTL {
 #headerMain { }
 #headerMain #headerContainer {
     display: flex;
-    height: 80px;
+    height: 95px;
     padding:0px 10px;
     align-items: center;
 }
@@ -195,7 +201,7 @@ body.layoutRTL {
     color: #FFFFFF;
 } */
 #contentMain #contentContainer main.contentAbout #teamPicText {
-    margin:0px 0px 40px 0px;
+    margin:0px;
     padding: 18px 0px;
     background-color: #f3f5f8;
     color:#333333;
@@ -207,6 +213,33 @@ body.layoutRTL {
 #contentMain #contentContainer main.contentAbout #teamPicText span.title {
     display: block;
     font-weight: bold;
+}
+#contentMain #contentContainer main.contentAbout .planLinks {
+    padding: 6%;
+}
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink {
+    display: inline-block;
+    background: url(../images/icons/arrowRight.png) right 3px / 32px auto no-repeat;
+    padding-right: 45px;
+}
+.layoutRTL #contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink {
+    background: url(../images/icons/arrowLeft.png) left 3px / 32px auto no-repeat;
+    padding-right: 0px;
+    padding-left: 45px;
+}
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:link,
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:visited,
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:hover,
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:active {
+    text-decoration: none;
+    color: #246ea6;
+}
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:link .planUpdateDate,
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:visited .planUpdateDate,
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:hover .planUpdateDate,
+#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:active .planUpdateDate {
+    text-decoration: none;
+    color: #a5b03f;
 }
 
 /* The slider */
@@ -300,6 +333,7 @@ body.layoutRTL {
     #appMain.fbPage .contentFbPage  {
         position: relative;
         display: block;
+        width: 100%;
     }
     #appMain .contentDonate {
         margin:0px auto;
@@ -318,7 +352,7 @@ body.layoutRTL {
         transform: translateY(-50%);
         left: 0px;
         right: 0px;
-        padding: 12% 0px;
+        padding: 6% 0px;
         background-color: rgba(0,0,0,.5);
     }
     #appMain .contentDonate .donateButton {
@@ -337,8 +371,8 @@ body.layoutRTL {
         display: inline-block;
         margin:0px 5px 10px 5px;
         padding:5px 18px;
-        border-radius: 5px 5px 5px 5px;
-        background-color:#106eb5;
+        border-radius: 3px 3px 3px 3px;
+        background-color: #343d46;
         cursor: pointer;
     }
     #appMain .contentDonate .donateButton .donateButtonText {
@@ -346,13 +380,22 @@ body.layoutRTL {
         color:#FFFFFF;
     }
     .suportOrg {
-        white-space: nowrap;
-        margin-top:5px;
-        margin-bottom:25px;
+        /* white-space: nowrap; */
+        /* margin-top:5px;
+        margin-bottom:25px; */
+    }
+    .supportOrgWrapper {
+        background-color: #FFFFFF;
+        padding: 10px 0px;
+        margin: 6px 2%;
     }
     .suportOrg div.orgTitle {
         display: inline-block;
         color: #333333;
+    }
+    .supportOthers {
+        background-color: #f3f5f8;
+        padding-bottom: 20px;
     }
     .supportOthers h2 {
         display: inline-block;
@@ -368,7 +411,7 @@ body.layoutRTL {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        margin: 0px 7px 0px 7px;
+        margin: 4px 7px 4px 7px;
     }
     .groupLinkedIcons a {
         display: inline-block;

@@ -24,7 +24,7 @@ class Content {
     for (let prop in this.resources.groups) {
       initialized = false;
       group = this.resources.groups[prop];
-      groupLinks.push(`<div class="suportOrg ${prop}">`);
+      groupLinks.push(`<div class="suportOrg ${prop}"><div class="supportOrgWrapper">`);
       if (group.banner) {
         groupLinks.push(`<div class="groupBanner"><img src="images/groups/Banners/${group.banner}" /></div>`);
       }
@@ -49,7 +49,7 @@ class Content {
         if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
         groupLinks.push(`<a href="${group.Link.donate}"><span class="iconDonate">Donate</span></a>`);
       }
-      groupLinks.push(`</div></div>`);
+      groupLinks.push(`</div></div></div>`);
     }
     groupsHtml = groupLinks.join('');
 
@@ -79,6 +79,15 @@ class Content {
             </div>
             <div id="teamPicText">
               ${planHtml}
+            </div>
+            <div class="planLinks">
+              <a class="planUpdateLink" href="${this.resources.about.organizationalPlan.planUpdateLink}">
+                <span>
+                <span class="planUpdateText">${this.resources.about.organizationalPlan.planUpdateText}</span>
+                <br>
+                <span class="planUpdateDate">${this.resources.about.organizationalPlan.planUpdateDate}</span>
+                </span>
+              </a>
             </div>
           </main>
           <main class="contentFbPage">
