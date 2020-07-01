@@ -17,6 +17,7 @@ class Content {
   }
 
   buildHtml () {
+    // HTML other organization info
     const groupLinks = [];
     let groupsHtml= '';
     let group = '';
@@ -53,6 +54,7 @@ class Content {
     }
     groupsHtml = groupLinks.join('');
 
+    // HTML Organizational Plan info
     const planItems = [];
     let planHtml= '';
     let item = '';
@@ -69,12 +71,13 @@ class Content {
     planItems.push('</div>');
     planHtml = planItems.join('');
 
+    const calendarLang = this.uiLang == 'heb' ? '&amp;hl=iw' : '';
     const rootEl = document.querySelector('#appMain');
     const html = `
       <div id="contentMain">
         <div id="contentContainer">
           <main class="contentAbout">
-            <div id="teamPic">
+            <div id="aboutHeader">
               <img id="ifcTeamPic" src="/images/Theme/MeetUp5-ZoomScreenshot.png" />
             </div>
             <div id="teamPicText">
@@ -91,14 +94,17 @@ class Content {
             </div>
           </main>
           <main class="contentFbPage">
-            <div style="text-align: center;">
-              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FIsraeli-Free-Market-Coalition-107814867514490%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=267391923615424" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            <div class="fbPageHeader">IFC - Israeli Free-Market Coalition</div>
+            <div class="fbPageLeftCover"></div>
+            <div class="fbPageWrapper">
+              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FIsraeli-Free-Market-Coalition-107814867514490%2F&tabs=timeline&width=340&height=465&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=267391923615424" width="340" height="465" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
             </div>
-          </main>
+            <div class="fbPageRightCover"></div>
+            </main>
           <main class="contentDonate">
             <div style="text-align: center;">
               <div class="donationImage">
-                <img id="mainPhotoStreetMeetup" src="/images/MainPhotoStreetMeetup.jpg" width="100%" />
+                <img id="mainPhotoStreetMeetup" src="/images/MainPhotoStreetMeetup.png" width="100%" />
                 <div class="donateButtons">
                   <div class="donateTitle">${this.resources.donate.title}</div>
                 </div>
@@ -116,6 +122,14 @@ class Content {
                 </h2>
                 <div>${groupsHtml}</div>
               </div>
+            </div>
+          </main>
+          <main class="contentCalendar">
+            <div class="calendarHeader">
+              <img id="calendarHeaderImage" src="/images/Theme/calendarHeader.png" />
+            </div>
+            <div class="calendarWrapper">
+              <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=amltbXlqbGV2eUBnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=NzdiZjBlOGtjMWhvbWd2bWQyYjNidGkyYjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=Y3E3MmpxajZqNnUxbDEwdXJqZ2xlNzM1bnNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZW4uamV3aXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%239E69AF&amp;color=%2333B679&amp;color=%230B8043&amp;showTitle=0&amp;showCalendars=0&amp;showTz=1${calendarLang}" style="border:none" width="100%" height="500" frameborder="0" scrolling="no"></iframe>
             </div>
           </main>
         </div>

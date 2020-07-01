@@ -120,6 +120,7 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerNav li {
     flex: 1;
+    margin: 0px 3px;
     padding:3px 5px;
     text-align: center;
     white-space: nowrap;
@@ -168,38 +169,37 @@ body.layoutRTL {
     display: flex;
 }
 #contentMain #contentContainer main.contentFbPage {
+    /* height: 465px; */
+}
+#contentMain #contentContainer main.contentFbPage .fbPageHeader {
+    height: 40px;
+    line-height: 40px;
+    background: url(../images/icons/FB-icon-box-white.png) 1% center / 24px auto no-repeat, url(../images/icons/FB-icon-box-white.png) 99% center / 24px auto no-repeat;
+    background-color: #4267b2;
+    text-align: center;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+#contentMain #contentContainer main.contentFbPage .fbPageWrapper {
+    display: inline-block;
     width:340px;
-    margin:0px auto;
-    /* border:1px solid blue; */
+    height: 465px;
+    vertical-align: top;
 }
-/* #appMain #contentMain #contentContainer main.contentAbout {
-    width: calc(100% - 340px);
-    padding-left: 1%;
-    margin: 0px auto;
-  } */
-#contentMain #contentContainer main.contentAbout {
-    /* width:95%;
-    padding:0px;
-    margin: 0px auto; */
-    /* border:1px solid green; */
+#contentMain #contentContainer main.contentFbPage .fbPageLeftCover,
+#contentMain #contentContainer main.contentFbPage .fbPageRightCover {
+    display: inline-block;
+    width: calc(50% - 174.5px);
+    height: 465px;
+    background-color: #4267b2; 
+    vertical-align: top;
 }
-#contentMain #contentContainer main.contentAbout #teamPic {
+#contentMain #contentContainer main.contentAbout #aboutHeader {
     position: relative;
 }
 #contentMain #contentContainer main.contentAbout #ifcTeamPic {
     width: 100%;
 }
-/* #contentMain #contentContainer main #teamPicText {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    left: 10px;
-    max-height: 70%;
-    padding: 5px;
-    background-color: rgba(0, 0, 0, .4);
-    border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-} */
 #contentMain #contentContainer main.contentAbout #teamPicText {
     margin:0px;
     padding: 18px 0px;
@@ -324,12 +324,14 @@ body.layoutRTL {
 
   #appMain .contentAbout,
     #appMain .contentFbPage,
+    #appMain .contentCalendar,
     #appMain .contentDonate {
         display: none;
     }
 
     #appMain.donate .contentDonate,
     #appMain.about .contentAbout,
+    #appMain.calendar .contentCalendar,
     #appMain.fbPage .contentFbPage  {
         position: relative;
         display: block;
@@ -352,7 +354,7 @@ body.layoutRTL {
         transform: translateY(-50%);
         left: 0px;
         right: 0px;
-        padding: 6% 0px;
+        padding: 5% 0px;
         background-color: rgba(0,0,0,.5);
     }
     #appMain .contentDonate .donateButton {
@@ -446,24 +448,28 @@ body.layoutRTL {
     .groupLinkedIcons .iconDonate { 
         display: inline-block;
         font-size: 14px;
-     }
+    }
     .groupLinkedIcons a:hover .iconFacebook { background-image: url(../images/icons/icon-facebook-blue.png) }
     .groupLinkedIcons a:hover .iconWebsite { background-image: url(../images/icons/icon-website-blue.png) }
     .groupLinkedIcons a:hover .iconEmail { background-image: url(../images/icons/icon-email-blue.png) }
     .groupLinkedIcons a:hover .iconDonate { 
         color: #106fb3;
-     }
-     .groupBanner img {
+    }
+    .groupBanner img {
          max-width: 45%;
          margin-bottom: 7px;
-     }
+    }
+    #contentMain #contentContainer main.contentCalendar div.calendarHeader {
+        margin-bottom: 2%;
+    }
+    #contentMain #contentContainer main.contentCalendar img#calendarHeader {
+        position: relative;
+    }
+    #contentMain #contentContainer main.contentCalendar img#calendarHeaderImage {
+        width: 100%;
+    }
 
-  @media only screen and (min-width: 650px) {
-      /* #headerNav li.about {
-          display:none;
-      }  */
-  }
-  @media only screen and (max-width: 650px) {
+  @media only screen and (max-width: 740px) {
     #appMain #menuIcon { display: inline-block; }
     #appMain #headerMain #headerContainer #headerLogo { order:1; }
     #appMain #headerMain #headerContainer #headerNav { order:3; position: relative; width: 35px; flex:unset; }
@@ -501,5 +507,14 @@ body.layoutRTL {
     }
     #appMain .contentDonate .donateTitle {
         font-size: 1.3em;
+    }
+  }
+  @media only screen and (max-width: 430px) {
+    #contentMain #contentContainer main.contentFbPage .fbPageLeftCover,
+    #contentMain #contentContainer main.contentFbPage .fbPageRightCover {
+        background-color: #FFFFFF;
+    }
+    #appMain .contentDonate .donateTitle {
+        font-size: 1.1em;
     }
   }

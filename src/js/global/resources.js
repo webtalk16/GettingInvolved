@@ -17,6 +17,10 @@ const Resources = {
                 about: {
                     text: 'About Us',
                     name: 'about'
+                },
+                calendar: {
+                    text: 'Liberty Calendar',
+                    name: 'calendar'
                 }
             },
             donate: {
@@ -318,6 +322,10 @@ const Resources = {
                 about: {
                     text: 'אודות',
                     name: 'about'
+                },
+                calendar: {
+                    text: 'יומן חירות',
+                    name: 'calendar'
                 }
             },
             donate: {
