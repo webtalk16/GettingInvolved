@@ -28,6 +28,9 @@ const Resources = {
                 buttonGeneral: 'General Donation',
                 buttonCampaign: 'Help Fund our Steet Meet-Up Event'
             },
+            footer: {
+                youtube: 'IFC Media - Channel for Liberty'
+            },
             about: {
                 organizationalPlan: {
                     title: 'Organizational Plan',
@@ -332,6 +335,9 @@ const Resources = {
                 title: 'כל תרומה תשמש לסייע בהישגים גדולים עוד יותר ביוכלת לאזרחי ישראל ליצור, לשגשג ולהצליח על ידי יישום עקרונות של שוק חופשי.',
                 buttonGeneral: 'תרומה כללית',
                 buttonCampaign: 'תרמו לעזור לנו לממן את האירוע הבא'
+            },
+            footer: {
+                youtube: 'IFC Media ערוץ לחירות'
             },
             about: {
                 organizationalPlan: {

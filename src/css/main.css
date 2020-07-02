@@ -150,19 +150,47 @@ body.layoutRTL {
 #footerMain {
     position: relative;
     height: 80px;
+    padding-bottom: 65px;
     background-color: #2a2f36;
     color: #ffffff;
 }
-#footerMain .copyright {
+#footerMain .footerBottom {
     position: absolute;
+    display: flex;
     bottom: 0px;
     left:0px;
     right:0px;
-    padding:8px;
+    height: 65px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#footerMain .copyright {
+    flex: 1;
+    padding-left: 10%;
     direction: ltr;
-    text-align: center;
+    text-align: left;
+    white-space: nowrap;
     font-size: 14px;
     color: #c5d1d8;
+}
+#footerMain .youtubeChannel {
+    flex: 1;
+    margin: 0px 15px;
+    padding-right: 10%;
+    text-align: right;
+    white-space: nowrap;
+    cursor: pointer;
+}
+#footerMain .youtubeChannel span {
+    display: inline-block;
+    background: url(../images/icons/youtube_dark.png) right center / 80px auto no-repeat;
+    padding-right: 87px;
+}
+.layoutRTL #footerMain .youtubeChannel span {
+    background: url(../images/icons/youtube_dark.png) left center / 80px auto no-repeat;
+    padding-right: 0px;
+    padding-left: 87px;
 }
 #contentMain {}
 #contentMain #contentContainer {
@@ -469,7 +497,7 @@ body.layoutRTL {
         width: 100%;
     }
 
-  @media only screen and (max-width: 740px) {
+  @media only screen and (max-width: 850px) {
     #appMain #menuIcon { display: inline-block; }
     #appMain #headerMain #headerContainer #headerLogo { order:1; }
     #appMain #headerMain #headerContainer #headerNav { order:3; position: relative; width: 35px; flex:unset; }
@@ -507,6 +535,11 @@ body.layoutRTL {
     }
     #appMain .contentDonate .donateTitle {
         font-size: 1.3em;
+    }
+    #footerMain .copyright,
+    #footerMain .youtubeChannel {
+        text-align: center;
+        padding:0px;
     }
   }
   @media only screen and (max-width: 430px) {

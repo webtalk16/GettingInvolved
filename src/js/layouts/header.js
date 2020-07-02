@@ -24,8 +24,16 @@ class Header {
 
   bindMenuIcon () {
     const menuIcon = document.querySelector('#menuIcon');
-    menuIcon.addEventListener('click', () => {
-      menuIcon.parentNode.classList.toggle('showMenu');
+    // menuIcon.addEventListener('click', () => {
+    //   menuIcon.parentNode.classList.toggle('showMenu');
+    // });
+    window.addEventListener('click', () => {
+      if(!menuIcon.contains(event.target)) {
+        menuIcon.parentNode.classList.remove('showMenu');
+      }
+      else {
+        menuIcon.parentNode.classList.toggle('showMenu');
+      }
     });
   }
 
@@ -93,7 +101,7 @@ class Header {
 
     for (let navItem in this.resources.nav) {
       selected = this.resources.nav[navItem].name == homepage ? ' selected' : '';
-      menuOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});this.classList.add('selected');document.querySelector('#appMain').className='${this.resources.nav[navItem].name}';document.querySelector('#menuIcon').parentNode.classList.toggle('showMenu');`;
+      menuOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});this.classList.add('selected');document.querySelector('#appMain').className='${this.resources.nav[navItem].name}';`;
       navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name + selected}"><span>${this.resources.nav[navItem].text}</span></li>`;
     }
 
