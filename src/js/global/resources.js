@@ -31,6 +31,45 @@ const Resources = {
             footer: {
                 youtube: 'IFC Media - Channel for Liberty'
             },
+            home: {
+                promoBox: {
+                    category: 'Event',
+                    date: 'July 17, 2020',
+                    title: 'How can we influence and promote a free market in Israel'
+                }
+            },
+            youTube: {
+                playlists: {
+                    army: {
+                        poster: 'images/content/YouTube-army.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVY8w78iBS6y-h4Vp9cwwZci'
+                    },
+                    meetups: {
+                        poster: 'images/content/YouTube-Meetups.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVYRZ4nptOlPHkgiIFEmAUgd'
+                    },
+                    news: {
+                        poster: 'images/content/YouTube-News.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVYqsr1nCbrqp0EPUMqRFBt9'
+                    },
+                    pannels: {
+                        poster: 'images/content/YouTube-Panels.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVaoJYml-mLfG64xlYPzFJQY'
+                    },
+                    podcasts: {
+                        poster: 'images/content/YouTube-Podcasts.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVYEFtECQmj_Gj127ajyKlhd'
+                    },
+                    radio: {
+                        poster: 'images/content/YouTube-Radio.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVYIymmM1qCUskWOpyJw-TyI'
+                    },
+                    shows: {
+                        poster: 'images/content/YouTube-Shows.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVaO6vPL8aEQy1FbExgilbS-'
+                    }
+                }
+            },
             about: {
                 organizationalPlan: {
                     title: 'Organizational Plan',
@@ -57,6 +96,10 @@ const Resources = {
                     planUpdateDate: 'April 19, 2020'
                 }
             },
+            groupsGeneral: {
+                Title1: 'Groups',
+                Title2: 'That Work to Promote Libery, Classic Liberalizm and Free Market in Israel'
+            },
             groups: {
                 SFL: {
                     acronym: 'SFL',
@@ -64,7 +107,8 @@ const Resources = {
                     eng: 'Students For Liberty - Israel',
                     icon: '',
                     banner: '',
-                    logo: '',
+                    logo: 'SFL-Alpha.png',
+                    info: 'SFL’s mission is to provide a unified, student-driven forum of support for students and student organizations dedicated to liberty. <br/><br/>What to be part of out great team? register <a href="https://bit.ly/2VkGEXn">here</a>',
                     Link: {
                         fb: 'https://www.facebook.com/SFL.Israel/',
                         website: 'http://studentsforliberty.org/europe',
@@ -78,6 +122,8 @@ const Resources = {
                     eng: 'Jerusalem Institute for Market Studies',
                     icon: '',
                     banner: '', // JIMS.jpg
+                    logo: 'JIMS.jpg',
+                    info: 'The Jerusalem Institute for Market Studies (JIMS) is a libertarian economic policy think tank whose mission is to promote social progress in Israel through economic freedom and individual liberty.',
                     Link: {
                         fb: 'https://www.facebook.com/JIMSIsrael/',
                         website: 'http://www.jims-israel.org',
@@ -91,6 +137,7 @@ const Resources = {
                     eng: 'Self Employed for Free Market in Israel',
                     icon: '',
                     banner: '', // selfEmployed.jpg
+                    logo: 'SelfEmployed.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/groups/1067617170278650/',
                         website: '',
@@ -104,6 +151,7 @@ const Resources = {
                     eng: 'Easy Economy',
                     icon: '',
                     banner: '',
+                    logo: 'EasyEconomy.png',
                     Link: {
                         fb: 'https://www.facebook.com/easyconomy/',
                         website: 'http://easyconomy.com',
@@ -117,6 +165,7 @@ const Resources = {
                     eng: 'Our Interest - Your Lobby in the Knesset',
                     icon: '',
                     banner: '',
+                    logo: 'lobbyGroup1.png',
                     Link: {
                         fb: 'https://www.facebook.com/profile.php?id=115819226483879&ref=br_rs',
                         website: 'https://our-interes.com',
@@ -130,6 +179,7 @@ const Resources = {
                     eng: 'The Israeli Freedom Movement',
                     icon: '',
                     banner: '',
+                    logo: 'IsraeliFreedomMovement.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/IsraeliFreedomMovement/',
                         website: 'https://event.ravpage.co.il/JoinFreedom',
@@ -143,6 +193,7 @@ const Resources = {
                     eng: 'Likud Liberals',
                     icon: '',
                     banner: '',
+                    logo: 'LikudLiberals.png',
                     Link: {
                         fb: 'https://www.facebook.com/likudliberal/',
                         website: 'http://likudliberal.org',
@@ -156,6 +207,7 @@ const Resources = {
                     eng: 'AYN Rand Center Israel',
                     icon: '',
                     banner: '',
+                    logo: 'AyanRand.png',
                     Link: {
                         fb: 'https://www.facebook.com/AYNRANDISRAEL/',
                         website: 'https://www.aynrand.org.il/donate',
@@ -169,6 +221,7 @@ const Resources = {
                     eng: 'Bnei Horin Forum',
                     icon: '',
                     banner: '',
+                    logo: 'ForumBneiHorin1.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/FreeJewishHouse/',
                         website: '',
@@ -182,6 +235,7 @@ const Resources = {
                     eng: 'Liberty Yesh Atid',
                     icon: '',
                     banner: '',
+                    logo: 'HirutYeshAtid.png',
                     Link: {
                         fb: 'https://www.facebook.com/%D7%97%D7%99%D7%A8%D7%95%D7%AA-%D7%99%D7%A9-%D7%A2%D7%AA%D7%99%D7%93-107091957345099/',
                         website: '',
@@ -195,6 +249,7 @@ const Resources = {
                     eng: 'The New Liberal Party',
                     icon: '',
                     banner: '',
+                    logo: 'newParty.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/LiberalPartyIsrael/',
                         website: 'https://event.ravpage.co.il/LPI',
@@ -208,6 +263,7 @@ const Resources = {
                     eng: 'Freedom For Us ALL',
                     icon: '',
                     banner: '',
+                    logo: 'HofeshLekulanu.png',
                     Link: {
                         fb: 'https://www.facebook.com/hofeshku/',
                         website: '',
@@ -221,6 +277,7 @@ const Resources = {
                     eng: 'Liberal in Meretz',
                     icon: '',
                     banner: '',
+                    logo: 'LiberalimBeMerets.png',
                     Link: {
                         fb: 'https://www.facebook.com/libmeretz/',
                         website: '',
@@ -234,6 +291,7 @@ const Resources = {
                     eng: 'All Volunteer Military',
                     icon: '',
                     banner: '',
+                    logo: 'Hazit.png',
                     Link: {
                         fb: 'https://www.facebook.com/hazitallvolunteerforce/',
                         website: 'https://www.allvolunteerforce.org.il',
@@ -247,6 +305,7 @@ const Resources = {
                     eng: 'Congress - Liberal Podcast',
                     icon: '',
                     banner: '',
+                    logo: 'podcast-congress.png',
                     Link: {
                         fb: 'https://www.facebook.com/hacongres/',
                         website: 'http://hacongress.podbean.com',
@@ -260,6 +319,7 @@ const Resources = {
                     eng: 'Zoom2Freedom',
                     icon: '',
                     banner: '',
+                    logo: 'logoPlacholder.png',
                     Link: {
                         fb: '',
                         website: 'https://event.ravpage.co.il/Zoom2Freedom',
@@ -273,6 +333,7 @@ const Resources = {
                     eng: 'The Liberty Index',
                     icon: '',
                     banner: '',
+                    logo: 'logoPlacholder.png',
                     Link: {
                         fb: '',
                         website: 'https://www.freeindex.info/',
@@ -286,6 +347,7 @@ const Resources = {
                     eng: 'Liberal Debate Club',
                     icon: '',
                     banner: '',
+                    logo: 'logoPlacholder.png',
                     Link: {
                         fb: '',
                         website: 'http://event.ravpage.co.il/Debate',
@@ -299,6 +361,7 @@ const Resources = {
                     eng: 'FreedomCon',
                     icon: '',
                     banner: '',
+                    logo: 'KennesHirutV7.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/%D7%9B%D7%A0%D7%A1-%D7%94%D7%97%D7%99%D7%A8%D7%95%D7%AA-FreedomCon-1099335593559205/',
                         website: '',
@@ -339,6 +402,45 @@ const Resources = {
             footer: {
                 youtube: 'IFC Media ערוץ לחירות'
             },
+            home: {
+                promoBox: {
+                    category: 'ארוע',
+                    date: '17 ביולי 2020',
+                    title: 'איך אפשר להשפיע ולקדם שוק חופשי בארץ'
+                }
+            },
+            youTube: {
+                playlists: {
+                    army: {
+                        poster: 'images/content/YouTube-army.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVY8w78iBS6y-h4Vp9cwwZci'
+                    },
+                    meetups: {
+                        poster: 'images/content/YouTube-Meetups.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVYRZ4nptOlPHkgiIFEmAUgd'
+                    },
+                    news: {
+                        poster: 'images/content/YouTube-News.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVYqsr1nCbrqp0EPUMqRFBt9'
+                    },
+                    pannels: {
+                        poster: 'images/content/YouTube-Panels.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVaoJYml-mLfG64xlYPzFJQY'
+                    },
+                    podcasts: {
+                        poster: 'images/content/YouTube-Podcasts.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVYEFtECQmj_Gj127ajyKlhd'
+                    },
+                    radio: {
+                        poster: 'images/content/YouTube-Radio.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVYIymmM1qCUskWOpyJw-TyI'
+                    },
+                    shows: {
+                        poster: 'images/content/YouTube-Shows.jpg',
+                        link: 'https://www.youtube.com/playlist?list=PLU_vZ1L5WwVaO6vPL8aEQy1FbExgilbS-'
+                    }
+                }
+            },
             about: {
                 organizationalPlan: {
                     title: 'תכנית ארגונית',
@@ -365,6 +467,10 @@ const Resources = {
                     planUpdateDate: '20 אפריל, 2020'
                 }
             },
+            groupsGeneral: {
+                Title1: 'ארגונים',
+                Title2: 'הפועלות בישראל במטרה לקידום חירות, ליברליזם ושוק-חופשי'
+            },
             groups: {
                 SFL: {
                     acronym: 'SFL',
@@ -372,7 +478,8 @@ const Resources = {
                     eng: 'Students For Liberty - Israel',
                     icon: '',
                     banner: '',
-                    logo: '',
+                    logo: 'SFL-Alpha.png',
+                    info: '.סטודנטים למען חירות הוא ארגון בינלאומי המייצר דור חדש של מנהיגים ליברליים<br><br>המטרות של הארגון הן לחנך, לפתח ולהעצים את הדור הבא של המנהיגים הליברליים בישראל באמצעות הכשרות, סדנאות, אירועים ופאנלים בישראל ובאירופה.',
                     Link: {
                         fb: 'https://www.facebook.com/SFL.Israel/',
                         website: 'http://studentsforliberty.org/europe',
@@ -381,11 +488,13 @@ const Resources = {
                     }
                 },
                 JIMS: {
-                    acronym: '',
+                    acronym: 'JIMS',
                     heb: 'מכון ירושלים לחקר שווקים',
                     eng: 'Jerusalem Institute for Market Studies',
                     icon: '',
                     banner: '', // JIMS.jpg
+                    logo: 'JIMS.jpg',
+                    info: 'מכון ירושלים לחקר שווקים הוא מכון מחקר אשר מטרתו להביא לקידום החברה בישראל באמצעות חופש כלכלי וחרות הפרט.',
                     Link: {
                         fb: 'https://www.facebook.com/JIMSIsrael/',
                         website: 'http://www.jims-israel.org',
@@ -399,6 +508,7 @@ const Resources = {
                     eng: 'Self Employed for Free Market in Israel',
                     icon: '',
                     banner: '', // selfEmployed.jpg
+                    logo: 'SelfEmployed.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/groups/1067617170278650/',
                         website: '',
@@ -412,6 +522,7 @@ const Resources = {
                     eng: 'Easy Economy',
                     icon: '',
                     banner: '',
+                    logo: 'EasyEconomy.png',
                     Link: {
                         fb: 'https://www.facebook.com/easyconomy/',
                         website: 'http://easyconomy.com',
@@ -425,6 +536,7 @@ const Resources = {
                     eng: 'Our Interest - Your Lobby in the Knesset',
                     icon: '',
                     banner: '',
+                    logo: 'lobbyGroup1.png',
                     Link: {
                         fb: 'https://www.facebook.com/profile.php?id=115819226483879&ref=br_rs',
                         website: 'https://our-interes.com',
@@ -438,6 +550,7 @@ const Resources = {
                     eng: 'The Israeli Freedom Movement',
                     icon: '',
                     banner: '',
+                    logo: 'IsraeliFreedomMovement.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/IsraeliFreedomMovement/',
                         website: 'https://event.ravpage.co.il/JoinFreedom',
@@ -451,6 +564,7 @@ const Resources = {
                     eng: 'Likud Liberals',
                     icon: '',
                     banner: '',
+                    logo: 'LikudLiberals.png',
                     Link: {
                         fb: 'https://www.facebook.com/likudliberal/',
                         website: 'http://likudliberal.org',
@@ -464,6 +578,7 @@ const Resources = {
                     eng: 'AYN Rand Center Israel',
                     icon: '',
                     banner: '',
+                    logo: 'AyanRand.png',
                     Link: {
                         fb: 'https://www.facebook.com/AYNRANDISRAEL/',
                         website: 'https://www.aynrand.org.il/donate',
@@ -477,6 +592,7 @@ const Resources = {
                     eng: 'Bnei Horin Forum',
                     icon: '',
                     banner: '',
+                    logo: 'ForumBneiHorin1.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/FreeJewishHouse/',
                         website: '',
@@ -490,6 +606,7 @@ const Resources = {
                     eng: 'Liberty Yesh Atid',
                     icon: '',
                     banner: '',
+                    logo: 'HirutYeshAtid.png',
                     Link: {
                         fb: 'https://www.facebook.com/%D7%97%D7%99%D7%A8%D7%95%D7%AA-%D7%99%D7%A9-%D7%A2%D7%AA%D7%99%D7%93-107091957345099/',
                         website: '',
@@ -503,6 +620,7 @@ const Resources = {
                     eng: 'The New Liberal Party',
                     icon: '',
                     banner: '',
+                    logo: 'newParty.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/LiberalPartyIsrael/',
                         website: 'https://event.ravpage.co.il/LPI',
@@ -516,6 +634,7 @@ const Resources = {
                     eng: 'Freedom For Us ALL',
                     icon: '',
                     banner: '',
+                    logo: 'HofeshLekulanu.png',
                     Link: {
                         fb: 'https://www.facebook.com/hofeshku/',
                         website: '',
@@ -529,6 +648,7 @@ const Resources = {
                     eng: 'Liberal in Meretz',
                     icon: '',
                     banner: '',
+                    logo: 'LiberalimBeMerets.png',
                     Link: {
                         fb: 'https://www.facebook.com/libmeretz/',
                         website: '',
@@ -542,6 +662,7 @@ const Resources = {
                     eng: 'All Volunteer Military',
                     icon: '',
                     banner: '',
+                    logo: 'Hazit.png',
                     Link: {
                         fb: 'https://www.facebook.com/hazitallvolunteerforce/',
                         website: 'https://www.allvolunteerforce.org.il',
@@ -555,6 +676,7 @@ const Resources = {
                     eng: 'Congress - Liberal Podcast',
                     icon: '',
                     banner: '',
+                    logo: 'podcast-congress.png',
                     Link: {
                         fb: 'https://www.facebook.com/hacongres/',
                         website: 'http://hacongress.podbean.com',
@@ -568,6 +690,7 @@ const Resources = {
                     eng: 'Zoom2Freedom',
                     icon: '',
                     banner: '',
+                    logo: 'logoPlacholder.png',
                     Link: {
                         fb: '',
                         website: 'https://event.ravpage.co.il/Zoom2Freedom',
@@ -581,6 +704,7 @@ const Resources = {
                     eng: 'The Liberty Index',
                     icon: '',
                     banner: '',
+                    logo: 'logoPlacholder.png',
                     Link: {
                         fb: '',
                         website: 'https://www.freeindex.info/',
@@ -594,6 +718,7 @@ const Resources = {
                     eng: 'Liberal Debate Club',
                     icon: '',
                     banner: '',
+                    logo: 'logoPlacholder.png',
                     Link: {
                         fb: '',
                         website: 'http://event.ravpage.co.il/Debate',
@@ -607,6 +732,7 @@ const Resources = {
                     eng: 'FreedomCon',
                     icon: '',
                     banner: '',
+                    logo: 'KennesHirutV7.jpg',
                     Link: {
                         fb: 'https://www.facebook.com/%D7%9B%D7%A0%D7%A1-%D7%94%D7%97%D7%99%D7%A8%D7%95%D7%AA-FreedomCon-1099335593559205/',
                         website: '',

@@ -16,4 +16,76 @@
 .infoBox h3 {
     margin-top: 0px;
 }
+.mainPromotionBox {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    width: 290px;
+    height: 60%;
+    background-color: rgba(255,255,255,.8);
+}
+.layoutRTL .mainPromotionBox {
+    right: auto;
+    left: 0px;
+}
 
+.leadingGroups {
+    padding-top: 15px;
+    background-color: #f3f5f8;
+}
+.leadingGroups .leadingGroupsTitle {
+    margin-top: 0px;
+    margin-bottom: 8px;
+    padding: 0px 15%;
+    color: #333333;
+}
+.leadingGroups .interactiveBoxes {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0px 15%;
+    background-color: #f3f5f8;
+}
+.leadingGroups .interactiveBox {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 25%; 
+    min-width: 265px;
+    margin: 3% 2%;
+    background-color: #FFFFFF;
+    /* border-radius: 5px 5px 5px 5px; */
+    border: 1px solid #CCCCCC;
+}
+.leadingGroups .interactiveBox header {
+    padding: 5px 10px;
+    background-color: #333333;
+    color: #FFFFFF;
+}
+.leadingGroups .interactiveBox content {
+    display: flex;
+    flex: 1;
+}
+.leadingGroups .interactiveBox .groupItemLogo {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+.leadingGroups .interactiveBox .groupItemLogo img {
+    width: 100%;
+    height: auto;
+}
+.leadingGroups .interactiveBox .groupItemInfo {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 430px) {
+    .leadingGroups .leadingGroupsTitle {
+        padding: 0px 4%;
+    }
+    .leadingGroups .interactiveBoxes {
+        padding: 0px 5%;
+    }
+  }

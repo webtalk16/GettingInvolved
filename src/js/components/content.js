@@ -71,11 +71,90 @@ class Content {
     planItems.push('</div>');
     planHtml = planItems.join('');
 
+    // HTML Groups
+    const groupItems = [];
+    let interactiveBoxes = '';
+    let groupItem = '';
+    let addedFirstLogo = false;
+    for(let prop in this.resources.groups) {
+      addedFirstLogo = false;
+      groupItem = this.resources.groups[prop];
+      groupItems.push(`<div class="interactiveBox">
+        <header>${groupItem[this.uiLang]}</header>
+        <content>
+          <div class="groupItemLogo">
+            <img src="images/groups/Logos/${groupItem.logo}" />
+          </div>
+          <div class="groupItemInfo"><div class="groupLinkedIcons">`);
+            if (groupItem.Link.fb) { 
+              groupItems.push(`<a href="${groupItem.Link.fb}"><span class="iconFacebook"></span></a>`);
+              addedFirstLogo = true;
+            }
+            if (groupItem.Link.website) { 
+              if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
+              groupItems.push(`<a href="${groupItem.Link.website}"><span class="iconWebsite"></span></a>`);
+              addedFirstLogo = true;
+            }
+            if (groupItem.Link.email) {
+              if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
+              groupItems.push(`<a href="${groupItem.Link.email}"><span class="iconEmail"></span></a>`);
+              addedFirstLogo = true;
+            }
+            if (groupItem.Link.donate) {
+              if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
+              groupItems.push(`<a href="${groupItem.Link.donate}"><span class="iconDonate">Donate</span></a>`);
+            }
+            groupItems.push(`</div><div class="groupItemDesc">`);
+            if (groupItem.info) {
+              groupItems.push(`<span>${groupItem.info}</span>`);
+            }
+            groupItems.push(`</div><div class="groupItemInfoFooter"></div></div>`);
+            groupItems.push(`</content>
+        <footer></footer>
+      </div>`);
+      interactiveBoxes = groupItems.join('');
+    }
+
     const calendarLang = this.uiLang == 'heb' ? '&amp;hl=iw' : '';
+    const locationImage = this.uiLang == 'heb' ? 'Hebrew' : '';
     const rootEl = document.querySelector('#appMain');
     const html = `
       <div id="contentMain">
         <div id="contentContainer">
+          <main class="contentHome">
+            <div class="homeHeader">
+              <div class="homeHeaderImage"></div>
+              <div class="mainPromotionBox">
+                <div class="homePromoBoxContent">
+                  <p class="category">${this.resources.home.promoBox.category}</p>
+                  <h1>${this.resources.home.promoBox.date}</h1>
+                  <p class="title">${this.resources.home.promoBox.title}</p>
+                </div>
+                <img class="homePromoBoxFooter" src="images/Theme/eventLocation${locationImage}.jpg" width="100%" />
+              </div>
+            </div>
+            <div class="homeContent">
+              <div class="youTubeChannelPlaylist">
+                <div class="youTubePlaylistHeader">
+                  <img src="images/content/YouTube-Header.jpg" />
+                </div>
+                <div class="youTubePlaylists">
+                    <div class="playlist" onclick="window.open('${this.resources.youTube.playlists.army.link}')"><img src="${this.resources.youTube.playlists.army.poster}" /></div>
+                    <div class="playlist" onclick="window.open('${this.resources.youTube.playlists.meetups.link}')"><img src="${this.resources.youTube.playlists.meetups.poster}" /></div>
+                    <div class="playlist" onclick="window.open('${this.resources.youTube.playlists.news.link}')"><img src="${this.resources.youTube.playlists.news.poster}" /></div>
+                    <div class="playlist" onclick="window.open('${this.resources.youTube.playlists.pannels.link}')"><img src="${this.resources.youTube.playlists.pannels.poster}" /></div>
+                    <div class="playlist" onclick="window.open('${this.resources.youTube.playlists.podcasts.link}')"><img src="${this.resources.youTube.playlists.podcasts.poster}" /></div>
+                    <div class="playlist" onclick="window.open('${this.resources.youTube.playlists.radio.link}')"><img src="${this.resources.youTube.playlists.radio.poster}" /></div>
+                    <div class="playlist" onclick="window.open('${this.resources.youTube.playlists.shows.link}')"><img src="${this.resources.youTube.playlists.shows.poster}" /></div>
+                </div>
+              </div>
+              <div class="leadingGroups">
+                <h2 class="leadingGroupsTitle">${this.resources.groupsGeneral.Title1}</h2>
+                <h3 class="leadingGroupsTitle">${this.resources.groupsGeneral.Title2}</h3>
+                <div class="interactiveBoxes">${interactiveBoxes}</div>
+              </div>
+            </div>
+          </main>
           <main class="contentAbout">
             <div id="aboutHeader">
               <img id="ifcTeamPic" src="/images/Theme/MeetUp5-ZoomScreenshot.png" />
@@ -149,6 +228,12 @@ class Content {
     const ifcDonateDrove = 'https://drove.com/.294k';
     donateBtnCampaign.addEventListener('click', function () {
       window.open(ifcDonateDrove, '_blank');
+    });
+
+    const homePromoBoxFooter = document.querySelector('.homePromoBoxFooter');
+    const eventDirections = 'https://docs.google.com/document/d/1PoTf5UFPJ1nN4XFbyjz8s2-CWWe73AeDk4pZrvHDHlY/edit?usp=sharing';
+    homePromoBoxFooter.addEventListener('click', function () {
+      window.open(eventDirections, '_blank');
     });
   }
 }

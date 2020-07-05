@@ -27,8 +27,12 @@ class Header {
     // menuIcon.addEventListener('click', () => {
     //   menuIcon.parentNode.classList.toggle('showMenu');
     // });
-    window.addEventListener('click', () => {
-      if(!menuIcon.contains(event.target)) {
+    document.addEventListener('click', (event) => {
+      // if(!menuIcon.contains(event.target)) {
+      //   menuIcon.parentNode.classList.remove('showMenu');
+      // }
+
+      if (event.target !== menuIcon && !menuIcon.contains(event.target)) {
         menuIcon.parentNode.classList.remove('showMenu');
       }
       else {
@@ -93,7 +97,7 @@ class Header {
     // Set Homepage
     let urlparams = (new URL(document.location)).searchParams;
     let pageParam = urlparams.get("page");
-    const homepage = pageParam ? pageParam : 'about';
+    const homepage = pageParam ? pageParam : 'home';
     document.querySelector('#appMain').className = homepage;
     let selected = '';
 
@@ -105,10 +109,11 @@ class Header {
       navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name + selected}"><span>${this.resources.nav[navItem].text}</span></li>`;
     }
 
+    const homeOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});document.querySelector('#appMain').className='home';`;
     const html = `
       <div id="headerMain">
         <div id="headerContainer">
-          <div id="headerLogo">
+          <div id="headerLogo" onclick="${homeOnclick}">
           </div>
           <nav id="headerNav">
             <div id="menuIcon"><div></div><div></div><div></div></div>

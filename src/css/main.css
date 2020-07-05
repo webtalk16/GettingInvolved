@@ -69,9 +69,13 @@ body.layoutRTL {
     background: url(../images/Theme/IFC-LogoEnglish.jpg) left center / auto 64px no-repeat;
     min-width: 160px;
     height: 100%;
+    margin-left:20px;
+    cursor: pointer;
 }
 .layoutRTL #headerMain #headerContainer #headerLogo {
     background: url(../images/Theme/Logo-Title-Hebrew.png) right center / auto 64px no-repeat;
+    margin-left:0px;
+    margin-right:20px;
 }
 #headerMain #headerContainer #headerNav {
     flex: 1;
@@ -196,8 +200,46 @@ body.layoutRTL {
 #contentMain #contentContainer {
     display: flex;
 }
-#contentMain #contentContainer main.contentFbPage {
-    /* height: 465px; */
+#contentMain #contentContainer main.contentHome .homeHeader {
+    position: relative;
+}
+#contentMain #contentContainer main.contentHome .homeHeaderImage {
+    background-image: url(../images/Theme/streetMeetup.png);
+    margin-left: -20px;
+    margin-right: -20px;
+    min-height: 24rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+#contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent {
+    padding: 5%;
+    color: #333333;
+}
+#contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent .category {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px;
+}
+#contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent h1 {
+    margin: 8% 0px;
+    padding: 0px;
+    color: #246ea6;
+}
+#contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent .title {
+    margin:0px;
+    font-weight: bold;
+}
+.layoutRTL #contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent .title {
+    font-size: 18px;
+}
+#contentMain #contentContainer main.contentHome .mainPromotionBox img.homePromoBoxFooter {
+    position: absolute;
+    bottom: 0px;;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    color: #333333;
 }
 #contentMain #contentContainer main.contentFbPage .fbPageHeader {
     height: 40px;
@@ -350,17 +392,19 @@ body.layoutRTL {
     border-radius: 50%;
   }
 
+  #appMain .contentHome,
+  #appMain .contentDonate,
+  #appMain .contentFbPage,
   #appMain .contentAbout,
-    #appMain .contentFbPage,
-    #appMain .contentCalendar,
-    #appMain .contentDonate {
+    #appMain .contentCalendar {
         display: none;
     }
 
+    #appMain.home .contentHome,
     #appMain.donate .contentDonate,
+    #appMain.fbPage .contentFbPage,
     #appMain.about .contentAbout,
-    #appMain.calendar .contentCalendar,
-    #appMain.fbPage .contentFbPage  {
+    #appMain.calendar .contentCalendar {
         position: relative;
         display: block;
         width: 100%;
@@ -438,10 +482,11 @@ body.layoutRTL {
         padding: 0px;
     }
     .groupLinkedIcons {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        display: flex;
+        justify-content: flex-end;
+        height: 20px;
         margin: 4px 7px 4px 7px;
+        padding: 1%;
     }
     .groupLinkedIcons a {
         display: inline-block;
@@ -483,6 +528,18 @@ body.layoutRTL {
     .groupLinkedIcons a:hover .iconDonate { 
         color: #106fb3;
     }
+    .leadingGroups .interactiveBox .groupItemDesc {
+        display: flex;
+        flex: 1;
+        padding: 3% 5%;
+        color: #333333;
+        align-items: center;
+    }
+    .groupItemInfoFooter {
+        height: 20px;
+        margin: 4px 7px 4px 7px;
+        padding: 1%;
+    }
     .groupBanner img {
          max-width: 45%;
          margin-bottom: 7px;
@@ -495,6 +552,33 @@ body.layoutRTL {
     }
     #contentMain #contentContainer main.contentCalendar img#calendarHeaderImage {
         width: 100%;
+    }
+    
+    .homeContent .youTubeChannelPlaylist {
+        padding: 0px 15%;
+        background-color: #FFFFFF;
+        cursor: pointer;
+    }
+    .homeContent .youTubeChannelPlaylist .youTubePlaylistHeader {
+        margin-top: 3%;
+        text-align: center;
+    }
+    .homeContent .youTubeChannelPlaylist .youTubePlaylistHeader img {
+        width: 80%;
+        max-width: 675px;
+    }
+    .homeContent .youTubeChannelPlaylist .youTubePlaylists {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .homeContent .youTubeChannelPlaylist .youTubePlaylists .playlist {
+        flex: 1 0 21%;
+        text-align:center;
+    }
+    .homeContent .youTubeChannelPlaylist .youTubePlaylists img {
+        height: 220px;
     }
 
   @media only screen and (max-width: 850px) {
@@ -541,6 +625,19 @@ body.layoutRTL {
         text-align: center;
         padding:0px;
     }
+    #contentMain #contentContainer main.contentHome .mainPromotionBox {
+        top: 10px;
+        height: 50%;
+    }
+    #contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent h1 {
+        margin: 4% 0px;
+    }
+    .homeContent .youTubeChannelPlaylist .youTubePlaylistHeader img {
+        width: 100%;
+    }
+    .homeContent .youTubeChannelPlaylist {
+        padding: 0px 3%;
+    }
   }
   @media only screen and (max-width: 430px) {
     #contentMain #contentContainer main.contentFbPage .fbPageLeftCover,
@@ -549,5 +646,18 @@ body.layoutRTL {
     }
     #appMain .contentDonate .donateTitle {
         font-size: 1.1em;
+    }
+    #contentMain #contentContainer main.contentHome .mainPromotionBox {
+        left: 10%;
+        right: 10%;
+        height: 50%;
+        width: auto;
+    }
+    #contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent h1 {
+        margin: 3% 0px;
+        font-size: 25px;
+    }
+    .homeContent .youTubeChannelPlaylist {
+        padding: 0px 1%;
     }
   }
