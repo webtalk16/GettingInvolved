@@ -319,7 +319,7 @@ const Resources = {
                     eng: 'Zoom2Freedom',
                     icon: '',
                     banner: '',
-                    logo: 'logoPlacholder.png',
+                    logo: 'zoom2freedom/ZoomForLiberty-English_Dark.png',
                     Link: {
                         fb: '',
                         website: 'https://event.ravpage.co.il/Zoom2Freedom',
@@ -347,7 +347,7 @@ const Resources = {
                     eng: 'Liberal Debate Club',
                     icon: '',
                     banner: '',
-                    logo: 'logoPlacholder.png',
+                    logo: 'debateClub.png',
                     Link: {
                         fb: '',
                         website: 'http://event.ravpage.co.il/Debate',
@@ -690,7 +690,7 @@ const Resources = {
                     eng: 'Zoom2Freedom',
                     icon: '',
                     banner: '',
-                    logo: 'logoPlacholder.png',
+                    logo: 'zoom2freedom/ZoomForLiberty_Logo_Colors_for-light-background.png',
                     Link: {
                         fb: '',
                         website: 'https://event.ravpage.co.il/Zoom2Freedom',
@@ -718,7 +718,7 @@ const Resources = {
                     eng: 'Liberal Debate Club',
                     icon: '',
                     banner: '',
-                    logo: 'logoPlacholder.png',
+                    logo: 'debateClub.png',
                     Link: {
                         fb: '',
                         website: 'http://event.ravpage.co.il/Debate',
