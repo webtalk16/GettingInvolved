@@ -488,6 +488,9 @@ body.layoutRTL {
         margin: 4px 7px 4px 7px;
         padding: 1%;
     }
+    .suportOrg .groupLinkedIcons {
+        justify-content: center;
+    }
     .groupLinkedIcons a {
         display: inline-block;
     }
