@@ -3,10 +3,9 @@ import { Config } from './config.js'
 
 class Global {
     constructor () {
-        // this.resources = Resources.lang[Config.uiLang];
         this.resourceLangs = Resources.lang;
         this.resources = this.getResources();
-        // this.resourceNavItems = Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
+        this.resourceNavItems = Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
         // this.config = Config;
     }
 
@@ -18,9 +17,9 @@ class Global {
         return this.resourceLangs;
     }
 
-    // getResourceNavItems () {
-    //     return Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
-    // }
+    getResourceNavItems () {
+        return this.resourceNavItems;
+    }
 
     getConfig () {
         return Config;

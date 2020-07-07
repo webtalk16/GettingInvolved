@@ -8,14 +8,26 @@ class Header {
     this.global = new Global();
     this.resources = this.global.getResources();
     this.config = this.global.getConfig();
+    this.homepage = this.setHomePage();
   } 
 
   loadHeader () {
     console.log('Header component is loaded');
+    this.setHomePage();
     this.buildHtml();
+    this.buildNav();
     this.bindLangSelect();
     this.bindMenuIcon();
     this.global.checkPwa(document.querySelector('#headerMain'));
+  }
+
+  setHomePage () {
+    // Set Homepage
+    let urlparams = (new URL(document.location)).searchParams;
+    let pageParam = urlparams.get("page");
+    const homepage = pageParam ? pageParam : 'home';
+    document.querySelector('#appMain').className = homepage;
+    return homepage;
   }
 
   setLayoutByLang () {
@@ -28,10 +40,6 @@ class Header {
     //   menuIcon.parentNode.classList.toggle('showMenu');
     // });
     document.addEventListener('click', (event) => {
-      // if(!menuIcon.contains(event.target)) {
-      //   menuIcon.parentNode.classList.remove('showMenu');
-      // }
-
       if (event.target !== menuIcon && !menuIcon.contains(event.target)) {
         menuIcon.parentNode.classList.remove('showMenu');
       }
@@ -86,28 +94,6 @@ class Header {
   }
 
   buildHtml () {
-    const objLangs = this.global.getResourceLangs();
-    for (let lang in objLangs) {
-    }
-
-    let navListItems = '';
-    // const objNav = this.global.resourceNavItems;
-    let menuOnclick = '';
-
-    // Set Homepage
-    let urlparams = (new URL(document.location)).searchParams;
-    let pageParam = urlparams.get("page");
-    const homepage = pageParam ? pageParam : 'home';
-    document.querySelector('#appMain').className = homepage;
-    let selected = '';
-
-    //document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});
-
-    for (let navItem in this.resources.nav) {
-      selected = this.resources.nav[navItem].name == homepage ? ' selected' : '';
-      menuOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});this.classList.add('selected');document.querySelector('#appMain').className='${this.resources.nav[navItem].name}';`;
-      navListItems += `<li onclick="${menuOnclick}" class="${this.resources.nav[navItem].name + selected}"><span>${this.resources.nav[navItem].text}</span></li>`;
-    }
 
     const homeOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});document.querySelector('#appMain').className='home';`;
     const html = `
@@ -117,7 +103,7 @@ class Header {
           </div>
           <nav id="headerNav">
             <div id="menuIcon"><div></div><div></div><div></div></div>
-            <ul>${navListItems}</ul>
+            <ul id="ulNavListItems"></ul>
           </nav>
           <div id="headerLang">
             <div id="langSlider">
@@ -134,6 +120,22 @@ class Header {
     rootEl.insertAdjacentHTML('beforeend', html);
   }
 
+  buildNav () {
+
+    let navListItems = '';
+    const objNav = this.global.getResourceNavItems();
+    let menuOnclick = '';
+    let selected = '';
+    for (let navItem in objNav) {
+      selected = objNav[navItem].name == this.homepage ? ' selected' : '';
+      menuOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});this.classList.add('selected');document.querySelector('#appMain').className='${objNav[navItem].name}';`;
+      navListItems += `<li onclick="${menuOnclick}" class="${objNav[navItem].name + selected}"><span>${objNav[navItem].text}</span></li>`;
+    }
+
+    const ulNavListItems = document.querySelector('#ulNavListItems');
+    ulNavListItems.insertAdjacentHTML('beforeend', navListItems);
+  }
+
 }
   
-  export { Header } 
+export { Header } 
