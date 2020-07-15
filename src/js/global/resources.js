@@ -16,7 +16,17 @@ const Resources = {
                 },
                 about: {
                     text: 'About Us',
-                    name: 'about'
+                    name: 'about',
+                    subMenu: {
+                        about: {
+                            text: 'The Plan',
+                            name: 'plan'
+                        },
+                        team: {
+                            text: 'Our Team',
+                            name: 'team'
+                        }
+                    }
                 },
                 calendar: {
                     text: 'Liberty Calendar',
@@ -71,6 +81,9 @@ const Resources = {
                 }
             },
             about: {
+                ourTeam: {
+                    title: 'Our Team'
+                },
                 organizationalPlan: {
                     title: 'Organizational Plan',
                     info: {
@@ -387,7 +400,17 @@ const Resources = {
                 },
                 about: {
                     text: 'אודות',
-                    name: 'about'
+                    name: 'about',
+                    subMenu: {
+                        about: {
+                            text: 'התוכנית',
+                            name: 'plan'
+                        },
+                        team: {
+                            text: 'הצוות שלנו',
+                            name: 'team'
+                        }
+                    }
                 },
                 calendar: {
                     text: 'יומן חירות',
@@ -442,6 +465,15 @@ const Resources = {
                 }
             },
             about: {
+                ourTeam: {
+                    title: 'הצוות שלנו',
+                    team: {
+                        Jimmy: {
+                            name: 'Jimmy Levy',
+                            title: ''
+                        }
+                    }
+                },
                 organizationalPlan: {
                     title: 'תכנית ארגונית',
                     info: {

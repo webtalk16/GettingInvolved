@@ -1,5 +1,6 @@
 import '../css/main.css';
 import '../css/widgets.css';
+import '../css/mediaQueries.css';
 import { app } from './app'
 
 try {

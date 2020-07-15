@@ -111,6 +111,9 @@ body.layoutRTL {
     margin: 6px 0;
     cursor: pointer;
 }
+#appMain #headerMain #headerContainer #headerNav #navCloseBtn {
+    display: none;
+}
 #headerMain #headerContainer #headerNav ul,
 #headerMain #headerContainer #headerNav li {
     margin:0px;
@@ -123,9 +126,10 @@ body.layoutRTL {
     padding:0px;
 }
 #headerMain #headerContainer #headerNav li {
+    position: relative;
     flex: 1;
     margin: 0px 3px;
-    padding:3px 5px;
+    padding:3px 5px 0px 5px;
     text-align: center;
     white-space: nowrap;
     cursor:pointer;
@@ -134,17 +138,32 @@ body.layoutRTL {
 #headerMain #headerContainer #headerNav li span {
     display: inline-block;
     margin-top:2px;
-    margin-bottom:2px;
+    /* margin-bottom:2px; */
     padding-bottom:3px;
     border-bottom:2px solid transparent;
 }
-#headerMain #headerContainer #headerNav li:hover span {
-    /* color: #408ac9; */
+#headerMain #headerContainer #headerNav li.menuItem:hover span.txtNavItem,
+#headerMain #headerContainer #headerNav li.subMenuItem:hover span.txtSubNavItem {
     border-bottom:2px solid #408ac9;
 }
-#headerMain #headerContainer #headerNav li.selected:hover span {
+#headerMain #headerContainer #headerNav li.menuItem.selected:hover span.txtNavItem,
+#headerMain #headerContainer #headerNav li.subMenuItem.selected:hover span.txtSubNavItem {
+    border-bottom:2px solid transparent;
+}
+/* #headerMain #headerContainer #headerNav li.selected:hover span {
     color: #FFFFFF;
     border-bottom: 2px solid transparent;
+} */
+#headerMain #headerContainer #headerNav .subNav {
+    display: none;
+}
+#headerMain #headerContainer #headerNav li.showSubNav .subNav {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 3px 0px 0px 0px;
+    font-size: .85em;
 }
 #headerMain #headerContainer #headerNav li.selected:hover,
 #headerMain #headerContainer #headerNav li.selected {
@@ -264,50 +283,53 @@ body.layoutRTL {
     background-color: #4267b2; 
     vertical-align: top;
 }
-#contentMain #contentContainer main.contentAbout #aboutHeader {
+#contentMain #contentContainer main.contentPlan #aboutHeader {
     position: relative;
 }
-#contentMain #contentContainer main.contentAbout #ifcTeamPic {
+#contentMain #contentContainer main.contentTeam #ifcTeamPic,
+#contentMain #contentContainer main.contentPlan #ifcAboutPic {
     width: 100%;
 }
-#contentMain #contentContainer main.contentAbout #teamPicText {
+#contentMain #contentContainer main.contentTeam #ourTeamText,
+#contentMain #contentContainer main.contentPlan #contentPlanText {
     margin:0px;
     padding: 18px 0px;
     background-color: #f3f5f8;
     color:#333333;
 }
-#contentMain #contentContainer main.contentAbout #teamPicText h2 {
+#contentMain #contentContainer main.contentTeam #ourTeamText h2,
+#contentMain #contentContainer main.contentPlan #contentPlanText h2 {
     margin: 3% 6% 3% 6%;
     font-weight: normal;
 }
-#contentMain #contentContainer main.contentAbout #teamPicText span.title {
+#contentMain #contentContainer main.contentPlan #contentPlanText span.title { /*  what is this?????  */
     display: block;
     font-weight: bold;
 }
-#contentMain #contentContainer main.contentAbout .planLinks {
+#contentMain #contentContainer main.contentPlan .planLinks {
     padding: 6%;
 }
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink {
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink {
     display: inline-block;
     background: url(../images/icons/arrowRight.png) right 3px / 32px auto no-repeat;
     padding-right: 45px;
 }
-.layoutRTL #contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink {
+.layoutRTL #contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink {
     background: url(../images/icons/arrowLeft.png) left 3px / 32px auto no-repeat;
     padding-right: 0px;
     padding-left: 45px;
 }
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:link,
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:visited,
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:hover,
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:active {
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink:link,
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink:visited,
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink:hover,
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink:active {
     text-decoration: none;
     color: #246ea6;
 }
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:link .planUpdateDate,
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:visited .planUpdateDate,
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:hover .planUpdateDate,
-#contentMain #contentContainer main.contentAbout .planLinks a.planUpdateLink:active .planUpdateDate {
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink:link .planUpdateDate,
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink:visited .planUpdateDate,
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink:hover .planUpdateDate,
+#contentMain #contentContainer main.contentPlan .planLinks a.planUpdateLink:active .planUpdateDate {
     text-decoration: none;
     color: #a5b03f;
 }
@@ -395,7 +417,8 @@ body.layoutRTL {
   #appMain .contentHome,
   #appMain .contentDonate,
   #appMain .contentFbPage,
-  #appMain .contentAbout,
+  #appMain .contentPlan,
+  #appMain .contentTeam,
     #appMain .contentCalendar {
         display: none;
     }
@@ -403,7 +426,8 @@ body.layoutRTL {
     #appMain.home .contentHome,
     #appMain.donate .contentDonate,
     #appMain.fbPage .contentFbPage,
-    #appMain.about .contentAbout,
+    #appMain.plan .contentPlan,
+    #appMain.team .contentTeam,
     #appMain.calendar .contentCalendar {
         position: relative;
         display: block;
@@ -584,83 +608,4 @@ body.layoutRTL {
         height: 220px;
     }
 
-  @media only screen and (max-width: 850px) {
-    #appMain #menuIcon { display: inline-block; }
-    #appMain #headerMain #headerContainer #headerLogo { order:1; }
-    #appMain #headerMain #headerContainer #headerNav { order:3; position: relative; width: 35px; flex:unset; }
-    #appMain #headerMain #headerContainer #headerLang {
-        display: flex;
-        order:2;
-        width:auto;
-        margin: 0px 20px;
-        flex:1;
-        justify-content: flex-end;
-    }
-    #appMain #headerMain #headerContainer #headerNav ul {
-        display: none;
-        position: absolute;
-        flex-direction: column;
-        top: 100%;
-        right: 0px;
-        width: 150px;
-        margin:0px;
-        padding:5px;
-        border:1px solid rgba(0,0,0,.2);
-        border-radius: 3px 3px 3px 3px;
-        background-color: #FFFFFF;
-        z-index: 1;
-    }
-    #appMain #headerMain #headerContainer #headerNav.showMenu ul {
-        display: block;
-    }
-    .layoutRTL #appMain #headerMain #headerContainer #headerNav ul {
-        right: auto;
-        left: 0px;
-    }
-    #appMain #headerLang {
-        flex:1;
-    }
-    #appMain .contentDonate .donateTitle {
-        font-size: 1.3em;
-    }
-    #footerMain .copyright,
-    #footerMain .youtubeChannel {
-        text-align: center;
-        padding:0px;
-    }
-    #contentMain #contentContainer main.contentHome .mainPromotionBox {
-        top: 10px;
-        height: 50%;
-    }
-    #contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent h1 {
-        margin: 4% 0px;
-    }
-    .homeContent .youTubeChannelPlaylist .youTubePlaylistHeader img {
-        width: 100%;
-    }
-    .homeContent .youTubeChannelPlaylist {
-        padding: 0px 3%;
-    }
-  }
-  @media only screen and (max-width: 430px) {
-    #contentMain #contentContainer main.contentFbPage .fbPageLeftCover,
-    #contentMain #contentContainer main.contentFbPage .fbPageRightCover {
-        background-color: #FFFFFF;
-    }
-    #appMain .contentDonate .donateTitle {
-        font-size: 1.1em;
-    }
-    #contentMain #contentContainer main.contentHome .mainPromotionBox {
-        left: 10%;
-        right: 10%;
-        height: 50%;
-        width: auto;
-    }
-    #contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent h1 {
-        margin: 3% 0px;
-        font-size: 25px;
-    }
-    .homeContent .youTubeChannelPlaylist {
-        padding: 0px 1%;
-    }
-  }
+  

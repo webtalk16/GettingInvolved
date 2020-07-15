@@ -13,7 +13,6 @@ class Header {
 
   loadHeader () {
     console.log('Header component is loaded');
-    this.setHomePage();
     this.buildHtml();
     this.buildNav();
     this.bindLangSelect();
@@ -26,8 +25,12 @@ class Header {
     let urlparams = (new URL(document.location)).searchParams;
     let pageParam = urlparams.get("page");
     const homepage = pageParam ? pageParam : 'home';
-    document.querySelector('#appMain').className = homepage;
+    this.setPage(homepage);
     return homepage;
+  }
+
+  setPage (page) {
+    rootEl.className = page;
   }
 
   setLayoutByLang () {
@@ -87,15 +90,13 @@ class Header {
       langCheckbox.disabled = true;
 
       //reload
-      // location.reload();
       setTimeout(() => location.reload(), 200);
     }
 
   }
 
   buildHtml () {
-
-    const homeOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});document.querySelector('#appMain').className='home';`;
+    const homeOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected');el.classList.remove('showSubNav');});document.querySelector('#appMain').className='home';`;
     const html = `
       <div id="headerMain">
         <div id="headerContainer">
@@ -121,19 +122,61 @@ class Header {
   }
 
   buildNav () {
-
     let navListItems = '';
+    let subnavHTML = '';
     const objNav = this.global.getResourceNavItems();
-    let menuOnclick = '';
     let selected = '';
+    let parentMenuItem = '';
+
+    navListItems += `<li id="navCloseBtn">X</li>`;
     for (let navItem in objNav) {
       selected = objNav[navItem].name == this.homepage ? ' selected' : '';
-      menuOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected')});this.classList.add('selected');document.querySelector('#appMain').className='${objNav[navItem].name}';`;
-      navListItems += `<li onclick="${menuOnclick}" class="${objNav[navItem].name + selected}"><span>${objNav[navItem].text}</span></li>`;
+      subnavHTML = '';
+      parentMenuItem = objNav[navItem].subMenu ? ' parentItem' : '';
+      if (parentMenuItem) {
+        subnavHTML += `<ul class="subNav">`
+        for (let subNavItem in objNav[navItem].subMenu) {
+          subnavHTML += `<li name="${objNav[navItem].subMenu[subNavItem].name}" class="subMenuItem ${objNav[navItem].subMenu[subNavItem].name + selected}"><span class="txtSubNavItem">${objNav[navItem].subMenu[subNavItem].text}</span></li>`;
+        }
+        subnavHTML += `</ul>`
+      }
+
+      navListItems += `<li name="${objNav[navItem].name}" class="menuItem ${objNav[navItem].name + selected + parentMenuItem}"><span class="txtNavItem">${objNav[navItem].text}</span>${subnavHTML}</li>`;
+      
     }
 
     const ulNavListItems = document.querySelector('#ulNavListItems');
     ulNavListItems.insertAdjacentHTML('beforeend', navListItems);
+
+    this.bindMenuItems();
+  }
+
+  bindMenuItems () {
+    const headerNav = document.querySelector('#headerNav');
+    
+    let subMenuItem = null;
+    const menuItems = document.querySelectorAll('.menuItem');
+    menuItems.forEach( function(el) { 
+      el.addEventListener('click', function (event) {
+        subMenuItem = event.target.closest('.subMenuItem');
+        headerNav.querySelectorAll('li').forEach( function(li) { li.classList.remove('selected'); li.classList.remove('showSubNav'); });
+        if (!this.classList.contains('parentItem')) {
+          this.classList.add('selected');
+          rootEl.className = this.getAttribute('name');
+        }
+        else if (subMenuItem) {
+          rootEl.className = subMenuItem.getAttribute('name');
+          this.classList.add('showSubNav');
+          subMenuItem.classList.add('selected');
+        }
+        else if (this.classList.contains('parentItem')) {
+          const firstSubNavItem = this.querySelector('.subNav').firstChild;
+          rootEl.className = firstSubNavItem.getAttribute('name');
+          firstSubNavItem.classList.add('selected');
+          this.classList.add('showSubNav');
+        }
+      });
+    });
   }
 
 }
