@@ -6,6 +6,7 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
+.englishInHebrewText { font-size: .9em; }
 body {
     color: #246ea6;
     font-family: Arial, Helvetica, sans-serif;
@@ -333,6 +334,44 @@ body.layoutRTL {
     text-decoration: none;
     color: #a5b03f;
 }
+#contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox {
+    position: relative;
+    flex: 0 1 15%;
+    padding: 2%;
+    padding-bottom: 45px;
+    font-size: .9em;
+}
+#contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox header h3.infoBoxTitle {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+#contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox header .memberTitle {
+    margin-bottom: 24px;
+}
+#contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox content {
+    display: flex;
+    flex-direction: column;
+}
+#contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox content .teamMemberPic {
+    margin-bottom: 24px;
+}
+#contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox content .teamMemberPic img {
+    width: 100%;
+}
+#contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox content .teamMemberAbout {
+    padding-left: 2%;
+}
+.layoutRTL #contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox content .teamMemberAbout {
+    padding-right: 2%;
+}
+#contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox footer {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    height: 25px;
+}
+
 
 /* The slider */
 #langSlider {
@@ -555,6 +594,64 @@ body.layoutRTL {
     .groupLinkedIcons a:hover .iconDonate { 
         color: #106fb3;
     }
+
+    .memeberLinkedIcons {
+        display: flex;
+        justify-content: center;
+        height: 20px;
+        margin: 4px 7px 4px 7px;
+        padding: 1%;
+    }
+    .suportOrg .memeberLinkedIcons {
+        justify-content: center;
+    }
+    .memeberLinkedIcons a {
+        display: inline-block;
+    }
+    .memeberLinkedIcons a:link,
+    .memeberLinkedIcons a:visited,
+    .memeberLinkedIcons a:hover,
+    .memeberLinkedIcons a:active {
+        color: #888888;
+    }
+    .memeberLinkedIcons .iconDivider {
+        display: inline-block;
+        width: 1px;;
+        height: 18px;;
+        border-left: 1px solid #CCCCCC;
+        margin-left:5px;
+        margin-right:5px;
+    }
+    .memeberLinkedIcons .iconFacebook,
+    .memeberLinkedIcons .iconWebsite,
+    .memeberLinkedIcons .iconTwitter,
+    .memeberLinkedIcons .iconLinkedIn,
+    .memeberLinkedIcons .iconEmail,
+    .memeberLinkedIcons .iconPhone { 
+        display: inline-block;
+        background-size: contain;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+    }
+
+    .memeberLinkedIcons .iconFacebook { background-image: url(../images/icons/icon-facebook.png) }
+    .memeberLinkedIcons .iconWebsite { background-image: url(../images/icons/icon-website.png) }
+    .memeberLinkedIcons .iconTwitter { background-image: url(../images/icons/icon-twitter.png) }
+    .memeberLinkedIcons .iconLinkedIn { background-image: url(../images/icons/icon-linkedin.png) }
+    .memeberLinkedIcons .iconEmail { background-image: url(../images/icons/icon-email.png) }
+    .memeberLinkedIcons .iconPhone { background-image: url(../images/icons/icon-phone.png) }
+
+    .memeberLinkedIcons a:hover .iconFacebook { background-image: url(../images/icons/icon-facebook-blue.png) }
+    .memeberLinkedIcons a:hover .iconWebsite { background-image: url(../images/icons/icon-website-blue.png) }
+    .memeberLinkedIcons a:hover .iconTwitter { background-image: url(../images/icons/icon-twitter-blue.png) }
+    .memeberLinkedIcons a:hover .iconLinkedIn { background-image: url(../images/icons/icon-linkedin-blue.png) }
+    .memeberLinkedIcons a:hover .iconEmail { background-image: url(../images/icons/icon-email-blue.png) }
+    .memeberLinkedIcons a:hover .iconPhone { background-image: url(../images/icons/icon-phone-blue.png) }
+
+
+
+
     .leadingGroups .interactiveBox .groupItemDesc {
         display: flex;
         flex: 1;

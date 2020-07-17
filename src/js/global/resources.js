@@ -82,7 +82,51 @@ const Resources = {
             },
             about: {
                 ourTeam: {
-                    title: 'Our Team'
+                    title: 'Our Team',
+                    team: {
+                        Jimmy: {
+                            name: 'Jimmy Levy',
+                            title: 'Founder, Director, Group Activist',
+                            pic: 'images/team/JimmyLevy.jpg',
+                            about: 'Jimmy is the Founder and Director of IFC. As the founder of the association, Jimmy brought his personal vision and belief in the individual, a belief in the organizations that promote free market and work to protect individual liberties and he is dedicated to helping them in innovative ways.<br><br>Jimmy comes from the high-tech field and specializes in building websites and digital solutions as a front-end web developer.',
+                            links: {
+                                fb: 'https://www.facebook.com/Jimmy.Levy.Israel/',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'https://www.linkedin.com/in/jimmy-levy-0256b842/',
+                                email: 'jimmyjlevy@hotmail.com',
+                                phone: '+972502598400'
+                            }
+                        },
+                        Boaz: {
+                            name: 'Boaz Arad-Erder',
+                            title: 'Co-Director',
+                            pic: 'images/team/BoazArad.jpg',
+                            about: `Boaz Arad is the founder of ARCI and serves as the managing director of the center. Boaz also co-founded the Israeli Freedom Movement. Boaz was a Research Fellow and a spokesman in the Public Policy Center at the Jerusalem Institute for Market Studies. Previously a member of the editorial board at Business Week (hebrew version) and was a writer of a weekly column in the Israel daily Makor Rishon. Boaz Manages www.anochi.com, a website dedicated to Ayn Rand's philosophy and writings. His numerous writings promoting economic freedom and individual liberty are regularly published in the Israeli press.`,
+                            links: {
+                                fb: 'https://www.facebook.com/anochi',
+                                website: '',
+                                twitter: '',
+                                linkedIn: '',
+                                email: 'boaz@aynrand.org.il',
+                                phone: ''
+                            }
+                        },
+                        Irit: {
+                            name: 'Irit Kobo Cohen',
+                            title: 'Community Organizer, Group Activist',
+                            pic: 'images/team/IritKobo.jpg',
+                            about: `Coordinator of the IFC Activist Training Program and deeply involved in all of IFC projects such of the Street Meet-Up event, Round Table project, Fundraising team and more.<br><br>BA - Community Organization and Management<br>MA - Political Science / Political Communication<br><br>Experienced in managing and establishing projects and in leading civil society movements.<br>Classical Liberal (recovered socialist)`,
+                            links: {
+                                fb: 'https://www.facebook.com/irit.kobo',
+                                website: '',
+                                twitter: '',
+                                linkedIn: '',
+                                email: 'maavak2012@gmail.com',
+                                phone: ''
+                            }
+                        }
+                    }
                 },
                 organizationalPlan: {
                     title: 'Organizational Plan',
@@ -469,8 +513,46 @@ const Resources = {
                     title: 'הצוות שלנו',
                     team: {
                         Jimmy: {
-                            name: 'Jimmy Levy',
-                            title: ''
+                            name: `ג'ימי לוי`,
+                            title: 'מייסד, מנהל ארגון, פעיל <span class="englishInHebrewText">IFC</span>',
+                            pic: 'images/team/JimmyLevy.jpg',
+                            about: `ג'ימי הוא יזם ומייסד עמותת <span class="englishInHebrewText">IFC</span> הקואליציה הישראלית למען שוק חופשי. כמייסד העמותה הביא ג'ימי את חזונו האישי ואמונתו בפרט, אמונה בארגונים שמקדמים שוק חופשי וחירות הפרט, כשחלק מהערכים שעומדים למולם, הגנה על זכויות האדם, חופש הפרט וחופש הביטוי. ג'ימי מגיע מתחום ההייטק ומתמחה בפיתוח אתרי אינטרנט ופתרונות דיגיטלים.`,
+                            links: {
+                                fb: 'https://www.facebook.com/Jimmy.Levy.Israel/',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'https://www.linkedin.com/in/jimmy-levy-0256b842/',
+                                email: 'jimmyjlevy@hotmail.com',
+                                phone: '+972502598400'
+                            }
+                        },
+                        Boaz: {
+                            name: 'בועז ארד',
+                            title: 'מנהל משותף',
+                            pic: 'images/team/BoazArad.jpg',
+                            about: 'מנהל מרכז איין ראנד ישראל, מייסד עמותת הידידים ועורך מגזין "אנכי". ממייסדי התנועה הליברלית החדשה.בעל ניסיון עשיר בכתיבה פובליציסטית וניירות עמדה סקים בנושאים מגוונים ומכוונים לקידום חירות הפרט וכלכלה חופשית בישראל.',
+                            links: {
+                                fb: 'https://www.facebook.com/anochi',
+                                website: '',
+                                twitter: '',
+                                linkedIn: '',
+                                email: 'boaz@aynrand.org.il ',
+                                phone: ''
+                            }
+                        },
+                        Irit: {
+                            name: 'עירית קובו כהן',
+                            title: 'פעילה <span class="englishInHebrewText">IFC</span>',
+                            pic: 'images/team/IritKobo.jpg',
+                            about: `<span class="englishInHebrewText">MA</span> תקשורת פוליטית, <span class="englishInHebrewText">BA</span> ארגון ומנהל קהילתי. מנוסה בהובלת תנועות, ניהול והקמת פרויקטים ליברלית (סוציאליסטית מפוכחת)`,
+                            links: {
+                                fb: 'https://www.facebook.com/irit.kobo',
+                                website: '',
+                                twitter: '',
+                                linkedIn: '',
+                                email: 'maavak2012@gmail.com',
+                                phone: ''
+                            }
                         }
                     }
                 },
@@ -495,7 +577,7 @@ const Resources = {
                         }
                     },
                     planUpdateLink: 'https://docs.google.com/document/d/e/2PACX-1vSHBhDUCCTL8rzch_RnlKX7YI-ZEOisMA0CCNyGQHB1PaC5W7QH2cvTbsC_czwsckaw56924tJdUSt8/pub',
-                    planUpdateText: 'עדכון תכנית ארגונית',
+                    planUpdateText: 'עדכון תכנית ארגונית (באנגלית)',
                     planUpdateDate: '20 אפריל, 2020'
                 }
             },

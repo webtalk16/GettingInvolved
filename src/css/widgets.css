@@ -80,12 +80,3 @@
     flex:1;
     flex-direction: column;
 }
-
-@media only screen and (max-width: 430px) {
-    .leadingGroups .leadingGroupsTitle {
-        padding: 0px 4%;
-    }
-    .leadingGroups .interactiveBoxes {
-        padding: 0px 5%;
-    }
-  }
