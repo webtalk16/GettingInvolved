@@ -100,7 +100,7 @@ const Resources = {
                         },
                         Boaz: {
                             name: 'Boaz Arad-Erder',
-                            title: 'Co-Director',
+                            title: 'Co-Founder',
                             pic: 'images/team/BoazArad.jpg',
                             about: `Boaz Arad is the founder of ARCI and serves as the managing director of the center. Boaz also co-founded the Israeli Freedom Movement. Boaz was a Research Fellow and a spokesman in the Public Policy Center at the Jerusalem Institute for Market Studies. Previously a member of the editorial board at Business Week (hebrew version) and was a writer of a weekly column in the Israel daily Makor Rishon. Boaz Manages www.anochi.com, a website dedicated to Ayn Rand's philosophy and writings. His numerous writings promoting economic freedom and individual liberty are regularly published in the Israeli press.`,
                             links: {
@@ -116,7 +116,7 @@ const Resources = {
                             name: 'Irit Kobo Cohen',
                             title: 'Community Organizer, Group Activist',
                             pic: 'images/team/IritKobo.jpg',
-                            about: `Coordinator of the IFC Activist Training Program and deeply involved in all of IFC projects such of the Street Meet-Up event, Round Table project, Fundraising team and more.<br><br>BA - Community Organization and Management<br>MA - Political Science / Political Communication<br><br>Experienced in managing and establishing projects and in leading civil society movements.<br>Classical Liberal (recovered socialist)`,
+                            about: `Initiator and manager of the IFC Activist Training Program and part of IFC’s activist team in projects such of the Street Meet-Up event, Round Table project, and Fundraising.<br>Classical Liberal (recovered socialist).<br><br>BA in Community Organization and Management (Hebrew University of Jerusalem)<br>MA in Political Communication (Tel Aviv University)`,
                             links: {
                                 fb: 'https://www.facebook.com/irit.kobo',
                                 website: '',
@@ -124,6 +124,48 @@ const Resources = {
                                 linkedIn: '',
                                 email: 'maavak2012@gmail.com',
                                 phone: ''
+                            }
+                        },
+                        Maxim: {
+                            name: 'Maxim Voro',
+                            title: 'Round Table Coordinator, Group Activist',
+                            pic: 'images/team/MaximVoro.jpg',
+                            about: ``,
+                            links: {
+                                fb: 'https://www.facebook.com/maxim.voro.58',
+                                website: '',
+                                twitter: '',
+                                linkedIn: '',
+                                email: 'maximvoro@gmail.com',
+                                phone: '+972524516089'
+                            }
+                        },
+                        Maytav: {
+                            name: 'Maytav Einhorn',
+                            title: 'Project Manager, Fundraising Team Member, Group Activist',
+                            pic: 'images/team/MaytavEinhorn.jpg',
+                            about: `Aerospace Engineer and MBA graduate. Maytav also works as a simulations developer in a High-Tech company.`,
+                            links: {
+                                fb: '',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'https://www.linkedin.com/mwlite/in/maytav',
+                                email: 'maytav1@gmail.com',
+                                phone: '+972526555726'
+                            }
+                        },
+                        Rotem: {
+                            name: 'Rotem Meron',
+                            title: 'Project Supervision, Group Activist',
+                            pic: 'images/team/RotemMaron.jpg',
+                            about: `Rotem oversees details in the initiation of various IFC projects and supervises thier implementation. Rotem has a MS in Statistics, he is Merkaz Likud member and also works as a computer programmer.`,
+                            links: {
+                                fb: 'https://www.facebook.com/rotemmeron',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'https://linkedIn.com/in/rotem-meron-20090841/',
+                                email: 'rm13rotem@gmail.com',
+                                phone: '+972528829604'
                             }
                         }
                     }
@@ -528,7 +570,7 @@ const Resources = {
                         },
                         Boaz: {
                             name: 'בועז ארד',
-                            title: 'מנהל משותף',
+                            title: 'מייסד משותף',
                             pic: 'images/team/BoazArad.jpg',
                             about: 'מנהל מרכז איין ראנד ישראל, מייסד עמותת הידידים ועורך מגזין "אנכי". ממייסדי התנועה הליברלית החדשה.בעל ניסיון עשיר בכתיבה פובליציסטית וניירות עמדה סקים בנושאים מגוונים ומכוונים לקידום חירות הפרט וכלכלה חופשית בישראל.',
                             links: {
@@ -552,6 +594,48 @@ const Resources = {
                                 linkedIn: '',
                                 email: 'maavak2012@gmail.com',
                                 phone: ''
+                            }
+                        },
+                        Maxim: {
+                            name: 'מקסים וורו',
+                            title: 'מתאם שולחן העגול, פעיל <span class="englishInHebrewText">IFC</span>',
+                            pic: 'images/team/MaximVoro.jpg',
+                            about: ``,
+                            links: {
+                                fb: 'https://www.facebook.com/maxim.voro.58',
+                                website: '',
+                                twitter: '',
+                                linkedIn: '',
+                                email: 'maximvoro@gmail.com',
+                                phone: '+972524516089'
+                            }
+                        },
+                        Maytav: {
+                            name: 'מייטב אינהורן',
+                            title: 'ניהול פרוייקטים וגיוס כספים, פעילה <span class="englishInHebrewText">IFC</span>',
+                            pic: 'images/team/MaytavEinhorn.jpg',
+                            about: `מהנדסת אווירונאוטיקה ובוגרת תואר שני <span class="englishInHebrewText">MBA</span>. מפתחת סימולציות בחברת הייטק`,
+                            links: {
+                                fb: '',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'https://www.linkedin.com/mwlite/in/maytav',
+                                email: 'maytav1@gmail.com',
+                                phone: '+972526555726'
+                            }
+                        },
+                        Rotem: {
+                            name: 'רותם מירון',
+                            title: ' פיקוח ובקרה, פעיל <span class="englishInHebrewText">IFC</span>',
+                            pic: 'images/team/RotemMaron.jpg',
+                            about: `תואר שני בסטטיסטיקה, חבר מרכז הליכוד, מתכנת`,
+                            links: {
+                                fb: 'https://www.facebook.com/rotemmeron',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'https://linkedIn.com/in/rotem-meron-20090841/',
+                                email: 'rm13rotem@gmail.com',
+                                phone: '+972528829604'
                             }
                         }
                     }

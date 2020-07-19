@@ -107,7 +107,8 @@
         padding: 0px 5%;
     }
     #contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox {
-        flex: 1 0 15%;
+        flex: auto;
+        width: 85%;
         padding: 3.5%;
         padding-bottom: 45px;
     }
