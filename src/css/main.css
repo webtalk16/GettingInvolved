@@ -242,7 +242,7 @@ body.layoutRTL {
     margin: 0px;
 }
 #contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent h1 {
-    margin: 8% 0px;
+    margin: 3% 0px;
     padding: 0px;
     color: #246ea6;
 }
@@ -548,8 +548,8 @@ body.layoutRTL {
     .groupLinkedIcons {
         display: flex;
         justify-content: flex-end;
-        height: 20px;
-        margin: 4px 7px 4px 7px;
+        /* height: 20px; */
+        margin: 7px 7px 4px 7px;
         padding: 1%;
     }
     .suportOrg .groupLinkedIcons {
@@ -577,8 +577,9 @@ body.layoutRTL {
     .groupLinkedIcons .iconEmail {
         display: inline-block;
         background-size: contain;
-        width: 14px;
-        height: 14px;
+        background-repeat: no-repeat;
+        width: 18px;
+        height: 18px;
         cursor: pointer;
     }
 
@@ -587,7 +588,7 @@ body.layoutRTL {
     .groupLinkedIcons .iconEmail { background-image: url(../images/icons/icon-email.png) }
     .groupLinkedIcons .iconDonate { 
         display: inline-block;
-        font-size: 14px;
+        font-size: 17px;
     }
     .groupLinkedIcons a:hover .iconFacebook { background-image: url(../images/icons/icon-facebook-blue.png) }
     .groupLinkedIcons a:hover .iconWebsite { background-image: url(../images/icons/icon-website-blue.png) }

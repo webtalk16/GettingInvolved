@@ -44,7 +44,7 @@ const Resources = {
             home: {
                 promoBox: {
                     category: 'Event',
-                    date: 'July 17, 2020',
+                    date: '<span style="font-size: 16px;">Comming Soon</span><br>Summer 2020',
                     title: 'How can we influence and promote a free market in Israel'
                 }
             },
@@ -140,6 +140,20 @@ const Resources = {
                                 phone: '+972524516089'
                             }
                         },
+                        Neta: {
+                            name: 'Netta Zahavy',
+                            title: 'Group Activist',
+                            pic: 'images/team/NetaZahavy.jpg',
+                            about: `Head of Lavi Student Movement in the Hebrew University of Jerusalem.`,
+                            links: {
+                                fb: 'https://www.facebook.com/Netta.ZY',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'http://linkedin.com/in/netta-zahavy-300a7a183',
+                                email: 'nettazahavy@gmail.com',
+                                phone: '+972542013003'
+                            }
+                        },
                         Maytav: {
                             name: 'Maytav Einhorn',
                             title: 'Project Manager, Fundraising Team Member, Group Activist',
@@ -166,6 +180,20 @@ const Resources = {
                                 linkedIn: 'https://linkedIn.com/in/rotem-meron-20090841/',
                                 email: 'rm13rotem@gmail.com',
                                 phone: '+972528829604'
+                            }
+                        },
+                        Dorit: {
+                            name: 'Dorit Itzhak',
+                            title: 'Group Activist',
+                            pic: 'images/team/Dorit-Itzhak.jpg',
+                            about: `Dorit has a B.Sc in Biology from Tel Aviv University. She is the owner of a Chinese medicine clinic and also is a social and political activist.`,
+                            links: {
+                                fb: 'https://www.facebook.com/dorit.golpur/',
+                                website: 'https://dorititzhak2.wixsite.com/dorititzhak',
+                                twitter: 'https://twitter.com/doritz',
+                                linkedIn: 'https://www.linkedin.com/in/dorit-itzhak-golpur-3128bb1/',
+                                email: '',
+                                phone: ''
                             }
                         }
                     }
@@ -514,7 +542,7 @@ const Resources = {
             home: {
                 promoBox: {
                     category: 'ארוע',
-                    date: '17 ביולי 2020',
+                    date: '<span style="font-size: 16px;">בקרוב</span><br> קיץ 2020',
                     title: 'איך אפשר להשפיע ולקדם שוק חופשי בארץ'
                 }
             },
@@ -610,6 +638,20 @@ const Resources = {
                                 phone: '+972524516089'
                             }
                         },
+                        Neta: {
+                            name: 'נטע זהבי',
+                            title: 'פעילה <span class="englishInHebrewText">IFC</span>',
+                            pic: 'images/team/NetaZahavy.jpg',
+                            about: `בת 25, ליברלית ומאמינה באדם ובחופש. סטודנטית לתואר שני במדיניות ציבורית באוניברסיטה העברית ויושבת ראש תא הליכוד בקמפוס. גרה בירושלים ופעילה בזירה הפוליטית הארצית.`,
+                            links: {
+                                fb: 'https://www.facebook.com/Netta.ZY',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'http://linkedin.com/in/netta-zahavy-300a7a183',
+                                email: 'nettazahavy@gmail.com',
+                                phone: '+972542013003'
+                            }
+                        },
                         Maytav: {
                             name: 'מייטב אינהורן',
                             title: 'ניהול פרוייקטים וגיוס כספים, פעילה <span class="englishInHebrewText">IFC</span>',
@@ -636,6 +678,20 @@ const Resources = {
                                 linkedIn: 'https://linkedIn.com/in/rotem-meron-20090841/',
                                 email: 'rm13rotem@gmail.com',
                                 phone: '+972528829604'
+                            }
+                        },
+                        Dorit: {
+                            name: 'דורית יצחק',
+                            title: 'פעילה <span class="englishInHebrewText">IFC</span>',
+                            pic: 'images/team/Dorit-Itzhak.jpg',
+                            about: `בוגרת תואר ראשון במדעי החיים באונ' תל אביב, עצמאית, בעלת קליניקה לרפואה סינית ופעילה חברתית ופוליטית.`,
+                            links: {
+                                fb: 'https://www.facebook.com/dorit.golpur/',
+                                website: 'https://dorititzhak2.wixsite.com/dorititzhak',
+                                twitter: 'https://twitter.com/doritz',
+                                linkedIn: 'https://www.linkedin.com/in/dorit-itzhak-golpur-3128bb1/',
+                                email: '',
+                                phone: ''
                             }
                         }
                     }

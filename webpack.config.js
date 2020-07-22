@@ -53,7 +53,8 @@ module.exports = function (env) {
             new CopyPlugin([
                 { from: 'src/css', to: 'css' },
                 { from: 'src/images', to: 'images' },
-                { from: 'manifest.webmanifest', to: '' }
+                { from: 'manifest.webmanifest', to: '' },
+                { from: 'src/favicon.ico', to: '' }
             ]),
             new GenerateSW({
                 clientsClaim: true,

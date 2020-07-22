@@ -70,7 +70,8 @@
         height: 50%;
     }
     #contentMain #contentContainer main.contentHome .mainPromotionBox .homePromoBoxContent h1 {
-        margin: 4% 0px;
+        margin: 0% 0px 2% 0px;
+        line-height: .8em;
     }
     .homeContent .youTubeChannelPlaylist .youTubePlaylistHeader img {
         width: 100%;
