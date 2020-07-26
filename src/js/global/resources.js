@@ -48,6 +48,49 @@ const Resources = {
                     title: 'How can we influence and promote a free market in Israel'
                 }
             },
+            activistTraining: {
+                title: `IFC's Activist Training Program`,
+                title2: `In Coordination with:`,
+                lecturersTitle: `Among the Lecturers in the Course:`,
+                lecturers: {
+                    FredK: {
+                        name: `Fred Kofman`,
+                        title: `Google’s Vice President and Leadership Development Advisor`
+                    },
+                    OmerM: {
+                        name: `Professor Omer Moav`,
+                        title: `Professor of Economics at University of Warwick and IDC Herzliya - International School`
+                    },
+                    NehemiaS: {
+                        name: `Nehemia Shtrasler`,
+                        title: `Journalist and Economic Commentator at ‎Haaretz - Israel News`
+                    },
+                    IritK: {
+                        name: `Irit Kobo`,
+                        title: `Initiator and Manager of the IFC Activist Training Program`
+                    },
+                    BoazA: {
+                        name: `Boaz Arad`,
+                        title: `Co-founded the Israeli Freedom Movement and Founder/Managing Director of the Ayn Rand Center Israel`
+                    },
+                    MonicaF: {
+                        name: `Monica Forman`,
+                        title: `Professional Director of the Liberty Debate Society`
+                    },
+                    AdiA: {
+                        name: `Adi Arbel`,
+                        title: `CEO of The Civil Society Forum`
+                    },
+                    RoyK: {
+                        name: `Roy Katz`,
+                        title: `Host of the "Free Market" show on 102FM Radio and on Knesset TV`
+                    },
+                    MosheB: {
+                        name: `Moshe Basos`,
+                        title: `Spokesman and Communications Consultant`
+                    }
+                }
+            },
             youTube: {
                 playlists: {
                     army: {
@@ -335,6 +378,7 @@ const Resources = {
                     icon: '',
                     banner: '',
                     logo: 'AyanRand.png',
+                    info: `Ayn Rand Center Israel (ARCI) is registered as a non-profit organization with the purpose of promoting the philosophy of Ayn Rand in Israel and the Middle East.<br><br>As part of the Center's activities, and for the first time in Israel, we are holding a Hebrew essay contest on Ayn Rand's books with prizes and awards. Moreover, ARCI organizes events and lectures for student clubs and other organizations and offers courses to the general public. In another area of activities that revolves around public policy, ARCI morally and intellectually supports the The Israeli Freedom movement and also addresses the Arabic-speaking public in the Middle East with a selection of Arabic translations of philosophical writings of Ayn Rand.`,
                     Link: {
                         fb: 'https://www.facebook.com/AYNRANDISRAEL/',
                         website: 'https://www.aynrand.org.il/donate',
@@ -546,6 +590,49 @@ const Resources = {
                     title: 'איך אפשר להשפיע ולקדם שוק חופשי בארץ'
                 }
             },
+            activistTraining: {
+                title: `החממה הליברלית לאקטיביסטים של <span class="englishInHebrewText">IFC</span>`,
+                title2: `בשיתוף פעולה עם:`,
+                lecturersTitle: `בין המרצים בקורס:`,
+                lecturers: {
+                    FredK: {
+                        name: `פרופ' פרד קופמן`,
+                        title: 'סגן נשיא פיתוח בגוגל'
+                    },
+                    OmerM: {
+                        name: `פרופ' עומר מואב`,
+                        title: `מרצה לכלכלה בבינתחומי ובאונ' ווריק`
+                    },
+                    NehemiaS: {
+                        name: `נחמיה שטרסלר`,
+                        title: `הפרשן הכלכלי של עיתון הארץ`
+                    },
+                    IritK: {
+                        name: `עירית קובו`,
+                        title: `מנהלת החממה`
+                    },
+                    BoazA: {
+                        name: `בועז ארד`,
+                        title: `ממיסדי התנועה הליברלית ומנהל מרכז ראנד`
+                    },
+                    MonicaF: {
+                        name: `מוניקה פורמן`,
+                        title: `מנהלת מקצועית מועדון הדיבייט הליברלי`
+                    },
+                    AdiA: {
+                        name: `אדי ארבל`,
+                        title: `מנכ"ל הפורום לחברה אזרחית`
+                    },
+                    RoyK: {
+                        name: `רועי כ"ץ`,
+                        title: `מנחה התכנית "שוק חופשי" ברדיו וערוץ הכנסת`
+                    },
+                    MosheB: {
+                        name: `משה בסוס`,
+                        title: `דובר ויועץ תקשורת`
+                    }
+                }
+            },
             youTube: {
                 playlists: {
                     army: {
@@ -722,8 +809,8 @@ const Resources = {
                 }
             },
             groupsGeneral: {
-                Title1: 'ארגונים',
-                Title2: 'הפועלות בישראל במטרה לקידום חירות, ליברליזם ושוק-חופשי'
+                Title1: 'קבוצות וארגונים',
+                Title2: 'הפועלים בישראל במטרה לקידום חירות, ליברליזם ושוק-חופשי'
             },
             groups: {
                 SFL: {
@@ -833,6 +920,7 @@ const Resources = {
                     icon: '',
                     banner: '',
                     logo: 'AyanRand.png',
+                    info: `מרכז איין ראנד בישראל מנהל בשנת 2012-2013 תחרות חיבורים בנושאים מן הספר "כמעיין המתגבר" ו"מרד הנפילים". התחרות מיועדת לתלמידי כיתות י"א ו-י"ב ונושאת פרסים בשווי אלפי שקלים לזוכים. בנוסף, ניתן להגיש את החיבורים המוצלחים גם לתחרות הבינלאומית (באנגלית) המנוהלת על ידי מכון איין ראנד בארה"ב ולהנות מפרסים יקרי ערך בהיקף של 100 אלף דולר המחולקים מידי שנה.`,
                     Link: {
                         fb: 'https://www.facebook.com/AYNRANDISRAEL/',
                         website: 'https://www.aynrand.org.il/donate',

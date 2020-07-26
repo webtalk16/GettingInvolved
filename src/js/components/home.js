@@ -177,9 +177,24 @@ class Home {
       interactiveBoxes = groupItems.join('');
     }
 
+    // HTML Speakers
+    const speakers = [];
+    let activistProgramHTML = '';
+    let speaker = '';
+    for(let prop in this.resources.activistTraining.lecturers) {
+      speaker = this.resources.activistTraining.lecturers[prop];
+      speakers.push(`<div class="activistProgramLecturer">
+                      <div class="activistProgramLecturerName">${speaker.name}</div>
+                      <div class="activistProgramLecturerTitle">${speaker.title}</div>
+                    </div>
+      `);
+    }
+    activistProgramHTML = speakers.join('');
+
     const calendarLang = this.uiLang == 'heb' ? '&amp;hl=iw' : '';
     const locationImage = this.uiLang == 'heb' ? 'Hebrew' : '';
     const rootEl = document.querySelector('#contentContainer');
+    const activistTrainingPeopleImg = this.uiLang == 'heb' ? 'ActivistProgramGroups-straight' : 'ActivistProgramGroups-arrows';
     const html = `
       <main class="contentHome">
         <div class="homeHeader">
@@ -194,6 +209,28 @@ class Home {
           </div>
         </div>
         <div class="homeContent">
+          <div>
+            <div class="activistProgramHeader">
+              <h2 class="activistProgramTitle">${this.resources.activistTraining.title}</h2>
+            </div>
+            <div class="activistProgram">
+              <div class="activistProgramItem activistProgramPeople">
+                <img class="imgActivistProgram imgActivistProgramPeople" src="images/content/activistProgram/ActivistProgramPeople.png" />
+              </div>
+              <div class="activistProgramItem activistProgramLecturers">
+                <div class="activistProgramLecturersTitle">${this.resources.activistTraining.lecturersTitle}</div>
+                <div class="activistProgramLecturersList">${activistProgramHTML}</div>
+              </div>
+              <div class="activistProgramItem activistProgramGroups">
+                <div class="activistProgramGroupsHeader">
+                  <div class="activistProgramGroupsTitle">Getting Involved</div>
+                  <div class="activistProgramGroupsTitle2">In Strengthening Free Market Organizations</div>
+                </div>
+                <img class="imgActivistProgram imgActivistProgramGroupArrows" src="images/content/activistProgram/${activistTrainingPeopleImg}.png" />
+              </div>
+            </div>
+            <div class="activistProgramFooter"><div class="activistProgramTitle2">${this.resources.activistTraining.title2}</div></div>
+          </div>
           <div class="youTubeChannelPlaylist">
             <div class="youTubePlaylistHeader">
               <img src="images/content/YouTube-Header.jpg" />
