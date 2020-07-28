@@ -41,7 +41,7 @@ class Global {
             const btnPwa = document.querySelector('#btnPwaInner');
             btnPwa.addEventListener('click', e => {
               window.addEventListener('appinstalled', e => {
-                console.log('app is now installed on this device, thank you and enjoy :)');
+                console.log('The IFC app is now installed on this device, thank you and enjoy :)');
               });
               this.doPwaInstall();
             });

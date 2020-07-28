@@ -111,9 +111,9 @@ module.exports = function (env) {
         )
     }
     else {
-        baseConfig.plugins.push(
-            new CleanWebpackPlugin()
-        )
+        // baseConfig.plugins.push(
+        //     new CleanWebpackPlugin()
+        // )
     
         // baseConfig.module.rules.push(
         //     {
