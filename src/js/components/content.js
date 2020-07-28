@@ -1,6 +1,6 @@
 import { Global } from '../global/global.js';
-import { Config } from '../global/config.js'
-import { Home } from './home.js'
+import { Config } from '../global/config.js';
+import { Home } from './home.js';
 
 class Content {
 

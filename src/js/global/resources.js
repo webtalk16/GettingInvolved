@@ -52,6 +52,10 @@ const Resources = {
                 title: `IFC's Activist Training Program`,
                 title2: `In Coordination with:`,
                 lecturersTitle: `Among the Lecturers in the Course:`,
+                peopleTitle: `Relate to Free Market Ideas?`,
+                peopleTitle2: `Want to Lead in Policy Change?`,
+                groupsTitle: `Getting Involved`,
+                groupsTitle2: `In Strengthening Free Market Organizations`,
                 lecturers: {
                     FredK: {
                         name: `Fred Kofman`,
@@ -71,7 +75,7 @@ const Resources = {
                     },
                     BoazA: {
                         name: `Boaz Arad`,
-                        title: `Co-founded the Israeli Freedom Movement and Founder/Managing Director of the Ayn Rand Center Israel`
+                        title: `Co-founded the Israeli Freedom Movement and Founder/Managing Director of Ayn Rand Center Israel`
                     },
                     MonicaF: {
                         name: `Monica Forman`,

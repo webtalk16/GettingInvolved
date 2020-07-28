@@ -1,5 +1,10 @@
 import { Global } from '../global/global.js';
-import { Config } from '../global/config.js'
+import { Config } from '../global/config.js';
+import { Calendar } from './calendar.js';
+import { Donate } from './donate.js';
+import { Facebook } from './facebook.js';
+import { Plan } from './plan.js';
+import { Team } from './team.js';
 
 class Home {
 
@@ -11,127 +16,25 @@ class Home {
 
   loadHome () {
     console.log('Home component is loaded');
+    this.loadPages();
     this.buildHtml();
     this.bindEvents();
   }
 
+  loadPages () {
+    const CalendarPage = new Calendar();
+    CalendarPage.loadPage();
+    const DonatePage = new Donate();
+    DonatePage.loadPage();
+    const FacebookPage = new Facebook();
+    FacebookPage.loadPage();
+    const PlanPage = new Plan();
+    PlanPage.loadPage();
+    const TeamPage = new Team();
+    TeamPage.loadPage();
+  }
+
   buildHtml () {
-    // HTML other organization info
-    const groupLinks = [];
-    let groupsHtml= '';
-    let group = '';
-    let initialized = false;
-    for (let prop in this.resources.groups) {
-      initialized = false;
-      group = this.resources.groups[prop];
-      groupLinks.push(`<div class="suportOrg ${prop}"><div class="supportOrgWrapper">`);
-      if (group.banner) {
-        groupLinks.push(`<div class="groupBanner"><img src="images/groups/Banners/${group.banner}" /></div>`);
-      }
-      groupLinks.push(`<div class="orgTitle">${group[this.uiLang]}</div><div class="groupLinkedIcons">`);
-
-      
-      if (group.Link.fb) { 
-        groupLinks.push(`<a href="${group.Link.fb}"><span class="iconFacebook"></span></a>`);
-        initialized = true;
-      }
-      if (group.Link.website) { 
-        if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
-        groupLinks.push(`<a href="${group.Link.website}"><span class="iconWebsite"></span></a>`);
-        initialized = true;
-      }
-      if (group.Link.email) {
-        if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
-        groupLinks.push(`<a href="${group.Link.email}"><span class="iconEmail"></span></a>`);
-        initialized = true;
-      }
-      if (group.Link.donate) {
-        if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
-        groupLinks.push(`<a href="${group.Link.donate}"><span class="iconDonate">Donate</span></a>`);
-      }
-      groupLinks.push(`</div></div></div>`);
-    }
-    groupsHtml = groupLinks.join('');
-
-    // HTML Our Team
-    const teamMembers = [];
-    let teamMemberLinks = [];
-    let teamHtml = '';
-    let memberLinksHtml = '';
-    let member = '';
-    teamMembers.push(`<h2>${this.resources.about.ourTeam.title}</h2>`);
-    teamMembers.push('<div class="infoBoxes">');
-    let initFirstLink = false;
-    for (let prop in this.resources.about.ourTeam.team) {
-      member = this.resources.about.ourTeam.team[prop];
-
-      // HTML Member Links
-      initFirstLink = false;
-      teamMemberLinks = [];
-      teamMemberLinks.push(`<div class="memeberLinkedIcons">`);
-      if (member.links.fb) { 
-        teamMemberLinks.push(`<a href="${member.links.fb}" taget="_blank"><span class="iconFacebook"></span></a>`);
-        initFirstLink = true;
-      }
-      if (member.links.website) { 
-        if (initFirstLink) teamMemberLinks.push(`<span class="iconDivider"></span>`);
-        teamMemberLinks.push(`<a href="${member.links.website}" taget="_blank"><span class="iconWebsite"></span></a>`);
-        initFirstLink = true;
-      }
-      if (member.links.twitter) {
-        if (initFirstLink) teamMemberLinks.push(`<span class="iconDivider"></span>`);
-        teamMemberLinks.push(`<a href="${member.links.twitter}" taget="_blank"><span class="iconTwitter"></span></a>`);
-        initFirstLink = true;
-      }
-      if (member.links.linkedIn) {
-        if (initFirstLink) teamMemberLinks.push(`<span class="iconDivider"></span>`);
-        teamMemberLinks.push(`<a href="${member.links.linkedIn}" taget="_blank"><span class="iconLinkedIn"></span></a>`);
-        initFirstLink = true;
-      }
-      if (member.links.email) {
-        if (initFirstLink) teamMemberLinks.push(`<span class="iconDivider"></span>`);
-        teamMemberLinks.push(`<a href="mailto:${member.links.email}"><span class="iconEmail"></span></a>`);
-        initFirstLink = true;
-      }
-      if (member.links.phone) {
-        if (initFirstLink) teamMemberLinks.push(`<span class="iconDivider"></span>`);
-        teamMemberLinks.push(`<a href="tel:${member.links.phone}"><span class="iconPhone"></span></a>`);
-      }
-      teamMemberLinks.push(`</div>`);
-      memberLinksHtml = teamMemberLinks.join('');
-
-      // HTML Member Infobox
-      teamMembers.push(`<div class="infoBox">
-                        <header>
-                          <h3 class="infoBoxTitle">${member.name}</h3>
-                          <div class="memberTitle">${member.title}</div>
-                        </header>
-                        <content>
-                          <div class="teamMemberPic"><img src="${member.pic}" /></div>
-                          <div class="teamMemberAbout">${member.about}</div>
-                        </content>
-                        <footer>${memberLinksHtml}</footer>
-                      </div>`);
-    }
-    teamMembers.push('</div>');
-    teamHtml = teamMembers.join('');
-
-    // HTML Organizational Plan info
-    const planItems = [];
-    let planHtml= '';
-    let item = '';
-    planItems.push(`<h2>${this.resources.about.organizationalPlan.title}</h2>`);
-    planItems.push('<div class="infoBoxes">');
-    for (let prop in this.resources.about.organizationalPlan.info) {
-      item = this.resources.about.organizationalPlan.info[prop];
-      planItems.push(`<div class="infoBox">
-                        <h3 class="infoBoxTitle">${item.title}</h3>
-                        <content>${item.content}</content>
-                        <footer></footer>
-                      </div>`);
-    }
-    planItems.push('</div>');
-    planHtml = planItems.join('');
 
     // HTML Groups
     const groupItems = [];
@@ -177,7 +80,7 @@ class Home {
       interactiveBoxes = groupItems.join('');
     }
 
-    // HTML Speakers
+    // HTML Activist Program Speakers
     const speakers = [];
     let activistProgramHTML = '';
     let speaker = '';
@@ -191,10 +94,10 @@ class Home {
     }
     activistProgramHTML = speakers.join('');
 
-    const calendarLang = this.uiLang == 'heb' ? '&amp;hl=iw' : '';
     const locationImage = this.uiLang == 'heb' ? 'Hebrew' : '';
     const rootEl = document.querySelector('#contentContainer');
-    const activistTrainingPeopleImg = this.uiLang == 'heb' ? 'ActivistProgramGroups-straight' : 'ActivistProgramGroups-arrows';
+    const activistTrainingGroupsImg = this.uiLang == 'heb' ? 'ActivistProgramGroups-straight' : 'ActivistProgramGroups-arrows';
+    const activistTrainingPeopleImg = this.uiLang == 'heb' ? 'ActivistProgramPeople' : 'ActivistProgramPeople-noText';
     const html = `
       <main class="contentHome">
         <div class="homeHeader">
@@ -215,7 +118,11 @@ class Home {
             </div>
             <div class="activistProgram">
               <div class="activistProgramItem activistProgramPeople">
-                <img class="imgActivistProgram imgActivistProgramPeople" src="images/content/activistProgram/ActivistProgramPeople.png" />
+                <div class="activistProgramPeopleHeader">
+                  <div class="activistProgramPeopleTitle">${this.resources.activistTraining.peopleTitle}</div>
+                  <div class="activistProgramPeopleTitle2">${this.resources.activistTraining.peopleTitle2}</div>
+                </div>
+                <img class="imgActivistProgram imgActivistProgramPeople" src="images/content/activistProgram/${activistTrainingPeopleImg}.png" />
               </div>
               <div class="activistProgramItem activistProgramLecturers">
                 <div class="activistProgramLecturersTitle">${this.resources.activistTraining.lecturersTitle}</div>
@@ -223,10 +130,10 @@ class Home {
               </div>
               <div class="activistProgramItem activistProgramGroups">
                 <div class="activistProgramGroupsHeader">
-                  <div class="activistProgramGroupsTitle">Getting Involved</div>
-                  <div class="activistProgramGroupsTitle2">In Strengthening Free Market Organizations</div>
+                  <div class="activistProgramGroupsTitle">${this.resources.activistTraining.groupsTitle}</div>
+                  <div class="activistProgramGroupsTitle2">${this.resources.activistTraining.groupsTitle2}</div>
                 </div>
-                <img class="imgActivistProgram imgActivistProgramGroupArrows" src="images/content/activistProgram/${activistTrainingPeopleImg}.png" />
+                <img class="imgActivistProgram imgActivistProgramGroupArrows" src="images/content/activistProgram/${activistTrainingGroupsImg}.png" />
               </div>
             </div>
             <div class="activistProgramFooter"><div class="activistProgramTitle2">${this.resources.activistTraining.title2}</div></div>
@@ -252,87 +159,11 @@ class Home {
           </div>
         </div>
       </main>
-      <main class="contentFbPage">
-        <div class="fbPageHeader">IFC - Israeli Free-Market Coalition</div>
-        <div class="fbPageLeftCover"></div>
-        <div class="fbPageWrapper">
-          <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FIsraeli-Free-Market-Coalition-107814867514490%2F&tabs=timeline&width=340&height=465&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=267391923615424" width="340" height="465" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-        </div>
-        <div class="fbPageRightCover"></div>
-        </main>
-      <main class="contentDonate">
-        <div style="text-align: center;">
-          <div class="donationImage">
-            <img id="mainPhotoStreetMeetup" src="/images/MainPhotoStreetMeetup.png" width="100%" />
-            <div class="donateButtons">
-              <div class="donateTitle">${this.resources.donate.title}</div>
-            </div>
-          </div>
-          <div class='donateButton campaign'>
-            <span class="donateButtonText">${this.resources.donate.buttonCampaign}</span>
-          </div>
-          <div class='donateButton general'>
-            <span class="donateButtonText">${this.resources.donate.buttonGeneral}</span>
-          </div>
-          <div class="supportOthers">
-            <h2>ניתן גם לתמוך ולתרום באופן ישיר לארגונים
-                ש-IFC תומכת בהם
-              כגון:
-            </h2>
-            <div>${groupsHtml}</div>
-          </div>
-        </div>
-      </main>
-      <main class="contentCalendar">
-        <div class="calendarHeader">
-          <img id="calendarHeaderImage" src="/images/Theme/calendarHeader.png" />
-        </div>
-        <div class="calendarWrapper">
-          <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=amltbXlqbGV2eUBnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=NzdiZjBlOGtjMWhvbWd2bWQyYjNidGkyYjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=Y3E3MmpxajZqNnUxbDEwdXJqZ2xlNzM1bnNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZW4uamV3aXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%239E69AF&amp;color=%2333B679&amp;color=%230B8043&amp;showTitle=0&amp;showCalendars=0&amp;showTz=1${calendarLang}" style="border:none" width="100%" height="500" frameborder="0" scrolling="no"></iframe>
-        </div>
-      </main>
-      <main class="contentTeam">
-        <div id="teamHeader">
-          <img id="ifcTeamPic" src="/images/Theme/MeetUp5-ZoomScreenshot.png" />
-        </div>
-        <div id="ourTeamText">
-          ${teamHtml}
-        </div>
-      </main>
-      <main class="contentPlan">
-        <div id="aboutHeader">
-          <img id="ifcAboutPic" src="/images/Theme/MeetUp5-ZoomScreenshot.png" />
-        </div>
-        <div id="contentPlanText">
-          ${planHtml}
-        </div>
-        <div class="planLinks">
-          <a class="planUpdateLink" href="${this.resources.about.organizationalPlan.planUpdateLink}">
-            <span>
-            <span class="planUpdateText">${this.resources.about.organizationalPlan.planUpdateText}</span>
-            <br>
-            <span class="planUpdateDate">${this.resources.about.organizationalPlan.planUpdateDate}</span>
-            </span>
-          </a>
-        </div>
-      </main>
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
   }
 
   bindEvents () {
-    const donateBtnGeneral = document.querySelector('.donateButton.general');
-    const ifcDonatePaypal = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9EGG93TWBLKMQ&source=url';
-    donateBtnGeneral.addEventListener('click', function () {
-      window.open(ifcDonatePaypal, '_blank');
-    });
-
-    const donateBtnCampaign = document.querySelector('.donateButton.campaign');
-    const ifcDonateDrove = 'https://drove.com/.294k';
-    donateBtnCampaign.addEventListener('click', function () {
-      window.open(ifcDonateDrove, '_blank');
-    });
-
     const homePromoBoxFooter = document.querySelector('.homePromoBoxFooter');
     const eventDirections = 'https://docs.google.com/document/d/1PoTf5UFPJ1nN4XFbyjz8s2-CWWe73AeDk4pZrvHDHlY/edit?usp=sharing';
     homePromoBoxFooter.addEventListener('click', function () {

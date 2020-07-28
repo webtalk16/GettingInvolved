@@ -698,13 +698,42 @@ body.layoutRTL {
     }
     .homeContent .activistProgram .imgActivistProgram {
         width: 100%;
-        max-width: 400px;
+        max-width: 375px;
     }
     .homeContent .activistProgram .imgActivistProgram.imgActivistProgramPeople {
         position: relative;
         /* top: 50%;
         transform: translateY(-50%); */
         top: 0px;
+    }
+    
+    /* .homeContent .activistProgram .activistProgramItem.activistProgramGroups, */
+    .homeContent .activistProgram .activistProgramItem.activistProgramPeople {
+        flex: 1 0 23%;
+    }
+    .layoutRTL .homeContent .activistProgram .activistProgramItem.activistProgramPeople {
+        text-align: left;
+    }
+    .homeContent .activistProgram .activistProgramPeople {
+        position: relative;
+    }
+    .homeContent .activistProgram .activistProgramPeople .activistProgramPeopleHeader {
+        position: absolute;
+        top: 27px;
+        left: 20%;
+        text-align: center;
+    }
+    .layoutRTL .homeContent .activistProgram .activistProgramPeople .activistProgramPeopleHeader {
+        display: none;
+    }
+    .homeContent .activistProgram .activistProgramPeople .activistProgramPeopleHeader .activistProgramPeopleTitle {
+        font-size: 16px;
+        color: #004157;
+    }
+    .homeContent .activistProgram .activistProgramPeople .activistProgramPeopleHeader .activistProgramPeopleTitle2 {
+        font-weight: bold;
+        font-size: 16px;
+        color: #004157;
     }
     .homeContent .activistProgram .activistProgramItem.activistProgramGroups {
         position: relative;
@@ -723,6 +752,9 @@ body.layoutRTL {
         left: 0px;
         /* transform: translateY(-93%); */
         text-align: center;
+    }
+    .layoutRTL .homeContent .activistProgram .activistProgramItem.activistProgramGroups .activistProgramGroupsHeader {
+        display: none;
     }
     .homeContent .activistProgram .activistProgramItem.activistProgramGroups .activistProgramGroupsHeader .activistProgramGroupsTitle {
         font-weight: bold;

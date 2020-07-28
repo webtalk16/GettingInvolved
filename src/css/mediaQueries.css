@@ -5,6 +5,10 @@
     .homeContent .activistProgram .activistProgramItem.activistProgramGroups {
         flex: 1 0 20%;
     }
+    .homeContent .activistProgram .activistProgramPeople .activistProgramPeopleHeader {
+        top: 0px;
+        left: 26%;
+    }
 }
 @media only screen and (max-width: 850px) {
     #appMain #menuIcon { display: inline-block; }
@@ -87,17 +91,25 @@
     .homeContent .youTubeChannelPlaylist {
         padding: 0px 3%;
     }
-    .homeContent .activistProgram {
+    .homeContent .activistProgram,
+    .layoutRTL .homeContent .activistProgram {
         flex-direction: column;
+    }
+    .homeContent .activistProgram .activistProgramPeople .activistProgramPeopleHeader {
+        top: 27px;
+        left: 20%;
     }
     .homeContent .activistProgram .activistProgramItem.activistProgramPeople {
         background: url(../images/content/activistProgram/logo-Hamama.png) 98% 10% / 110px auto no-repeat;
+        order: 1;
     }
-    .homeContent .activistProgramLecturers {
+    .homeContent .activistProgram .activistProgramItem.activistProgramLecturers {
         margin: 20px 0px;
+        order: 2;
     }
     .homeContent .activistProgram .activistProgramItem.activistProgramGroups {
         background: none;
+        order: 3;
     }
     .homeContent .activistProgram .activistProgramItem.activistProgramGroups .activistProgramGroupsHeader {
         position: static;
