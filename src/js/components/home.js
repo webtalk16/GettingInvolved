@@ -1,4 +1,5 @@
 import { Global } from '../global/global.js';
+import { Utils } from '../global/utils.js';
 import { Config } from '../global/config.js';
 import { Calendar } from './calendar.js';
 import { Donate } from './donate.js';
@@ -10,6 +11,7 @@ class Home {
 
   constructor () {
     this.global = new Global();
+    this.utils = new Utils();
     this.resources = this.global.getResources();
     this.uiLang = Config.uiLang.get.call(Config.uiLang)
   } 
@@ -65,13 +67,18 @@ class Home {
               groupItems.push(`<a href="${groupItem.Link.email}"><span class="iconEmail"></span></a>`);
               addedFirstLogo = true;
             }
+            if (groupItem.Link.phone) {
+              if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
+              groupItems.push(`<a href="tel:${groupItem.Link.phone}""><span class="iconPhone"></span></a>`);
+              addedFirstLogo = true;
+            }
             if (groupItem.Link.donate) {
               if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
               groupItems.push(`<a href="${groupItem.Link.donate}"><span class="iconDonate">Donate</span></a>`);
             }
             groupItems.push(`</div><div class="groupItemDesc">`);
             if (groupItem.info) {
-              groupItems.push(`<span>${groupItem.info}</span>`);
+              groupItems.push(`<span class="groupItemDescText">${groupItem.info}</span>`);
             }
             groupItems.push(`</div><div class="groupItemInfoFooter"></div></div>`);
             groupItems.push(`</content>
@@ -161,6 +168,8 @@ class Home {
       </main>
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
+
+    this.utils.readMoreTruncate(rootEl.querySelectorAll('.groupItemDesc'), '.groupItemDescText', 5);
   }
 
   bindEvents () {

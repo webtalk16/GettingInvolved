@@ -80,3 +80,40 @@
     flex:1;
     flex-direction: column;
 }
+
+/* Lighbox Popup */
+#lightBoxContainer {
+    display: none;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(0,0,0,.8);
+    z-index: 2;
+}
+#lightBoxContainer.show {
+    display: block;
+}
+#lightBoxContainer .lightBoxPopup {
+    position: absolute;
+    background: rgba(255,255,255,.9);
+    top: 50%;
+    left: 30%;
+    right: 30%;
+    transform: translateY(-50%);
+    padding: 15px;
+    color: #333333;
+    z-index: 1;
+}
+#lightBoxContainer .lightBoxPopup #lightBoxPopupText {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+#lightBoxContainer .lightBoxPopup .closeBtn {
+    background: url(../images/icons/close-roundBtn-black.png) right top / auto 40px no-repeat;
+    height: 40px;
+    margin-bottom: 15px;
+    opacity: .8;
+    cursor: pointer;
+}

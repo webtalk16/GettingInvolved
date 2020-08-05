@@ -24,6 +24,7 @@ body.layoutRTL {
     text-align: right;
 }
 #appMain {
+    position: relative;
     /* max-width: 650px;
     margin: 0px auto; */
 }
@@ -340,7 +341,8 @@ body.layoutRTL {
     min-width: 215px;
     padding: 2%;
     padding-bottom: 45px;
-    font-size: .9em;
+    line-height: 1.2em;
+    font-size: 15px;
 }
 #contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox header h3.infoBoxTitle {
     margin-bottom: 0px;
@@ -360,7 +362,9 @@ body.layoutRTL {
     width: 100%;
 }
 #contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox content .teamMemberAbout {
+    position: relative;
     padding-left: 2%;
+    overflow: hidden;
 }
 .layoutRTL #contentMain #contentContainer main.contentTeam #ourTeamText .infoBoxes .infoBox content .teamMemberAbout {
     padding-right: 2%;
@@ -574,6 +578,7 @@ body.layoutRTL {
     }
     .groupLinkedIcons .iconFacebook,
     .groupLinkedIcons .iconWebsite,
+    .groupLinkedIcons .iconPhone,
     .groupLinkedIcons .iconEmail {
         display: inline-block;
         background-size: contain;
@@ -585,6 +590,7 @@ body.layoutRTL {
 
     .groupLinkedIcons .iconFacebook { background-image: url(../images/icons/icon-facebook.png) }
     .groupLinkedIcons .iconWebsite { background-image: url(../images/icons/icon-website.png) }
+    .groupLinkedIcons .iconPhone { background-image: url(../images/icons/icon-phone.png) }
     .groupLinkedIcons .iconEmail { background-image: url(../images/icons/icon-email.png) }
     .groupLinkedIcons .iconDonate { 
         display: inline-block;
@@ -592,6 +598,7 @@ body.layoutRTL {
     }
     .groupLinkedIcons a:hover .iconFacebook { background-image: url(../images/icons/icon-facebook-blue.png) }
     .groupLinkedIcons a:hover .iconWebsite { background-image: url(../images/icons/icon-website-blue.png) }
+    .groupLinkedIcons a:hover .iconPhone { background-image: url(../images/icons/icon-phone-blue.png) }
     .groupLinkedIcons a:hover .iconEmail { background-image: url(../images/icons/icon-email-blue.png) }
     .groupLinkedIcons a:hover .iconDonate { 
         color: #106fb3;
@@ -660,6 +667,43 @@ body.layoutRTL {
         padding: 3% 5%;
         color: #333333;
         align-items: center;
+    }
+    .leadingGroups .interactiveBox .groupItemDesc .groupItemDescText {
+        position: relative;
+        margin: 0px;
+        padding: 0px;
+        line-height: 1.2em;
+        font-size: 15px;
+        overflow: hidden;
+    }
+    .truncate {
+        cursor: pointer;
+    }
+    .truncate:before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 65%);
+    }
+    .truncate:after {
+        content: "read more >";
+        position: absolute;
+        bottom: 0px;
+        right: 8%;
+        white-space: nowrap;
+        color: #246ea6;
+    }
+    .layoutRTL .truncate:after {
+        content: "קרא עוד >";
+        position: absolute;
+        bottom: 0px;
+        left: 8%;
+        right: auto;
+        white-space: nowrap;
+        color: #246ea6;
     }
     .groupItemInfoFooter {
         height: 20px;

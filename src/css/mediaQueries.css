@@ -9,6 +9,10 @@
         top: 0px;
         left: 26%;
     }
+    #lightBoxContainer .lightBoxPopup {
+        left: 20%;
+        right: 20%;
+    }
 }
 @media only screen and (max-width: 850px) {
     #appMain #menuIcon { display: inline-block; }
@@ -119,10 +123,18 @@
         transform: none;
         bottom: -4px;
     }
+    #lightBoxContainer .lightBoxPopup {
+        left: 10%;
+        right: 10%;
+    }
   }
   @media only screen and (max-width: 560px) {
     .homeContent .activistProgram .activistProgramItem.activistProgramPeople {
         background: url(../images/content/activistProgram/logo-Hamama.png) 98% 88% / 110px auto no-repeat;
+    }
+    #lightBoxContainer .lightBoxPopup {
+        left: 5%;
+        right: 5%;
     }
   }
   @media only screen and (max-width: 430px) {
@@ -157,5 +169,12 @@
         width: 85%;
         padding: 3.5%;
         padding-bottom: 45px;
+    }
+    .homeContent .activistProgramLecturerTitle {
+        font-size: 1em;
+    }
+    #lightBoxContainer .lightBoxPopup {
+        left: 2%;
+        right: 2%;
     }
   }

@@ -1,12 +1,14 @@
 import { Global } from '../global/global.js';
 import { Config } from '../global/config.js';
+import { Utils } from '../global/utils.js';
 
 class Team {
 
   constructor () {
     this.global = new Global();
+    this.utils = new Utils();
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang)
+    this.uiLang = Config.uiLang.get.call(Config.uiLang);
   } 
 
   loadPage () {

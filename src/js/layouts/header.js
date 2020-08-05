@@ -1,11 +1,11 @@
 import { Global } from '../global/global.js';
-
-const rootEl = document.querySelector('#appMain');
+import { Utils } from '../global/utils.js';
 
 class Header {
 
   constructor () {
     this.global = new Global();
+    this.utils = new Utils();
     this.resources = this.global.getResources();
     this.config = this.global.getConfig();
     this.homepage = this.setHomePage();
@@ -25,12 +25,8 @@ class Header {
     let urlparams = (new URL(document.location)).searchParams;
     let pageParam = urlparams.get("page");
     const homepage = pageParam ? pageParam : 'home';
-    this.setPage(homepage);
+    this.utils.setPage(homepage);
     return homepage;
-  }
-
-  setPage (page) {
-    rootEl.className = page;
   }
 
   setLayoutByLang () {
@@ -118,6 +114,7 @@ class Header {
         </div>
       </div>
     `;
+    const rootEl = document.querySelector('#appMain');
     rootEl.insertAdjacentHTML('beforeend', html);
   }
 
@@ -156,27 +153,34 @@ class Header {
     
     let subMenuItem = null;
     const menuItems = document.querySelectorAll('.menuItem');
-    menuItems.forEach( function(el) { 
-      el.addEventListener('click', function (event) {
-        subMenuItem = event.target.closest('.subMenuItem');
-        headerNav.querySelectorAll('li').forEach( function(li) { li.classList.remove('selected'); li.classList.remove('showSubNav'); });
-        if (!this.classList.contains('parentItem')) {
-          this.classList.add('selected');
-          rootEl.className = this.getAttribute('name');
+
+    const loopItems = (that) => {
+      return function handleItem (el) {
+        const handleClick = (that) => {
+          return function handleEvent (event) {
+            subMenuItem = event.target.closest('.subMenuItem');
+            headerNav.querySelectorAll('li').forEach( function(li) { li.classList.remove('selected'); li.classList.remove('showSubNav'); });
+            if (!this.classList.contains('parentItem')) {
+              this.classList.add('selected');
+              that.utils.setPage(this.getAttribute('name'));
+            }
+            else if (subMenuItem) {
+              that.utils.setPage(subMenuItem.getAttribute('name'));
+              this.classList.add('showSubNav');
+              subMenuItem.classList.add('selected');
+            }
+            else if (this.classList.contains('parentItem')) {
+              const firstSubNavItem = this.querySelector('.subNav').firstChild;
+              that.utils.setPage(firstSubNavItem.getAttribute('name'));
+              firstSubNavItem.classList.add('selected');
+              this.classList.add('showSubNav');
+            }
+          }
         }
-        else if (subMenuItem) {
-          rootEl.className = subMenuItem.getAttribute('name');
-          this.classList.add('showSubNav');
-          subMenuItem.classList.add('selected');
-        }
-        else if (this.classList.contains('parentItem')) {
-          const firstSubNavItem = this.querySelector('.subNav').firstChild;
-          rootEl.className = firstSubNavItem.getAttribute('name');
-          firstSubNavItem.classList.add('selected');
-          this.classList.add('showSubNav');
-        }
-      });
-    });
+        el.addEventListener('click', handleClick(that));
+      }
+    }
+    menuItems.forEach( loopItems(this) );
   }
 
 }

@@ -282,7 +282,7 @@ const Resources = {
                     icon: '',
                     banner: '',
                     logo: 'SFL-Alpha.png',
-                    info: 'SFL’s mission is to provide a unified, student-driven forum of support for students and student organizations dedicated to liberty. <br/><br/>What to be part of out great team? register <a href="https://bit.ly/2VkGEXn">here</a>',
+                    info: 'SFL’s mission is to provide a unified, student-driven forum of support for students and student organizations dedicated to liberty. <br/><br/>What to be part of out great team? register <a href="https://bit.ly/2VkGEXn" target="_blank">here</a>',
                     Link: {
                         fb: 'https://www.facebook.com/SFL.Israel/',
                         website: 'http://studentsforliberty.org/europe',
@@ -388,6 +388,22 @@ const Resources = {
                         website: 'https://www.aynrand.org.il/donate',
                         donate: 'http://paypal.me/AynRandCenterIsrael',
                         email: ''
+                    }
+                },
+                Taharut: {
+                    acronym: '',
+                    heb: 'תחרות',
+                    eng: 'Tacharut',
+                    icon: '',
+                    banner: '',
+                    logo: 'Taharut.png',
+                    info: `Tacharut – The Movement For Freedom Of Employment, is the only organization in Israel dedicated to curbing union power. We are working to bring about the essential legislative changes needed to limit union power. In the business sector, our primary goal is to halt the continuing trend of trade unionization in private business corporations. In the public sector, our goal is to limit the Histadrut’s ability to blackmail the government into economy-stagnating concessions. To this end, Tacharut will operate in several areas to minimize trade union power, enhance freedom and prosperity for both employee and employer, and bring about significant change in the labor market (Research and Policy Papers, Raising Public Awareness, Right-to-Work Aid Center, Government Relations and Lobbying).`,
+                    Link: {
+                        fb: 'https://www.facebook.com/tacharutorg/',
+                        website: 'https://www.tacharut.org/',
+                        donate: 'https://www.tacharut.org/support/',
+                        email: 'info@tacharut.org',
+                        phone: `+97225609650`
                     }
                 },
                 BneiHorin: {
@@ -930,6 +946,22 @@ const Resources = {
                         website: 'https://www.aynrand.org.il/donate',
                         donate: 'http://paypal.me/AynRandCenterIsrael',
                         email: ''
+                    }
+                },
+                Taharut: {
+                    acronym: '',
+                    heb: 'תחרות',
+                    eng: 'TACHARUT',
+                    icon: '',
+                    banner: '',
+                    logo: 'Taharut.png',
+                    info: `תנועות תחרות פועלת לקידום גמישות, הוגנות ואחריות בשוק התעסוקה בישראל. תנועה חותרת לביסוס התשתית הרעיונית הנדרשת לשם עדכון חקיקת התעסוקה.`,
+                    Link: {
+                        fb: 'https://www.facebook.com/tacharutorg/',
+                        website: 'https://www.tacharut.org/',
+                        donate: 'https://www.tacharut.org/support/',
+                        email: 'info@tacharut.org',
+                        phone: `+97225609650`
                     }
                 },
                 BneiHorin: {
