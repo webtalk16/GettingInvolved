@@ -177,7 +177,7 @@ const Resources = {
                             name: 'Maxim Voro',
                             title: 'Round Table Coordinator, Group Activist',
                             pic: 'images/team/MaximVoro.jpg',
-                            about: ``,
+                            about: `Manages the IFC Round Table project as a group coordinator.`,
                             links: {
                                 fb: 'https://www.facebook.com/maxim.voro.58',
                                 website: '',
@@ -185,6 +185,20 @@ const Resources = {
                                 linkedIn: '',
                                 email: 'maximvoro@gmail.com',
                                 phone: '+972524516089'
+                            }
+                        },
+                        Eliram: {
+                            name: 'Eliram Maoz',
+                            title: 'Round Table Coordinator, Group Activist',
+                            pic: 'images/team/EliramMaoz.jpg',
+                            about: `An active team member in IFC. Manages the IFC Round Table project together with Maxim Voro. Works as a graphic designer, video editor, creator & producer.`,
+                            links: {
+                                fb: 'https://www.facebook.com/eliram.maoz',
+                                website: 'https://www.facebook.com/BlinkStudioEM/',
+                                twitter: '',
+                                linkedIn: '',
+                                email: 'eliramaoz@gmail.com',
+                                phone: '+972543455856'
                             }
                         },
                         Neta: {
@@ -735,7 +749,7 @@ const Resources = {
                             name: 'מקסים וורו',
                             title: 'מתאם שולחן העגול, פעיל <span class="englishInHebrewText">IFC</span>',
                             pic: 'images/team/MaximVoro.jpg',
-                            about: ``,
+                            about: `מוביל את פרוייקט השולחן העגול ואחראי על תיאום בין הקבוצות.`,
                             links: {
                                 fb: 'https://www.facebook.com/maxim.voro.58',
                                 website: '',
@@ -743,6 +757,20 @@ const Resources = {
                                 linkedIn: '',
                                 email: 'maximvoro@gmail.com',
                                 phone: '+972524516089'
+                            }
+                        },
+                        Eliram: {
+                            name: 'אלירם מעוז',
+                            title: 'מתאם שולחן העגול. פעיל IFC',
+                            pic: 'images/team/EliramMaoz.jpg',
+                            about: `גרפיקאי ועורך וידאו עצמאי בעל עסק. סטודנט לתואר בקולנוע. מנהל יחד עם מקסים וורו את פרוייקט השולחן העגול של IFC.`,
+                            links: {
+                                fb: 'https://www.facebook.com/eliram.maoz',
+                                website: 'https://www.facebook.com/BlinkStudioEM/',
+                                twitter: '',
+                                linkedIn: '',
+                                email: 'eliramaoz@gmail.com',
+                                phone: '+972543455856'
                             }
                         },
                         Neta: {
