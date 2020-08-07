@@ -28,11 +28,14 @@
     }
     #appMain #headerMain #headerContainer #headerNav #navCloseBtn {
         display: block;
+        /* background: url(../images/icons/close-roundBtn-white.png) right center / auto 30px no-repeat;
+        min-height: 30px; */
         padding: 2%;
         font-size: 34px;
         text-align: right;
     }
     .layoutRTL #appMain #headerMain #headerContainer #headerNav #navCloseBtn {
+        /* background: url(../images/icons/close-roundBtn-white.png) left center / auto 30px no-repeat; */
         text-align: left;
     }
     #appMain #headerMain #headerContainer #headerNav ul#ulNavListItems {

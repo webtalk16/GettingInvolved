@@ -60,7 +60,20 @@ body.layoutRTL {
     height: 40px;
     line-height: 40px;
 }
-#headerMain { }
+#headerMain {
+    position: relative;
+    top: 0px;
+    /* transition: top 2000ms linear; */
+}
+#headerMain.sticky {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #FFFFFF;
+    border-bottom: 5px solid #246ea6;
+    z-index: 1;
+ }
 #headerMain #headerContainer {
     display: flex;
     height: 95px;

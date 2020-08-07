@@ -8,6 +8,48 @@ class Utils {
       this.rootEl = document.querySelector('#appMain');
     }
 
+    // TODO - Lazy Load images
+
+    // TODO - make header sticky on scroll up
+    setStickyHeader () {
+      window.onscroll = function() { setSticky()};
+
+      const header = document.querySelector('#headerMain');
+      // const headerHieght = header.offsetHeight;
+      const headerPos = header.offsetTop;
+      const screenHeight = window.screen.height;
+
+      let scrollPos = 0;
+      let lastScrolledTime = 0;
+      let currentTime = 0;
+      function setSticky () {
+        currentTime = (new Date().getTime());
+
+        // console.log("---- currentTime: " + currentTime);
+        // console.log("lastScrolledTime: " + lastScrolledTime);
+        // Only check after 200ms
+        if (currentTime - 1200 > (lastScrolledTime)) {
+          console.log("check sticky ");
+          if(window.pageYOffset > scrollPos) {
+              //scrolling up
+              header.classList.remove("sticky");
+            }
+            else {
+              //scrolling down
+              if (window.pageYOffset > (headerPos + (screenHeight / 2))) {
+                header.classList.add("sticky");
+              }
+              else {
+                header.classList.remove("sticky");
+              }
+            }
+          lastScrolledTime = currentTime;
+        }
+
+        scrollPos = window.pageYOffset;
+      }
+    }
+
     setPage (page) {
       this.rootEl.className = page;
       this.actionPerPage(page);

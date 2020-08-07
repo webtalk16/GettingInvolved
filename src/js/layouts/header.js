@@ -18,6 +18,7 @@ class Header {
     this.bindLangSelect();
     this.bindMenuIcon();
     this.global.checkPwa(document.querySelector('#headerMain'));
+    this.utils.setStickyHeader();
   }
 
   setHomePage () {

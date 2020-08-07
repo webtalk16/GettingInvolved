@@ -111,8 +111,8 @@
     overflow-y: scroll;
 }
 #lightBoxContainer .lightBoxPopup .closeBtn {
-    background: url(../images/icons/close-roundBtn-black.png) right top / auto 40px no-repeat;
-    height: 40px;
+    background: url(../images/icons/close-roundBtn-black.png) right top / auto 30px no-repeat;
+    height: 30px;
     margin-bottom: 15px;
     opacity: .8;
     cursor: pointer;
