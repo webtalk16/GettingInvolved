@@ -35,17 +35,8 @@ class Header {
   }
 
   bindMenuIcon () {
-    const menuIcon = document.querySelector('#menuIcon');
-    // menuIcon.addEventListener('click', () => {
-    //   menuIcon.parentNode.classList.toggle('showMenu');
-    // });
     document.addEventListener('click', (event) => {
-      if (event.target !== menuIcon && !menuIcon.contains(event.target)) {
-        menuIcon.parentNode.classList.remove('showMenu');
-      }
-      else {
-        menuIcon.parentNode.classList.toggle('showMenu');
-      }
+      this.utils.menuIconBindClick(event);
     });
   }
 

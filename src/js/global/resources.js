@@ -478,7 +478,7 @@ const Resources = {
                 },
                 MeretzLiberals: {
                     acronym: '',
-                    heb: 'הליברלים במרצ',
+                    heb: 'הליברלים במרצ ليبراليو ميرتس',
                     eng: 'Liberal in Meretz',
                     icon: '',
                     banner: '',
@@ -1050,7 +1050,7 @@ const Resources = {
                 },
                 MeretzLiberals: {
                     acronym: '',
-                    heb: 'הליברלים במרצ',
+                    heb: 'הליברלים במרצ ليبراليو ميرتس',
                     eng: 'Liberal in Meretz',
                     icon: '',
                     banner: '',

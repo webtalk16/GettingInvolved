@@ -6,13 +6,31 @@ class Utils {
       this.popupText = this.popupContainer.querySelector('#lightBoxPopupText');
       this.initLightBoxPopup();
       this.rootEl = document.querySelector('#appMain');
+      this.menuIcon = null;
     }
 
     // TODO - Lazy Load images
 
     // TODO - make header sticky on scroll up
+
+    menuIconBindClick (event) {
+      this.menuIcon = document.querySelector('#menuIcon');
+      if (event.target !== menuIcon && !menuIcon.contains(event.target)) {
+        menuIcon.parentNode.classList.remove('showMenu');
+      }
+      else {
+        menuIcon.parentNode.classList.toggle('showMenu');
+      }
+    }
+
+    closeMenu () {
+      if (this.menuIcon) { this.menuIcon.parentNode.classList.remove('showMenu'); }
+    }
+
     setStickyHeader () {
-      window.onscroll = function() { setSticky()};
+      window.onscroll = function(utils) { 
+        return function () { setSticky(utils); }
+      }(this);
 
       const header = document.querySelector('#headerMain');
       // const headerHieght = header.offsetHeight;
@@ -22,27 +40,35 @@ class Utils {
       let scrollPos = 0;
       let lastScrolledTime = 0;
       let currentTime = 0;
-      function setSticky () {
+      function setSticky (utils) {
         currentTime = (new Date().getTime());
 
-        // console.log("---- currentTime: " + currentTime);
-        // console.log("lastScrolledTime: " + lastScrolledTime);
-        // Only check after 200ms
-        if (currentTime - 1200 > (lastScrolledTime)) {
-          console.log("check sticky ");
-          if(window.pageYOffset > scrollPos) {
-              //scrolling up
-              header.classList.remove("sticky");
+        utils.closeMenu();
+        // Only check after 900ms
+        if (currentTime - 900 > (lastScrolledTime)) {
+          // if(window.pageYOffset > scrollPos) {
+          //   //scrolling down
+          //   header.classList.remove("sticky");
+          // }
+          // else {
+          //   //scrolling up
+          //   if (window.pageYOffset > (headerPos + (screenHeight / 2))) {
+          //     header.classList.add("sticky");
+          //   }
+          //   else {
+          //     header.classList.remove("sticky");
+          //   }
+          // }
+          header.classList.remove("sticky");
+          if(window.pageYOffset < scrollPos) {
+            //scrolling up
+            if (window.pageYOffset > (headerPos + (screenHeight / 2))) {
+              header.classList.add("sticky");
             }
             else {
-              //scrolling down
-              if (window.pageYOffset > (headerPos + (screenHeight / 2))) {
-                header.classList.add("sticky");
-              }
-              else {
-                header.classList.remove("sticky");
-              }
+              header.classList.remove("sticky");
             }
+          }
           lastScrolledTime = currentTime;
         }
 
@@ -53,6 +79,16 @@ class Utils {
     setPage (page) {
       this.rootEl.className = page;
       this.actionPerPage(page);
+      this.scrollToTop();
+    }
+
+    scrollToTop() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      const header = document.querySelector('#headerMain');
+      if (header) {
+        header.classList.remove("sticky");
+      }
     }
 
     actionPerPage (page) {
@@ -60,6 +96,9 @@ class Utils {
       switch (page) {
         case 'team':
           this.readMoreTruncate(contentContainer.querySelectorAll('.teamMemberAbout'), null, 12);
+          break;
+        case 'home':
+          // this.readMoreTruncate(contentContainer.querySelectorAll('.groupItemDesc'), '.groupItemDescText', 5);
           break;
       }
     }
@@ -90,7 +129,7 @@ class Utils {
         const lineHeight = parseInt(style.getPropertyValue('line-height'), 10);
         const height = item.clientHeight;
         const lines = height / lineHeight;
-        if(lines > maxLines) {
+        if (lines > maxLines) {
           item.style.height = (lineHeight * maxLines) + 'px';
           item.classList.add('truncate');
           item.addEventListener('click', function openLightBox (txt, that) { return function () {  that.openLightBox(txt); } }(item.innerHTML, this));
