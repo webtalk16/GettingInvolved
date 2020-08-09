@@ -61,8 +61,6 @@ body.layoutRTL {
     line-height: 40px;
 }
 #headerMain {
-    position: relative;
-    top: 0px;
     /* transition: top 2000ms linear; */
 }
 #headerMain.sticky {
@@ -71,7 +69,7 @@ body.layoutRTL {
     left: 0px;
     right: 0px;
     background-color: #FFFFFF;
-    border-bottom: 5px solid #246ea6;
+    border-bottom: 5px solid #408ac9;
     z-index: 1;
  }
 #headerMain #headerContainer {
@@ -116,8 +114,13 @@ body.layoutRTL {
     width: 100%;
 }
 #menuIcon {
+    position: relative;
     display: none;
     margin-top: 7px;
+    z-index: 3;
+}
+#appMain #headerMain #headerContainer #headerNav.showMenu #menuIcon {
+    z-index: 0;
 }
 #menuIcon div {
     width: 30px;
