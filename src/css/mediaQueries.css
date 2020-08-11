@@ -39,6 +39,7 @@
         text-align: left;
     }
     #appMain #headerMain #headerContainer #headerNav ul#ulNavListItems {
+        display: none;
         opacity: 0;
         position: absolute;
         flex-direction: column;
@@ -49,11 +50,12 @@
         padding:5px 3%;
         background-color: #2a2f36;
         z-index: 1;
-        transition: top 150ms linear, opacity 250ms linear;
+        transition: top 250ms linear, opacity 350ms linear;
     }
-    #appMain #headerMain #headerContainer #headerNav.showMenu ul#ulNavListItems {
-        opacity: 1;
+    #appMain #headerMain #headerContainer.showMenu #headerNav ul#ulNavListItems {
+        display: block;
         top: 0px;
+        opacity: 1;
     }
     .layoutRTL #appMain #headerMain #headerContainer #headerNav ul#ulNavListItems {
         /* right: auto;

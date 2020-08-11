@@ -83,8 +83,10 @@ class Header {
 
   }
 
+  // if(!el.classList.contains('home')){el.classList.add('selected');
+  
   buildHtml () {
-    const homeOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected');el.classList.remove('showSubNav');});document.querySelector('#appMain').className='home';`;
+    const homeOnclick = `document.querySelector('#headerNav').querySelectorAll('li').forEach(function(el){el.classList.remove('selected');el.classList.remove('showSubNav');});document.querySelector('#appMain').className='home';document.querySelector('.menuItem.home').classList.add('selected');document.body.scrollTop=0;document.documentElement.scrollTop=0;`;
     const html = `
       <div id="headerMain">
         <div id="headerContainer">
@@ -116,8 +118,10 @@ class Header {
     const objNav = this.global.getResourceNavItems();
     let selected = '';
     let parentMenuItem = '';
+    const homeLinkTxt = 'heb' === this.config.uiLang.get.call(this.config.uiLang) ? 'ראשי' : 'Home';
 
     navListItems += `<li id="navCloseBtn">X</li>`;
+    navListItems += `<li name="home" class="menuItem home ${'home' == this.homepage ? ' selected' : ''}"><span class="txtNavItem">${homeLinkTxt}</span></li>`;
     for (let navItem in objNav) {
       selected = objNav[navItem].name == this.homepage ? ' selected' : '';
       subnavHTML = '';

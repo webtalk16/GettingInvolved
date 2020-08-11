@@ -79,12 +79,17 @@ body.layoutRTL {
     align-items: center;
 }
 #headerMain #headerContainer #headerLogo {
+    position: relative;
     background: url(../images/Theme/IFC-LogoEnglish.jpg) left center / auto 64px no-repeat;
     min-width: 160px;
     height: 100%;
     margin-left:20px;
     cursor: pointer;
+    /* z-index: 3; */
 }
+/* #headerMain #headerContainer.showMenu #headerLogo {
+    z-index: 3;
+} */
 .layoutRTL #headerMain #headerContainer #headerLogo {
     background: url(../images/Theme/Logo-Title-Hebrew.png) right center / auto 64px no-repeat;
     margin-left:0px;
@@ -119,7 +124,7 @@ body.layoutRTL {
     margin-top: 7px;
     z-index: 3;
 }
-#appMain #headerMain #headerContainer #headerNav.showMenu #menuIcon {
+#appMain #headerMain #headerContainer.showMenu #headerNav #menuIcon {
     z-index: 0;
 }
 #menuIcon div {

@@ -16,15 +16,15 @@ class Utils {
     menuIconBindClick (event) {
       this.menuIcon = document.querySelector('#menuIcon');
       if (event.target !== menuIcon && !menuIcon.contains(event.target)) {
-        menuIcon.parentNode.classList.remove('showMenu');
+        menuIcon.parentNode.parentNode.classList.remove('showMenu');
       }
       else {
-        menuIcon.parentNode.classList.toggle('showMenu');
+        menuIcon.parentNode.parentNode.classList.toggle('showMenu');
       }
     }
 
     closeMenu () {
-      if (this.menuIcon) { this.menuIcon.parentNode.classList.remove('showMenu'); }
+      if (this.menuIcon) { this.menuIcon.parentNode.parentNode.classList.remove('showMenu'); }
     }
 
     setStickyHeader () {
