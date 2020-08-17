@@ -360,6 +360,10 @@ body.layoutRTL {
 .contentPosts .postSocialIcon {
     display: inline-block;
     margin: 0px 7px;
+    opacity: .78;
+}
+.contentPosts .postSocialIcon:hover {
+    opacity: 1;
 }
 .contentPosts .postSocialIcon img {
     height: 25px;
