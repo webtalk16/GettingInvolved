@@ -53,6 +53,7 @@ module.exports = function (env) {
             new CopyPlugin([
                 { from: 'src/css', to: 'css' },
                 { from: 'src/images', to: 'images' },
+                { from: 'src/posts', to: 'posts' },
                 { from: 'manifest.webmanifest', to: '' },
                 { from: 'src/favicon.ico', to: '' }
             ]),

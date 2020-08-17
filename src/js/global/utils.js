@@ -97,6 +97,9 @@ class Utils {
         case 'team':
           this.readMoreTruncate(contentContainer.querySelectorAll('.teamMemberAbout'), null, 12);
           break;
+        case 'postsFeed':
+          this.readMoreTruncate(contentContainer.querySelectorAll('.postText'), null, 12);
+          break;
         case 'home':
           // this.readMoreTruncate(contentContainer.querySelectorAll('.groupItemDesc'), '.groupItemDescText', 5);
           break;
@@ -125,6 +128,7 @@ class Utils {
 
     truncate (item, maxLines) {
       if (item) {
+        // set css for item - line-height: ??em; font-size: ??px; AND make parent position:relative;overflow:hidden;
         const style = window.getComputedStyle(item, null);
         const lineHeight = parseInt(style.getPropertyValue('line-height'), 10);
         const height = item.clientHeight;

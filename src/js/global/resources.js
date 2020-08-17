@@ -10,9 +10,9 @@ const Resources = {
                     text: 'Donate',
                     name: 'donate'
                 },
-                fbPage: {
-                    text: 'Facebook',
-                    name: 'fbPage'
+                postsFeed: {
+                    text: 'Feed',
+                    name: 'postsFeed'
                 },
                 about: {
                     text: 'About Us',
@@ -288,6 +288,19 @@ const Resources = {
                 Title1: 'Groups',
                 Title2: 'That Work to Promote Libery, Classic Liberalizm and Free Market in Israel'
             },
+            posts: {
+                viewOn: 'view post on:'
+            },
+            dateTime: {
+                now: `just now`,
+                minutesAgo: `@@@ minutes ago`,
+                hourAgo: `@@@ hour ago`,
+                hoursAgo: `@@@ hours ago`,
+                dayAgo: `@@@ day ago`,
+                daysAgo: `@@@ days ago`,
+                monthAgo: `@@@ month ago`,
+                monthsAgo: `@@@ months ago`
+            },
             groups: {
                 SFL: {
                     acronym: 'SFL',
@@ -506,7 +519,7 @@ const Resources = {
                 },
                 Congress: {
                     acronym: '',
-                    heb: 'הקונגרס- פודקאסט ליברלי',
+                    heb: 'הקונגרס - פודקאסט ליברלי',
                     eng: 'Congress - Liberal Podcast',
                     icon: '',
                     banner: '',
@@ -586,9 +599,9 @@ const Resources = {
                     text: 'לתרומה',
                     name: 'donate'
                 },
-                fbPage: {
-                    text: 'פייסבוק',
-                    name: 'fbPage'
+                postsFeed: {
+                    text: 'פוסטים',
+                    name: 'postsFeed'
                 },
                 about: {
                     text: 'אודות',
@@ -860,6 +873,19 @@ const Resources = {
                 Title1: 'קבוצות וארגונים',
                 Title2: 'הפועלים בישראל במטרה לקידום חירות, ליברליזם ושוק-חופשי'
             },
+            posts: {
+                viewOn: 'צפו בפוסט ב -'
+            },
+            dateTime: {
+                now: `עכשיו`,
+                minutesAgo: `לפני <span class="englishInHebrewText">@@@</span> דקות`,
+                hourAgo: `לפני  שעה <span class="englishInHebrewText">@@@</span>`,
+                hoursAgo: `לפני <span class="englishInHebrewText">@@@</span> שעות`,
+                dayAgo:  `לפני יום <span class="englishInHebrewText">@@@</span>`,
+                daysAgo: `לפני <span class="englishInHebrewText">@@@</span> ימים`,
+                monthAgo: `לפני חודש <span class="englishInHebrewText">@@@</span>`,
+                monthsAgo: `לפני <span class="englishInHebrewText">@@@</span> חודשים`
+            },
             groups: {
                 SFL: {
                     acronym: 'SFL',
@@ -1078,7 +1104,7 @@ const Resources = {
                 },
                 Congress: {
                     acronym: '',
-                    heb: 'הקונגרס- פודקאסט ליברלי',
+                    heb: 'הקונגרס - פודקאסט ליברלי',
                     eng: 'Congress - Liberal Podcast',
                     icon: '',
                     banner: '',

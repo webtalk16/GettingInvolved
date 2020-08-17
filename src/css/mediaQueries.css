@@ -13,6 +13,9 @@
         left: 20%;
         right: 20%;
     }
+    #contentMain #contentContainer main.contentPosts .postContainer {
+        width: 60%;
+    }
 }
 @media only screen and (max-width: 850px) {
     #appMain #menuIcon { display: inline-block; }
@@ -132,6 +135,9 @@
         left: 10%;
         right: 10%;
     }
+    #contentMain #contentContainer main.contentPosts .postContainer {
+        width: 70%;
+    }
   }
   @media only screen and (max-width: 560px) {
     .homeContent .activistProgram .activistProgramItem.activistProgramPeople {
@@ -141,12 +147,15 @@
         left: 5%;
         right: 5%;
     }
+    #contentMain #contentContainer main.contentPosts .postContainer {
+        width: 80%;
+    }
   }
   @media only screen and (max-width: 430px) {
-    #contentMain #contentContainer main.contentFbPage .fbPageLeftCover,
-    #contentMain #contentContainer main.contentFbPage .fbPageRightCover {
+    /* #contentMain #contentContainer main.contentPosts .fbPageLeftCover,
+    #contentMain #contentContainer main.contentPosts .fbPageRightCover {
         background-color: #FFFFFF;
-    }
+    } */
     #appMain .contentDonate .donateTitle {
         font-size: 1.1em;
     }
@@ -181,5 +190,9 @@
     #lightBoxContainer .lightBoxPopup {
         left: 2%;
         right: 2%;
+    }
+    #contentMain #contentContainer main.contentPosts .postContainer {
+        width: 100%;
+        border-radius: 0px;
     }
   }

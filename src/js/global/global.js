@@ -1,4 +1,5 @@
 import { Resources } from './resources.js'
+import { Posts } from './posts.js'
 import { Config } from './config.js'
 
 class Global {
@@ -12,6 +13,10 @@ class Global {
     getResources () {
         return Resources.lang[Config.uiLang.get.call(Config.uiLang)];
     }
+
+    getPosts () {
+      return Posts.lang[Config.uiLang.get.call(Config.uiLang)];
+  }
 
     getResourceLangs () {
         return this.resourceLangs;

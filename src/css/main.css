@@ -6,6 +6,13 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #246ea6;
+}
 .englishInHebrewText { font-size: .9em; }
 body {
     color: #246ea6;
@@ -246,7 +253,7 @@ body.layoutRTL {
     position: relative;
 }
 #contentMain #contentContainer main.contentHome .homeHeaderImage {
-    background-image: url(../images/Theme/streetMeetup.png);
+    background-image: url(../images/Theme/streetMeetup.jpg);
     margin-left: -20px;
     margin-right: -20px;
     min-height: 24rem;
@@ -283,29 +290,97 @@ body.layoutRTL {
     cursor: pointer;
     color: #333333;
 }
-#contentMain #contentContainer main.contentFbPage .fbPageHeader {
-    height: 40px;
-    line-height: 40px;
-    background: url(../images/icons/FB-icon-box-white.png) 1% center / 24px auto no-repeat, url(../images/icons/FB-icon-box-white.png) 99% center / 24px auto no-repeat;
-    background-color: #4267b2;
-    text-align: center;
-    font-weight: bold;
-    color: #FFFFFF;
+#contentMain #contentContainer main.contentPosts {
+    background-color: #f3f5f8;
 }
-#contentMain #contentContainer main.contentFbPage .fbPageWrapper {
+#contentMain #contentContainer main.contentPosts .postContainer {
+    width: 50%;
+    max-width: 610px;
+    margin: 20px auto;
+    padding: 10px 0px;
+    background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    border: 1px solid #EEEEEE;
+}
+#contentMain #contentContainer main.contentPosts .postContainer .postTextContainer {
+    position: relative;
+    overflow: hidden;
+}
+#contentMain #contentContainer main.contentPosts .postContainer .postHeader,
+#contentMain #contentContainer main.contentPosts .postContainer .postText {
+    padding: 10px;
+}
+#contentMain #contentContainer main.contentPosts .postContainer .postText {
+    line-height: 1.2em;
+    font-size: 15px;
+    color: #000000;
+}
+#contentMain #contentContainer main.contentPosts .postContainer .postText .enlargeShortText {
+    font-size: 24px;
+}
+/* #contentMain #contentContainer main.contentPosts .postContainer .postText a:link,
+#contentMain #contentContainer main.contentPosts .postContainer .postText a:visited,
+#contentMain #contentContainer main.contentPosts .postContainer .postText a:hover,
+#contentMain #contentContainer main.contentPosts .postContainer .postText a:active {
+    text-decoration: none;
+    color: #246ea6;
+} */
+#contentMain #contentContainer main.contentPosts .postContainer .postHeader {
+    display: flex;
+}
+#contentMain #contentContainer main.contentPosts .postContainer .postHeader .postHeaderInfo {
+    padding: 0px 10px;
+}
+#contentMain #contentContainer main.contentPosts .postContainer .postHeader .postHeaderLogo {
+    background-size: 100% auto;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #CCCCCC;
+    border-radius: 20px 20px 20px 20px;
+}
+#contentMain #contentContainer main.contentPosts .postContainer .postMedia img {
+    width: 100%;
+}
+#contentMain #contentContainer main.contentPosts .postsPageHeader {
+    display: none;
+}
+#contentMain #contentContainer main.contentPosts .postContainer .postHeader .postHeaderInfo .postHeaderInfoTitle {
+    font-weight: bold;
+    color: #333333;
+}
+.contentPosts .postSocialLinks {
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+}
+.contentPosts .socialLinksTxt {
+    display: inline-block;
+    color: #333333;
+}
+.contentPosts .postSocialIcon {
+    display: inline-block;
+    margin: 0px 7px;
+}
+.contentPosts .postSocialIcon img {
+    height: 25px;
+}
+.contentPosts .postHeaderInfoDate {
+    color: #888888;
+}
+/* #contentMain #contentContainer main.contentPosts .fbPageWrapper {
     display: inline-block;
     width:340px;
     height: 465px;
     vertical-align: top;
-}
-#contentMain #contentContainer main.contentFbPage .fbPageLeftCover,
-#contentMain #contentContainer main.contentFbPage .fbPageRightCover {
+} */
+/* #contentMain #contentContainer main.contentPosts .fbPageLeftCover,
+#contentMain #contentContainer main.contentPosts .fbPageRightCover {
     display: inline-block;
     width: calc(50% - 174.5px);
     height: 465px;
     background-color: #4267b2; 
     vertical-align: top;
-}
+} */
 #contentMain #contentContainer main.contentPlan #aboutHeader {
     position: relative;
 }
@@ -481,7 +556,7 @@ body.layoutRTL {
 
   #appMain .contentHome,
   #appMain .contentDonate,
-  #appMain .contentFbPage,
+  #appMain .contentPosts,
   #appMain .contentPlan,
   #appMain .contentTeam,
     #appMain .contentCalendar {
@@ -490,7 +565,7 @@ body.layoutRTL {
 
     #appMain.home .contentHome,
     #appMain.donate .contentDonate,
-    #appMain.fbPage .contentFbPage,
+    #appMain.postsFeed .contentPosts,
     #appMain.plan .contentPlan,
     #appMain.team .contentTeam,
     #appMain.calendar .contentCalendar {
@@ -715,7 +790,8 @@ body.layoutRTL {
         bottom: 0px;
         right: 8%;
         white-space: nowrap;
-        color: #246ea6;
+        font-weight: bold;
+        color: darkgoldenrod;
     }
     .layoutRTL .truncate:after {
         content: "קרא עוד >";
@@ -724,7 +800,8 @@ body.layoutRTL {
         left: 8%;
         right: auto;
         white-space: nowrap;
-        color: #246ea6;
+        font-weight: bold;
+        color: darkgoldenrod;
     }
     .groupItemInfoFooter {
         height: 20px;

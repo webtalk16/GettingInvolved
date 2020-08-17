@@ -32,22 +32,22 @@ class Donate {
 
       
       if (group.Link.fb) { 
-        groupLinks.push(`<a href="${group.Link.fb}"><span class="iconFacebook"></span></a>`);
+        groupLinks.push(`<a href="${group.Link.fb}" target="_blank"><span class="iconFacebook"></span></a>`);
         initialized = true;
       }
       if (group.Link.website) { 
         if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
-        groupLinks.push(`<a href="${group.Link.website}"><span class="iconWebsite"></span></a>`);
+        groupLinks.push(`<a href="${group.Link.website}" target="_blank"><span class="iconWebsite"></span></a>`);
         initialized = true;
       }
       if (group.Link.email) {
         if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
-        groupLinks.push(`<a href="${group.Link.email}"><span class="iconEmail"></span></a>`);
+        groupLinks.push(`<a href=mailto:"${group.Link.email}"><span class="iconEmail"></span></a>`);
         initialized = true;
       }
       if (group.Link.donate) {
         if (initialized) groupLinks.push(`<span class="iconDivider"></span>`);
-        groupLinks.push(`<a href="${group.Link.donate}"><span class="iconDonate">Donate</span></a>`);
+        groupLinks.push(`<a href="${group.Link.donate}" target="_blank"><span class="iconDonate">Donate</span></a>`);
       }
       groupLinks.push(`</div></div></div>`);
     }
@@ -58,7 +58,7 @@ class Donate {
       <main class="contentDonate">
         <div style="text-align: center;">
           <div class="donationImage">
-            <img id="mainPhotoStreetMeetup" src="/images/MainPhotoStreetMeetup.png" width="100%" />
+            <img id="mainPhotoStreetMeetup" src="/images/MainPhotoStreetMeetup.jpg" width="100%" />
             <div class="donateButtons">
               <div class="donateTitle">${this.resources.donate.title}</div>
             </div>

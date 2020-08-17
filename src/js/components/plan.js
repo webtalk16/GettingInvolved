@@ -38,13 +38,13 @@ class Plan {
     const html = `
       <main class="contentPlan">
         <div id="aboutHeader">
-          <img id="ifcAboutPic" src="/images/Theme/MeetUp5-ZoomScreenshot.png" />
+          <img id="ifcAboutPic" src="/images/Theme/MeetUp5-ZoomScreenshot.jpg" />
         </div>
         <div id="contentPlanText">
           ${planHtml}
         </div>
         <div class="planLinks">
-          <a class="planUpdateLink" href="${this.resources.about.organizationalPlan.planUpdateLink}">
+          <a class="planUpdateLink" href="${this.resources.about.organizationalPlan.planUpdateLink}" target="_blank">
             <span>
             <span class="planUpdateText">${this.resources.about.organizationalPlan.planUpdateText}</span>
             <br>

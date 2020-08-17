@@ -36,22 +36,22 @@ class Team {
       teamMemberLinks = [];
       teamMemberLinks.push(`<div class="memeberLinkedIcons">`);
       if (member.links.fb) { 
-        teamMemberLinks.push(`<a href="${member.links.fb}" taget="_blank"><span class="iconFacebook"></span></a>`);
+        teamMemberLinks.push(`<a href="${member.links.fb}" target="_blank"><span class="iconFacebook"></span></a>`);
         initFirstLink = true;
       }
       if (member.links.website) { 
         if (initFirstLink) teamMemberLinks.push(`<span class="iconDivider"></span>`);
-        teamMemberLinks.push(`<a href="${member.links.website}" taget="_blank"><span class="iconWebsite"></span></a>`);
+        teamMemberLinks.push(`<a href="${member.links.website}" target="_blank"><span class="iconWebsite"></span></a>`);
         initFirstLink = true;
       }
       if (member.links.twitter) {
         if (initFirstLink) teamMemberLinks.push(`<span class="iconDivider"></span>`);
-        teamMemberLinks.push(`<a href="${member.links.twitter}" taget="_blank"><span class="iconTwitter"></span></a>`);
+        teamMemberLinks.push(`<a href="${member.links.twitter}" target="_blank"><span class="iconTwitter"></span></a>`);
         initFirstLink = true;
       }
       if (member.links.linkedIn) {
         if (initFirstLink) teamMemberLinks.push(`<span class="iconDivider"></span>`);
-        teamMemberLinks.push(`<a href="${member.links.linkedIn}" taget="_blank"><span class="iconLinkedIn"></span></a>`);
+        teamMemberLinks.push(`<a href="${member.links.linkedIn}" target="_blank"><span class="iconLinkedIn"></span></a>`);
         initFirstLink = true;
       }
       if (member.links.email) {
@@ -86,7 +86,7 @@ class Team {
     const html = `
       <main class="contentTeam">
         <div id="teamHeader">
-          <img id="ifcTeamPic" src="/images/Theme/MeetUp5-ZoomScreenshot.png" />
+          <img id="ifcTeamPic" src="/images/Theme/MeetUp5-ZoomScreenshot.jpg" />
         </div>
         <div id="ourTeamText">
           ${teamHtml}

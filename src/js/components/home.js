@@ -3,7 +3,7 @@ import { Utils } from '../global/utils.js';
 import { Config } from '../global/config.js';
 import { Calendar } from './calendar.js';
 import { Donate } from './donate.js';
-import { Facebook } from './facebook.js';
+import { Feed } from './feed.js';
 import { Plan } from './plan.js';
 import { Team } from './team.js';
 
@@ -28,8 +28,8 @@ class Home {
     CalendarPage.loadPage();
     const DonatePage = new Donate();
     DonatePage.loadPage();
-    const FacebookPage = new Facebook();
-    FacebookPage.loadPage();
+    const FeedPage = new Feed();
+    FeedPage.loadPage();
     const PlanPage = new Plan();
     PlanPage.loadPage();
     const TeamPage = new Team();
@@ -54,27 +54,27 @@ class Home {
           </div>
           <div class="groupItemInfo"><div class="groupLinkedIcons">`);
             if (groupItem.Link.fb) { 
-              groupItems.push(`<a href="${groupItem.Link.fb}"><span class="iconFacebook"></span></a>`);
+              groupItems.push(`<a href="${groupItem.Link.fb}" target="_blank"><span class="iconFacebook"></span></a>`);
               addedFirstLogo = true;
             }
             if (groupItem.Link.website) { 
               if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
-              groupItems.push(`<a href="${groupItem.Link.website}"><span class="iconWebsite"></span></a>`);
+              groupItems.push(`<a href="${groupItem.Link.website}" target="_blank"><span class="iconWebsite"></span></a>`);
               addedFirstLogo = true;
             }
             if (groupItem.Link.email) {
               if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
-              groupItems.push(`<a href="${groupItem.Link.email}"><span class="iconEmail"></span></a>`);
+              groupItems.push(`<a href=mailto:"${groupItem.Link.email}"><span class="iconEmail"></span></a>`);
               addedFirstLogo = true;
             }
             if (groupItem.Link.phone) {
               if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
-              groupItems.push(`<a href="tel:${groupItem.Link.phone}""><span class="iconPhone"></span></a>`);
+              groupItems.push(`<a href="tel:${groupItem.Link.phone}"><span class="iconPhone"></span></a>`);
               addedFirstLogo = true;
             }
             if (groupItem.Link.donate) {
               if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
-              groupItems.push(`<a href="${groupItem.Link.donate}"><span class="iconDonate">Donate</span></a>`);
+              groupItems.push(`<a href="${groupItem.Link.donate}" target="_blank"><span class="iconDonate">Donate</span></a>`);
             }
             groupItems.push(`</div><div class="groupItemDesc">`);
             if (groupItem.info) {
