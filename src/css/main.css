@@ -300,7 +300,7 @@ body.layoutRTL {
     padding: 10px 0px;
     background-color: #FFFFFF;
     border-radius: 3px 3px 3px 3px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid rgba(0,0,0,.1);
 }
 #contentMain #contentContainer main.contentPosts .postContainer .postTextContainer {
     position: relative;
@@ -585,7 +585,7 @@ body.layoutRTL {
         margin-bottom: 10px;
     }
     #appMain .contentDonate .donationImage #mainPhotoStreetMeetup {
-        /* opacity: .2; */
+        opacity: .2;
     }
     #appMain .contentDonate .donateButtons {
         position: absolute;

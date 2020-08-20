@@ -468,6 +468,7 @@ const Resources = {
                     icon: '',
                     banner: '',
                     logo: 'newParty.jpg',
+                    info: `Our mission is to shift power from the state to the individual and the community. We believe that many of the rifts in Israeli society are exacerbated by unnecessary and harmful government policies, with each group trying to use the power of the state to strengthen itself, at the expense of other groups. In our view, the road to a healthy and prosperous society is based on the principle of "live and let live".`,
                     Link: {
                         fb: 'https://www.facebook.com/LiberalPartyIsrael/',
                         website: 'https://event.ravpage.co.il/LPI',
@@ -531,6 +532,43 @@ const Resources = {
                         email: ''
                     }
                 },
+                Nativ: {
+                    acronym: '',
+                    heb: 'נתיב בליכוד',
+                    eng: 'Nativ Likud',
+                    icon: '',
+                    banner: '',
+                    logo: 'NativLikud.png',
+                    info: `
+                    National Liberal Likud
+                    <br>
+                    We are here to promote national and liberal agenda within the Likud party.
+                    <br><br>
+                    We are national-liberals. We established Nativ to promote a pragmatic and responsible political right, free and competitive economy, a liberal secular democracy and a honorable public conduct and atmospher.
+                    Join Us to Nativ baLikud. Together we will form a large and influential force, unite the liberal forces and fight for the only political home that we have. To do so We need to become a large force of members.
+                    Support us and join the Likud!
+                    `,
+                    Link: {
+                        fb: 'https://www.facebook.com/nativlikud/',
+                        website: 'http://nativlikud.com/',
+                        donate: '',
+                        email: 'nativlikud@gmail.com'
+                    }
+                },
+                OtsmaLiberalit: {
+                    acronym: '',
+                    heb: 'עוצמה ליברלית כלכלית',
+                    eng: 'Otsma Liberal Party',
+                    icon: '',
+                    banner: '',
+                    logo: 'OtsmaLiberalitSquare.png',
+                    Link: {
+                        fb: 'https://www.facebook.com/LiberalParty2020/',
+                        website: 'http://smb.org.il',
+                        donate: 'https://meshulam.co.il/purchase?b=dc33f3fcb113bd9e319534197afed979',
+                        email: 'info@smb.org.il'
+                    }
+                },
                 Zoom2Freedom: {
                     acronym: '',
                     heb: 'זום לחירות',
@@ -551,7 +589,7 @@ const Resources = {
                     eng: 'The Liberty Index',
                     icon: '',
                     banner: '',
-                    logo: 'logoPlacholder.png',
+                    logo: 'libertyIndex.png',
                     Link: {
                         fb: '',
                         website: 'https://www.freeindex.info/',
@@ -1053,6 +1091,7 @@ const Resources = {
                     icon: '',
                     banner: '',
                     logo: 'newParty.jpg',
+                    info: `המפלגה הליברלית החדשה תפעל לקידום הליברליזם בישראל ותפעל ליישם רפורמות ליברליות/קפיטליסטיות (*) משמעותיות. אנו מאמינים כי רבים מהשסעים בחברה הישראלית מחריפים כתוצאה ממעורבות ממשלתית מיותרת ומזיקה, כאשר כל קבוצה מנסה להשתמש בכוחה של המדינה לחזק את עצמה, על חשבון קבוצות אחרות. לתפיסתנו, הדרך לחברה בריאה ומשגשגת, מבוססת על העיקרון "חיה ותן לחיות".<br><br>(*) - קפיטליזם - השיטה המבוססת על חירות הפרט: על זכותו של כל אדם לחיו, חירותו ורכושו, ומכך על הזכות לסחור באופן חופשי, בשוק חופשי ללא כפייה.`,
                     Link: {
                         fb: 'https://www.facebook.com/LiberalPartyIsrael/',
                         website: 'https://event.ravpage.co.il/LPI',
@@ -1116,6 +1155,43 @@ const Resources = {
                         email: ''
                     }
                 },
+                Nativ: {
+                    acronym: '',
+                    heb: 'נתיב בליכוד',
+                    eng: 'Nativ Likud',
+                    icon: '',
+                    banner: '',
+                    logo: 'NativLikud.png',
+                    info: `
+                    ליכוד לאומי ליברלי
+                    <br>
+                    אנחנו כאן כדי לקדם תפיסת עולם לאומית וליברלית במסגרת תנועת הליכוד.
+                    <br><br>
+                    אנחנו לאומים-ליברלים. הקמנו את נתיב על מנת לקדם ימין מדיני פרגמטי ואחראי, כלכלה חופשית ותחרותית, דמוקרטיה חילונית ליברלית, ושיח ציבורי ראוי ומכובד.
+                    הצטרפו אלינו לנתיב בליכוד. ביחד נתארגן לכוח גדול ומשפיע, נאחד את הכוחות הליברלים, ונלחם על הבית הפוליטי היחידי שיש לנו. אנחנו זקוקים לכוח גדול של מתפקדים.
+                    תמכו בנו, והתפקדו!
+                    `,
+                    Link: {
+                        fb: 'https://www.facebook.com/nativlikud/',
+                        website: 'http://nativlikud.com/',
+                        donate: '',
+                        email: 'nativlikud@gmail.com'
+                    }
+                },
+                OtsmaLiberalit: {
+                    acronym: '',
+                    heb: 'עוצמה ליברלית כלכלית',
+                    eng: 'Otsma Liberal Party',
+                    icon: '',
+                    banner: '',
+                    logo: 'OtsmaLiberalitSquare.png',
+                    Link: {
+                        fb: 'https://www.facebook.com/LiberalParty2020/',
+                        website: 'http://smb.org.il',
+                        donate: 'https://meshulam.co.il/purchase?b=dc33f3fcb113bd9e319534197afed979',
+                        email: 'info@smb.org.il'
+                    }
+                },
                 Zoom2Freedom: {
                     acronym: '',
                     heb: 'זום לחירות',
@@ -1136,7 +1212,7 @@ const Resources = {
                     eng: 'The Liberty Index',
                     icon: '',
                     banner: '',
-                    logo: 'logoPlacholder.png',
+                    logo: 'libertyIndex.png',
                     Link: {
                         fb: '',
                         website: 'https://www.freeindex.info/',
