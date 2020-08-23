@@ -11,8 +11,6 @@ class Utils {
 
     // TODO - Lazy Load images
 
-    // TODO - make header sticky on scroll up
-
     menuIconBindClick (event) {
       this.menuIcon = document.querySelector('#menuIcon');
       if (event.target !== menuIcon && !menuIcon.contains(event.target)) {
@@ -40,33 +38,24 @@ class Utils {
       let scrollPos = 0;
       let lastScrolledTime = 0;
       let currentTime = 0;
+      let scrollingUp = false;
+      let passedMinThreshold = false;
       function setSticky (utils) {
         currentTime = (new Date().getTime());
+        scrollingUp = window.pageYOffset < scrollPos;
+        passedMinThreshold = window.pageYOffset > (headerPos + (screenHeight / 2));
 
         utils.closeMenu();
-        // Only check after 900ms
-        if (currentTime - 900 > (lastScrolledTime)) {
-          // if(window.pageYOffset > scrollPos) {
-          //   //scrolling down
-          //   header.classList.remove("sticky");
-          // }
-          // else {
-          //   //scrolling up
-          //   if (window.pageYOffset > (headerPos + (screenHeight / 2))) {
-          //     header.classList.add("sticky");
-          //   }
-          //   else {
-          //     header.classList.remove("sticky");
-          //   }
-          // }
+
+        if ((!scrollingUp) || scrollingUp && !passedMinThreshold) {
           header.classList.remove("sticky");
-          if(window.pageYOffset < scrollPos) {
-            //scrolling up
-            if (window.pageYOffset > (headerPos + (screenHeight / 2))) {
+        }
+
+        // Only check 900ms after last scroll
+        if (currentTime - 900 > (lastScrolledTime)) {
+          if(scrollingUp) {
+            if (passedMinThreshold) {
               header.classList.add("sticky");
-            }
-            else {
-              header.classList.remove("sticky");
             }
           }
           lastScrolledTime = currentTime;

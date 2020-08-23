@@ -72,13 +72,20 @@ body.layoutRTL {
 }
 #headerMain.sticky {
     position: fixed;
-    top: 0px;
+    /* top: 0px; */
     left: 0px;
     right: 0px;
-    background-color: #FFFFFF;
+    background-color: rgba(255,255,255,.9);
+    backdrop-filter: blur(3px);
     border-bottom: 5px solid #408ac9;
+    animation-name: fadeDown;
+    animation-duration: 400ms;
     z-index: 1;
- }
+ }  
+@keyframes fadeDown {
+    from {top: -25%;}
+    to {top: 0px;}
+}
 #headerMain #headerContainer {
     display: flex;
     height: 95px;
@@ -87,7 +94,7 @@ body.layoutRTL {
 }
 #headerMain #headerContainer #headerLogo {
     position: relative;
-    background: url(../images/Theme/IFC-LogoEnglish.jpg) left center / auto 64px no-repeat;
+    background: url(../images/Theme/IFC-LogoEnglish.png) left center / auto 64px no-repeat;
     min-width: 160px;
     height: 100%;
     margin-left:20px;
@@ -547,7 +554,7 @@ body.layoutRTL {
   }
   #langSlider .sliderText {
     position: absolute;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
     top: 50%;
     left: 0px;
     right: 0px;
