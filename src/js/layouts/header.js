@@ -19,6 +19,7 @@ class Header {
     this.bindMenuIcon();
     this.global.checkPwa(document.querySelector('#headerMain'));
     this.utils.setStickyHeader();
+    ;
   }
 
   setHomePage () {
@@ -76,6 +77,8 @@ class Header {
       // make unclickable
       event.target.removeEventListener('click', eventListerCallback);
       langCheckbox.disabled = true;
+
+      document.querySelector('#loadingOverlay').classList.add('show');
 
       //reload
       setTimeout(() => location.reload(), 200);
