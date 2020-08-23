@@ -6,6 +6,10 @@ const Resources = {
             },
             langName: 'English',
             nav: {
+                home: {
+                    text: 'Home',
+                    name: 'home'
+                },
                 donate: {
                     text: 'Donate',
                     name: 'donate'
@@ -20,7 +24,7 @@ const Resources = {
                     subMenu: {
                         about: {
                             text: 'The Plan',
-                            name: 'plan'
+                            name: 'about'
                         },
                         team: {
                             text: 'Our Team',
@@ -633,6 +637,10 @@ const Resources = {
             },
             langName: 'עברית',
             nav: {
+                home: {
+                    text: 'ראשי',
+                    name: 'home'
+                },
                 donate: {
                     text: 'לתרומה',
                     name: 'donate'
@@ -647,7 +655,7 @@ const Resources = {
                     subMenu: {
                         about: {
                             text: 'התוכנית',
-                            name: 'plan'
+                            name: 'about'
                         },
                         team: {
                             text: 'הצוות שלנו',

@@ -202,10 +202,47 @@ body.layoutRTL {
 }
 #footerMain {
     position: relative;
-    height: 80px;
     padding-bottom: 65px;
     background-color: #2a2f36;
     color: #ffffff;
+}
+#footerMain #footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#footerMain #footerContainer .imgFooterLogo {
+    margin: 10px 10%;
+}
+#footerMain ul#footerNavListItems,
+#footerMain ul#footerNavListItems li {
+    margin: 0px;
+    padding: 0px;
+    text-indent: 0px;
+    list-style: none;
+}
+#footerMain ul#footerNavListItems {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: 20px 8%; */
+    text-indent: 0px;
+    list-style: none;
+}
+#footerMain ul#footerNavListItems li {
+    margin: 8px 0px;
+    flex: 1 0 49%;
+    font-size: 20px;
+    cursor: pointer;
+}
+#footerMain ul#footerNavListItems li .txtFooterNavItem {
+    white-space: nowrap;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    color: #FFFFFF;
+}
+#footerMain ul#footerNavListItems li .txtFooterNavItem:hover {
+    border-bottom: 2px solid #FFFFFF;
 }
 #footerMain .footerBottom {
     position: absolute;
@@ -570,7 +607,7 @@ body.layoutRTL {
     #appMain.home .contentHome,
     #appMain.donate .contentDonate,
     #appMain.postsFeed .contentPosts,
-    #appMain.plan .contentPlan,
+    #appMain.about .contentPlan,
     #appMain.team .contentTeam,
     #appMain.calendar .contentCalendar {
         position: relative;

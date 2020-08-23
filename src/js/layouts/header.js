@@ -118,10 +118,10 @@ class Header {
     const objNav = this.global.getResourceNavItems();
     let selected = '';
     let parentMenuItem = '';
-    const homeLinkTxt = 'heb' === this.config.uiLang.get.call(this.config.uiLang) ? 'ראשי' : 'Home';
+    // const homeLinkTxt = 'heb' === this.config.uiLang.get.call(this.config.uiLang) ? 'ראשי' : 'Home';
 
     navListItems += `<li id="navCloseBtn">X</li>`;
-    navListItems += `<li name="home" class="menuItem home ${'home' == this.homepage ? ' selected' : ''}"><span class="txtNavItem">${homeLinkTxt}</span></li>`;
+    // navListItems += `<li name="home" class="menuItem home ${'home' == this.homepage ? ' selected' : ''}"><span class="txtNavItem">${homeLinkTxt}</span></li>`;
     for (let navItem in objNav) {
       selected = objNav[navItem].name == this.homepage ? ' selected' : '';
       subnavHTML = '';
