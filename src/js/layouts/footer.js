@@ -64,9 +64,17 @@ class Footer {
             const headerNav = document.querySelector('#headerNav');
             headerNav.querySelectorAll('li').forEach( function(li) { li.classList.remove('selected'); li.classList.remove('showSubNav'); });
             const elemSelected = headerNav.querySelector(`li[name="${this.getAttribute('name')}"]`);
-            elemSelected.classList.add('selected')
 
-            that.utils.setPage(this.getAttribute('name'));
+            if (elemSelected.classList.contains('parentItem')) {
+              const firstSubNavItem = elemSelected.querySelector('.subNav').firstChild;
+              that.utils.setPage(firstSubNavItem.getAttribute('name'));
+              firstSubNavItem.classList.add('selected');
+              elemSelected.classList.add('showSubNav');
+            }
+            else {
+              elemSelected.classList.add('selected');
+              that.utils.setPage(this.getAttribute('name'));
+            }
           }
         };
         el.addEventListener('click', handleClick(that));

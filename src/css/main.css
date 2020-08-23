@@ -241,7 +241,7 @@ body.layoutRTL {
     border-bottom: 2px solid transparent;
     color: #FFFFFF;
 }
-#footerMain ul#footerNavListItems li .txtFooterNavItem:hover {
+#footerMain ul#footerNavListItems li:hover .txtFooterNavItem {
     border-bottom: 2px solid #FFFFFF;
 }
 #footerMain .footerBottom {
