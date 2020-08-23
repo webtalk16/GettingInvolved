@@ -150,6 +150,9 @@
     #contentMain #contentContainer main.contentPosts .postContainer {
         width: 80%;
     }
+    #footerMain #footerContainer .imgFooterLogo {
+        margin: 10px 5%;
+    }
   }
   @media only screen and (max-width: 430px) {
     /* #contentMain #contentContainer main.contentPosts .fbPageLeftCover,
@@ -194,5 +197,9 @@
     #contentMain #contentContainer main.contentPosts .postContainer {
         width: 100%;
         border-radius: 0px;
+    }
+    
+    #footerMain #footerContainer .imgFooterLogo {
+        margin: 10px 3%;
     }
   }
