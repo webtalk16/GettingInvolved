@@ -18,33 +18,6 @@ class Feed {
   buildHtml () {
 
     const rootEl = document.querySelector('#contentContainer');
-    // Page Embed
-    // const html = `
-    //   <main class="contentPosts">
-    //     <div class="fbPageHeader">IFC - Israeli Free-Market Coalition</div>
-    //     <div class="fbPageLeftCover"></div>
-    //     <div class="fbPageWrapper">
-    //       <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FIsraeli-Free-Market-Coalition-107814867514490%2F&tabs=timeline&width=340&height=465&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=267391923615424" width="340" height="465" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-    //     </div>
-    //     <div class="fbPageRightCover"></div>
-    //   </main>
-    // `;
-    // const scriptHTML = `<div id="fb-root"></div><script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=267391923615424&autoLogAppEvents=1" nonce="40B4fouT"></script>`
-    // rootEl.insertAdjacentHTML('beforeend', scriptHTML);
-    // Post Embed
-    // const html = `
-    //   <main class="contentPosts">
-    //     <div class="fbPageHeader">IFC - Israeli Free-Market Coalition</div>
-    //     <div class="fbPageLeftCover"></div>
-    //     <div class="fbPageWrapper">
-    //       <div class="fb-post" data-href="https://www.facebook.com/IFC.Israel/posts/158092269153416" data-show-text="true" data-width=""><blockquote cite="https://developers.facebook.com/IFC.Israel/posts/158092269153416" class="fb-xfbml-parse-ignore"><p>אנו שמחים לבשר כי החממה הליברלית לאקטיביסטים יוצאת לדרך!
-    //       ב-22/7, שבוע הבא, תתחיל ההכשרה של המחזור הראשון.
-    //       ההכשרה מיועדת...</p>Posted by <a href="https://www.facebook.com/IFC.Israel/">IFC - Israeli Free-Market Coalition</a> on&nbsp;<a href="https://developers.facebook.com/IFC.Israel/posts/158092269153416">Sunday, July 12, 2020</a></blockquote>
-    //        </div>
-    //     </div>
-    //     <div class="fbPageRightCover"></div>
-    //   </main>
-    // `;
     let post = '';
     let user = '';
     let postMedia = '';
@@ -53,20 +26,22 @@ class Feed {
     let socialLinks = [];
     let linksHTML = '';
     let link = '';
-    for (let prop in this.posts.posts) {
-      post = this.posts.posts[prop];
+    let allPosts = this.posts.posts.sort((a,b) => { return b.dateTime - a.dateTime;});
+
+    for (let i = 0; i < allPosts.length; i++) {
+      post = allPosts[i];
       user = this.posts.users[post.user];
       
       postMedia = '';
       if (post.media.image) {
-        const mediaImg = `<div class="postMedia"><img src="posts/${prop}/${post.media.image}" /></div>`;
+        const mediaImg = `<div class="postMedia"><img src="posts/${post.dateTime}/${post.media.image}" /></div>`;
         postMedia = mediaImg;
         if (post.media.imageLink) {
           postMedia =`<a href="${post.media.imageLink}" target="_blank">${mediaImg}</a>`
         }
       }
       else if (post.media.video) {
-        postMedia = `<div class="postMedia"><video src="posts/${prop}/${post.media.video}"></video></div>`
+        postMedia = `<div class="postMedia"><video src="posts/${post.dateTime}/${post.media.video}"></video></div>`
       }
       else if (post.media.videoEmbed) {
         postMedia = `<div class="postMedia">${post.media.videoEmbed}</div>`

@@ -19,7 +19,6 @@ class Header {
     this.bindMenuIcon();
     this.global.checkPwa(document.querySelector('#headerMain'));
     this.utils.setStickyHeader();
-    ;
   }
 
   setHomePage () {
@@ -65,6 +64,9 @@ class Header {
     langCheckbox.addEventListener('click', eventListerCallback);
 
     function onLangChange (event) {
+      const loadingOverlay = document.querySelector('#loadingOverlay');
+      loadingOverlay.style.display = 'block';
+      loadingOverlay.classList.add('show');
       currentLang = this.config.uiLang.get.call(this.config.uiLang);
       isHeb = currentLang === 'heb';
       console.log('currentLang ' + currentLang);
@@ -78,10 +80,8 @@ class Header {
       event.target.removeEventListener('click', eventListerCallback);
       langCheckbox.disabled = true;
 
-      document.querySelector('#loadingOverlay').classList.add('show');
-
       //reload
-      setTimeout(() => location.reload(), 200);
+      setTimeout(() => location.reload(), 2000);
     }
 
   }

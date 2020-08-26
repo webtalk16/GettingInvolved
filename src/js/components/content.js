@@ -21,6 +21,14 @@ class Content {
     homepage.loadHome();
   }
 
+  // loadScripts (rootEl) {
+  //   const FacebookSDK = `
+  //   <div id="fb-root"></div>
+  //   <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+  //   `;
+  //   rootEl.insertAdjacentHTML('beforeend', FacebookSDK);
+  // }
+
   buildHtml () {
     const rootEl = document.querySelector('#appMain');
     const html = `
@@ -29,6 +37,7 @@ class Content {
       </div>
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
+    // this.loadScripts(rootEl);
   }
 }
 

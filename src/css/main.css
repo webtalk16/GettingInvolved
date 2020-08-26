@@ -31,6 +31,7 @@ body.layoutRTL {
     text-align: right;
 }
 #loadingOverlay {
+    display: none;
     opacity: 0;
     position: fixed;
     background: rgba(0, 0, 0, .9) url(../images/Theme/animatedIFC.gif) center center no-repeat;
