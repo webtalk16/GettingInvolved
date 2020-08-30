@@ -84,6 +84,11 @@ class Feed {
       </main>
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
+
+    var facebookSDK = document.createElement('script');
+    facebookSDK.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2";
+    facebookSDK.defer = true;
+    rootEl.appendChild(facebookSDK);
   }
 
   dateTimeOfPost (timestamp) {
