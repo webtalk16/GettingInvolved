@@ -134,9 +134,98 @@ class Utils {
       this.popupContainer.querySelector('.closeBtn').addEventListener('click', () => { this.popupContainer.classList.remove('show') });
     }
 
-    openLightBox (contentText) {
-      this.popupText.innerHTML = contentText;
+    openLightBox (contentHTML, onClose) {
+      this.popupText.innerHTML = contentHTML;
       this.popupContainer.classList.add('show');
+      const onCloseCallback = onClose ? () => { onClose(); this.popupContainer.classList.remove('show'); } : () => { this.popupContainer.classList.remove('show') };
+      
+      const closeBtn = this.popupContainer.querySelector('.closeBtn');
+      closeBtn.removeEventListener('click', onCloseCallback);
+      closeBtn.addEventListener('click', onCloseCallback);
+    }
+
+    getSocialIcons (type) {
+      let objIcons = null;
+      switch (type) {
+        case 'color':
+          objIcons = {
+            website: `images/icons/icon-website-blue.png`,
+            fb: `images/icons/icon-facebook-blue.png`,
+            insta: `images/icons/icon-insta.png`,
+            spotify: `images/icons/icon-spotify-green.png`,
+            twiter: `images/icons/icon-twitter-blue.png`,
+            youTube: `images/icons/icon-youtube.png`,
+            linkedIn: `images/icons/icon-linkedin-blue.png`
+          }
+          break;
+        default:
+          objIcons = {
+            website: `images/icons/icon-website-blue.png`,
+            fb: `images/icons/icon-facebook-blue.png`,
+            insta: `images/icons/icon-insta.png`,
+            spotify: `images/icons/icon-spotify-green.png`,
+            twiter: `images/icons/icon-twitter-blue.png`,
+            youTube: `images/icons/icon-youtube.png`,
+            linkedIn: `images/icons/icon-linkedin-blue.png`
+          }
+      }
+      return objIcons;
+    }
+
+    initVideoPlayer (videoData, resources, onClose) {
+      const ifcPlayer = document.querySelector('#ifcPlayer');
+      const ifcPlayerVideo = ifcPlayer.querySelector('#ifcPlayerVideo');
+      const ifcPlayerFooter = ifcPlayer.querySelector('#ifcPlayerFooter');
+      const closeBtn = ifcPlayer.querySelector('.closeBtn');
+      const appMain = document.querySelector('#appMain');
+      const embededVideo = videoData.media.videoEmbed;
+      const socialIcons = this.getSocialIcons('color');
+
+      const socialLinks = [];
+      let link = null;
+      for (let prop in videoData.socialLinks) {
+        link = videoData.socialLinks[prop];
+        if (link) {
+          // TODO - on link click, pause video
+          socialLinks.push(`
+            <div class="postSocialIcon">
+              <a href="${link}" target="_blank">
+                <img src="${socialIcons[prop]}" />
+              </a>
+            </div>
+          `);
+        }
+      }
+      const linksHTML = socialLinks.length ? ('<div class="postSocialLinks"><div class="socialLinksTxt">' + resources.video.viewFullPost + '</div> ' + socialLinks.join('') + '</div>') : '';
+
+      ifcPlayerVideo.innerHTML = embededVideo;
+      ifcPlayerFooter.innerHTML = linksHTML;
+      ifcPlayer.classList.add('show');
+      appMain.style.display = 'none';
+
+      const doEachTime = () => {
+        ifcPlayer.classList.remove('show');
+        appMain.style.display = 'block';
+        closeBtn.removeEventListener('click', onCloseCallback);
+      };
+      const onCloseCallback = onClose ? () => { onClose(); doEachTime();  } : doEachTime;
+      
+      closeBtn.addEventListener('click', onCloseCallback);
+    }
+
+    openVideoPlayer (videoId, videoData, resources) {
+      const onClose = () => { 
+        const videoEl = document.querySelector('#video' + videoId);
+        videoEl.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+      };
+
+      // this.initVideoPlayer();
+      this.initVideoPlayer(videoData, resources, onClose);
+
+      setTimeout(() => {
+        const vid1 = document.querySelector('#video' + videoId);
+        vid1.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+      }, 4000);
     }
 }
   

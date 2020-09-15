@@ -1,5 +1,6 @@
 import { Resources } from './resources.js'
 import { Posts } from './posts.js'
+import { Videos } from './videos.js'
 import { Config } from './config.js'
 
 class Global {
@@ -8,7 +9,12 @@ class Global {
         this.resources = this.getResources();
         this.resourceNavItems = Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
         // this.config = Config;
+        // this.createGlobalScope();
     }
+
+    // createGlobalScope () {
+    //   window.ifcGlobal = {};
+    // }
 
     getResources () {
         return Resources.lang[Config.uiLang.get.call(Config.uiLang)];
@@ -16,7 +22,11 @@ class Global {
 
     getPosts () {
       return Posts.lang[Config.uiLang.get.call(Config.uiLang)];
-  }
+    }
+
+    getVideos () {
+      return Videos;
+    }
 
     getResourceLangs () {
         return this.resourceLangs;

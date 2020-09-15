@@ -233,20 +233,20 @@ const Resources = {
                                 phone: '+972526555726'
                             }
                         },
-                        Rotem: {
-                            name: 'Rotem Meron',
-                            title: 'Project Supervision, Group Activist',
-                            pic: 'images/team/RotemMaron.jpg',
-                            about: `Rotem oversees details in the initiation of various IFC projects and supervises thier implementation. Rotem has a MS in Statistics, he is Merkaz Likud member and also works as a computer programmer.`,
-                            links: {
-                                fb: 'https://www.facebook.com/rotemmeron',
-                                website: '',
-                                twitter: '',
-                                linkedIn: 'https://linkedIn.com/in/rotem-meron-20090841/',
-                                email: 'rm13rotem@gmail.com',
-                                phone: '+972528829604'
-                            }
-                        },
+                        // Rotem: {
+                        //     name: 'Rotem Meron',
+                        //     title: 'Project Supervision, Group Activist',
+                        //     pic: 'images/team/RotemMaron.jpg',
+                        //     about: `Rotem oversees details in the initiation of various IFC projects and supervises thier implementation. Rotem has a MS in Statistics, he is Merkaz Likud member and also works as a computer programmer.`,
+                        //     links: {
+                        //         fb: 'https://www.facebook.com/rotemmeron',
+                        //         website: '',
+                        //         twitter: '',
+                        //         linkedIn: 'https://linkedIn.com/in/rotem-meron-20090841/',
+                        //         email: 'rm13rotem@gmail.com',
+                        //         phone: '+972528829604'
+                        //     }
+                        // },
                         Dorit: {
                             name: 'Dorit Itzhak',
                             title: 'Group Activist',
@@ -259,6 +259,20 @@ const Resources = {
                                 linkedIn: 'https://www.linkedin.com/in/dorit-itzhak-golpur-3128bb1/',
                                 email: '',
                                 phone: ''
+                            }
+                        },
+                        Gilad: {
+                            name: 'Gilad Herzfeld',
+                            title: 'Group Activist',
+                            pic: 'images/team/GiladHerzfeld.jpg',
+                            about: `Software Engineer with a BSc in Computer Science.<br><br>“For more than 25 years I’ve lived without real exposure to Liberal and Capitalist points of view - Capitalism is not a dirty word and I want to inspire more people to understand it and talk about it positively”.`,
+                            links: {
+                                fb: 'https://www.facebook.com/GiladH11',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'https://www.linkedin.com/in/gilad-herzfeld-4baa10b9/',
+                                email: 'giladh11@gmail.com',
+                                phone: '+972526267626'
                             }
                         }
                     }
@@ -290,10 +304,14 @@ const Resources = {
             },
             groupsGeneral: {
                 Title1: 'Groups',
-                Title2: 'That Work to Promote Libery, Classic Liberalizm and Free Market in Israel'
+                Title2: 'That Work to Promote Libery, Classical Liberalism and Free Market in Israel'
             },
             posts: {
                 viewOn: 'view post on:'
+            },
+            video: {
+                viewOn: `Watch on IFC Media`,
+                viewFullPost: 'view full post on:'
             },
             dateTime: {
                 now: `just now`,
@@ -435,6 +453,27 @@ const Resources = {
                         donate: 'https://www.tacharut.org/support/',
                         email: 'info@tacharut.org',
                         phone: `+97225609650`
+                    }
+                },
+                ShulaHaMokshim: {
+                    acronym: '',
+                    heb: 'שולה המוקשים',
+                    eng: 'The Shula of the Mines',
+                    icon: '',
+                    banner: '',
+                    logo: 'ShulaHaMokshim.png',
+                    info: `
+                    An initiative to reduce bureaucracy for businesses in Israel to create a business friendly environment.
+                    <br> <br>
+                    The Israeli bureaucracy makes it difficult for small and medium-sized businesses and aggravates the cost of living. We are all familiar with the ridiculous stories of the endless and outdated bureaucratic administrative process, about conflicting demands that various inspectors place on businesses, about the irrationality of government offices in the day-to-day supervision of businesses.
+                    `,
+                    Link: {
+                        fb: 'https://www.facebook.com/%D7%A9%D7%95%D7%9C%D7%94-%D7%94%D7%9E%D7%95%D7%A7%D7%A9%D7%99%D7%9D-%D7%94%D7%9E%D7%99%D7%96%D7%9D-%D7%9C%D7%94%D7%A4%D7%97%D7%AA%D7%AA-%D7%94%D7%91%D7%99%D7%95%D7%A8%D7%95%D7%A7%D7%A8%D7%98%D7%99%D7%94-106626417598097',
+                        website: 'https://www.mokshim.org/',
+                        linkedIn: '',
+                        donate: '',
+                        email: 'barak@gh1.co.il',
+                        phone: `+972508281968`
                     }
                 },
                 BneiHorin: {
@@ -820,7 +859,7 @@ const Resources = {
                         },
                         Eliram: {
                             name: 'אלירם מעוז',
-                            title: 'מתאם שולחן העגול. פעיל IFC',
+                            title: 'מתאם שולחן העגול. פעיל <span class="englishInHebrewText">IFC</span>',
                             pic: 'images/team/EliramMaoz.jpg',
                             about: `גרפיקאי ועורך וידאו עצמאי בעל עסק. סטודנט לתואר בקולנוע. מנהל יחד עם מקסים וורו את פרוייקט השולחן העגול של IFC.`,
                             links: {
@@ -860,20 +899,20 @@ const Resources = {
                                 phone: '+972526555726'
                             }
                         },
-                        Rotem: {
-                            name: 'רותם מירון',
-                            title: ' פיקוח ובקרה, פעיל <span class="englishInHebrewText">IFC</span>',
-                            pic: 'images/team/RotemMaron.jpg',
-                            about: `תואר שני בסטטיסטיקה, חבר מרכז הליכוד, מתכנת`,
-                            links: {
-                                fb: 'https://www.facebook.com/rotemmeron',
-                                website: '',
-                                twitter: '',
-                                linkedIn: 'https://linkedIn.com/in/rotem-meron-20090841/',
-                                email: 'rm13rotem@gmail.com',
-                                phone: '+972528829604'
-                            }
-                        },
+                        // Rotem: {
+                        //     name: 'רותם מירון',
+                        //     title: ' פיקוח ובקרה, פעיל <span class="englishInHebrewText">IFC</span>',
+                        //     pic: 'images/team/RotemMaron.jpg',
+                        //     about: `תואר שני בסטטיסטיקה, חבר מרכז הליכוד, מתכנת`,
+                        //     links: {
+                        //         fb: 'https://www.facebook.com/rotemmeron',
+                        //         website: '',
+                        //         twitter: '',
+                        //         linkedIn: 'https://linkedIn.com/in/rotem-meron-20090841/',
+                        //         email: 'rm13rotem@gmail.com',
+                        //         phone: '+972528829604'
+                        //     }
+                        // },
                         Dorit: {
                             name: 'דורית יצחק',
                             title: 'פעילה <span class="englishInHebrewText">IFC</span>',
@@ -886,6 +925,20 @@ const Resources = {
                                 linkedIn: 'https://www.linkedin.com/in/dorit-itzhak-golpur-3128bb1/',
                                 email: '',
                                 phone: ''
+                            }
+                        },
+                        Gilad: {
+                            name: 'גלעד הרצפלד',
+                            title: 'פעיל <span class="englishInHebrewText">IFC</span>',
+                            pic: 'images/team/GiladHerzfeld.jpg',
+                            about: `בוגר תואר ראשון במדעי המחשב ומהנדס תוכנה במקצועו.<br><br>“את רוב חיי העברתי מבלי להיחשף לרעיונות ליברלים וקפיטליסטים, רק לאחר גיל 25 התלבלרתי ע”י פוסטים בפייסבוק. אני רוצה לקחת חלק בהמשך הפצת הרעיונות - קפיטליזם היא לא מילה גסה ואני רוצה שאנשים ידברו יותר קפיטליזם.”`,
+                            links: {
+                                fb: 'https://www.facebook.com/GiladH11',
+                                website: '',
+                                twitter: '',
+                                linkedIn: 'https://www.linkedin.com/in/gilad-herzfeld-4baa10b9/',
+                                email: 'giladh11@gmail.com',
+                                phone: '+972526267626'
                             }
                         }
                     }
@@ -921,6 +974,10 @@ const Resources = {
             },
             posts: {
                 viewOn: 'צפו בפוסט ב -'
+            },
+            video: {
+                viewOn: `צפה ב- <span class="englishInHebrewText">IFC Media</span>`,
+                viewFullPost: 'צפו בפוסט המלא ב -'
             },
             dateTime: {
                 now: `עכשיו`,
@@ -1062,6 +1119,27 @@ const Resources = {
                         donate: 'https://www.tacharut.org/support/',
                         email: 'info@tacharut.org',
                         phone: `+97225609650`
+                    }
+                },
+                ShulaHaMokshim: {
+                    acronym: '',
+                    heb: 'שולה המוקשים',
+                    eng: 'The Shula of the Mines',
+                    icon: '',
+                    banner: '',
+                    logo: 'ShulaHaMokshim.png',
+                    info: `
+                    מיזם להפחתת הביורוקרטיה לעסקים בישראל ויצירת סביבה תומכת עסקים.
+                    <br> <br>
+                    הביורוקרטיה הישראלית מקשה על עסקים קטנים ובינוניים ומחמירה את יוקר המחיה. כולנו מכירים את הסיפורים ההזויים על טופסולוגיה אינסופית ומיושנת, על דרישות סותרות שפקחים שונים מטילים על העסק, על חוסר הגיון של משרדי הממשלה בפיקוח השוטף על העסק.
+                    `,
+                    Link: {
+                        fb: 'https://www.facebook.com/%D7%A9%D7%95%D7%9C%D7%94-%D7%94%D7%9E%D7%95%D7%A7%D7%A9%D7%99%D7%9D-%D7%94%D7%9E%D7%99%D7%96%D7%9D-%D7%9C%D7%94%D7%A4%D7%97%D7%AA%D7%AA-%D7%94%D7%91%D7%99%D7%95%D7%A8%D7%95%D7%A7%D7%A8%D7%98%D7%99%D7%94-106626417598097',
+                        website: 'https://www.mokshim.org/',
+                        linkedIn: '',
+                        donate: '',
+                        email: 'barak@gh1.co.il',
+                        phone: `+972508281968`
                     }
                 },
                 BneiHorin: {

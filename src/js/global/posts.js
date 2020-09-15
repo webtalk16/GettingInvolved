@@ -21,6 +21,10 @@ const Posts = {
                 OtsmaLiberalit: {
                     name: `Otsma Liberal Party`,
                     logo: `images/groups/Logos/OtsmaLiberalitSquare.png` 
+                },
+                KerenTikva: {
+                    name: `The Tikvah Fund`,
+                    logo: `images/groups/Logos/KerenTikva.png` 
                 }
             },
             icons: {
@@ -171,6 +175,38 @@ const Posts = {
                         youTube: ``,
                         linkedIn: ``
                     }
+                },
+                {
+                    media:{
+                        image: ``,
+                        imageLink: ``,
+                        video: ``,
+                        videoEmbed: `<iframe id="video1595494800000" style="width:100%;height:auto;" src="https://www.youtube.com/embed/bY_ExF-QHtI?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    },
+                    text: `
+                    Which graph did the renowned psychologist Jonathan Heidt, call the 'most important graph in the world', and why? Which country was the first in the world to create an unprecedented economic leap in relation to all of history, and how does this relate to Adam Smith's famous book 'The Wealth of Nations'? What is the rising data in the graph that was published by the World Bank, and what does it mean for countries that want to strengthen their economies and reduce poverty? What did President Kennedy mean when he said 'a rising tide lifts all boats'?
+                    <br>
+                    The fascinating video here talks about that and more.
+                    <br>
+                    Presenter: Amiad Cohen, CEO of the Tikva-Israel Foundation
+                    <br><br>
+                    This video is a pilot for the 'Academy of Common Sense', a series of videos in Hebrew that will deal with economics, politics, civil society and philosophy.
+                    <br>
+                    Thank you to Mr. Dennis Prager, for the privilege of using the PragerU videos from which some of the videos are based.
+                    <br><br>
+                    Did you like videos? Did not you like them? Feel free to write to us.
+                    `,
+                    title: ``,
+                    dateTime: 1595494800000,
+                    user: `KerenTikva`,
+                    socialLinks: {
+                        website: ``,
+                        insta: ``,
+                        fb: `https://www.facebook.com/Tikvah.Fund.Israel/posts/2689431928011190`,
+                        twiter: ``,
+                        youTube: `https://www.youtube.com/watch?v=bY_ExF-QHtI`,
+                        linkedIn: ``
+                    }
                 }
             ]
          },
@@ -195,6 +231,10 @@ const Posts = {
                 OtsmaLiberalit: {
                     name: `עוצמה ליברלית כלכלית`,
                     logo: `images/groups/Logos/OtsmaLiberalitSquare.png` 
+                },
+                KerenTikva: {
+                    name: `קרן תקווה ישראל`,
+                    logo: `images/groups/Logos/KerenTikva.png` 
                 }
             },
             icons: {
@@ -342,6 +382,38 @@ const Posts = {
                         fb: `https://www.facebook.com/183638541844668/videos/1199633883742708/`,
                         twiter: ``,
                         youTube: ``,
+                        linkedIn: ``
+                    }
+                },
+                {
+                    media:{
+                        image: ``,
+                        imageLink: ``,
+                        video: ``,
+                        videoEmbed: `<iframe style="width:100%;height:auto;" src="https://www.youtube.com/embed/bY_ExF-QHtI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    },
+                    text: `
+                    לאיזה גרף קרא ג'ונתן היידט-הפסיכולוג הנודע, 'הגרף החשוב בעולם', ולמה? איזו מדינה היתה הראשונה בעולם ליצור זינוק כלכלי חסר תקדים ביחס לכל ההיסטוריה, ואיך זה קשור לספר המפורסם של אדם סמית' 'עושר העמים'? אלו נתונים עולים מהגרף שפורסם ע"י הבנק העולמי, ומה המשמעות שלהם עבור מדינות שרוצות לחזק את הכלכלה שלהם ולהפחית את העוני? למה התכוון הנשיא קנדי כשאמר 'כשיש גאות כל הסירות מתרוממות'?
+                    <br>
+                    על כך ועוד בסרטון המרתק שלפניכם
+                    <br>
+                    מגיש: עמיעד כהן, מנכ"ל קרן תקווה-ישראל
+                    <br><br>
+                    סרטון זה הינו פיילוט ראשון עבור 'האקדמיה להגיון בריא' סדרת סרטונים בעברית שיעסקו בכלכלה, פוליטיקה, חברה אזרחית ופילוסופיה.
+                    <br>
+                    תודה למר דניס פרגר, על הזכות להשתמש בסרטוני <span class="englishInHebrewText">PragerU</span> עליהם מבוססים חלק מהסרטונים.
+                    <br><br>
+                    אהבתם? לא אהבתם? מוזמנים לכתוב לנו.                    
+                    `,
+                    title: ``,
+                    dateTime: 1595494800000,
+                    user: `KerenTikva`,
+                    socialLinks: {
+                        website: ``,
+                        insta: ``,
+                        fb: `https://www.facebook.com/Tikvah.Fund.Israel/posts/2689431928011190`,
+                        twiter: ``,
+                        youTube: `https://www.youtube.com/watch?v=bY_ExF-QHtI`,
                         linkedIn: ``
                     }
                 }

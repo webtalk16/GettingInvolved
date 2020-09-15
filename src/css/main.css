@@ -737,6 +737,7 @@ body.layoutRTL {
     }
     .groupLinkedIcons .iconFacebook,
     .groupLinkedIcons .iconWebsite,
+    .groupLinkedIcons .iconlinkedIn,
     .groupLinkedIcons .iconPhone,
     .groupLinkedIcons .iconEmail {
         display: inline-block;
@@ -749,6 +750,7 @@ body.layoutRTL {
 
     .groupLinkedIcons .iconFacebook { background-image: url(../images/icons/icon-facebook.png) }
     .groupLinkedIcons .iconWebsite { background-image: url(../images/icons/icon-website.png) }
+    .groupLinkedIcons .iconlinkedIn { background-image: url(../images/icons/icon-linkedin.png) }
     .groupLinkedIcons .iconPhone { background-image: url(../images/icons/icon-phone.png) }
     .groupLinkedIcons .iconEmail { background-image: url(../images/icons/icon-email.png) }
     .groupLinkedIcons .iconDonate { 
@@ -757,6 +759,7 @@ body.layoutRTL {
     }
     .groupLinkedIcons a:hover .iconFacebook { background-image: url(../images/icons/icon-facebook-blue.png) }
     .groupLinkedIcons a:hover .iconWebsite { background-image: url(../images/icons/icon-website-blue.png) }
+    .groupLinkedIcons a:hover .iconlinkedIn { background-image: url(../images/icons/icon-linkedin-blue.png) }
     .groupLinkedIcons a:hover .iconPhone { background-image: url(../images/icons/icon-phone-blue.png) }
     .groupLinkedIcons a:hover .iconEmail { background-image: url(../images/icons/icon-email-blue.png) }
     .groupLinkedIcons a:hover .iconDonate { 
@@ -816,9 +819,6 @@ body.layoutRTL {
     .memeberLinkedIcons a:hover .iconLinkedIn { background-image: url(../images/icons/icon-linkedin-blue.png) }
     .memeberLinkedIcons a:hover .iconEmail { background-image: url(../images/icons/icon-email-blue.png) }
     .memeberLinkedIcons a:hover .iconPhone { background-image: url(../images/icons/icon-phone-blue.png) }
-
-
-
 
     .leadingGroups .interactiveBox .groupItemDesc {
         display: flex;
@@ -1052,6 +1052,134 @@ body.layoutRTL {
     }
     .homeContent .youTubeChannelPlaylist .youTubePlaylists img {
         height: 220px;
+    }
+    .homeContent .watchOnIFC {
+        background-color: #f3f5f8;
+        padding: 30px 0px;
+    }
+    .homeContent .watchOnIFC h2 {
+        margin: 0px;
+        padding: 0px 10px 20px 10px;
+        color: #333333;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos {
+        white-space: nowrap;
+        overflow-y: auto;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos .watchVideoContainer {
+        display: inline-block;
+        width: 200px;
+        margin: 0px 2px;
+        vertical-align: top;
+        cursor: pointer;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos .watchVideoContainer .watchVideoPoster {
+        position: relative;
+        background-position: left top;
+        background-repeat: no-repeat;
+        height: 100px;
+        width: 200px;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos .watchVideoContainer:hover .watchVideoPoster::before {
+        content: "";
+        position: absolute;
+        background: url(../images/icons/playVideoIcon.png) center center / auto 50% no-repeat;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: rgba(0, 0, 0, .6);
+    }
+    .homeContent .watchOnIFC .watchIFCvideos .watchVideoCategory {
+        margin-bottom: 5px;
+        color: darkgoldenrod;
+        font-size: 12px;
+        font-weight: bold;
+        white-space: normal;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos .watchVideoTitle {
+        margin-bottom: 5px;
+        color: #333333;
+        font-size: 17px;
+        font-weight: bold;
+        white-space: normal;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos .watchVideoFooter {
+        color: #888888;
+        font-size: 12px;
+        font-weight: bold;
+        white-space: normal;
+    }
+    .layoutRTL .homeContent .watchOnIFC .watchIFCvideos .watchVideoCategory,
+    .layoutRTL .homeContent .watchOnIFC .watchIFCvideos .watchVideoFooter {
+        font-size: 14px;
+    }
+    .layoutRTL .homeContent .watchOnIFC .watchIFCvideos .watchVideoTitle {
+        font-size: 19px;
+    }
+
+    /* Video Player */ 
+    #ifcPlayer {
+        display: none;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background: rgba(0,0,0,.8);
+        z-index: 2;
+    }
+    #ifcPlayer.show {
+        display: block;
+    }
+    #ifcPlayer .ifcVideoContainer {
+        position: absolute;
+        background: #000000;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+    }
+    #ifcPlayer .ifcVideoContainer #ifcPlayerVideo {
+        position: relative;
+        background: rgba(0, 0, 0, .9) url(../images/Theme/animatedIFC.gif) center center no-repeat;
+        top: 30%;
+        transform: translateY(-30%);
+    }
+    #ifcPlayer .ifcVideoContainer .closeBtn {
+        background: url(../images/icons/close-roundBtn-white.png) right top / auto 30px no-repeat;
+        height: 30px;
+        margin: 15px;
+        opacity: .8;
+        cursor: pointer;
+    }
+    #ifcPlayer .ifcVideoContainer #ifcPlayerFooter {
+        position: absolute;
+        bottom: 20px;
+        left: 5%;
+        right: 5%;
+        transform: translateY(-30%);
+    }
+
+    #ifcPlayer .postSocialLinks {
+        display: flex;
+        padding: 5px 10px;
+        align-items: center;
+    }
+    #ifcPlayer .socialLinksTxt {
+        display: inline-block;
+        color: #c5d1d8;
+    }
+    #ifcPlayer .postSocialIcon {
+        display: inline-block;
+        margin: 0px 7px;
+        opacity: .78;
+    }
+    #ifcPlayer .postSocialIcon:hover {
+        opacity: 1;
+    }
+    #ifcPlayer .postSocialIcon img {
+        height: 25px;
     }
 
   

@@ -54,6 +54,7 @@ module.exports = function (env) {
                 { from: 'src/css', to: 'css' },
                 { from: 'src/images', to: 'images' },
                 { from: 'src/posts', to: 'posts' },
+                { from: 'src/videos', to: 'videos' },
                 { from: 'manifest.webmanifest', to: '' },
                 { from: 'src/favicon.ico', to: '' }
             ]),

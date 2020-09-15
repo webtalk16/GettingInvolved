@@ -14,7 +14,8 @@ class Home {
     this.utils = new Utils();
     this.resources = this.global.getResources();
     this.uiLang = Config.uiLang.get.call(Config.uiLang)
-  } 
+    this.videos = this.global.getVideos();
+  }
 
   loadHome () {
     console.log('Home component is loaded');
@@ -62,6 +63,11 @@ class Home {
               groupItems.push(`<a href="${groupItem.Link.website}" target="_blank"><span class="iconWebsite"></span></a>`);
               addedFirstLogo = true;
             }
+            if (groupItem.Link.linkedIn) { 
+              if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
+              groupItems.push(`<a href="${groupItem.Link.linkedIn}" target="_blank"><span class="iconlinkedIn"></span></a>`);
+              addedFirstLogo = true;
+            }
             if (groupItem.Link.email) {
               if (addedFirstLogo) groupItems.push(`<span class="iconDivider"></span>`);
               groupItems.push(`<a href=mailto:"${groupItem.Link.email}"><span class="iconEmail"></span></a>`);
@@ -100,6 +106,23 @@ class Home {
       `);
     }
     activistProgramHTML = speakers.join('');
+
+    // HTML video carousel
+    const videos = [];
+    let videoInfo = '';
+    let videoHTML = '';
+    for (let prop in this.videos) {
+      videoInfo = this.videos[prop];
+      videos.push(`
+        <div class="watchVideoContainer" data-video-id="${prop}">
+          <div class="watchVideoPoster" style="background-image: url(videos/${prop}/placeholder.jpg);"></div>
+          <div class="watchVideoCategory">${videoInfo[this.uiLang].category}</div>
+          <div class="watchVideoTitle">${videoInfo[this.uiLang].title}</div>
+          <div class="watchVideoFooter">${videoInfo[this.uiLang].title2}</div>
+        </div>
+      `);
+    }
+    videoHTML = videos.join('');
 
     const locationImage = this.uiLang == 'heb' ? 'Hebrew' : '';
     const rootEl = document.querySelector('#contentContainer');
@@ -145,6 +168,12 @@ class Home {
             </div>
             <div class="activistProgramFooter"><div class="activistProgramTitle2">${this.resources.activistTraining.title2}</div></div>
           </div>
+          <div class="watchOnIFC">
+            <h2>${this.resources.video.viewOn}</h2>
+            <div class="watchIFCvideos">
+              ${videoHTML}
+            </div>
+          </div>
           <div class="youTubeChannelPlaylist">
             <div class="youTubePlaylistHeader">
               <img src="images/content/YouTube-Header.jpg" />
@@ -172,12 +201,47 @@ class Home {
     this.utils.readMoreTruncate(rootEl.querySelectorAll('.groupItemDesc'), '.groupItemDescText', 5);
   }
 
+  // youtubeControls () {
+  //   var iframe = document.getElementById('video-player');
+  //   iframe.contentWindow.postMessage(JSON.stringify(
+  //       { event: 'command', func: 'pauseVideo' }), 'https://www.youtube.com');
+
+  //   document.querySelector('#video1595494800000').contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+  //   document.querySelector('#video1595494800000').contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+  //   document.querySelector('#video1595494800000').contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+  //   func = '{"event":"listening","id":' + JSON.stringify(''+frame_id) + '}';
+  //           iframe.contentWindow.postMessage(func, '*');
+   
+  //   $('a.play-video').click(function(){
+  //     $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+  //   });
+    
+  //   $('a.stop-video').click(function(){
+  //     $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+  //   });
+    
+  //   $('a.pause-video').click(function(){
+  //     $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+  //   });
+  // }
+
   bindEvents () {
     const homePromoBoxFooter = document.querySelector('.homePromoBoxFooter');
     const eventDirections = 'https://docs.google.com/document/d/1PoTf5UFPJ1nN4XFbyjz8s2-CWWe73AeDk4pZrvHDHlY/edit?usp=sharing';
     homePromoBoxFooter.addEventListener('click', function () {
       window.open(eventDirections, '_blank');
     });
+
+    const watchVideoContainer = document.querySelectorAll('.watchVideoContainer');
+    for (let i = 0; i < watchVideoContainer.length; i++) {
+      watchVideoContainer[i].addEventListener('click', function (that) {
+        return function () {
+          const videoId = this.getAttribute('data-video-id');
+          const videoData = that.videos[videoId];
+          that.utils.openVideoPlayer(videoId, videoData, that.resources);
+        }
+      }(this));
+    }
   }
 }
 
