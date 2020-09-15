@@ -31,7 +31,7 @@ class Footer {
           <ul id="footerNavListItems"></ul>
         </div>
         <div class="footerBottom">
-            <div class="youtubeChannel"><span>${this.resources.footer.youtube}</span></div>
+          <div class="youtubeChannel"><span>${this.resources.footer.youtube}</span></div>
             <div class="copyright"><span>&copy;&nbsp;2020</span><span>&nbsp;Israeli Free-Market Coalition</span></div>
           </div>
       </div>
@@ -46,6 +46,8 @@ class Footer {
     for (let navItem in objNav) {
       navListItems += `<li name="${objNav[navItem].name}" class="footerNavItem ${objNav[navItem].name}"><span class="txtFooterNavItem">${objNav[navItem].text}</span></li>`;
     }
+    navListItems += `<li><div class="ifcFacebookLink"><a href="https://www.facebook.com/IFC.Israel" target="_blank"><img src="images/icons/FB-icon-box-white.png" /></a></div></li>`;
+      
 
     const footerNavListItems = document.querySelector('#footerNavListItems');
     footerNavListItems.insertAdjacentHTML('beforeend', navListItems);

@@ -48,7 +48,7 @@ const Resources = {
             home: {
                 promoBox: {
                     category: 'Event',
-                    date: '<span style="font-size: 16px;">Comming Soon</span><br>Summer 2020',
+                    date: '<span style="font-size: 16px;">Comming Soon</span><br>Fall 2020',
                     title: 'How can we influence and promote a free market in Israel'
                 }
             },
@@ -718,7 +718,7 @@ const Resources = {
             home: {
                 promoBox: {
                     category: 'ארוע',
-                    date: '<span style="font-size: 16px;">בקרוב</span><br> קיץ 2020',
+                    date: '<span style="font-size: 16px;">בקרוב</span><br> סתיו 2020',
                     title: 'איך אפשר להשפיע ולקדם שוק חופשי בארץ'
                 }
             },

@@ -266,6 +266,10 @@ body.layoutRTL {
 #footerMain ul#footerNavListItems li:hover .txtFooterNavItem {
     border-bottom: 2px solid #FFFFFF;
 }
+#footerMain .ifcFacebookLink img {
+    width: 24px;
+    height: auto;
+}
 #footerMain .footerBottom {
     position: absolute;
     display: flex;
