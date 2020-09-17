@@ -140,6 +140,7 @@ class Header {
       navListItems += `<li name="${objNav[navItem].name}" class="menuItem ${objNav[navItem].name + selected + parentMenuItem}"><span class="txtNavItem">${objNav[navItem].text}</span>${subnavHTML}</li>`;
       
     }
+    navListItems += `<li><div class="ifcFacebookLink"><a href="https://www.facebook.com/IFC.Israel" target="_blank"></a></div></li>`;
 
     const ulNavListItems = document.querySelector('#ulNavListItems');
     ulNavListItems.insertAdjacentHTML('beforeend', navListItems);

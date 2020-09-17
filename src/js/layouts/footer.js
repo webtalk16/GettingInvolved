@@ -47,7 +47,7 @@ class Footer {
       navListItems += `<li name="${objNav[navItem].name}" class="footerNavItem ${objNav[navItem].name}"><span class="txtFooterNavItem">${objNav[navItem].text}</span></li>`;
     }
     navListItems += `<li><div class="ifcFacebookLink"><a href="https://www.facebook.com/IFC.Israel" target="_blank"><img src="images/icons/FB-icon-box-white.png" /></a></div></li>`;
-      
+    // TODO - open FB link in app
 
     const footerNavListItems = document.querySelector('#footerNavListItems');
     footerNavListItems.insertAdjacentHTML('beforeend', navListItems);

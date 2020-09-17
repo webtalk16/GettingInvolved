@@ -222,6 +222,15 @@ body.layoutRTL {
     background-color: #343d46;
     color: white;
 }
+#headerMain #headerNav li .ifcFacebookLink a {
+    display: block;
+    background: url(../images/icons/FB-icon-round-grey.png) center center / auto 100% no-repeat;
+    width: 100%;
+    height: 24px;
+}
+#headerMain #headerNav li:hover .ifcFacebookLink a {
+    background: url(../images/icons/FB-icon-round-blue.png) center center / auto 100% no-repeat;
+}
 #footerMain {
     position: relative;
     padding-bottom: 65px;

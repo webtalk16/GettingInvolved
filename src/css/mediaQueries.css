@@ -41,6 +41,15 @@
         /* background: url(../images/icons/close-roundBtn-white.png) left center / auto 30px no-repeat; */
         text-align: left;
     }
+    #headerMain #headerNav li .ifcFacebookLink a,
+    #headerMain #headerNav li:hover .ifcFacebookLink a {
+        background-position: left center;
+        margin: 10px;
+    }
+    .layoutRTL #headerMain #headerNav li .ifcFacebookLink a,
+    .layoutRTL #headerMain #headerNav li:hover .ifcFacebookLink a {
+        background-position: right center;
+    }
     #appMain #headerMain #headerContainer #headerNav ul#ulNavListItems {
         display: none;
         opacity: 0;
