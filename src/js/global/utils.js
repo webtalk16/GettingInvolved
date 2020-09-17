@@ -7,6 +7,7 @@ class Utils {
       this.initLightBoxPopup();
       this.rootEl = document.querySelector('#appMain');
       this.menuIcon = null;
+      this.playTimoutOut = null;
     }
 
     // TODO - Lazy Load images
@@ -215,6 +216,7 @@ class Utils {
 
     openVideoPlayer (videoId, videoData, resources) {
       const onClose = () => { 
+        clearTimeout(this.playTimoutOut);
         const videoEl = document.querySelector('#video' + videoId);
         videoEl.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
       };
@@ -222,10 +224,11 @@ class Utils {
       // this.initVideoPlayer();
       this.initVideoPlayer(videoData, resources, onClose);
 
-      setTimeout(() => {
+      clearTimeout(this.playTimoutOut);
+      this.playTimoutOut = setTimeout(() => {
         const vid1 = document.querySelector('#video' + videoId);
         vid1.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-      }, 4000);
+      }, 2000);
     }
 }
   
