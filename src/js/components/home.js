@@ -236,15 +236,13 @@ class Home {
 
     watchVideoLeftArrow.addEventListener('click', function (that, numVideos) {
       return function () {
-        const moveDirection = !isRTL ? 'back' : 'foward';
-        that.utils.videoScroll(videoScrollElement, moveDirection, isRTL, numVideos, arrowBack, arrowFoward);
+        that.utils.videoScroll(videoScrollElement, 'back', isRTL, numVideos, arrowBack, arrowFoward);
       }
     }(this, numOfVideoItems, arrowBack, arrowFoward));
 
     watchVideoRightArrow.addEventListener('click', function (that, numVideos, arrowBack, arrowFoward) {
       return function () {
-        const moveDirection = isRTL ? 'back' : 'foward';
-        that.utils.videoScroll(videoScrollElement, moveDirection, isRTL, numVideos, arrowBack, arrowFoward);
+        that.utils.videoScroll(videoScrollElement, 'foward', isRTL, numVideos, arrowBack, arrowFoward);
       }
     }(this, numOfVideoItems, arrowBack, arrowFoward));
 
