@@ -230,6 +230,45 @@ class Utils {
         vid1.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
       }, 2000);
     }
+
+    videoScroll (scrollEl, direction, isRTL, numVideos, arrowBack, arrowFoward) {
+      const previousLeft = scrollEl.scrollLeft;
+      const offsetWidth  = scrollEl.scrollWidth;
+      const scrollAmount = offsetWidth / numVideos;
+      
+      scrollEl.scrollLeft = (direction == 'back') ? previousLeft - scrollAmount : previousLeft + scrollAmount; 
+
+      // console.log("-------------------- ");
+      // console.log("scrollEl.scrollLeft -- " + scrollEl.scrollLeft);
+      // console.log("scrollEl.clientWidth -- " + scrollEl.clientWidth);
+      // console.log("numVideos --- " + numVideos);
+      // console.log("offsetWidth - " + offsetWidth );
+      // console.log("scrollAmount - " + scrollAmount );
+
+      this.updateScrollArrows(scrollEl, isRTL, arrowBack, arrowFoward);
+    }
+
+    updateScrollArrows (scrollEl, isRTL, arrowBack, arrowFoward) {
+      if (scrollEl.scrollLeft == 0) {
+        arrowBack.classList.add('hide');
+      }
+      else {
+        arrowBack.classList.remove('hide');
+      }
+
+      if ((scrollEl.scrollLeft + scrollEl.clientWidth) >= (scrollEl.scrollWidth - 1)) {
+        arrowFoward.classList.add('hide');
+      }
+      else {
+        arrowFoward.classList.remove('hide');
+      }
+
+      if (!(scrollEl.clientWidth < scrollEl.scrollWidth)) {
+        arrowFoward.classList.add('hide');
+        arrowBack.classList.add('hide');
+      }
+
+    }
 }
   
 export { Utils };

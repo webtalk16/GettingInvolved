@@ -95,7 +95,7 @@ body.layoutRTL {
     border-bottom: 5px solid #408ac9;
     animation-name: fadeDown;
     animation-duration: 400ms;
-    z-index: 1;
+    z-index: 3;
  }  
 @keyframes fadeDown {
     from {top: -25%;}
@@ -1068,7 +1068,7 @@ body.layoutRTL {
     }
     .homeContent .watchOnIFC {
         background-color: #f3f5f8;
-        padding: 30px 0px;
+        padding: 30px 0px 0px 0px;
     }
     .homeContent .watchOnIFC h2 {
         margin: 0px;
@@ -1076,8 +1076,13 @@ body.layoutRTL {
         color: #333333;
     }
     .homeContent .watchOnIFC .watchIFCvideos {
+        position: relative;
+    }
+    .homeContent .watchOnIFC #watchVideosWrapper {
+        position: relative;
         white-space: nowrap;
         overflow-y: auto;
+        transition: left 400ms linear;
     }
     .homeContent .watchOnIFC .watchIFCvideos .watchVideoContainer {
         display: inline-block;
@@ -1118,6 +1123,7 @@ body.layoutRTL {
         white-space: normal;
     }
     .homeContent .watchOnIFC .watchIFCvideos .watchVideoFooter {
+        margin-bottom: 5px;
         color: #888888;
         font-size: 12px;
         font-weight: bold;
@@ -1129,6 +1135,35 @@ body.layoutRTL {
     }
     .layoutRTL .homeContent .watchOnIFC .watchIFCvideos .watchVideoTitle {
         font-size: 19px;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos #watchVideoLeftArrow,
+    .homeContent .watchOnIFC .watchIFCvideos #watchVideoRightArrow {
+        position: absolute;
+        background-color: rgba(0, 0, 0, .6);
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 30px;
+        top: 0px;
+        bottom: 0px;
+        cursor: pointer;
+        opacity: .8;
+        z-index: 2;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos #watchVideoLeftArrow:hover,
+    .homeContent .watchOnIFC .watchIFCvideos #watchVideoRightArrow:hover {
+        opacity: 1;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos #watchVideoLeftArrow {
+        background-image: url(../images/icons/arrowLeft-white.png);
+        left: 0px;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos #watchVideoRightArrow {
+        background-image: url(../images/icons/arrowRight-white.png);
+        right: 0px;
+    }
+    .homeContent .watchOnIFC .watchIFCvideos #watchVideoLeftArrow.hide,
+    .homeContent .watchOnIFC .watchIFCvideos #watchVideoRightArrow.hide {
+        display: none;
     }
 
     /* Video Player */ 

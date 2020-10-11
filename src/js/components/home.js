@@ -111,6 +111,8 @@ class Home {
     const videos = [];
     let videoInfo = '';
     let videoHTML = '';
+    videos.push(`<div id="watchVideoLeftArrow"></div>`);
+    videos.push(`<div id="watchVideosWrapper">`);
     for (let prop in this.videos) {
       videoInfo = this.videos[prop];
       videos.push(`
@@ -122,6 +124,8 @@ class Home {
         </div>
       `);
     }
+    videos.push(`</div>`);
+    videos.push(`<div id="watchVideoRightArrow"></div>`);
     videoHTML = videos.join('');
 
     const locationImage = this.uiLang == 'heb' ? 'Hebrew' : '';
@@ -201,39 +205,18 @@ class Home {
     this.utils.readMoreTruncate(rootEl.querySelectorAll('.groupItemDesc'), '.groupItemDescText', 5);
   }
 
-  // youtubeControls () {
-  //   var iframe = document.getElementById('video-player');
-  //   iframe.contentWindow.postMessage(JSON.stringify(
-  //       { event: 'command', func: 'pauseVideo' }), 'https://www.youtube.com');
-
-  //   document.querySelector('#video1595494800000').contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-  //   document.querySelector('#video1595494800000').contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-  //   document.querySelector('#video1595494800000').contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-  //   func = '{"event":"listening","id":' + JSON.stringify(''+frame_id) + '}';
-  //           iframe.contentWindow.postMessage(func, '*');
-   
-  //   $('a.play-video').click(function(){
-  //     $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-  //   });
-    
-  //   $('a.stop-video').click(function(){
-  //     $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-  //   });
-    
-  //   $('a.pause-video').click(function(){
-  //     $('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
-  //   });
-  // }
-
   bindEvents () {
+    // Event Directions Link
     const homePromoBoxFooter = document.querySelector('.homePromoBoxFooter');
     const eventDirections = 'https://docs.google.com/document/d/1PoTf5UFPJ1nN4XFbyjz8s2-CWWe73AeDk4pZrvHDHlY/edit?usp=sharing';
     homePromoBoxFooter.addEventListener('click', function () {
       window.open(eventDirections, '_blank');
     });
 
+    // Homepage Videos Click
     const watchVideoContainer = document.querySelectorAll('.watchVideoContainer');
-    for (let i = 0; i < watchVideoContainer.length; i++) {
+    const numOfVideoItems = watchVideoContainer.length;
+    for (let i = 0; i < numOfVideoItems; i++) {
       watchVideoContainer[i].addEventListener('click', function (that) {
         return function () {
           const videoId = this.getAttribute('data-video-id');
@@ -242,6 +225,39 @@ class Home {
         }
       }(this));
     }
+
+    // Homepage Videos Scroll Arrows
+    const isRTL = this.uiLang == 'heb';
+    const videoScrollElement = document.querySelector('#watchVideosWrapper');
+    const watchVideoLeftArrow = document.querySelector('#watchVideoLeftArrow');
+    const watchVideoRightArrow = document.querySelector('#watchVideoRightArrow');
+    const arrowBack = isRTL ? watchVideoRightArrow : watchVideoLeftArrow;
+    const arrowFoward = isRTL ? watchVideoLeftArrow : watchVideoRightArrow;
+
+    watchVideoLeftArrow.addEventListener('click', function (that, numVideos) {
+      return function () {
+        const moveDirection = !isRTL ? 'back' : 'foward';
+        that.utils.videoScroll(videoScrollElement, moveDirection, isRTL, numVideos, arrowBack, arrowFoward);
+      }
+    }(this, numOfVideoItems, arrowBack, arrowFoward));
+
+    watchVideoRightArrow.addEventListener('click', function (that, numVideos, arrowBack, arrowFoward) {
+      return function () {
+        const moveDirection = isRTL ? 'back' : 'foward';
+        that.utils.videoScroll(videoScrollElement, moveDirection, isRTL, numVideos, arrowBack, arrowFoward);
+      }
+    }(this, numOfVideoItems, arrowBack, arrowFoward));
+
+    let finishedScrolling = null;
+    this.utils.updateScrollArrows(videoScrollElement, isRTL, arrowBack, arrowFoward) ;
+    videoScrollElement.onscroll = function (that, isRTL, arrowBack, arrowFoward) {
+      return function () {
+        clearTimeout(finishedScrolling);
+        finishedScrolling = setTimeout(function () {
+          that.utils.updateScrollArrows(videoScrollElement, isRTL, arrowBack, arrowFoward) ;
+        }, 600);
+      }
+    }(this, isRTL, arrowBack, arrowFoward);
   }
 }
 
