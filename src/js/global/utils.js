@@ -249,14 +249,15 @@ class Utils {
     }
 
     updateScrollArrows (scrollEl, isRTL, arrowBack, arrowFoward) {
-      if (scrollEl.scrollLeft == 0) {
+      const scrollLeft = isRTL ? -scrollEl.scrollLeft : scrollEl.scrollLeft;
+      if (scrollLeft == 0) {
         arrowBack.classList.add('hide');
       }
       else {
         arrowBack.classList.remove('hide');
       }
 
-      if ((scrollEl.scrollLeft + scrollEl.clientWidth) >= (scrollEl.scrollWidth - 1)) {
+      if ((scrollLeft + scrollEl.clientWidth) >= (scrollEl.scrollWidth - 2)) {
         arrowFoward.classList.add('hide');
       }
       else {
