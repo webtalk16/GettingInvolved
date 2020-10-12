@@ -232,11 +232,24 @@ class Utils {
     }
 
     videoScroll (scrollEl, direction, isRTL, numVideos, arrowBack, arrowFoward) {
-      const previousLeft = scrollEl.scrollLeft;
+      let previousLeft = scrollEl.scrollLeft;
       const offsetWidth  = scrollEl.scrollWidth;
       const scrollAmount = offsetWidth / numVideos;
+      let animateSpeed = 1;
+
+      // this.updateScrollArrows(scrollEl, isRTL, arrowBack, arrowFoward);
       
-      scrollEl.scrollLeft = (direction == 'back') ? previousLeft - scrollAmount : previousLeft + scrollAmount; 
+      const animate = function (newLeft) {
+        animateSpeed += 1;
+        setTimeout(function () {
+          scrollEl.scrollLeft = newLeft; 
+        }, animateSpeed);
+      };
+
+      for (let i = 0; i < scrollAmount; i++) {
+        previousLeft = (direction == 'back') ? previousLeft - 1 : previousLeft + 1;
+        animate(previousLeft);
+      }
 
       // console.log("-------------------- ");
       // console.log("scrollEl.scrollLeft -- " + scrollEl.scrollLeft);
@@ -245,7 +258,6 @@ class Utils {
       // console.log("offsetWidth - " + offsetWidth );
       // console.log("scrollAmount - " + scrollAmount );
 
-      this.updateScrollArrows(scrollEl, isRTL, arrowBack, arrowFoward);
     }
 
     updateScrollArrows (scrollEl, isRTL, arrowBack, arrowFoward) {

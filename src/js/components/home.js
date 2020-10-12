@@ -253,7 +253,7 @@ class Home {
         clearTimeout(finishedScrolling);
         finishedScrolling = setTimeout(function () {
           that.utils.updateScrollArrows(videoScrollElement, isRTL, arrowBack, arrowFoward) ;
-        }, 600);
+        }, 200);
       }
     }(this, isRTL, arrowBack, arrowFoward);
   }
