@@ -6,7 +6,7 @@ class Calendar {
   constructor () {
     this.global = new Global();
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang)
+    this.uiLang = Config.uiLang.get.call(Config.uiLang);
   } 
 
   loadPage () {

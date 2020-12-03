@@ -406,7 +406,7 @@ const Resources = {
                     Link: {
                         fb: 'https://www.facebook.com/IsraeliFreedomMovement/',
                         website: 'https://event.ravpage.co.il/JoinFreedom',
-                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KGQUVD9EVGBFS&source=url',
+                        donate: 'https://www.paypal.com/donate?hosted_button_id=DVD82XD64KRRQ',
                         email: ''
                     }
                 },
@@ -435,7 +435,7 @@ const Resources = {
                     Link: {
                         fb: 'https://www.facebook.com/AYNRANDISRAEL/',
                         website: 'https://www.aynrand.org.il/donate',
-                        donate: 'http://paypal.me/AynRandCenterIsrael',
+                        donate: 'https://www.paypal.com/donate?hosted_button_id=8YHPGF7WU4ZU6',
                         email: ''
                     }
                 },
@@ -1072,7 +1072,7 @@ const Resources = {
                     Link: {
                         fb: 'https://www.facebook.com/IsraeliFreedomMovement/',
                         website: 'https://event.ravpage.co.il/JoinFreedom',
-                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KGQUVD9EVGBFS&source=url',
+                        donate: 'https://www.paypal.com/donate?hosted_button_id=DVD82XD64KRRQ',
                         email: ''
                     }
                 },
@@ -1101,7 +1101,7 @@ const Resources = {
                     Link: {
                         fb: 'https://www.facebook.com/AYNRANDISRAEL/',
                         website: 'https://www.aynrand.org.il/donate',
-                        donate: 'http://paypal.me/AynRandCenterIsrael',
+                        donate: 'https://www.paypal.com/donate?hosted_button_id=8YHPGF7WU4ZU6',
                         email: ''
                     }
                 },

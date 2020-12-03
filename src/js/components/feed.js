@@ -7,7 +7,7 @@ class Feed {
     this.global = new Global();
     this.resources = this.global.getResources();
     this.posts = this.global.getPosts();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang)
+    this.uiLang = Config.uiLang.get.call(Config.uiLang);
   } 
 
   loadPage () {

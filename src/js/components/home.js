@@ -13,7 +13,7 @@ class Home {
     this.global = new Global();
     this.utils = new Utils();
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang)
+    this.uiLang = Config.uiLang.get.call(Config.uiLang);
     this.videos = this.global.getVideos();
   }
 

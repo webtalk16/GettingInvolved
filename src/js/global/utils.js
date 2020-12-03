@@ -246,6 +246,7 @@ class Utils {
         }, animateSpeed);
       };
 
+      previousLeft -= 1;
       for (let i = 0; i < scrollAmount; i++) {
         previousLeft = (direction == 'back') ? previousLeft - 1 : previousLeft + 1;
         animate(previousLeft);

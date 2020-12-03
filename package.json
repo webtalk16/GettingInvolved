@@ -12,7 +12,8 @@
     "test": "qunit src/tests/*-test.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.0"
+    "@babel/runtime": "^7.8.0",
+    "firebase": "^8.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.0",

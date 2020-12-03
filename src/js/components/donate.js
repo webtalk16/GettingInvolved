@@ -6,7 +6,7 @@ class Donate {
   constructor () {
     this.global = new Global();
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang)
+    this.uiLang = Config.uiLang.get.call(Config.uiLang);
   } 
 
   loadPage () {
@@ -66,9 +66,6 @@ class Donate {
           <div class='donateButton campaign'>
             <span class="donateButtonText">${this.resources.donate.buttonCampaign}</span>
           </div>
-          <div class='donateButton general'>
-            <span class="donateButtonText">${this.resources.donate.buttonGeneral}</span>
-          </div>
           <div class="supportOthers">
             <h2>ניתן גם לתמוך ולתרום באופן ישיר לארגונים
                 ש-IFC תומכת בהם
@@ -83,12 +80,6 @@ class Donate {
   }
 
   bindEvents () {
-    const donateBtnGeneral = document.querySelector('.donateButton.general');
-    const ifcDonatePaypal = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9EGG93TWBLKMQ&source=url';
-    donateBtnGeneral.addEventListener('click', function () {
-      window.open(ifcDonatePaypal, '_blank');
-    });
-
     const donateBtnCampaign = document.querySelector('.donateButton.campaign');
     const ifcDonateDrove = 'https://drove.com/.294k';
     donateBtnCampaign.addEventListener('click', function () {
