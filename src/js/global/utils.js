@@ -19,7 +19,33 @@ class Utils {
       }
       else {
         menuIcon.parentNode.parentNode.classList.toggle('showMenu');
+        this.closeLoginForm();
       }
+    }
+
+    closeLoginForm () {
+      const loginForm = document.querySelector('#loginForm');
+      loginForm.classList.add('hide');
+      
+      const loginErrorTxt = document.querySelector('#loginForm_ErrorTxt');
+      const registerNewUser = document.querySelector('#loginForm_RegisterNewUser');
+      const resetPassword = document.querySelector('#loginForm_ResetPassword');
+      const resetSuccessTxt = document.querySelector('#loginForm_resetSuccessTxt');
+      const loginExistingUser = document.querySelector('#loginForm_LoginExistingUser');
+      const loginForm_Password = document.querySelector('#loginForm_Password');
+      const loginBtn = document.querySelector('#loginForm_loginBtn').querySelector('button');
+      const registerBtn = document.querySelector('#loginForm_registerBtn').querySelector('button');
+      const resetPassBtn = document.querySelector('#loginForm_resetPassBtn').querySelector('button');
+      loginErrorTxt.innerHTML = '';
+      loginBtn.disabled = false;
+      registerBtn.disabled = true;
+      resetPassBtn.disabled = true;
+      resetPassBtn.classList.remove('hide');
+      loginExistingUser.classList.remove('hide');
+      loginForm_Password.classList.remove('hide');
+      registerNewUser.classList.add('hide');
+      resetPassword.classList.add('hide');
+      resetSuccessTxt.classList.add('hide');
     }
 
     closeMenu () {
@@ -47,6 +73,8 @@ class Utils {
         passedMinThreshold = window.pageYOffset > (headerPos + (screenHeight / 2));
 
         utils.closeMenu();
+        utils.closeLoginForm();
+
 
         if ((!scrollingUp) || scrollingUp && !passedMinThreshold) {
           header.classList.remove("sticky");

@@ -10,10 +10,15 @@ class Global {
         this.resourceNavItems = Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
         // this.config = Config;
         // this.createGlobalScope();
+        // this.user = null;
     }
 
     // createGlobalScope () {
     //   window.ifcGlobal = {};
+    // }
+
+    // setUser (user) {
+    //   this.user = user;
     // }
 
     getResources () {

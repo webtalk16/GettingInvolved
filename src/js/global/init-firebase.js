@@ -1,4 +1,6 @@
+import { Global } from '../global/global.js';
 import { Config } from './config.js';
+import { Login } from '../components/login.js';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
@@ -6,6 +8,7 @@ import "firebase/database";
 
 class Firebase {
     constructor () {
+        this.global = new Global();
         this.database = null;
         this.rootRef = null;
         this.firebaseConfig = Config.firebaseConfig.get.call();
@@ -21,6 +24,9 @@ class Firebase {
 
         this.database = firebase.database();
         this.rootRef = this.database.ref();
+
+        const login = new Login();
+        login.loadLogin(firebase);
 
         // console.log("----database---");
         // console.log(this.database);

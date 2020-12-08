@@ -20,7 +20,7 @@
 @media only screen and (max-width: 850px) {
     #appMain #menuIcon { display: inline-block; }
     #appMain #headerMain #headerContainer #headerLogo { order: 1; }
-    #appMain #headerMain #headerContainer #headerNav { order: 3; width: 35px; flex: unset; z-index: 2; }
+    #appMain #headerMain #headerContainer #headerNav { order: 3; width: 35px; flex: unset; z-index: 3; }
     #appMain #headerMain #headerContainer #headerLang {
         display: flex;
         order:2;

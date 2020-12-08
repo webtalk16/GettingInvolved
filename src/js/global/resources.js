@@ -37,6 +37,40 @@ const Resources = {
                     name: 'calendar'
                 }
             },
+            login: {
+                login: 'Login',
+                logout: 'Logout',
+                username: 'Email',
+                userpassword: 'Password',
+                register: 'Register',
+                registerUser: 'Register',
+                LoginExistingUser: 'Already Register?',
+                resetPassword: 'reset password',
+                resetSuccess: 'An Email to reset your password was successfully sent. Please follow the link in your email.',
+                errorTxt: {
+                    emptyEmail: 'Please enter an email address.',
+                    emptyPassword: 'Please enter a password.',
+                    signInWithEmailAndPassword: {
+                        'auth/invalid-email': 'Please Enter a valid email.',
+                        'auth/user-disabled': 'Your account is disabled, please send an email to IFC to restore your account.',
+                        'auth/user-not-found': 'The email you entered does not correspond with an existing account.',
+                        'auth/wrong-password': 'The password you entered is incorrect.',
+                        'auth/too-many-requests': 'Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later.',
+                        default: 'There was an error signing in. Please try again or contact IFC by email to check your account.'
+                    },
+                    createUserWithEmailAndPassword: {
+                        'auth/email-already-in-use': 'The email you entered is already associated with another account. Try logging in.',
+                        'auth/invalid-email': 'Please Enter a valid email.',
+                        'auth/weak-password': 'Password should be at least 6 characters',
+                        default: 'There was an error in creating your new account. Please try again or contact IFC by email for assistance.'
+                    },
+                    sendPasswordResetEmail: {
+                        'auth/invalid-email': 'Please Enter a valid email.',
+                        'auth/user-not-found': 'The email you entered does not correspond with an existing account.',
+                        default: 'There was an error in reseting your password. Please try again or contact IFC by email for assistance.'
+                    }
+                }
+            },
             donate: {
                 title: 'Every donation will be used to help achieve even greater accomplishiments in taking Israel towards a true Free Market economy.',
                 buttonGeneral: 'General Donation',
@@ -622,7 +656,7 @@ const Resources = {
                     Link: {
                         fb: '',
                         website: 'https://event.ravpage.co.il/Zoom2Freedom',
-                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8ULT6DFUXYN5W&source=url',
+                        donate: 'https://www.paypal.com/donate/?hosted_button_id=RHJXY4PZBTGMG',
                         email: ''
                     }
                 },
@@ -636,7 +670,7 @@ const Resources = {
                     Link: {
                         fb: '',
                         website: 'https://www.freeindex.info/',
-                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=S35WTBY4LR4YG&source=url',
+                        donate: 'https://www.paypal.com/donate/?hosted_button_id=TD4VT6R4HASUS',
                         email: ''
                     }
                 },
@@ -664,7 +698,7 @@ const Resources = {
                     Link: {
                         fb: 'https://www.facebook.com/%D7%9B%D7%A0%D7%A1-%D7%94%D7%97%D7%99%D7%A8%D7%95%D7%AA-FreedomCon-1099335593559205/',
                         website: '',
-                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=77XLZ4UNLE8HN&source=url',
+                        donate: 'https://www.paypal.com/donate/?hosted_button_id=PPMCET9GLMWYQ',
                         email: ''
                     }
                 }
@@ -705,6 +739,40 @@ const Resources = {
                 calendar: {
                     text: 'יומן חירות',
                     name: 'calendar'
+                }
+            },
+            login: {
+                login: 'כניסה',
+                logout: 'יציאה',
+                username: 'דוא"ל',
+                userpassword: 'סיסמה',
+                register: 'להירשם',
+                registerUser: 'הרשמה',
+                LoginExistingUser: 'כניסה לרשומים',
+                resetPassword: 'אפס סיסמה',
+                resetSuccess: 'דוא"ל לאיפוס הסיסמה נשלח בהצלחה. אנא עקוב אחר הקישור בדוא"ל שלך.',
+                errorTxt: {
+                    emptyEmail: 'אנא הזן דוא"ל.',
+                    emptyPassword: 'אנא הזן סיסמה.',
+                    signInWithEmailAndPassword: {
+                        'auth/invalid-email': 'אנא הזן דוא"ל חוקי.',
+                        'auth/user-disabled': 'חשבונך מושבת, אנא שלח דוא"ל ל- IFC כדי לשחזר את חשבונך.',
+                        'auth/user-not-found': 'הדוא"ל שהזנת אינו תואם לחשבון קיים.',
+                        'auth/wrong-password': 'הסיסמה שהזנת שגויה.',
+                        'auth/too-many-requests': 'הגישה לחשבון זה הושבתה באופן זמני עקב ניסיונות כניסה רבים שנכשלו. באפשרותך לשחזר אותה מיד על ידי איפוס הסיסמה שלך או שתוכל לנסות שוב מאוחר יותר.',
+                        default: 'אירעה שגיאה בכניסה. נסה שוב או צור קשר עם IFC בדוא"ל כדי לבדוק את חשבונך.'
+                    },
+                    createUserWithEmailAndPassword: {
+                        'auth/email-already-in-use': 'הדוא"ל שהזנת כבר משויך לחשבון אחר. נסה כניסה לרשומים.',
+                        'auth/invalid-email': 'אנא הזן דוא"ל חוקי.',
+                        'auth/weak-password': 'הסיסמה צריכה להיות לפחות 6 תווים.',
+                        default: 'אירעה שגיאה ביצירת החשבון החדש שלך. אנא נסה שוב או צור קשר עם IFC בדוא"ל לקבלת סיוע.'
+                    },
+                    sendPasswordResetEmail: {
+                        'auth/invalid-email': 'אנא הזן דוא"ל חוקי.',
+                        'auth/user-not-found': 'הדוא"ל שהזנת אינו תואם לחשבון קיים.',
+                        default: 'אירעה שגיאה באיפוס הסיסמה שלך. אנא נסה שוב או צור קשר עם IFC בדוא"ל לקבלת סיוע.'
+                    }
                 }
             },
             donate: {
@@ -1288,7 +1356,7 @@ const Resources = {
                     Link: {
                         fb: '',
                         website: 'https://event.ravpage.co.il/Zoom2Freedom',
-                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8ULT6DFUXYN5W&source=url',
+                        donate: 'https://www.paypal.com/donate/?hosted_button_id=RHJXY4PZBTGMG',
                         email: ''
                     }
                 },
@@ -1302,7 +1370,7 @@ const Resources = {
                     Link: {
                         fb: '',
                         website: 'https://www.freeindex.info/',
-                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=S35WTBY4LR4YG&source=url',
+                        donate: 'https://www.paypal.com/donate/?hosted_button_id=TD4VT6R4HASUS',
                         email: ''
                     }
                 },
@@ -1330,7 +1398,7 @@ const Resources = {
                     Link: {
                         fb: 'https://www.facebook.com/%D7%9B%D7%A0%D7%A1-%D7%94%D7%97%D7%99%D7%A8%D7%95%D7%AA-FreedomCon-1099335593559205/',
                         website: '',
-                        donate: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=77XLZ4UNLE8HN&source=url',
+                        donate: 'https://www.paypal.com/donate/?hosted_button_id=PPMCET9GLMWYQ',
                         email: ''
                     }
                 }
