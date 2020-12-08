@@ -44,7 +44,7 @@ const Resources = {
                 userpassword: 'Password',
                 register: 'Register',
                 registerUser: 'Register',
-                LoginExistingUser: 'Already Register?',
+                LoginExistingUser: 'Already Registered?',
                 resetPassword: 'reset password',
                 resetSuccess: 'An Email to reset your password was successfully sent. Please follow the link in your email.',
                 errorTxt: {

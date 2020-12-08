@@ -211,4 +211,16 @@
     #footerMain #footerContainer .imgFooterLogo {
         margin: 10px 3%;
     }
+
+    #loginMain #loginContainer #loginForm {
+        font-size: 17px;
+    }
+    #loginMain #loginContainer #loginForm .loginFormLabel {
+        font-size: 20px;
+    }
+    #loginMain #loginContainer #loginForm #loginForm_loginBtn button,
+    #loginMain #loginContainer #loginForm #loginForm_registerBtn button,
+    #loginMain #loginContainer #loginForm #loginForm_resetPassBtn button {
+        font-size: 20px;
+    }
   }

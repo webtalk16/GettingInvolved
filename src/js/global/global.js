@@ -21,6 +21,8 @@ class Global {
     //   this.user = user;
     // }
 
+    // TODO - make larger text, buttons, inputs for mobile
+
     getResources () {
         return Resources.lang[Config.uiLang.get.call(Config.uiLang)];
     }

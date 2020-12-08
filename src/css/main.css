@@ -86,15 +86,15 @@ body.layoutRTL {
 #loginMain #loginContainer #logInOutBtn {
     position: absolute;
     display: flex;
-    background: #246ea6 url(../images/icons/profileImgSmall-default.png) left center / 17px 17px no-repeat;
+    background: #246ea6 url(../images/icons/profileImgSmall-default.png) left center / 19px 19px no-repeat;
     top: 0px;
     left: 0px;
-    height: 17px;
+    height: 19px;
     line-height: 14px;
-    padding-left: 22px;
-    padding-right: 5px;
+    padding-left: 26px;
+    padding-right: 7px;
     align-items: center;
-    font-size: 12px;
+    font-size: 13px;
     color: #FFFFFF;
     cursor: pointer;
     transition: left 1200ms linear, right 1200ms linear;
@@ -103,8 +103,8 @@ body.layoutRTL {
     background-position: right center;
     left: auto;
     right: 0px;
-    padding-left: 5px;
-    padding-right: 22px;
+    padding-left: 7px;
+    padding-right: 26px;
 }
 #loginMain #loginContainer #logInOutBtn.hide {
     left: -100%;
@@ -117,9 +117,10 @@ body.layoutRTL {
     position: absolute;
     top: 17px;
     left: 0px;
-    width: 278px;
+    width: 312px;
     background-color: rgba(0, 0, 0, .85);
     color: #FFFFFF;
+    font-size: 15px;
     opacity: 1;
     transition: left 250ms linear, right 250ms linear, opacity 350ms linear;
 }
@@ -136,11 +137,12 @@ body.layoutRTL {
     right: -100%;
 }
 #loginMain #loginContainer #loginForm form {
-    padding: 2px 10px;
+    padding: 7px 22px;
 }
 #loginMain #loginContainer #loginForm .loginFormLabel {
     display: inline-block;
-    width: 85px;
+    width: 95px;
+    font-size: 17px;
 }
 #loginMain #loginContainer #loginForm .loginFormInput {
     display: inline-block;
@@ -149,14 +151,19 @@ body.layoutRTL {
     direction: ltr;
 }
 #loginMain #loginContainer #loginForm #loginForm_User,
+#loginMain #loginContainer #loginForm #loginForm_Password {
+    white-space: nowrap;
+}
+#loginMain #loginContainer #loginForm #loginForm_User,
 #loginMain #loginContainer #loginForm #loginForm_Password,
 #loginMain #loginContainer #loginForm #loginForm_loginBtn,
 #loginMain #loginContainer #loginForm #loginForm_registerBtn,
 #loginMain #loginContainer #loginForm #loginForm_gotoRegister,
 #loginMain #loginContainer #loginForm #loginForm_gotoLogin,
 #loginMain #loginContainer #loginForm #loginForm_gotoLoginAfterReset,
-#loginMain #loginContainer #loginForm #loginForm_ErrorTxt {
-    margin: 5px 0px;
+#loginMain #loginContainer #loginForm #loginForm_ErrorTxt,
+#loginMain #loginContainer #loginForm #loginForm_resetPassBtn {
+    margin: 7px 0px;
 }
 #loginMain #loginContainer #loginForm #loginForm_loginBtn,
 #loginMain #loginContainer #loginForm #loginForm_registerBtn,
@@ -171,6 +178,7 @@ body.layoutRTL {
 #loginMain #loginContainer #loginForm #loginForm_loginBtn button,
 #loginMain #loginContainer #loginForm #loginForm_registerBtn button,
 #loginMain #loginContainer #loginForm #loginForm_resetPassBtn button {
+    font-size: 15px;
     cursor: pointer;
 }
 #loginMain #loginContainer #loginForm #loginForm_loginBtn #resetPassBtn {
