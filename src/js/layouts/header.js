@@ -1,17 +1,16 @@
-import { Global } from '../global/global.js';
-import { Utils } from '../global/utils.js';
 
 class Header {
 
-  constructor () {
-    this.global = new Global();
-    this.utils = new Utils();
+  constructor (global) {
+    this.name = 'Header';
+    this.global = global;
+    this.utils = global.utils;
     this.resources = this.global.getResources();
     this.config = this.global.getConfig();
     this.homepage = this.setHomePage();
   } 
 
-  loadHeader () {
+  init () {
     console.log('Header component is loaded');
     this.buildHtml();
     this.buildNav();
@@ -126,6 +125,7 @@ class Header {
     navListItems += `<li id="navCloseBtn">X</li>`;
     // navListItems += `<li name="home" class="menuItem home ${'home' == this.homepage ? ' selected' : ''}"><span class="txtNavItem">${homeLinkTxt}</span></li>`;
     for (let navItem in objNav) {
+      if (objNav[navItem].name == 'settings') continue;
       selected = objNav[navItem].name == this.homepage ? ' selected' : '';
       subnavHTML = '';
       parentMenuItem = objNav[navItem].subMenu ? ' parentItem' : '';

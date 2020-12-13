@@ -1,17 +1,16 @@
-import { Global } from '../global/global.js';
-import { Utils } from '../global/utils.js';
 
 const rootEl = document.querySelector('#appMain');
 
 class Footer {
 
-  constructor () {
-    this.global = new Global();
+  constructor (global) {
+    this.name = 'Footer';
+    this.global = global;
+    this.utils = global.utils;
     this.resources = this.global.getResources();
-    this.utils = new Utils();
   } 
 
-  loadFooter () {
+  init () {
     console.log('Footer component is loaded');
     this.buildHtml();
     this.bindEvents();
@@ -67,14 +66,20 @@ class Footer {
             headerNav.querySelectorAll('li').forEach( function(li) { li.classList.remove('selected'); li.classList.remove('showSubNav'); });
             const elemSelected = headerNav.querySelector(`li[name="${this.getAttribute('name')}"]`);
 
-            if (elemSelected.classList.contains('parentItem')) {
-              const firstSubNavItem = elemSelected.querySelector('.subNav').firstChild;
-              that.utils.setPage(firstSubNavItem.getAttribute('name'));
-              firstSubNavItem.classList.add('selected');
-              elemSelected.classList.add('showSubNav');
+            if (elemSelected) {
+              if (elemSelected.classList.contains('parentItem')) {
+                const firstSubNavItem = elemSelected.querySelector('.subNav').firstChild;
+                that.utils.setPage(firstSubNavItem.getAttribute('name'));
+                firstSubNavItem.classList.add('selected');
+                elemSelected.classList.add('showSubNav');
+              }
+              else {
+                elemSelected.classList.add('selected');
+                that.utils.setPage(this.getAttribute('name'));
+              }
             }
             else {
-              elemSelected.classList.add('selected');
+              // nav item not in header (footer only)
               that.utils.setPage(this.getAttribute('name'));
             }
           }

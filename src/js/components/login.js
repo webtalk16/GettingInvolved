@@ -1,48 +1,29 @@
-import { Global } from '../global/global.js';
-import { Utils } from '../global/utils.js';
 
 class Login {
 
-  constructor () {
-    this.global = new Global();
-    this.utils = new Utils();
+  constructor (global) {
+    this.name = 'Login';
+    this.global = global;
+    this.utils = global.utils;
     this.resources = this.global.getResources();
     this.data = null;
-    this.user = null;
+    this.functions = null;
   }
 
-  loadLogin(firebase){
+  init () {
     const that = this;
+    this.buildHtml();
 
     // this.global.setUser(firebase.auth().currentUser);
-    // console.log('1111111 ' + this.global.user);
-    this.data = firebase;
+    this.data = this.global.modules.Firebase.firebase;
 
-    this.data.auth().onAuthStateChanged(function(user) {
-      // TODO - dont show login btn until check if logged in or out
-
-        that.user = user; // check THIS
-        const logInOutBtn = document.querySelector('#logInOutBtn');
-        if (that.user) {
-            console.log('User is Now signed in');
-            logInOutBtn.innerHTML = that.resources.login['logout'];
-        } else {
-            console.log('User is Now signed out');
-            logInOutBtn.innerHTML = that.resources.login['login'];
-        }
-        logInOutBtn.classList.remove('hide');
-        that.utils.closeLoginForm();
-        
-      });
-
-    this.buildHtml();
     this.bindEvents();
     console.log('Login component is loaded');
   }
 
   buildHtml () {
     const rootEl = document.querySelector('#appMain');
-    const loggedIn = this.user ? 'logout' : 'login';
+    const loggedIn = this.global.getUser() ? 'logout' : 'login';
     const html = `
       <div id="loginMain">
         <div id="loginContainer">
@@ -77,6 +58,12 @@ class Login {
       </div>
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
+    this.updateUserData();
+  }
+
+  htmlInitialized () {
+    const loginMain = document.querySelector('#loginMain');
+    return !!loginMain;
   }
 
   refreshLoginForm (loginForm, errorTxt) {
@@ -99,7 +86,7 @@ class Login {
     // Log in/out Btn
     const logInOutBtn = document.querySelector('#logInOutBtn');
     logInOutBtn.addEventListener('click', () => {
-      if (that.user) {
+      if (that.global.getUser()) {
         // preform sign out
         that.data.auth().signOut().then(function() {
           console.log('success logged OUT');
@@ -183,6 +170,11 @@ class Login {
         errorTxt.innerHTML = this.global.resources.login.errorTxt.emptyPassword;
         return;
       }
+      const regExValidEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (!inputAddAdmin.value.match(regExValidEmail)) {
+        errorTxt.innerHTML = this.global.resources.login.errorTxt.invalidEmail;
+        return;
+      }
 
       // perform login
       that.data.auth().signInWithEmailAndPassword(inputEmail.value, inputPassword.value)
@@ -192,6 +184,8 @@ class Login {
           console.log('success logged in existing user - ' + user);
           loginForm.classList.add('hide');
           errorTxt.innerHTML = '';
+          inputEmail.value = '';
+          inputPassword.value = '';
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -236,12 +230,21 @@ class Login {
         errorTxt.innerHTML = this.global.resources.login.errorTxt.emptyPassword;
         return;
       }
+
+      const regExValidEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (!inputAddAdmin.value.match(regExValidEmail)) {
+        errorTxt.innerHTML = this.global.resources.login.errorTxt.invalidEmail;
+        return;
+      }
       
       // perform add user
       that.data.auth().createUserWithEmailAndPassword(inputEmail.value, inputPassword.value)
         .then((user) => {
             // Signed in 
             console.log('success created new user - ' + user);
+            errorTxt.innerHTML = '';
+            inputEmail.value = '';
+            inputPassword.value = '';
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -274,6 +277,12 @@ class Login {
 
       if (inputEmail.value == '') {
         errorTxt.innerHTML = this.global.resources.login.errorTxt.emptyEmail;
+        return;
+      }
+
+      const regExValidEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (!inputAddAdmin.value.match(regExValidEmail)) {
+        errorTxt.innerHTML = this.global.resources.login.errorTxt.invalidEmail;
         return;
       }
 
@@ -319,6 +328,32 @@ class Login {
       errorTxt.innerHTML = '';
     });
 
+  }
+
+  eventHandler (eventName) {
+    switch (eventName) {
+      case this.global.references.Events.userStateChangd:
+        this.updateUserData();
+        break;
+      default:
+        break;
+    }
+  }
+
+  updateUserData () {
+    const that = this;
+
+    if (this.htmlInitialized()) {
+      const logInOutBtn = document.querySelector('#logInOutBtn');
+      if (that.global.getUser()) {
+        logInOutBtn.innerHTML = that.resources.login['logout'];
+      }
+      else {
+        logInOutBtn.innerHTML = that.resources.login['login'];
+      }
+      logInOutBtn.classList.remove('hide');
+      that.utils.closeLoginForm();
+    }
   }
 }
 

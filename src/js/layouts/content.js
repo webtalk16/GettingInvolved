@@ -1,24 +1,35 @@
-import { Global } from '../global/global.js';
 import { Config } from '../global/config.js';
-import { Home } from './home.js';
+import { Home } from '../components/home.js';
+import { Calendar } from '../components/calendar.js';
+import { Donate } from '../components/donate.js';
+import { Feed } from '../components/feed.js';
+import { Plan } from '../components/plan.js';
+import { Team } from '../components/team.js';
+import { Settings } from '../components/settings.js';
 
 class Content {
 
-  constructor () {
-    this.global = new Global();
+  constructor (global) {
+    this.name = 'Content';
+    this.global = global;
     this.resources = this.global.getResources();
     this.uiLang = Config.uiLang.get.call(Config.uiLang);
   } 
 
-  loadContent(){
+  init () {
     console.log('Content component is loaded');
     this.buildHtml();
-    this.loadHomepage();
+    this.loadPages();
   }
 
-  loadHomepage () {
-    const homepage = new Home();
-    homepage.loadHome();
+  loadPages () {
+    this.global.addModule(Home);
+    this.global.addModule(Calendar);
+    this.global.addModule(Donate);
+    this.global.addModule(Feed);
+    this.global.addModule(Plan);
+    this.global.addModule(Team);
+    this.global.addModule(Settings);
   }
 
   // loadScripts (rootEl) {

@@ -1,21 +1,26 @@
-import { Global } from '../global/global.js';
 import { Config } from './config.js';
 import { Login } from '../components/login.js';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/database";
+import "firebase/functions"
 
 class Firebase {
-    constructor () {
-        this.global = new Global();
+    constructor (global) {
+        this.name = 'Firebase';
+        this.global = global;
         this.database = null;
         this.rootRef = null;
         this.firebaseConfig = Config.firebaseConfig.get.call();
+        this.firebase = firebase;
     }
 
-    initFirebase () {
+    init () {
         const that = this;
+
+        // console.log('modules')
+        // console.log(this.global.modules)
 
         // Initialize Firebase
         const app = firebase.initializeApp(this.firebaseConfig);
@@ -24,9 +29,44 @@ class Firebase {
 
         this.database = firebase.database();
         this.rootRef = this.database.ref();
+        this.global.functions = firebase.functions();
 
-        const login = new Login();
-        login.loadLogin(firebase);
+
+        this.global.addModule(Login);
+
+        firebase.auth().onAuthStateChanged(function(user) {
+
+            //that.global.getUser()
+            if (user) {
+                // check user claims (roles)
+                user.getIdTokenResult().then(getIdTokenResult => {
+                    console.log('User is Now signed in');
+
+                    console.log('---- claim logs ----');
+                    console.log(getIdTokenResult.claims.admin);
+                    console.log(getIdTokenResult.claims)
+                    console.log('---- claim logs ----');
+
+                    let providerData = null;
+                    if (user.providerData && user.providerData.length) {
+                        user.providerData[0].admin = getIdTokenResult.claims.admin;
+                        providerData = user.providerData[0];
+                    }
+                    
+                    console.log('--- obj User ---');
+                    console.log(providerData);
+                    console.log('--- obj User ---');
+                    
+                    that.global.setUser(providerData);
+                    that.global.relayEvent(that.global.references.Events.userStateChangd);
+                });
+            }
+            else {
+                console.log('User is Now signed out');
+                that.global.setUser(null);
+                that.global.relayEvent(that.global.references.Events.userStateChangd);
+            }
+        });
 
         // console.log("----database---");
         // console.log(this.database);
@@ -174,6 +214,34 @@ class Firebase {
     // --     }
     // --     return post;
     // -- });
+
+    eventHandler (eventName) {
+        switch (eventName) {
+            case this.global.references.Events.userStateChangd:
+            this.showHideData();
+            break;
+            default:
+            break;
+        }
+    }
+    
+      showHideData () {
+        const user = this.global.getUser();
+        const adminOnlyItems = document.querySelectorAll('.adminOnly');
+        adminOnlyItems.forEach(item => {
+            if (user) {
+                if (user.admin) {
+                    item.classList.remove('hidden');
+                }
+                else {
+                    item.classList.add('hidden');
+                }
+            }
+            else {
+                item.classList.add('hidden');
+            }
+        });
+      }
 }
   
 export { Firebase };

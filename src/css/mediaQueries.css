@@ -16,6 +16,9 @@
     #contentMain #contentContainer main.contentPosts .postContainer {
         width: 60%;
     }
+    #contentMain #contentContainer main.contentSettings #settingsContent {
+        width: 60%;
+    }
 }
 @media only screen and (max-width: 850px) {
     #appMain #menuIcon { display: inline-block; }
@@ -147,6 +150,9 @@
     #contentMain #contentContainer main.contentPosts .postContainer {
         width: 70%;
     }
+    #contentMain #contentContainer main.contentSettings #settingsContent {
+        width: 70%;
+    }
   }
   @media only screen and (max-width: 560px) {
     .homeContent .activistProgram .activistProgramItem.activistProgramPeople {
@@ -157,6 +163,9 @@
         right: 5%;
     }
     #contentMain #contentContainer main.contentPosts .postContainer {
+        width: 80%;
+    }
+    #contentMain #contentContainer main.contentSettings #settingsContent {
         width: 80%;
     }
     #footerMain #footerContainer .imgFooterLogo {
@@ -204,6 +213,10 @@
         right: 2%;
     }
     #contentMain #contentContainer main.contentPosts .postContainer {
+        width: 100%;
+        border-radius: 0px;
+    }
+    #contentMain #contentContainer main.contentSettings #settingsContent {
         width: 100%;
         border-radius: 0px;
     }

@@ -1,45 +1,26 @@
-import { Global } from '../global/global.js';
-import { Utils } from '../global/utils.js';
 import { Config } from '../global/config.js';
-import { Calendar } from './calendar.js';
-import { Donate } from './donate.js';
-import { Feed } from './feed.js';
-import { Plan } from './plan.js';
-import { Team } from './team.js';
 
 class Home {
 
-  constructor () {
-    this.global = new Global();
-    this.utils = new Utils();
+  constructor (global) {
+    this.name = 'Home';
+    this.global = global;
+    this.utils = global.utils;
     this.resources = this.global.getResources();
     this.uiLang = Config.uiLang.get.call(Config.uiLang);
     this.videos = this.global.getVideos();
   }
 
-  loadHome () {
+  init () {
     console.log('Home component is loaded');
-    this.loadPages();
     this.buildHtml();
     this.bindEvents();
-  }
-
-  loadPages () {
-    const CalendarPage = new Calendar();
-    CalendarPage.loadPage();
-    const DonatePage = new Donate();
-    DonatePage.loadPage();
-    const FeedPage = new Feed();
-    FeedPage.loadPage();
-    const PlanPage = new Plan();
-    PlanPage.loadPage();
-    const TeamPage = new Team();
-    TeamPage.loadPage();
   }
 
   buildHtml () {
 
     // HTML Groups
+    // TODO - add youtube links
     const groupItems = [];
     let interactiveBoxes = '';
     let groupItem = '';
@@ -113,6 +94,7 @@ class Home {
     let videoHTML = '';
     videos.push(`<div id="watchVideoLeftArrow"></div>`);
     videos.push(`<div id="watchVideosWrapper">`);
+    videos.push('<div id="editAddVideo" class="hidden adminOnly">+</div>');
     for (let prop in this.videos) {
       videoInfo = this.videos[prop];
       videos.push(`

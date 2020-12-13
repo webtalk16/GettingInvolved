@@ -1,16 +1,16 @@
-import { Global } from '../global/global.js';
 import { Config } from '../global/config.js';
 
 class Feed {
 
-  constructor () {
-    this.global = new Global();
+  constructor (global) {
+    this.name = 'Feed';
+    this.global = global;
     this.resources = this.global.getResources();
     this.posts = this.global.getPosts();
     this.uiLang = Config.uiLang.get.call(Config.uiLang);
   } 
 
-  loadPage () {
+  init () {
     console.log('Feed component is loaded');
     this.buildHtml();
   }

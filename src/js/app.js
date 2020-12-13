@@ -1,23 +1,25 @@
 import { Header } from './layouts/header.js';
-import { Content } from './components/content.js';
+import { Content } from './layouts/content.js';
 import { Footer } from './layouts/footer.js';
 import { Firebase } from './global/init-firebase.js';
+import { Global } from './global/global.js';
 
 class App {
+
+  constructor () {
+    this.global = new Global();
+  }
   loadApp(){
 
-    const firebase = new Firebase();
-    firebase.initFirebase();
     // TODO - use cache if no success then load below
 
-    const header = new Header();
-    header.loadHeader();
+    this.global.addModule(Firebase);
+    this.global.addModule(Header);
+    this.global.addModule(Content);
+    this.global.addModule(Footer);
 
-    const content = new Content();
-    content.loadContent();
-
-    const footer = new Footer();
-    footer.loadFooter();
+    console.log('modules');
+    console.log(this.global.modules);
 
     console.log('App component is loaded!');
   }

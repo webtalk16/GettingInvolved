@@ -1,17 +1,16 @@
-import { Global } from '../global/global.js';
 import { Config } from '../global/config.js';
-import { Utils } from '../global/utils.js';
 
 class Team {
 
-  constructor () {
-    this.global = new Global();
-    this.utils = new Utils();
+  constructor (global) {
+    this.name = 'Team';
+    this.global = global;
+    this.utils = global.utils;
     this.resources = this.global.getResources();
     this.uiLang = Config.uiLang.get.call(Config.uiLang);
   } 
 
-  loadPage () {
+  init () {
     console.log('Team component is loaded');
     this.buildHtml();
     this.bindEvents();

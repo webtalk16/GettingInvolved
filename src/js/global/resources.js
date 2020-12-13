@@ -35,6 +35,10 @@ const Resources = {
                 calendar: {
                     text: 'Liberty Calendar',
                     name: 'calendar'
+                },
+                settings: {
+                    text: 'Settings',
+                    name: 'settings'
                 }
             },
             login: {
@@ -50,6 +54,7 @@ const Resources = {
                 errorTxt: {
                     emptyEmail: 'Please enter an email address.',
                     emptyPassword: 'Please enter a password.',
+                    invalidEmail: 'Please Enter a valid email.',
                     signInWithEmailAndPassword: {
                         'auth/invalid-email': 'Please Enter a valid email.',
                         'auth/user-disabled': 'Your account is disabled, please send an email to IFC to restore your account.',
@@ -76,13 +81,30 @@ const Resources = {
                 buttonGeneral: 'General Donation',
                 buttonCampaign: 'Help Fund our Steet Meet-Up Event'
             },
+            settings: {
+                title: "Settings",
+                notLoggedIn: 'please login',
+                info: {
+                    user: {
+                        username: 'Username',
+                        email: 'Email'
+                    }
+                },
+                roles: {
+                    addAdmin: 'Add Admin',
+                    admin: 'Admin'
+                },
+                actions: {
+                    add: 'Add'
+                }
+            },
             footer: {
                 youtube: 'IFC Media - Channel for Liberty'
             },
             home: {
                 promoBox: {
                     category: 'Event',
-                    date: '<span style="font-size: 16px;">Comming Soon</span><br>Fall 2020',
+                    date: '<span style="font-size: 16px;">Comming Soon</span><br>Spring 2021',
                     title: 'How can we influence and promote a free market in Israel'
                 }
             },
@@ -739,6 +761,10 @@ const Resources = {
                 calendar: {
                     text: 'יומן חירות',
                     name: 'calendar'
+                },
+                settings: {
+                    text: 'הגדרות',
+                    name: 'settings'
                 }
             },
             login: {
@@ -754,6 +780,7 @@ const Resources = {
                 errorTxt: {
                     emptyEmail: 'אנא הזן דוא"ל.',
                     emptyPassword: 'אנא הזן סיסמה.',
+                    invalidEmail: 'אנא הזן דוא"ל חוקי.',
                     signInWithEmailAndPassword: {
                         'auth/invalid-email': 'אנא הזן דוא"ל חוקי.',
                         'auth/user-disabled': 'חשבונך מושבת, אנא שלח דוא"ל ל- IFC כדי לשחזר את חשבונך.',
@@ -780,13 +807,30 @@ const Resources = {
                 buttonGeneral: 'תרומה כללית',
                 buttonCampaign: 'תרמו לעזור לנו לממן את האירוע הבא'
             },
+            settings: {
+                title: 'הגדרות',
+                notLoggedIn: 'אנא התחבר',
+                info: {
+                    user: {
+                        username: 'שם משתמש',
+                        email: 'דוא"ל'
+                    }
+                },
+                roles: {
+                    addAdmin: 'הוסף מנהל',
+                    admin: 'מנהל'
+                },
+                actions: {
+                    add: 'הוסף'
+                }
+            },
             footer: {
                 youtube: 'IFC Media ערוץ לחירות'
             },
             home: {
                 promoBox: {
                     category: 'ארוע',
-                    date: '<span style="font-size: 16px;">בקרוב</span><br> סתיו 2020',
+                    date: '<span style="font-size: 16px;">בקרוב</span><br> אביב 2021',
                     title: 'איך אפשר להשפיע ולקדם שוק חופשי בארץ'
                 }
             },

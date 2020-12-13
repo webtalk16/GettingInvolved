@@ -451,8 +451,10 @@ body.layoutRTL {
 }
 #contentMain #contentContainer main.contentHome .homeHeaderImage {
     background-image: url(../images/Theme/streetMeetup.jpg);
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    /* margin-left: -20px;
+    margin-right: -20px; */
     min-height: 24rem;
     background-size: cover;
     background-repeat: no-repeat;
@@ -673,7 +675,64 @@ body.layoutRTL {
     right: 15px;
     height: 25px;
 }
-
+#contentMain #contentContainer main.contentSettings {
+    background-color: #f3f5f8;
+}
+#contentMain #contentContainer main.contentSettings #settingsContent {
+    width: 50%;
+    max-width: 610px;
+    min-height: 300px;
+    margin: 20px auto;
+    padding: 10px 0px;
+    background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    border: 1px solid rgba(0,0,0,.1);
+}
+#contentMain #contentContainer main.contentSettings #settingsPageTitle {
+    background: url(../images/icons/settings-icon.png) left center / auto 20px no-repeat;
+    margin: 0px 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    color: #333333;
+}
+.layoutRTL #contentMain #contentContainer main.contentSettings #settingsPageTitle {
+    background-position: right center;
+    padding-left: 0px;
+    padding-right: 40px;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo {
+    margin: 10px 15px;
+    color: #333333;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settings_Item {
+    margin: 10px 0px;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settings_Item.hidden {
+    display: none;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsLabel,
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsValue {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingUserRole {
+    display: inline-block;
+    margin: 0px 10px;
+    color: hotpink;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingUserRole.hidden {
+    display: none;
+}
+#contentMain #contentContainer main.contentSettings button[type=submit] {
+    cursor: pointer;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo #settings_addAdminErrorTxt {
+    margin: 7px 0px;
+    color: red;
+}
 
 /* The slider */
 #langSlider {
@@ -760,7 +819,8 @@ body.layoutRTL {
   #appMain .contentPosts,
   #appMain .contentPlan,
   #appMain .contentTeam,
-    #appMain .contentCalendar {
+    #appMain .contentCalendar,
+    #appMain .contentSettings {
         display: none;
     }
 
@@ -769,7 +829,8 @@ body.layoutRTL {
     #appMain.postsFeed .contentPosts,
     #appMain.about .contentPlan,
     #appMain.team .contentTeam,
-    #appMain.calendar .contentCalendar {
+    #appMain.calendar .contentCalendar,
+    #appMain.settings .contentSettings {
         position: relative;
         display: block;
         width: 100%;
@@ -1208,6 +1269,28 @@ body.layoutRTL {
         white-space: nowrap;
         overflow-y: auto;
         transition: left 400ms linear;
+    }
+    .homeContent .watchOnIFC #editAddVideo {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: 0px 2px;
+        vertical-align: top;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 300;
+        opacity: .85;
+        background-color: #000000;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+    .homeContent .watchOnIFC #editAddVideo:hover {
+        font-size: 44px;
+        opacity: 1;
+    }
+    .homeContent .watchOnIFC #editAddVideo.hidden {
+        display: none;
     }
     .homeContent .watchOnIFC .watchIFCvideos .watchVideoContainer {
         display: inline-block;

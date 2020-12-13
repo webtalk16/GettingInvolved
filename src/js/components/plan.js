@@ -1,15 +1,15 @@
-import { Global } from '../global/global.js';
 import { Config } from '../global/config.js';
 
 class Plan {
 
-  constructor () {
-    this.global = new Global();
+  constructor (global) {
+    this.name = 'Plan';
+    this.global = global;
     this.resources = this.global.getResources();
     this.uiLang = Config.uiLang.get.call(Config.uiLang);
   } 
 
-  loadPage () {
+  init () {
     console.log('Plan component is loaded');
     this.buildHtml();
     this.bindEvents();
