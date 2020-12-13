@@ -79,6 +79,11 @@ class Settings {
       else {
         username.innerHTML = this.resources.settings.notLoggedIn;
       }
+
+      // clear error messages
+      const addAdminErrorTxt = document.querySelector('#settings_addAdminErrorTxt');
+      addAdminErrorTxt.innerHTML = '';
+
     }
   }
 
@@ -110,10 +115,34 @@ class Settings {
       addAdminRole({ email: inputAddAdmin.value}).then(result => {
         inputAddAdmin.value = '';
         addAdminErrorTxt.innerHTML = '';
+
         console.log('addAdminRole result -----');
-        console.log(result);
-        console.log('addAdminRole result -----');
-        // TODO - refresh credentials - so that will not need to log in/out
+
+        if (result && result.data) {
+          console.log(result.data);
+
+          if (result.data.successCode) {
+            // TODO - add success message
+            // TODO - refresh credentials - so that will not need to log in/out
+          }
+          else if (result.data.errorCode) {
+            let code = '';
+            switch (result.data.errorCode) {
+              case 'functions/error-admin-only':
+                code = result.data.errorCode;
+                break;
+              case 'functions/error-admin-create':
+                code = result.data.errorCode;
+                break;
+              default:
+                code = 'default';
+            }
+            addAdminErrorTxt.innerHTML = that.resources.settings.errorTxt.httpsCallable.addAdminRole[code];
+          }
+        }
+      }).catch ((err) => {
+        console.log('Error creating admin role - error ' + err);
+        addAdminErrorTxt.innerHTML = that.resources.settings.errorTxt.httpsCallable.addAdminRole.default;
       });
     });
 

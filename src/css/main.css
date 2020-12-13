@@ -731,6 +731,7 @@ body.layoutRTL {
 }
 #contentMain #contentContainer main.contentSettings #settingsInfo #settings_addAdminErrorTxt {
     margin: 7px 0px;
+    white-space: normal;
     color: red;
 }
 

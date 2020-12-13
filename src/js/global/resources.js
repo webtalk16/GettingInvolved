@@ -84,6 +84,15 @@ const Resources = {
             settings: {
                 title: "Settings",
                 notLoggedIn: 'please login',
+                errorTxt: {
+                    httpsCallable: {
+                        addAdminRole: {
+                            'functions/error-admin-only': 'Only admins can preform this action',
+                            'functions/error-admin-create': 'There was an error in creating a new admin role. Please try again or contact an IFC admin for assistance.',
+                            default: 'There was an error in creating a new admin role. Please try again or contact an IFC admin for assistance.'
+                        }
+                    }
+                },
                 info: {
                     user: {
                         username: 'Username',
@@ -810,6 +819,15 @@ const Resources = {
             settings: {
                 title: 'הגדרות',
                 notLoggedIn: 'אנא התחבר',
+                errorTxt: {
+                    httpsCallable: {
+                        addAdminRole: {
+                            'functions/error-admin-only': 'רק מנהלים יכולים לבצע פעולה זו',
+                            'functions/error-admin-create': 'אירעה שגיאה ביצירת תפקיד מנהל חדש. אנא נסה שוב או צור קשר עם מנהל IFC לקבלת סיוע.',
+                            default: 'אירעה שגיאה ביצירת תפקיד מנהל חדש. אנא נסה שוב או צור קשר עם מנהל IFC לקבלת סיוע.'
+                        }
+                    }
+                },
                 info: {
                     user: {
                         username: 'שם משתמש',
