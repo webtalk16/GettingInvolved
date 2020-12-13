@@ -171,7 +171,7 @@ class Login {
         return;
       }
       const regExValidEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if (!inputAddAdmin.value.match(regExValidEmail)) {
+      if (!inputEmail.value.match(regExValidEmail)) {
         errorTxt.innerHTML = this.global.resources.login.errorTxt.invalidEmail;
         return;
       }
@@ -232,7 +232,7 @@ class Login {
       }
 
       const regExValidEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if (!inputAddAdmin.value.match(regExValidEmail)) {
+      if (!inputEmail.value.match(regExValidEmail)) {
         errorTxt.innerHTML = this.global.resources.login.errorTxt.invalidEmail;
         return;
       }
@@ -281,7 +281,7 @@ class Login {
       }
 
       const regExValidEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if (!inputAddAdmin.value.match(regExValidEmail)) {
+      if (!inputEmail.value.match(regExValidEmail)) {
         errorTxt.innerHTML = this.global.resources.login.errorTxt.invalidEmail;
         return;
       }
