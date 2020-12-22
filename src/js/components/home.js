@@ -1,4 +1,5 @@
 import { Config } from '../global/config.js';
+import { References } from '../global/references.js';
 
 class Home {
 
@@ -8,7 +9,6 @@ class Home {
     this.utils = global.utils;
     this.resources = this.global.getResources();
     this.uiLang = Config.uiLang.get.call(Config.uiLang);
-    this.videos = this.global.getVideos();
   }
 
   init () {
@@ -88,28 +88,7 @@ class Home {
     }
     activistProgramHTML = speakers.join('');
 
-    // HTML video carousel
-    const videos = [];
-    let videoInfo = '';
-    let videoHTML = '';
-    videos.push(`<div id="watchVideoLeftArrow"></div>`);
-    videos.push(`<div id="watchVideosWrapper">`);
-    videos.push('<div id="editAddVideo" class="hidden adminOnly">+</div>');
-    for (let prop in this.videos) {
-      videoInfo = this.videos[prop];
-      videos.push(`
-        <div class="watchVideoContainer" data-video-id="${prop}">
-          <div class="watchVideoPoster" style="background-image: url(videos/${prop}/placeholder.jpg);"></div>
-          <div class="watchVideoCategory">${videoInfo[this.uiLang].category}</div>
-          <div class="watchVideoTitle">${videoInfo[this.uiLang].title}</div>
-          <div class="watchVideoFooter">${videoInfo[this.uiLang].title2}</div>
-        </div>
-      `);
-    }
-    videos.push(`</div>`);
-    videos.push(`<div id="watchVideoRightArrow"></div>`);
-    videoHTML = videos.join('');
-
+    // Main HTML
     const locationImage = this.uiLang == 'heb' ? 'Hebrew' : '';
     const rootEl = document.querySelector('#contentContainer');
     const activistTrainingGroupsImg = this.uiLang == 'heb' ? 'ActivistProgramGroups-straight' : 'ActivistProgramGroups-arrows';
@@ -154,12 +133,7 @@ class Home {
             </div>
             <div class="activistProgramFooter"><div class="activistProgramTitle2">${this.resources.activistTraining.title2}</div></div>
           </div>
-          <div class="watchOnIFC">
-            <h2>${this.resources.video.viewOn}</h2>
-            <div class="watchIFCvideos">
-              ${videoHTML}
-            </div>
-          </div>
+          <div id="featuredVideos"></div>
           <div class="youTubeChannelPlaylist">
             <div class="youTubePlaylistHeader">
               <img src="images/content/YouTube-Header.jpg" />
@@ -184,6 +158,9 @@ class Home {
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
 
+    const divFeaturedVideos = document.querySelector('#featuredVideos');
+    this.global.modules[References.ModuleNames.VideoCarousel].updateFeaturedVideos(divFeaturedVideos);
+
     this.utils.readMoreTruncate(rootEl.querySelectorAll('.groupItemDesc'), '.groupItemDescText', 5);
   }
 
@@ -194,50 +171,11 @@ class Home {
     homePromoBoxFooter.addEventListener('click', function () {
       window.open(eventDirections, '_blank');
     });
+  }
 
-    // Homepage Videos Click
-    const watchVideoContainer = document.querySelectorAll('.watchVideoContainer');
-    const numOfVideoItems = watchVideoContainer.length;
-    for (let i = 0; i < numOfVideoItems; i++) {
-      watchVideoContainer[i].addEventListener('click', function (that) {
-        return function () {
-          const videoId = this.getAttribute('data-video-id');
-          const videoData = that.videos[videoId];
-          that.utils.openVideoPlayer(videoId, videoData, that.resources);
-        }
-      }(this));
-    }
-
-    // Homepage Videos Scroll Arrows
-    const isRTL = this.uiLang == 'heb';
-    const videoScrollElement = document.querySelector('#watchVideosWrapper');
-    const watchVideoLeftArrow = document.querySelector('#watchVideoLeftArrow');
-    const watchVideoRightArrow = document.querySelector('#watchVideoRightArrow');
-    const arrowBack = isRTL ? watchVideoRightArrow : watchVideoLeftArrow;
-    const arrowFoward = isRTL ? watchVideoLeftArrow : watchVideoRightArrow;
-
-    watchVideoLeftArrow.addEventListener('click', function (that, numVideos) {
-      return function () {
-        that.utils.videoScroll(videoScrollElement, 'back', isRTL, numVideos, arrowBack, arrowFoward);
-      }
-    }(this, numOfVideoItems, arrowBack, arrowFoward));
-
-    watchVideoRightArrow.addEventListener('click', function (that, numVideos, arrowBack, arrowFoward) {
-      return function () {
-        that.utils.videoScroll(videoScrollElement, 'foward', isRTL, numVideos, arrowBack, arrowFoward);
-      }
-    }(this, numOfVideoItems, arrowBack, arrowFoward));
-
-    let finishedScrolling = null;
-    this.utils.updateScrollArrows(videoScrollElement, isRTL, arrowBack, arrowFoward) ;
-    videoScrollElement.onscroll = function (that, isRTL, arrowBack, arrowFoward) {
-      return function () {
-        clearTimeout(finishedScrolling);
-        finishedScrolling = setTimeout(function () {
-          that.utils.updateScrollArrows(videoScrollElement, isRTL, arrowBack, arrowFoward) ;
-        }, 200);
-      }
-    }(this, isRTL, arrowBack, arrowFoward);
+  onUpdatesJJJ () {
+    const divFeaturedVideos = document.querySelector('#featuredVideos');
+    this.global.modules[References.ModuleNames.VideoCarousel].updateFeaturedVideos(divFeaturedVideos);
   }
 }
 

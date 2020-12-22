@@ -58,6 +58,7 @@ class Settings {
   eventHandler (eventName) {
     switch (eventName) {
       case this.global.references.Events.userStateChangd:
+      case this.global.references.Events.updateUserItems:
         this.updateUserData();
         break;
       default:

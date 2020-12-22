@@ -4,15 +4,19 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/database";
-import "firebase/functions"
+import "firebase/functions";
+import "firebase/storage";
+import { DateModel } from '../data/data-model.js';
 
 class Firebase {
     constructor (global) {
         this.name = 'Firebase';
         this.global = global;
         this.database = null;
-        this.rootRef = null;
-        this.firebaseConfig = Config.firebaseConfig.get.call();
+        this.storage = null;
+        this.dataRoot = null;
+        this.storageRoot = null;
+        this.firebaseConfig = Config.firebase.firebaseConfig.get.call();
         this.firebase = firebase;
     }
 
@@ -24,13 +28,15 @@ class Firebase {
 
         // Initialize Firebase
         const app = firebase.initializeApp(this.firebaseConfig);
+        this.storage = firebase.storage();
+        this.database = firebase.database();
+        this.global.functions = firebase.functions();
         // console.log(firebase);
         // firebase.analytics();
 
-        this.database = firebase.database();
-        this.rootRef = this.database.ref();
-        this.global.functions = firebase.functions();
-
+        this.dataRoot = this.database.ref();
+        this.storageRoot = this.storage.ref();
+        // this.createDataStructure();
 
         this.global.addModule(Login);
 
@@ -67,43 +73,6 @@ class Firebase {
                 that.global.relayEvent(that.global.references.Events.userStateChangd);
             }
         });
-
-        // console.log("----database---");
-        // console.log(this.database);
-        // console.log("----database---");
-
-        // const dataRef = this.database.ref('test1');
-
-        // dataRef.once('value').then(function(snapshot) {
-
-        //     // console.log("----snapshot---");
-        //     // console.log(snapshot.val());
-        //     // console.log("----snapshot---");
-
-        //     dataRef.child('tests').once('value').then(function(snapshotChild) {
-        //         let val = snapshotChild.val();
-        //         if (!val) {
-        //             val = 0;
-        //         }
-        //         // console.log("snapshotChild " + val);
-        //         const newKey = 'testChild' + (val + 1);
-        //         const newVal = val + 1;
-        //         // dataRef.set({'testChild': newVal}).then().catch();
-        //         that.database.ref('test1/tests').set(newVal);
-
-        //         that.writeUserData(newKey, newVal);
-        //         that.writeNewPost('sampleUid' + newVal, 'testUser' + newVal, 'New Post Title')
-        //         that.readData('/posts');
-        //         that.orderByKey('/posts');
-        //         that.orderByChild('/posts', 'author');
-        //     });
-
-        //     // this.delete(dataRef.child('testChild'));
-        // });
-
-        //Delete ALL
-        // this.delete(this.rootRef);
-        
     }
 
     // ***** Notes *****
@@ -139,15 +108,23 @@ class Firebase {
     }
 
     // to read data, listen for updates "once" or continuesly using "on"
-    readData (path) {
+    readData (path, callback) {
         const dataRef = this.database.ref(path);
         dataRef.once('value', (snapshot) => {
             console.log('read success, obj below');
             console.log(snapshot.val());
+            // return snapshot.val();
+
+            if (callback && typeof callback == 'function') {
+                // setTimeout(function () { //// TEMP test slow internet / response time
+                callback(snapshot.val());
+                // }, 5000);
+            }
+
         }, (objError) => {
             console.log('The read failed ' + objError.code);
+            // return null;
         });
-        // Todo = retrun snapshot val to invoker
     }
     
     // retrieve/read results in ordered format by key
@@ -186,7 +163,7 @@ class Firebase {
     // (cloud functions listening to value changes)
 
     writeNewPost(uid, username, title) {
-        const addPostRef = this.rootRef;
+        const addPostRef = this.dataRoot;
         
         // TODO - create data model
         const postData = {
@@ -201,9 +178,54 @@ class Firebase {
         const updates = {};
         updates['/posts/' + newPostKey] = postData;
 
-        const itemMessage = 'post ' + newPostKey;
+        const message = 'post ' + newPostKey;
         
-        this.updateAdd(addPostRef, updates, itemMessage);
+        this.updateAdd(addPostRef, updates, message);
+    }
+
+    addNewVideo(dataObj, inputCoverImage) {
+        const addPostRef = this.dataRoot;
+        const newVideoKey = this.addItemByKey(addPostRef, 'Videos');
+        const videoData = new DateModel.Video(newVideoKey, dataObj);
+        const message = 'new video ' + newVideoKey;
+        const updates = {};
+        
+        this.storageUploadVideoCover(inputCoverImage, newVideoKey, () => {
+            updates['/Videos/' + newVideoKey] = videoData;
+            this.updateAdd(addPostRef, updates, message);
+            setTimeout(() => { this.global.relayEvent(this.global.references.Events.newVideoAdded); }, 0);
+        });
+    }
+
+    handleFiles (inputFile) {
+        return inputFile.files[0];
+    }
+
+    storageUploadVideoCover (imageFile, videoId, doVideoAdd) {
+        // TEMP - manually update file !!!!
+        videoId = '-MOWbquUHcD-iaTjXUDr';
+        // TEMP !!!!
+
+        const image = this.handleFiles(imageFile);
+        const metadata = {
+            contentType: image.type,
+            name: image.name,
+            size: image.size,
+            forVideoId: videoId
+        };
+
+        const ref = this.storageRoot.child('/public/videos/' + videoId + '/placeholder.jpg'); //' + image.name);
+        ref.put(image, metadata).then(function (snapshot) {
+            doVideoAdd();
+            console.log('Uploaded image file for ' + videoId + 'successfully!');
+            console.log(snapshot);
+
+            snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                // console.log('File available at', downloadURL);
+            });
+        }).catch(function (err) {
+            console.log('Error in Uploading image file for ' + videoId + '. Error - ' + err);
+        });
     }
 
     // TODO - use transactions to execute reads and writes as atomic units
@@ -218,14 +240,16 @@ class Firebase {
     eventHandler (eventName) {
         switch (eventName) {
             case this.global.references.Events.userStateChangd:
-            this.showHideData();
-            break;
+            case this.global.references.Events.updateUserItems:
+                this.showHideData();
+                break;
             default:
-            break;
+                break;
         }
     }
     
-      showHideData () {
+    showHideData () {
+        // show/hide admin only elements
         const user = this.global.getUser();
         const adminOnlyItems = document.querySelectorAll('.adminOnly');
         adminOnlyItems.forEach(item => {
@@ -241,7 +265,87 @@ class Firebase {
                 item.classList.add('hidden');
             }
         });
-      }
+    }
+
+    createDataStructure () {
+        // upload videos from JSON
+        // for (let prop in Videos) {
+        //     this.addNewVideo(Videos[prop]);
+        // }
+
+
+        // console.log("----database---");
+        // console.log(this.database);
+        // console.log("----database---");
+
+        // TEST !!!!!!!!!!!!!!!!!!!
+
+
+        // this.dataRef.once('value').then(function(snapshot) {
+
+        //     // console.log("----snapshot---");
+        //     // console.log(snapshot.val());
+        //     // console.log("----snapshot---");
+
+        //     // Create parent data if does not exist
+        //     const parentItems = {};
+        //     parentItems['/Videos/'] = {};
+        //     parentItems['/Posts/'] = {};
+        //     const itemMessage = 'data parent items';
+        //     this.updateAdd(this.dataRef, updates, itemMessage);
+
+        //     // this.dataRef.child('tests').once('value').then(function(snapshotChild) {
+        //     //     let val = snapshotChild.val();
+        //     //     if (!val) {
+        //     //         val = 0;
+        //     //     }
+        //     //     // console.log("snapshotChild " + val);
+        //     //     const newKey = 'testChild' + (val + 1);
+        //     //     const newVal = val + 1;
+        //     //     // dataRef.set({'testChild': newVal}).then().catch();
+        //     //     that.database.ref('test1/tests').set(newVal);
+
+        //     //     that.writeUserData(newKey, newVal);
+        //     //     that.writeNewPost('sampleUid' + newVal, 'testUser' + newVal, 'New Post Title')
+        //     //     that.readData('/posts');
+        //     //     that.orderByKey('/posts');
+        //     //     that.orderByChild('/posts', 'author');
+        //     // });
+
+        //     // this.delete(dataRef.child('testChild'));
+        // });
+
+        // const dataRef = this.database.ref('test1');
+        // dataRef.once('value').then(function(snapshot) {
+
+        //     // console.log("----snapshot---");
+        //     // console.log(snapshot.val());
+        //     // console.log("----snapshot---");
+
+        //     dataRef.child('tests').once('value').then(function(snapshotChild) {
+        //         let val = snapshotChild.val();
+        //         if (!val) {
+        //             val = 0;
+        //         }
+        //         // console.log("snapshotChild " + val);
+        //         const newKey = 'testChild' + (val + 1);
+        //         const newVal = val + 1;
+        //         // dataRef.set({'testChild': newVal}).then().catch();
+        //         that.database.ref('test1/tests').set(newVal);
+
+        //         that.writeUserData(newKey, newVal);
+        //         that.writeNewPost('sampleUid' + newVal, 'testUser' + newVal, 'New Post Title')
+        //         that.readData('/posts');
+        //         that.orderByKey('/posts');
+        //         that.orderByChild('/posts', 'author');
+        //     });
+
+        //     // this.delete(dataRef.child('testChild'));
+        // });
+
+        //Delete ALL
+        // this.delete(this.dataRoot);
+    }
 }
   
 export { Firebase };

@@ -107,6 +107,42 @@ const Resources = {
                     add: 'Add'
                 }
             },
+            addEditPopup: {
+                buttonText: 'Add Video',
+                header: {
+                    addFeaturedVideo: 'Add Featured Video'
+                },
+                item: {
+                    category: 'Category Name',
+                    titleMain: 'Main Title',
+                    titleFooter: 'Footer Title',
+                    videoLink: 'YouTube Video Link',
+                    coverImage: 'Cover Image',
+                    socialLinksToPost: 'Link to Video on Social Media Posts'
+                },
+                lang: {
+                    heb: '<span class="hebrewInEnglishText">עברית</span>',
+                    eng: 'English'
+                },
+                hint: {
+                    hint: 'hint: ',
+                    category: 'name of lead performer or production organization',
+                    imageSize: '.jpg only (200px X 100px)',
+                    videoTitle: 'title of video',
+                    videoTitle2: 'name of show/series or episode name/number',
+                    youTubeEmbedLink: 'use "embed" link - https://www.youtube.com/embed/fVR6-j4GcbE',
+                    socialFB: 'https://www.facebook.com/watch/?v=306407127053427',
+                    socialWeb: '',
+                    socialSpotify: 'https://open.spotify.com/episode/1Kl2hjrd72OChJK06aMXfd',
+                    socialInsta: '',
+                    socialYouTube: 'https://youtu.be/RKgad4eesPs',
+                    socialLinkedIn: 'https://www.linkedin.com/posts/barakhers_%D7%9C%D7%9E%D7%94-%D7%99%D7%A7%D7%A8-%D7%A4%D7%94-%D7%94%D7%A0%D7%94-%D7%A2%D7%95%D7%93-%D7%A1%D7%99%D7%91%D7%94-%D7%9E%D7%A8%D7%AA%D7%99%D7%97%D7%94-%D7%9C%D7%99%D7%95%D7%A7%D7%A8-%D7%94%D7%9E%D7%97%D7%99%D7%94-activity-6688007987010801664-1euc/',
+                    socialTwitter: ''
+                },
+                errorTxt: {
+                    missingTitle: 'please enter a value for all title fields'
+                }
+            },
             footer: {
                 youtube: 'IFC Media - Channel for Liberty'
             },
@@ -369,13 +405,13 @@ const Resources = {
             },
             groupsGeneral: {
                 Title1: 'Groups',
-                Title2: 'That Work to Promote Libery, Classical Liberalism and Free Market in Israel'
+                Title2: 'That Work to Promote Liberty, Classical Liberalism and Free Market in Israel'
             },
             posts: {
                 viewOn: 'view post on:'
             },
             video: {
-                viewOn: `Watch on IFC Media`,
+                viewOn: `Featured Videos`,
                 viewFullPost: 'view full post on:'
             },
             dateTime: {
@@ -842,6 +878,42 @@ const Resources = {
                     add: 'הוסף'
                 }
             },
+            addEditPopup: {
+                buttonText: 'הוסף סרטון',
+                header: {
+                    addFeaturedVideo: 'הוסף סרטון למומלצים'
+                },
+                item: {
+                    category: 'שם קטגוריה',
+                    titleMain: 'כותרת ראשית',
+                    titleFooter: 'כותרת תחתונה',
+                    videoLink: 'קישור וידאו ליוטיוב',
+                    coverImage: 'תמונת שער',
+                    socialLinksToPost: 'קישור לסרטון ברשתות החברתיות'
+                },
+                lang: {
+                    heb: 'עברית',
+                    eng: '<span class="englishInHebrewText">English</span>'
+                },
+                hint: {
+                    hint: 'רמז: ',
+                    category: 'שם המבצע הראשי או ארגון ההפקה',
+                    imageSize: 'jpg בלבד (200px X 100px)',
+                    videoTitle: 'כותרת הסרטון',
+                    videoTitle2: 'שם התוכנית/הסדרה או שם/מספר הפרק',
+                    youTubeEmbedLink: 'השתמש בקישור embed https://www.youtube.com/embed/fVR6-j4GcbE',
+                    socialFB: 'https://www.facebook.com/watch/?v=306407127053427',
+                    socialWeb: '',
+                    socialSpotify: 'https://open.spotify.com/episode/1Kl2hjrd72OChJK06aMXfd',
+                    socialInsta: '',
+                    socialYouTube: 'https://youtu.be/RKgad4eesPs',
+                    socialLinkedIn: 'https://www.linkedin.com/posts/barakhers_%D7%9C%D7%9E%D7%94-%D7%99%D7%A7%D7%A8-%D7%A4%D7%94-%D7%94%D7%A0%D7%94-%D7%A2%D7%95%D7%93-%D7%A1%D7%99%D7%91%D7%94-%D7%9E%D7%A8%D7%AA%D7%99%D7%97%D7%94-%D7%9C%D7%99%D7%95%D7%A7%D7%A8-%D7%94%D7%9E%D7%97%D7%99%D7%94-activity-6688007987010801664-1euc/',
+                    socialTwitter: ''
+                },
+                errorTxt: {
+                    missingTitle: 'אנא הזן ערך עבור כל השדות הכותרות.'
+                }
+            },
             footer: {
                 youtube: 'IFC Media ערוץ לחירות'
             },
@@ -1106,7 +1178,7 @@ const Resources = {
                 viewOn: 'צפו בפוסט ב -'
             },
             video: {
-                viewOn: `צפה ב- <span class="englishInHebrewText">IFC Media</span>`,
+                viewOn: `צפו בסרטונים המומלצים`,
                 viewFullPost: 'צפו בפוסט המלא ב -'
             },
             dateTime: {

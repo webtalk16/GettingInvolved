@@ -9,7 +9,8 @@
         top: 0px;
         left: 26%;
     }
-    #lightBoxContainer .lightBoxPopup {
+    #lightBoxContainer .lightBoxPopup,
+    #addEditPopup .addEditContainer {
         left: 20%;
         right: 20%;
     }
@@ -143,7 +144,8 @@
         transform: none;
         bottom: -4px;
     }
-    #lightBoxContainer .lightBoxPopup {
+    #lightBoxContainer .lightBoxPopup,
+    #addEditPopup .addEditContainer {
         left: 10%;
         right: 10%;
     }
@@ -158,7 +160,8 @@
     .homeContent .activistProgram .activistProgramItem.activistProgramPeople {
         background: url(../images/content/activistProgram/logo-Hamama.png) 98% 88% / 110px auto no-repeat;
     }
-    #lightBoxContainer .lightBoxPopup {
+    #lightBoxContainer .lightBoxPopup,
+    #addEditPopup .addEditContainer {
         left: 5%;
         right: 5%;
     }
@@ -208,7 +211,8 @@
     .homeContent .activistProgramLecturerTitle {
         font-size: 1em;
     }
-    #lightBoxContainer .lightBoxPopup {
+    #lightBoxContainer .lightBoxPopup,
+    #addEditPopup .addEditContainer {
         left: 2%;
         right: 2%;
     }

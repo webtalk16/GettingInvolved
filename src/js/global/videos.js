@@ -11,7 +11,7 @@ const Videos = {
             title2: `המיזם להפחתת הביורוקרטיה`
         },
         media:{
-            videoEmbed: `<iframe id="video1598866574000" style="width:100%;height:400px;" src="https://www.youtube.com/embed/CP6M5Rqa-U8?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+            videoEmbed: `<iframe xxx style="width:100%;height:400px;" src="https://www.youtube.com/embed/CP6M5Rqa-U8?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
         },
         socialLinks: {
             website: ``,
@@ -20,7 +20,7 @@ const Videos = {
             fb: `https://www.facebook.com/permalink.php?story_fbid=161020485492023&id=106626417598097`,
             twiter: ``,
             youTube: `https://youtu.be/CP6M5Rqa-U8`,
-            linkedIn: `https://www.linkedin.com/posts/barakhers_%D7%9C%D7%9E%D7%94-%D7%99%D7%A7%D7%A8-%D7%A4%D7%94-%D7%94%D7%A0%D7%94-%D7%A2%D7%95%D7%93-%D7%A1%D7%99%D7%91%D7%94-%D7%9E%D7%A8%D7%AA%D7%99%D7%97%D7%94-%D7%9C%D7%99%D7%95%D7%A7%D7%A8-%D7%94%D7%9E%D7%97%D7%99%D7%94-activity-6688007987010801664-1euc`
+            linkedIn: `https://www.linkedin.com/posts/barakhers_%D7%9C%D7%9E%D7%94-%D7%99%D7%A7%D7%A8-%D7%A4%D7%94-%D7%94%D7%A0%D7%94-%D7%A2%D7%95%D7%93-%D7%A1%D7%99%D7%91%D7%94-%D7%9E%D7%A8%D7%AA%D7%99%D7%97%D7%94-%D7%9C%D7%99%D7%95%D7%A7%D7%A8-%D7%94%D7%9E%D7%97%D7%99%D7%94-activity-6688007987010801664-1euc/`
         }
     },
     1595236545000: {
@@ -35,7 +35,7 @@ const Videos = {
             title2: `היגיון כלכלי`
         },
         media:{
-            videoEmbed: `<iframe id="video1595236545000" style="width:100%;height:400px;" src="https://www.youtube.com/embed/8c35uAeuGu8?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+            videoEmbed: `<iframe xxx style="width:100%;height:400px;" src="https://www.youtube.com/embed/8c35uAeuGu8?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
         },
         socialLinks: {
             website: ``,
@@ -59,7 +59,7 @@ const Videos = {
             title2: `פרק 9 - עמית סגל`
         },
         media:{
-            videoEmbed: `<iframe id="video1594184057000" style="width:100%;height:400px;" src="https://www.youtube.com/embed/RKgad4eesPs?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+            videoEmbed: `<iframe xxx style="width:100%;height:400px;" src="https://www.youtube.com/embed/RKgad4eesPs?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
         },
         socialLinks: {
             website: ``,

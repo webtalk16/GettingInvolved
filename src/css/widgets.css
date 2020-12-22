@@ -81,6 +81,231 @@
     flex-direction: column;
 }
 
+/* Add/Edit Popup */
+#addEditPopup {
+    display: none;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(255,255,255,.8);
+    z-index: 3;
+}
+#addEditPopup.show {
+    display: block;
+}
+#addEditPopup .addEditContainer {
+    position: absolute;
+    background: rgba(255,255,255,.9);
+    top: 50%;
+    left: 30%;
+    right: 30%;
+    transform: translateY(-50%);
+    min-height: 50%;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 7px;
+    box-shadow: 5px 10px 28px rgba(0,0,0,.2);
+    color: #333333;
+    z-index: 1;
+}
+#addEditPopup .addEditContainer #addEditContent {
+    max-height: 400px;
+    padding: 0px 18px;
+    overflow-y: scroll;
+}
+#addEditPopup .addEditContainer .closeBtn {
+    background: url(../images/icons/close-roundBtn-black.png) right top / auto 30px no-repeat;
+    height: 30px;
+    margin-bottom: 15px;
+    opacity: .8;
+    cursor: pointer;
+}
+#addEditPopup .addEditContainer #addEditHeader {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    z-index: -1;
+}
+#addEditPopup .addEditContainer .addEditItem {
+    margin: 15px 0px;
+    padding-bottom: 15px;
+    white-space: nowrap;
+}
+#addEditPopup .addEditContainer .addEditItem:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+#addEditPopup .addEditContainer .addEditItem.videoLink {
+    padding: 25px;
+    background-color: #f3f5f8;
+}
+#addEditPopup .addEditContainer .addEditItem.videoCover #inputCoverImage {
+    border: 1px solid rgba(0,0,0,.3);
+    cursor: pointer;
+}
+#addEditPopup .addEditContainer .addEditItem,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem {
+    direction: ltr;
+    text-align: left;;
+}
+#addEditPopup .addEditContainer .addEditItem .addEditLabel {
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+#addEditPopup .addEditContainer .addEditItem .inputsByLang {
+    display: inline-block;
+    width: 50%;
+}
+#addEditPopup .addEditContainer .addEditItem .inputsByLang.eng,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem .inputsByLang.eng {
+    direction: ltr;
+    text-align: left;
+}
+#addEditPopup .addEditContainer .addEditItem .inputsByLang.heb,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem .inputsByLang.heb {
+    direction: rtl;
+    text-align: right;
+}
+#addEditPopup .addEditContainer .addEditItem .inputsByLang label {
+    display: block;
+    /* margin-top: 10px;
+    margin-bottom: 4px; */
+}
+#addEditPopup .addEditContainer .addEditItem input {
+    margin-top: 5px;
+}
+#addEditPopup .addEditContainer .addEditItem .inputsByLang input {
+    width: 90%;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoLink input {
+    width: 100%;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoLink input,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoLink input {
+    direction: ltr;
+    text-align: left;
+}
+#addEditPopup .addEditContainer .addEditItem .addEditItemHint {
+    padding: 10px 0px 5px 0px;
+}
+#addEditPopup .addEditContainer .addEditItem .addEditItemHint .hintLabel {
+    display: inline-block;
+    vertical-align: top;
+    color: darkgoldenrod;
+}
+#addEditPopup .addEditContainer .addEditItem .addEditItemHint .hintExample {
+    display: inline-block;
+    max-width: 90%;
+    vertical-align: top;
+    white-space: normal;
+    color: gray;
+}
+#addEditPopup .addEditContainer .addEditItem.socialLinks .addEditItemHint .hintExample {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+}
+.layoutRTL #addEditPopup .addEditContainer .addEditItem .addEditItemHint {
+    direction: rtl;
+    text-align: right;
+}
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks {
+    direction: rtl;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks .addEditItemHint {
+    padding: 7px 0px 15px 0px;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks input {
+    display: block;
+    width: 100%;
+    text-align: left;
+    direction: ltr;
+}
+#addEditPopup .addEditContainer .addEditItem.videoCover,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem.videoCover,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem.videoCover .addEditItemHint  {
+    text-align: center;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Web,
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_FB,
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Spotify,
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Insta,
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_YouTube,
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_LinkedIn,
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Twitter {
+    background-position: left top;
+    background-size: 25px auto;
+    background-repeat: no-repeat;
+    padding-left: 35px;
+}
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Web,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_FB,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Spotify,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Insta,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_YouTube,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_LinkedIn,
+.layoutRTL #addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Twitter {
+    background-position: right top;
+    padding-left: 0px;
+    padding-right: 35px;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Web {
+    background-image: url(../images/icons/icon-website-blue.png);
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_FB {
+    background-image: url(../images/icons/icon-facebook-blue.png);
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Spotify {
+    background-image: url(../images/icons/icon-spotify-green.png);
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Insta {
+    background-image: url(../images/icons/icon-insta.png);
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_YouTube {
+    background-image: url(../images/icons/icon-youtube.png);
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_LinkedIn {
+    background-image: url(../images/icons/icon-linkedin-blue.png);
+}
+#addEditPopup .addEditContainer .addEditItem #addEditVideoSocialLinks #inputSocialLinks_Twitter {
+    background-image: url(../images/icons/icon-twitter-blue.png);
+}
+#addEditPopup .addEditContainer #errorTxt {
+    color: red;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditSubmitBtn {
+    width: 100%;
+    height: 40px;
+    background-color: #f3f5f8;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 8px 8px 8px 8px;
+    font-weight: bold;
+    color: #444;
+    cursor: pointer;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditSubmitBtn:hover {
+    background-color: aliceblue;
+}
+#addEditPopup .addEditContainer .addEditItem .formInput.err {
+    border-color: red;
+}
+#addEditPopup .addEditContainer .addEditItem.videoCover #inputCoverImage.formInput.err {
+    border: 1.8px solid red;
+}
+
+/* End Add/Edit Popup */
+
 /* Lighbox Popup */
 #lightBoxContainer {
     display: none;

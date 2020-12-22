@@ -3,8 +3,6 @@ class Utils {
 
     constructor () {
       this.popupContainer = document.querySelector('#lightBoxContainer');
-      this.popupText = this.popupContainer.querySelector('#lightBoxPopupText');
-      this.initLightBoxPopup();
       this.rootEl = document.querySelector('#appMain');
       this.menuIcon = null;
       this.playTimoutOut = null;
@@ -159,18 +157,22 @@ class Utils {
       }
     }
 
-    initLightBoxPopup () {
-      this.popupContainer.querySelector('.closeBtn').addEventListener('click', () => { this.popupContainer.classList.remove('show') });
-    }
-
     openLightBox (contentHTML, onClose) {
-      this.popupText.innerHTML = contentHTML;
+      const popupText = this.popupContainer.querySelector('#lightBoxPopupText');
+      popupText.innerHTML = contentHTML;
       this.popupContainer.classList.add('show');
       const onCloseCallback = onClose ? () => { onClose(); this.popupContainer.classList.remove('show'); } : () => { this.popupContainer.classList.remove('show') };
       
       const closeBtn = this.popupContainer.querySelector('.closeBtn');
-      closeBtn.removeEventListener('click', onCloseCallback);
-      closeBtn.addEventListener('click', onCloseCallback);
+      this.attachEventListeners('click', onCloseCallback, [closeBtn]);
+    }
+
+    attachEventListeners (eventName, callback, arrElements) {
+      arrElements.forEach(element => {
+        const onEvent = () => { callback(element); };
+        element.removeEventListener(eventName, onEvent, false);
+        element.addEventListener(eventName, onEvent, false);
+      });
     }
 
     getSocialIcons (type) {

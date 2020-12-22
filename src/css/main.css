@@ -14,6 +14,7 @@ a:active {
     color: #246ea6;
 }
 .englishInHebrewText { font-size: .9em; }
+.hebrewInEnglishText { font-size: 1.1em; }
 body {
     color: #246ea6;
     font-family: Arial, Helvetica, sans-serif;
@@ -1230,7 +1231,6 @@ body.layoutRTL {
     .homeContent .youTubeChannelPlaylist {
         padding: 0px 15%;
         background-color: #FFFFFF;
-        cursor: pointer;
     }
     .homeContent .youTubeChannelPlaylist .youTubePlaylistHeader {
         margin-top: 3%;
@@ -1245,6 +1245,7 @@ body.layoutRTL {
         align-content: center;
         justify-content: center;
         flex-wrap: wrap;
+        cursor: pointer;
     }
     .homeContent .youTubeChannelPlaylist .youTubePlaylists .playlist {
         flex: 1 0 21%;
@@ -1253,25 +1254,28 @@ body.layoutRTL {
     .homeContent .youTubeChannelPlaylist .youTubePlaylists img {
         height: 220px;
     }
-    .homeContent .watchOnIFC {
+    #featuredVideos {
         background-color: #f3f5f8;
         padding: 30px 0px 0px 0px;
     }
-    .homeContent .watchOnIFC h2 {
+    #featuredVideos h2 {
         margin: 0px;
         padding: 0px 10px 20px 10px;
         color: #333333;
     }
-    .homeContent .watchOnIFC .watchIFCvideos {
+    #featuredVideos .watchIFCvideos {
         position: relative;
     }
-    .homeContent .watchOnIFC #watchVideosWrapper {
+    #featuredVideos #watchVideosWrapper {
         position: relative;
         white-space: nowrap;
         overflow-y: auto;
         transition: left 400ms linear;
     }
-    .homeContent .watchOnIFC #editAddVideo {
+    #featuredVideos #watchVideosWrapper.dumbiePlaceholder {
+        overflow-y: visible;
+    }
+    #featuredVideos #editAddVideo {
         display: inline-block;
         width: 100px;
         height: 100px;
@@ -1286,28 +1290,49 @@ body.layoutRTL {
         color: #FFFFFF;
         cursor: pointer;
     }
-    .homeContent .watchOnIFC #editAddVideo:hover {
+    #featuredVideos #editAddVideo:hover {
         font-size: 44px;
         opacity: 1;
     }
-    .homeContent .watchOnIFC #editAddVideo.hidden {
+    #featuredVideos #editAddVideo.hidden {
         display: none;
     }
-    .homeContent .watchOnIFC .watchIFCvideos .watchVideoContainer {
+    #featuredVideos .watchIFCvideos .watchVideoContainer {
         display: inline-block;
         width: 200px;
         margin: 0px 2px;
         vertical-align: top;
         cursor: pointer;
     }
-    .homeContent .watchOnIFC .watchIFCvideos .watchVideoContainer .watchVideoPoster {
+    @keyframes loadingData {
+        0%   {opacity: .7;}
+        50%  {opacity: .5;}
+        100% {opacity: .7;}
+    }
+    @keyframes loadingGradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes loadingGradient2 {
+        0% { background-position: 50% 0%; }
+        50% { background-position: 50% 100%; }
+        100% { background-position: 50% 0%; }
+    }
+    #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer {
+        opacity: 1;
+        animation-name: loadingData;
+        animation-duration: 1500ms;
+        animation-iteration-count: infinite;
+    }
+    #featuredVideos .watchIFCvideos .watchVideoContainer .watchVideoPoster {
         position: relative;
         background-position: left top;
         background-repeat: no-repeat;
         height: 100px;
         width: 200px;
     }
-    .homeContent .watchOnIFC .watchIFCvideos .watchVideoContainer:hover .watchVideoPoster::before {
+    #featuredVideos .watchIFCvideos .watchVideoContainer:hover .watchVideoPoster::before {
         content: "";
         position: absolute;
         background: url(../images/icons/playVideoIcon.png) center center / auto 50% no-repeat;
@@ -1317,36 +1342,64 @@ body.layoutRTL {
         right: 0px;
         background-color: rgba(0, 0, 0, .6);
     }
-    .homeContent .watchOnIFC .watchIFCvideos .watchVideoCategory {
+    #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer:hover .watchVideoPoster::before {
+        content: "";
+        position: absolute;
+        background: none;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+    }
+    #featuredVideos .watchIFCvideos .watchVideoCategory {
         margin-bottom: 5px;
         color: darkgoldenrod;
         font-size: 12px;
         font-weight: bold;
         white-space: normal;
     }
-    .homeContent .watchOnIFC .watchIFCvideos .watchVideoTitle {
+    #featuredVideos .watchIFCvideos .watchVideoTitle {
         margin-bottom: 5px;
         color: #333333;
         font-size: 17px;
         font-weight: bold;
         white-space: normal;
     }
-    .homeContent .watchOnIFC .watchIFCvideos .watchVideoFooter {
+    #featuredVideos .watchIFCvideos .watchVideoFooter {
         margin-bottom: 5px;
         color: #888888;
         font-size: 12px;
         font-weight: bold;
         white-space: normal;
     }
-    .layoutRTL .homeContent .watchOnIFC .watchIFCvideos .watchVideoCategory,
-    .layoutRTL .homeContent .watchOnIFC .watchIFCvideos .watchVideoFooter {
+    .layoutRTL #featuredVideos .watchIFCvideos .watchVideoCategory,
+    .layoutRTL #featuredVideos .watchIFCvideos .watchVideoFooter {
         font-size: 14px;
     }
-    .layoutRTL .homeContent .watchOnIFC .watchIFCvideos .watchVideoTitle {
+    .layoutRTL #featuredVideos .watchIFCvideos .watchVideoTitle {
         font-size: 19px;
     }
-    .homeContent .watchOnIFC .watchIFCvideos #watchVideoLeftArrow,
-    .homeContent .watchOnIFC .watchIFCvideos #watchVideoRightArrow {
+    #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer .watchVideoCategory,
+    #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer .watchVideoTitle,
+    #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer .watchVideoFooter {
+        margin-top: 8px;
+        height: 5px;
+        border-radius: 5px;
+        background: linear-gradient(-45deg, #ccc, #333, #888, #ccc);
+        background-size: 200% 200%;
+        opacity: .3;
+    }
+    #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer .watchVideoCategory {
+        animation: loadingGradient 4s ease infinite;
+    }
+    #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer .watchVideoTitle {
+        animation: loadingGradient2 4s ease infinite;
+    }
+    #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer .watchVideoFooter {
+        animation: loadingGradient 4s ease infinite;
+    }
+    #featuredVideos .watchIFCvideos #watchVideoLeftArrow,
+    #featuredVideos .watchIFCvideos #watchVideoRightArrow {
         position: absolute;
         background-color: rgba(0, 0, 0, .6);
         background-position: center center;
@@ -1358,20 +1411,20 @@ body.layoutRTL {
         opacity: .8;
         z-index: 2;
     }
-    .homeContent .watchOnIFC .watchIFCvideos #watchVideoLeftArrow:hover,
-    .homeContent .watchOnIFC .watchIFCvideos #watchVideoRightArrow:hover {
+    #featuredVideos .watchIFCvideos #watchVideoLeftArrow:hover,
+    #featuredVideos .watchIFCvideos #watchVideoRightArrow:hover {
         opacity: 1;
     }
-    .homeContent .watchOnIFC .watchIFCvideos #watchVideoLeftArrow {
+    #featuredVideos .watchIFCvideos #watchVideoLeftArrow {
         background-image: url(../images/icons/arrowLeft-white.png);
         left: 0px;
     }
-    .homeContent .watchOnIFC .watchIFCvideos #watchVideoRightArrow {
+    #featuredVideos .watchIFCvideos #watchVideoRightArrow {
         background-image: url(../images/icons/arrowRight-white.png);
         right: 0px;
     }
-    .homeContent .watchOnIFC .watchIFCvideos #watchVideoLeftArrow.hide,
-    .homeContent .watchOnIFC .watchIFCvideos #watchVideoRightArrow.hide {
+    #featuredVideos .watchIFCvideos #watchVideoLeftArrow.hide,
+    #featuredVideos .watchIFCvideos #watchVideoRightArrow.hide {
         display: none;
     }
 

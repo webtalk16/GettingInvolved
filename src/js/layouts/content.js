@@ -1,4 +1,6 @@
 import { Config } from '../global/config.js';
+import { VideoCarousel } from '../components/videoCarousel.js';
+import { AddEditPopup } from '../components/addEditPopup.js';
 import { Home } from '../components/home.js';
 import { Calendar } from '../components/calendar.js';
 import { Donate } from '../components/donate.js';
@@ -23,6 +25,8 @@ class Content {
   }
 
   loadPages () {
+    this.global.addModule(VideoCarousel);
+    this.global.addModule(AddEditPopup);
     this.global.addModule(Home);
     this.global.addModule(Calendar);
     this.global.addModule(Donate);

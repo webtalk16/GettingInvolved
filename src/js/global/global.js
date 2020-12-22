@@ -1,6 +1,5 @@
 import { Resources } from './resources.js'
 import { Posts } from './posts.js'
-import { Videos } from './videos.js'
 import { Config } from './config.js'
 import { Utils } from './utils.js';
 import { References } from '../global/references.js';
@@ -40,10 +39,6 @@ class Global {
 
     getPosts () {
       return Posts.lang[Config.uiLang.get.call(Config.uiLang)];
-    }
-
-    getVideos () {
-      return Videos;
     }
 
     getResourceLangs () {

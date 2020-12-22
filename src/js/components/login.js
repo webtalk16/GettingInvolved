@@ -28,7 +28,7 @@ class Login {
       <div id="loginMain">
         <div id="loginContainer">
           <div id="logInOutBtn" class="hide"><span>${this.resources.login[loggedIn]}</span></div>
-          <div id="loginForm" class='hide'>
+          <div id="loginForm" class="hide">
             <form>
               <div id="loginForm_User">
                 <label class="loginFormLabel" for="uname">${this.resources.login.username}</label>
@@ -58,7 +58,7 @@ class Login {
       </div>
     `;
     rootEl.insertAdjacentHTML('beforeend', html);
-    this.updateUserData();
+    // this.updateUserData();
   }
 
   htmlInitialized () {
