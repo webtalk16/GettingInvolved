@@ -48,10 +48,10 @@ class Firebase {
                 user.getIdTokenResult().then(getIdTokenResult => {
                     console.log('User is Now signed in');
 
-                    console.log('---- claim logs ----');
-                    console.log(getIdTokenResult.claims.admin);
-                    console.log(getIdTokenResult.claims)
-                    console.log('---- claim logs ----');
+                    // console.log('---- claim logs ----');
+                    // console.log(getIdTokenResult.claims.admin);
+                    // console.log(getIdTokenResult.claims)
+                    // console.log('---- claim logs ----');
 
                     let providerData = null;
                     if (user.providerData && user.providerData.length) {
@@ -59,9 +59,9 @@ class Firebase {
                         providerData = user.providerData[0];
                     }
                     
-                    console.log('--- obj User ---');
-                    console.log(providerData);
-                    console.log('--- obj User ---');
+                    // console.log('--- obj User ---');
+                    // console.log(providerData);
+                    // console.log('--- obj User ---');
                     
                     that.global.setUser(providerData);
                     that.global.relayEvent(that.global.references.Events.userStateChangd);
@@ -111,8 +111,8 @@ class Firebase {
     readData (path, callback) {
         const dataRef = this.database.ref(path);
         dataRef.once('value', (snapshot) => {
-            console.log('read success, obj below');
-            console.log(snapshot.val());
+            console.log('read success');
+            // console.log(snapshot.val());
             // return snapshot.val();
 
             if (callback && typeof callback == 'function') {
@@ -203,7 +203,7 @@ class Firebase {
 
     storageUploadVideoCover (imageFile, videoId, doVideoAdd) {
         // TEMP - manually update file !!!!
-        videoId = '-MOWbquUHcD-iaTjXUDr';
+        // videoId = '-MOWbquUHcD-iaTjXUDr';
         // TEMP !!!!
 
         const image = this.handleFiles(imageFile);
@@ -217,8 +217,8 @@ class Firebase {
         const ref = this.storageRoot.child('/public/videos/' + videoId + '/placeholder.jpg'); //' + image.name);
         ref.put(image, metadata).then(function (snapshot) {
             doVideoAdd();
-            console.log('Uploaded image file for ' + videoId + 'successfully!');
-            console.log(snapshot);
+            console.log('Uploaded image file for ' + videoId + ' successfully!');
+            // console.log(snapshot);
 
             snapshot.ref.getDownloadURL().then(function(downloadURL) {
                 // console.log('File available at', downloadURL);

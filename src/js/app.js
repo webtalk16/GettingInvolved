@@ -19,7 +19,7 @@ class App {
     this.global.addModule(Footer);
 
     console.log('modules');
-    console.log(this.global.modules);
+    // console.log(this.global.modules);
 
     console.log('App component is loaded!');
   }
