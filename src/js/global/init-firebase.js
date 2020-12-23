@@ -184,6 +184,8 @@ class Firebase {
     }
 
     addNewVideo(dataObj, inputCoverImage) {
+        // TODO - Adds video to the end - change order
+        
         const addPostRef = this.dataRoot;
         const newVideoKey = this.addItemByKey(addPostRef, 'Videos');
         const videoData = new DateModel.Video(newVideoKey, dataObj);

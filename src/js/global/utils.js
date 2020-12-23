@@ -1,7 +1,9 @@
+import { References } from './references';
 
 class Utils {
 
-    constructor () {
+    constructor (global) {
+      this.global = global;
       this.popupContainer = document.querySelector('#lightBoxContainer');
       this.rootEl = document.querySelector('#appMain');
       this.menuIcon = null;
@@ -9,6 +11,7 @@ class Utils {
     }
 
     // TODO - Lazy Load images
+    // TODO - set app version
 
     menuIconBindClick (event) {
       this.menuIcon = document.querySelector('#menuIcon');
@@ -75,14 +78,14 @@ class Utils {
 
 
         if ((!scrollingUp) || scrollingUp && !passedMinThreshold) {
-          header.classList.remove("sticky");
+          header.classList.remove('sticky');
         }
 
         // Only check 900ms after last scroll
         if (currentTime - 900 > (lastScrolledTime)) {
           if(scrollingUp) {
-            if (passedMinThreshold) {
-              header.classList.add("sticky");
+            if (passedMinThreshold && !utils.global.modules[References.ModuleNames.AddEditPopup].isActive) {
+              header.classList.add('sticky');
             }
           }
           lastScrolledTime = currentTime;
@@ -101,9 +104,13 @@ class Utils {
     scrollToTop() {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      this.closeStickyHeader();
+    }
+
+    closeStickyHeader () {
       const header = document.querySelector('#headerMain');
       if (header) {
-        header.classList.remove("sticky");
+        header.classList.remove('sticky');
       }
     }
 

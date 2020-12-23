@@ -216,6 +216,13 @@
     text-overflow: ellipsis;
     direction: ltr;
 }
+#addEditPopup .addEditContainer .addEditItem .addEditItemHint .hintExample .truncateLtr {
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+}
 .layoutRTL #addEditPopup .addEditContainer .addEditItem .addEditItemHint {
     direction: rtl;
     text-align: right;

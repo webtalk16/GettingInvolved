@@ -4,6 +4,7 @@ class AddEditPopup {
 
   constructor (global) {
     this.name = 'AddEditPopup';
+    this.isActive = false;
     this.global = global;
     this.utils = global.utils;
     this.resources = this.global.getResources();
@@ -26,8 +27,16 @@ class AddEditPopup {
     }
   }
 
+  openPopup () {
+    this.isActive = true;
+    this.addEditPopup.classList.add('show');
+    this.utils.closeStickyHeader();
+  }
+
   closePopup () {
-    if (this.onCloseCallback) this.onCloseCallback();
+    this.isActive = false;
+    this.addEditPopup.classList.remove('show');
+    if (this.onCloseCallback && typeof this.onCloseCallback === 'function') this.onCloseCallback();
   }
 
   onAddVideoClick (el) {
@@ -166,6 +175,7 @@ class AddEditPopup {
   }
 
   openAddEditPopup (header, content, onSubmit, onClose) {
+    const that = this;
     const popupContent = this.addEditPopup.querySelector('#addEditContent');
     const popupHeader = this.addEditPopup.querySelector('#addEditHeader');
 
@@ -179,13 +189,12 @@ class AddEditPopup {
     const onSubmitNewVideo = document.querySelector('#addEditSubmitBtn');
     this.utils.attachEventListeners('click', onSubmit(popupContent, this.global), [onSubmitNewVideo]);
 
-    this.addEditPopup.classList.add('show');
+    this.openPopup();
     popupContent.scrollTop = 0;
 
-    this.onCloseCallback = onClose ? () => { onClose(); this.addEditPopup.classList.remove('show'); } : () => { this.addEditPopup.classList.remove('show') };
-    
+    this.onCloseCallback = onClose;
     const closeBtn = this.addEditPopup.querySelector('.closeBtn');
-    this.utils.attachEventListeners('click', this.onCloseCallback, [closeBtn]);
+    this.utils.attachEventListeners('click', function () { that.closePopup.call(that) }, [closeBtn]);
   }
 
   onSubmitAddVideo (popupContent, global) {

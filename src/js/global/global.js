@@ -6,7 +6,7 @@ import { References } from '../global/references.js';
 
 class Global {
     constructor () {
-      this.utils = new Utils();
+      this.utils = new Utils(this);
       this.references = References;
       this.resourceLangs = Resources.lang;
       this.resources = this.getResources();
