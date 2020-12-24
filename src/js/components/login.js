@@ -87,7 +87,7 @@ class Login {
     const logInOutBtn = document.querySelector('#logInOutBtn');
     logInOutBtn.addEventListener('click', () => {
       if (that.global.getUser()) {
-        // preform sign out
+        // perform sign out
         that.data.auth().signOut().then(function() {
           console.log('success logged OUT');
         }).catch(function(error) {
@@ -286,7 +286,7 @@ class Login {
         return;
       }
 
-      // preform reset
+      // perform reset
       const actionCodeSettings = {
         url: 'https://ifcisrael.org/',
         handleCodeInApp: true

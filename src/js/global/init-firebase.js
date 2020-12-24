@@ -55,7 +55,7 @@ class Firebase {
 
                     let providerData = null;
                     if (user.providerData && user.providerData.length) {
-                        user.providerData[0].admin = getIdTokenResult.claims.admin;
+                        user.providerData[0].accessLevel = getIdTokenResult.claims.accessLevel;
                         providerData = user.providerData[0];
                     }
                     
@@ -253,15 +253,41 @@ class Firebase {
     showHideData () {
         // show/hide admin only elements
         const user = this.global.getUser();
+
         const adminOnlyItems = document.querySelectorAll('.adminOnly');
         adminOnlyItems.forEach(item => {
             if (user) {
-                if (user.admin) {
+                if (user.accessLevel && (user.accessLevel.admin || user.accessLevel.owner)) {
                     item.classList.remove('hidden');
                 }
                 else {
                     item.classList.add('hidden');
                 }
+            }
+            else {
+                item.classList.add('hidden');
+            }
+        });
+
+        const ownerOnlyItems = document.querySelectorAll('.ownerOnly');
+        ownerOnlyItems.forEach(item => {
+            if (user) {
+                if (user.accessLevel && user.accessLevel.owner) {
+                    item.classList.remove('hidden');
+                }
+                else {
+                    item.classList.add('hidden');
+                }
+            }
+            else {
+                item.classList.add('hidden');
+            }
+        });
+
+        const loggedinOnlyItems = document.querySelectorAll('.loggedinOnly');
+        loggedinOnlyItems.forEach(item => {
+            if (user) {
+                item.classList.remove('hidden');
             }
             else {
                 item.classList.add('hidden');

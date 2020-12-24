@@ -18,9 +18,9 @@ class Settings {
 
   buildHtml () {
     const user = this.global.getUser();
-    console.log('@@@@@@ Settings user @@@@@')
-    console.log(user)
-    console.log('@@@@@@ Settings user @@@@@')
+    // console.log('@@@@@@ Settings user @@@@@');
+    // console.log(user)
+    // console.log('@@@@@@ Settings user @@@@@');
     // HTML Settings
     const rootEl = document.querySelector('#contentContainer');
     const html = `
@@ -32,14 +32,23 @@ class Settings {
             <div class="settings_Item" id="settings_username">
               <span class="settingsLabel">${this.resources.settings.info.user.username}: </span>
               <span class="settingsValue"></span>
-              <span class="settingUserRole hidden adminOnly">${this.resources.settings.roles.admin}</span>
+              <span id="settingsUserRole" class="settingsUserRole hidden loggedinOnly"></span>
             </div>
-            <div class="settings_Item hidden adminOnly" id="settings_addRole">
-              <span class="settingsLabel">${this.resources.settings.roles.addAdmin}: </span>
+            <div class="settings_Item hidden ownerOnly" id="settings_addRole">
+              <span class="settingsLabel">${this.resources.settings.roles.addRole}: </span>
               <span class="settingsValue">
-                <label class="labelAddAdmin" for="addAdmin">${this.resources.settings.info.user.email}</label>
-                <input id="inputAddAdmin" class="settingsFormInput" type="email" placholder="${this.resources.settings.info.user.email}" name="addAdmin" required>
-                <button type="submit">${this.resources.settings.actions.add}</button>
+                <div class="settingsValueRow">
+                  <label class="settingsValueRowLabel" for="addRole">${this.resources.settings.info.user.email}</label>
+                  <input id="inputAddRoleEmail" class="settingsValueRowValue" type="email" placholder="${this.resources.settings.info.user.email}" name="addRole" required>
+                </div>
+                <div class="settingsValueRow">
+                  <label class="settingsValueRowLabel" for="selectAddRoleType">${this.resources.settings.roles.type}</label>
+                  <select id="selectAddRoleType" class="settingsValueRowValue">
+                    <option>${this.resources.settings.roles.admin}</option>
+                    <option>${this.resources.settings.roles.editor}</option>
+                  </select>
+                  <button type="submit">${this.resources.settings.actions.add}</button>
+                </div>
                 <div id="settings_addAdminErrorTxt"></div>
               </span>
             </div>
@@ -71,11 +80,24 @@ class Settings {
     const user = that.global.getUser();
 
     if (this.htmlInitialized()) {
+      const username = document.querySelector('#settings_username').querySelector('.settingsValue');
 
       // Update Values
-      const username = document.querySelector('#settings_username').querySelector('.settingsValue');
       if (user) {
         username.innerHTML = user.email;
+        if (user.accessLevel) {
+          const userRole = document.querySelector('#settingsUserRole');
+          let roles = '';
+          let isFirst = true;
+          for (let prop in user.accessLevel) {
+            if (!isFirst) {
+              isFirst = false;
+              roles += ', ';
+             }
+            roles += this.resources.settings.roles[prop];
+          }
+          userRole.innerHTML = roles;
+        }
       }
       else {
         username.innerHTML = this.resources.settings.notLoggedIn;
@@ -91,33 +113,39 @@ class Settings {
   bindEvents () {
     const that = this;
     const addAdminBtn = document.querySelector('#settings_addRole').querySelector('button');
-    const inputAddAdmin = document.querySelector('#inputAddAdmin');
+    const inputAddRoleEmail = document.querySelector('#inputAddRoleEmail');
+    const selectAddRoleType = document.querySelector('#selectAddRoleType');
     const addAdminErrorTxt = document.querySelector('#settings_addAdminErrorTxt');
 
     addAdminBtn.addEventListener('click', (e) => {
       e.preventDefault();
       addAdminErrorTxt.innerHTML = '';
       
-      if (inputAddAdmin.value == '') {
+      if (inputAddRoleEmail.value == '') {
         addAdminErrorTxt.innerHTML = this.global.resources.login.errorTxt.emptyEmail;
         return;
       }
       
       const regExValidEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if (!inputAddAdmin.value.match(regExValidEmail)) {
+      if (!inputAddRoleEmail.value.match(regExValidEmail)) {
         addAdminErrorTxt.innerHTML = this.global.resources.login.errorTxt.invalidEmail;
         return;
       }
 
-      console.log('Add Admin btn - admin name: ' + inputAddAdmin.value);
+      console.log('Add Admin btn - admin name: ' + inputAddRoleEmail.value);
+
+      // TODO - delete admin from user by sending null 
+      // TODO - check if custom claims come back after a user is deleted and then registers again
 
       // Reference to Firebase function - does not yet call it
-      const addAdminRole = that.global.functions.httpsCallable('addAdminRole');
-      addAdminRole({ email: inputAddAdmin.value}).then(result => {
-        inputAddAdmin.value = '';
+      const addAppRole = that.global.functions.httpsCallable('addAppRole');
+      // const type = 'owner'; // temp
+      const type = selectAddRoleType.value;
+      addAppRole({ email: inputAddRoleEmail.value, type: type }).then(result => {
+        inputAddRoleEmail.value = '';
         addAdminErrorTxt.innerHTML = '';
 
-        console.log('addAdminRole result -----');
+        console.log('addAppRole result -----');
 
         if (result && result.data) {
           console.log(result.data);
@@ -129,26 +157,26 @@ class Settings {
           else if (result.data.errorCode) {
             let code = '';
             switch (result.data.errorCode) {
-              case 'functions/error-admin-only':
+              case 'functions/error-owner-only':
                 code = result.data.errorCode;
                 break;
-              case 'functions/error-admin-create':
+              case 'functions/error-role-create':
                 code = result.data.errorCode;
                 break;
               default:
                 code = 'default';
             }
-            addAdminErrorTxt.innerHTML = that.resources.settings.errorTxt.httpsCallable.addAdminRole[code];
+            addAdminErrorTxt.innerHTML = that.resources.settings.errorTxt.httpsCallable.addAppRole[code];
           }
         }
       }).catch ((err) => {
         console.log('Error creating admin role - error ' + err);
-        addAdminErrorTxt.innerHTML = that.resources.settings.errorTxt.httpsCallable.addAdminRole.default;
+        addAdminErrorTxt.innerHTML = that.resources.settings.errorTxt.httpsCallable.addAppRole.default;
       });
     });
 
     // Clear Error text on input focus
-    inputAddAdmin.addEventListener('focus', () => {
+    inputAddRoleEmail.addEventListener('focus', () => {
       addAdminErrorTxt.innerHTML = '';
     });
   }

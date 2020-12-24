@@ -708,10 +708,14 @@ body.layoutRTL {
     color: #333333;
 }
 #contentMain #contentContainer main.contentSettings #settingsInfo .settings_Item {
-    margin: 10px 0px;
+    margin: 15px 0px;
+    white-space: nowrap;
 }
 #contentMain #contentContainer main.contentSettings #settingsInfo .settings_Item.hidden {
     display: none;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settings_Item #selectAddRoleType {
+    padding: 1.5px 10px;
 }
 #contentMain #contentContainer main.contentSettings #settingsInfo .settingsLabel,
 #contentMain #contentContainer main.contentSettings #settingsInfo .settingsValue {
@@ -719,12 +723,27 @@ body.layoutRTL {
     vertical-align: top;
     white-space: nowrap;
 }
-#contentMain #contentContainer main.contentSettings #settingsInfo .settingUserRole {
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsLabel {
+    width: 25%;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsValue .settingsValueRow {
+    margin-bottom: 7px;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsValue .settingsValueRow .settingsValueRowLabel,
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsValue .settingsValueRow .settingsValueRowValue {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsValue .settingsValueRow .settingsValueRowLabel {
+    width: 20%;
+}
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsUserRole {
     display: inline-block;
     margin: 0px 10px;
     color: hotpink;
 }
-#contentMain #contentContainer main.contentSettings #settingsInfo .settingUserRole.hidden {
+#contentMain #contentContainer main.contentSettings #settingsInfo .settingsUserRole.hidden {
     display: none;
 }
 #contentMain #contentContainer main.contentSettings button[type=submit] {
@@ -732,6 +751,7 @@ body.layoutRTL {
 }
 #contentMain #contentContainer main.contentSettings #settingsInfo #settings_addAdminErrorTxt {
     margin: 7px 0px;
+    max-width: 65%;
     white-space: normal;
     color: red;
 }
