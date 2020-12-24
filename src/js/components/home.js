@@ -107,6 +107,7 @@ class Home {
           </div>
         </div>
         <div class="homeContent">
+          <div id="featuredVideos"></div>
           <div>
             <div class="activistProgramHeader">
               <h2 class="activistProgramTitle">${this.resources.activistTraining.title}</h2>
@@ -133,7 +134,6 @@ class Home {
             </div>
             <div class="activistProgramFooter"><div class="activistProgramTitle2">${this.resources.activistTraining.title2}</div></div>
           </div>
-          <div id="featuredVideos"></div>
           <div class="youTubeChannelPlaylist">
             <div class="youTubePlaylistHeader">
               <img src="images/content/YouTube-Header.jpg" />
