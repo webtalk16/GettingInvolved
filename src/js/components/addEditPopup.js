@@ -39,22 +39,45 @@ class AddEditPopup {
     if (this.onCloseCallback && typeof this.onCloseCallback === 'function') this.onCloseCallback();
   }
 
-  onAddVideoClick (el) {
+  onAddEditVideoClick (isEdit, videoId, videoData) {
     const that = this;
     return () => {
+
+      // values
+      const inputCategoryEnglish = !isEdit ? '' : videoData.eng.category || '';
+      const inputCategoryHebrew = !isEdit ? '' : videoData.heb.category || '';
+      const inputMainTitleEnglish = !isEdit ? '' : videoData.eng.title || '';
+      const inputMainTitleHebrew = !isEdit ? '' : videoData.heb.title || '';
+      const inputTitleFooterEnglish = !isEdit ? '' : videoData.eng.title2 || '';
+      const inputTitleFooterHebrew = !isEdit ? '' : videoData.heb.title2 || '';
+      const inputYouTubeLink = !isEdit ? '' : videoData.media.videoLink || '';
+      const inputSocialLinks_FB = !isEdit ? '' : videoData.socialLinks.fb || '';
+      const inputSocialLinks_Web = !isEdit ? '' : videoData.socialLinks.website || '';
+      const inputSocialLinks_Spotify = !isEdit ? '' : videoData.socialLinks.spotify || '';
+      const inputSocialLinks_Insta = !isEdit ? '' : videoData.socialLinks.insta || '';
+      const inputSocialLinks_YouTube = !isEdit ? '' : videoData.socialLinks.youTube || '';
+      const inputSocialLinks_LinkedIn = !isEdit ? '' : videoData.socialLinks.linkedIn || '';
+      const inputSocialLinks_Twitter = !isEdit ? '' : videoData.socialLinks.twiter || '';
+
+      const imageUrl =  !isEdit ? '' : Config.firebase.storage.url.get.call(Config.firebase.storage.url, videoId);
+      const coverImageClass = !isEdit ? 'class="hidden"' : '';
+      const coverPreviewForEdit = `<div id="videoCoverImagePreview" ${coverImageClass}><img src="${imageUrl}"></div>`;
+
+      const buttonText = !isEdit ? that.resources.addEditPopup.buttonTextAdd : that.resources.addEditPopup.buttonTextEdit;
+
       // open add/edit popup
       const socialIcons = that.utils.getSocialIcons('color');
-      const header = that.resources.addEditPopup.header.addFeaturedVideo;
+      const header = isEdit ? that.resources.addEditPopup.header.editFeaturedVideo : that.resources.addEditPopup.header.addFeaturedVideo;
       const content = `
         <div class="addEditItem">
           <span class="addEditLabel">${that.resources.addEditPopup.item.category}</span>
           <div class="inputsByLang eng">
             <label for="inputCategoryEnglish">${that.resources.addEditPopup.lang.eng}</label>
-            <input type="text" id="inputCategoryEnglish" class="formInput" name="inputCategoryEnglish" required>
+            <input type="text" id="inputCategoryEnglish" class="formInput" name="inputCategoryEnglish" value="${inputCategoryEnglish}" required>
           </div>
           <div class="inputsByLang heb">
             <label for="inputCategoryHebrew">${that.resources.addEditPopup.lang.heb}</label>
-            <input type="text" id="inputCategoryHebrew" class="formInput" name="inputCategoryHebrew" required>
+            <input type="text" id="inputCategoryHebrew" class="formInput" name="inputCategoryHebrew" value="${inputCategoryHebrew}" required>
           </div>
           <div class="addEditItemHint">
             <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
@@ -65,11 +88,11 @@ class AddEditPopup {
           <span class="addEditLabel">${that.resources.addEditPopup.item.titleMain}</span>
           <div class="inputsByLang eng">
             <label for="inputMainTitleEnglish">${that.resources.addEditPopup.lang.eng}</label>
-            <input type="text" id="inputMainTitleEnglish" class="formInput" name="inputMainTitleEnglish" required>
+            <input type="text" id="inputMainTitleEnglish" class="formInput" name="inputMainTitleEnglish" value="${inputMainTitleEnglish}" required>
           </div>
           <div class="inputsByLang heb">
             <label for="inputMainTitleHebrew">${that.resources.addEditPopup.lang.heb}</label>
-            <input type="text" id="inputMainTitleHebrew" class="formInput" name="inputMainTitleHebrew" required>
+            <input type="text" id="inputMainTitleHebrew" class="formInput" name="inputMainTitleHebrew" value="${inputMainTitleHebrew}" required>
           </div>
           <div class="addEditItemHint">
             <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
@@ -80,11 +103,11 @@ class AddEditPopup {
           <span class="addEditLabel">${that.resources.addEditPopup.item.titleFooter}</span>
           <div class="inputsByLang eng">
             <label for="inputTitleFooterEnglish">${that.resources.addEditPopup.lang.eng}</label>
-            <input type="text" id="inputTitleFooterEnglish" class="formInput" name="inputTitleFooterEnglish" required>
+            <input type="text" id="inputTitleFooterEnglish" class="formInput" name="inputTitleFooterEnglish" value="${inputTitleFooterEnglish}" required>
           </div>
           <div class="inputsByLang heb">
             <label for="inputTitleFooterHebrew">${that.resources.addEditPopup.lang.heb}</label>
-            <input type="text" id="inputTitleFooterHebrew" class="formInput" name="inputTitleFooterHebrew" required>
+            <input type="text" id="inputTitleFooterHebrew" class="formInput" name="inputTitleFooterHebrew" value="${inputTitleFooterHebrew}" required>
           </div>
           <div class="addEditItemHint">
             <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
@@ -94,7 +117,7 @@ class AddEditPopup {
         <div class="addEditItem videoLink">
           <span class="addEditLabel">${that.resources.addEditPopup.item.videoLink}</span>
           <div id="addEditVideoLink">
-            <input type="text" id="inputYouTubeLink" class="formInput" name="inputYouTubeLink" required>
+            <input type="text" id="inputYouTubeLink" class="formInput" name="inputYouTubeLink" value="${inputYouTubeLink}" required>
           </div>
           <div class="addEditItemHint">
             <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
@@ -104,7 +127,8 @@ class AddEditPopup {
         <div class="addEditItem videoCover">
           <span class="addEditLabel">${that.resources.addEditPopup.item.coverImage}</span>
           <div id="addEditVideoCover">
-            <input type="file" id="inputCoverImage" class="formInput" name="inputCoverImage" required>
+            ${coverPreviewForEdit}
+            <input type="file" id="inputCoverImage" class="formInput" onchange="document.querySelector('#videoCoverImagePreview').classList.add('hidden')" name="inputCoverImage" required>
           </div>
           <div class="addEditItemHint">
             <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
@@ -115,49 +139,49 @@ class AddEditPopup {
           <span class="addEditLabel">${that.resources.addEditPopup.item.socialLinksToPost}</span>
           <div id="addEditVideoSocialLinks">
             <div id="inputSocialLinks_FB">
-              <input type="text" required>
+              <input type="text" value="${inputSocialLinks_FB}" required>
               <div class="addEditItemHint">
                 <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
                 <span class="hintExample">${that.resources.addEditPopup.hint.socialFB}</span>
               </div>
             </div>
             <div id="inputSocialLinks_Web">
-              <input type="text" required>
+              <input type="text" value="${inputSocialLinks_Web}" required>
               <div class="addEditItemHint">
                 <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
                 <span class="hintExample"></span>
               </div>
             </div>
             <div id="inputSocialLinks_Spotify">
-              <input type="text" required>
+              <input type="text" value="${inputSocialLinks_Spotify}" required>
               <div class="addEditItemHint">
                 <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
                 <span class="hintExample">${that.resources.addEditPopup.hint.socialSpotify}</span>
               </div>
             </div>
             <div id="inputSocialLinks_Insta">
-              <input type="text" required>
+              <input type="text" value="${inputSocialLinks_Insta}" required>
               <div class="addEditItemHint">
                 <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
                 <span class="hintExample"></span>
               </div>
             </div>
             <div id="inputSocialLinks_YouTube">
-              <input type="text" required>
+              <input type="text" value="${inputSocialLinks_YouTube}" required>
               <div class="addEditItemHint">
                 <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
                 <span class="hintExample">${that.resources.addEditPopup.hint.socialYouTube}</span>
               </div>
             </div>
             <div id="inputSocialLinks_LinkedIn">
-              <input type="text" required>
+              <input type="text" value="${inputSocialLinks_LinkedIn}" required>
               <div class="addEditItemHint">
                 <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
                 <span class="hintExample">${that.resources.addEditPopup.hint.socialLinkedIn}</span>
               </div>
             </div>
             <div id="inputSocialLinks_Twitter">
-              <input type="text" required>
+              <input type="text" value="${inputSocialLinks_Twitter}" required>
               <div class="addEditItemHint">
                 <span class="hintLabel">${that.resources.addEditPopup.hint.hint}</span>
                 <span class="hintExample"></span>
@@ -167,14 +191,14 @@ class AddEditPopup {
         </div>
         <div id="errorTxt"></div>
         <div class="addEditItem">
-          <button id="addEditSubmitBtn" type="submit">${that.resources.addEditPopup.buttonText}</button>
+          <button id="addEditSubmitBtn" type="submit">${buttonText}</button>
         </div>
       `;
-      that.openAddEditPopup(header, content, that.onSubmitAddVideo);
+      that.openAddEditPopup(header, content, that.onSubmitAddEditVideo, isEdit, videoId, null);
     }
   }
 
-  openAddEditPopup (header, content, onSubmit, onClose) {
+  openAddEditPopup (header, content, onSubmit, isEdit, videoId, onClose) {
     const that = this;
     const popupContent = this.addEditPopup.querySelector('#addEditContent');
     const popupHeader = this.addEditPopup.querySelector('#addEditHeader');
@@ -187,7 +211,7 @@ class AddEditPopup {
 
     // on add video form submit (add video)
     const onSubmitNewVideo = document.querySelector('#addEditSubmitBtn');
-    this.utils.attachEventListeners('click', onSubmit(popupContent, this.global), [onSubmitNewVideo]);
+    this.utils.attachEventListeners('click', onSubmit(isEdit, videoId, popupContent, this.global), [onSubmitNewVideo]);
 
     this.openPopup();
     popupContent.scrollTop = 0;
@@ -197,7 +221,7 @@ class AddEditPopup {
     this.utils.attachEventListeners('click', function () { that.closePopup.call(that) }, [closeBtn]);
   }
 
-  onSubmitAddVideo (popupContent, global) {
+  onSubmitAddEditVideo (isEdit, videoId, popupContent, global) {
     const onAddVideo = () => {
       console.log('add video button clicked');
       // validate form
@@ -220,11 +244,13 @@ class AddEditPopup {
       const links_LinkedIn = popupContent.querySelector('#inputSocialLinks_LinkedIn').querySelector('input');
       const links_Twitter = popupContent.querySelector('#inputSocialLinks_Twitter').querySelector('input');
 
+      const keepOriginalCover = isEdit && !document.querySelector('#videoCoverImagePreview').classList.contains('hidden');
+
       const inputs = [categoryEng, categoryHeb, titleEng, titleHeb, titleFooterEng, titleFooterHeb, inputYouTubeLink, inputCoverImage];
       let hasError = false;
       let elFirstError = null;
       inputs.forEach(element => {
-        if (!element.value || element.value == '' || (element.getAttribute('type') == 'file' && (!element.files.length || !element.files[0].name.match(/.(jpg)$/i)))) {
+        if ((!(element.getAttribute('type') == 'file' && keepOriginalCover) && (!element.value || element.value == '')) || (element.getAttribute('type') == 'file' && (!keepOriginalCover && (!element.files.length || !element.files[0].name.match(/.(jpg)$/i))))) {
           if (!hasError) { elFirstError = element; }
           element.classList.add('err');
           hasError = true;
@@ -246,7 +272,7 @@ class AddEditPopup {
 
       // get form vals
       const videoData = { categoryEng, categoryHeb, titleEng, titleHeb, titleFooterEng, titleFooterHeb, inputYouTubeLink, links_FB, links_Web, links_Spotify, links_Insta, links_YouTube, links_LinkedIn, links_Twitter };
-      global.modules.Firebase.addNewVideo(videoData, inputCoverImage);
+      global.modules.Firebase.addNewVideo(videoData, inputCoverImage, keepOriginalCover, isEdit, videoId);
       
     };
     return onAddVideo;

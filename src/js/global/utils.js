@@ -176,7 +176,7 @@ class Utils {
 
     attachEventListeners (eventName, callback, arrElements) {
       arrElements.forEach(element => {
-        const onEvent = () => { callback(element); };
+        const onEvent = (event) => { callback(element, event); };
         element.removeEventListener(eventName, onEvent, false);
         element.addEventListener(eventName, onEvent, false);
       });

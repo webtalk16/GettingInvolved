@@ -151,6 +151,16 @@
     border: 1px solid rgba(0,0,0,.3);
     cursor: pointer;
 }
+#addEditPopup .addEditContainer .addEditItem.videoCover #videoCoverImagePreview {
+    text-align: center;
+}
+#addEditPopup .addEditContainer .addEditItem.videoCover #videoCoverImagePreview.hidden {
+    display: none;
+}
+#addEditPopup .addEditContainer .addEditItem.videoCover #videoCoverImagePreview img {
+    width: 200px;
+    height: 100px;
+}
 #addEditPopup .addEditContainer .addEditItem,
 .layoutRTL #addEditPopup .addEditContainer .addEditItem {
     direction: ltr;

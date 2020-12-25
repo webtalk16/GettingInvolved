@@ -12,6 +12,7 @@ class Firebase {
     constructor (global) {
         this.name = 'Firebase';
         this.global = global;
+        this.global.retrievedData = new DateModel.RetrievedData();
         this.database = null;
         this.storage = null;
         this.dataRoot = null;
@@ -23,8 +24,8 @@ class Firebase {
     init () {
         const that = this;
 
-        // console.log('modules')
-        // console.log(this.global.modules)
+        console.log('this.global.retrievedData')
+        console.log(this.global.retrievedData)
 
         // Initialize Firebase
         const app = firebase.initializeApp(this.firebaseConfig);
@@ -183,20 +184,38 @@ class Firebase {
         this.updateAdd(addPostRef, updates, message);
     }
 
-    addNewVideo(dataObj, inputCoverImage) {
+    addNewVideo(dataObj, inputCoverImage, keepOriginalCover, isEdit, videoId) {
         // TODO - Adds video to the end - change order
         
         const addPostRef = this.dataRoot;
-        const newVideoKey = this.addItemByKey(addPostRef, 'Videos');
+        const newVideoKey = isEdit ? videoId : this.addItemByKey(addPostRef, 'Videos');
         const videoData = new DateModel.Video(newVideoKey, dataObj);
         const message = 'new video ' + newVideoKey;
         const updates = {};
-        
-        this.storageUploadVideoCover(inputCoverImage, newVideoKey, () => {
+
+        const addVideo = () => {
             updates['/Videos/' + newVideoKey] = videoData;
             this.updateAdd(addPostRef, updates, message);
             setTimeout(() => { this.global.relayEvent(this.global.references.Events.newVideoAdded); }, 0);
-        });
+        };
+
+        if (keepOriginalCover) {
+            addVideo();
+        }
+        else {
+            this.storageUploadVideoCover(inputCoverImage, newVideoKey, () => {
+                addVideo();
+            });
+        }
+    }
+
+    tempAddItem (videoId, link) {
+        // const addPostRef = this.dataRoot;
+        // const updates = {};
+        // updates['/Videos/' + videoId + '/media/videoLink'] = link;
+        // const message = 'new temp Item added: ' + '/Videos/' + videoId + '/media/videoLink' + link;
+
+        // this.updateAdd(addPostRef, updates, message);
     }
 
     handleFiles (inputFile) {
@@ -204,9 +223,7 @@ class Firebase {
     }
 
     storageUploadVideoCover (imageFile, videoId, doVideoAdd) {
-        // TEMP - manually update file !!!!
-        // videoId = '-MOWbquUHcD-iaTjXUDr';
-        // TEMP !!!!
+        // TODO - new image only shows after refresh - need to wait or clear cache
 
         const image = this.handleFiles(imageFile);
         const metadata = {

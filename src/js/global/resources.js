@@ -111,9 +111,11 @@ const Resources = {
                 }
             },
             addEditPopup: {
-                buttonText: 'Add Video',
+                buttonTextAdd: 'Add Video',
+                buttonTextEdit: 'Edit Video',
                 header: {
-                    addFeaturedVideo: 'Add Featured Video'
+                    addFeaturedVideo: 'Add Featured Video',
+                    editFeaturedVideo: 'Edit Featured Video'
                 },
                 item: {
                     category: 'Category Name',
@@ -885,9 +887,11 @@ const Resources = {
                 }
             },
             addEditPopup: {
-                buttonText: 'הוסף סרטון',
+                buttonTextAdd: 'הוסף סרטון',
+                buttonTextEdit: 'ערוך סרטון',
                 header: {
-                    addFeaturedVideo: 'הוסף סרטון למומלצים'
+                    addFeaturedVideo: 'הוסף סרטון למומלצים',
+                    editFeaturedVideo: 'ערוך סרטון מומלץ'
                 },
                 item: {
                     category: 'שם קטגוריה',

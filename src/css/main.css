@@ -1295,7 +1295,7 @@ body.layoutRTL {
     #featuredVideos #watchVideosWrapper.dumbiePlaceholder {
         overflow-y: visible;
     }
-    #featuredVideos #editAddVideo {
+    #featuredVideos #addVideoBtn {
         display: inline-block;
         width: 100px;
         height: 100px;
@@ -1310,15 +1310,39 @@ body.layoutRTL {
         color: #FFFFFF;
         cursor: pointer;
     }
-    #featuredVideos #editAddVideo:hover {
+    #featuredVideos #addVideoBtn:hover {
         font-size: 44px;
         opacity: 1;
     }
-    #featuredVideos #editAddVideo.hidden {
+    #featuredVideos #addVideoBtn.hidden {
+        display: none;
+    }
+    #featuredVideos .editVideoBtn {
+        display: inline-block;
+        position: absolute;
+        background: url(../images/icons/editIcon.png) center center / auto 100% no-repeat;
+        top: 5px;
+        left: 5px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 1;
+    }
+    #featuredVideos .editVideoBtn:hover {
+        background-image: url(../images/icons/editIcon2.png);
+        width: 38px;
+        height: 38px;
+    }
+    .layoutRTL #featuredVideos .editVideoBtn {
+        left: auto;
+        right: 5px;
+    }
+    #featuredVideos .editVideoBtn.hidden {
         display: none;
     }
     #featuredVideos .watchIFCvideos .watchVideoContainer {
         display: inline-block;
+        position: relative;
         width: 200px;
         margin: 0px 2px;
         vertical-align: top;

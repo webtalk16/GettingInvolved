@@ -52,6 +52,7 @@ class VideoCarousel {
 
     this.global.modules.Firebase.readData(this.global.references.DataStructure.videos, (videos) => {
 
+      this.global.retrievedData.videos.featuredVideos = videos;
       const videosWrapper = document.querySelector('.watchIFCvideos');
       const videosHTML = [];
       let videoInfo = null; 
@@ -63,12 +64,13 @@ class VideoCarousel {
         <div id="watchVideoLeftArrow"></div>
         <div id="watchVideosWrapper">`
       );
-      videosHTML.push('<div id="editAddVideo" class="hidden adminOnly">+</div>');
+      videosHTML.push('<div id="addVideoBtn" class="hidden adminOnly">+</div>');
       for (let prop in videos) {
         videoInfo = videos[prop];
         console.log(imageUrl(prop));
         videosHTML.push(`
           <div class="watchVideoContainer" data-video-id="${prop}">
+            <div class="editVideoBtn hidden adminOnly"></div>
             <div class="watchVideoPoster" style="background-image: url(${imageUrl(prop)});"></div>
             <div class="watchVideoCategory">${videoInfo[this.uiLang].category}</div>
             <div class="watchVideoTitle">${videoInfo[this.uiLang].title}</div>
@@ -84,16 +86,38 @@ class VideoCarousel {
       videosWrapper.innerHTML = videosHTML.join('');
 
       // Bind video clicks
-      const onVideoSelect = (el) => {
-        return () => {
-          const videoId = el.getAttribute('data-video-id');
-          const videoData = videos[videoId];
+      const onVideoSelect = (el, event) => {
+
+        const editIcon = el.querySelector('.editVideoBtn');
+        const videoId = el.getAttribute('data-video-id');
+        const videoData = videos[videoId];
+
+        // TEMP !!!!!!!!!!!!!!!!!!!!!
+        // TEMP !!!!!!!!!!!!!!!!!!!!!
+        // const example = '"<iframe id=\"video-MOWbquSbbUFJTI5MwLq\" style=\"width:100%;height:400px;\" src=\"https://www.youtube.com/embed/CP6M5Rqa-U8?enablejsapi=1\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"';
+        // const videoSrc = videoData.media.videoEmbed;
+        // const link = videoSrc.split('src');
+        // const link2 = link[1].split('?enablejsapi=1');
+        // const link3 = link2[0].split('https');
+        // const finalLink = 'https' + link3[1];
+        // this.global.modules.Firebase.tempAddItem(videoId, finalLink);
+        // return;
+        // TEMP !!!!!!!!!!!!!!!!!!!!!
+        // TEMP !!!!!!!!!!!!!!!!!!!!!
+
+        if (editIcon.classList.contains('hidden') || event.target !== editIcon && !editIcon.contains(event.target)) {
           that.utils.openVideoPlayer(videoId, videoData, that.resources);
         }
+        else {
+          // open edit popup
+          const popup = this.global.modules[that.global.references.ModuleNames.AddEditPopup];
+          popup.onAddEditVideoClick(true, videoId, videoData)();
+        }
+
       };
       const watchVideoContainer = document.querySelectorAll('.watchVideoContainer');
       watchVideoContainer.forEach((el) => {
-        that.utils.attachEventListeners('click', onVideoSelect(el), [el]);
+        that.utils.attachEventListeners('click', onVideoSelect, [el]);
       });
 
       // Videos Scroll Arrows
@@ -129,9 +153,9 @@ class VideoCarousel {
       }(this, isRTL, arrowBack, arrowFoward);
 
       // Bind Add Video Button
-      const editAddVideo = document.querySelector('#editAddVideo');
+      const addVideoBtn = document.querySelector('#addVideoBtn');
       const popup = this.global.modules[that.global.references.ModuleNames.AddEditPopup];
-      that.utils.attachEventListeners('click', popup.onAddVideoClick(editAddVideo), [editAddVideo]);
+      that.utils.attachEventListeners('click', popup.onAddEditVideoClick(), [addVideoBtn]);
 
       that.global.relayEvent(that.global.references.Events.updateUserItems);
     });

@@ -14,6 +14,7 @@ const DateModel = {
                 title2: dataObj.titleFooterHeb.value
             },
             media:{
+                videoLink: dataObj.inputYouTubeLink.value,
                 videoEmbed: `<iframe id="video${key}" style="width:100%;height:400px;" src="${dataObj.inputYouTubeLink.value}?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
             },
             socialLinks: {
@@ -25,7 +26,14 @@ const DateModel = {
                 youTube: dataObj.links_YouTube.value,
                 linkedIn: dataObj.links_LinkedIn.value
             }
-        }
+        };
+    },
+    RetrievedData: () => {
+        return {
+            videos: {
+                featuredVideos: null
+            }
+        };
     }
 }
 

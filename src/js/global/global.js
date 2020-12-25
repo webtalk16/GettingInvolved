@@ -14,6 +14,7 @@ class Global {
       this.user = null;
       this.modules = {};
       this.functions = null;
+      this.retrievedData = null;
       // this.config = Config;
     }
 
