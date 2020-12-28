@@ -10,6 +10,10 @@ class Utils {
 
     // TODO - Lazy Load images
     // TODO - set app version
+    // TODO -
+    // Move site on Github from GettingInvolved to IFC (private)
+    // Blank site comes up on Chrome mobile and FB browser (service worker problem)
+    // Check where can use imports to reduce Entrypoint index.js size
 
     menuIconBindClick (event) {
       this.menuIcon = document.querySelector('#menuIcon');

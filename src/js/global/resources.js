@@ -693,7 +693,7 @@ const Resources = {
                     eng: 'Nativ Likud',
                     icon: '',
                     banner: '',
-                    logo: 'NativLikud.png',
+                    logo: 'NativLikud.jpg',
                     info: `
                     National Liberal Likud
                     <br>
@@ -1471,7 +1471,7 @@ const Resources = {
                     eng: 'Nativ Likud',
                     icon: '',
                     banner: '',
-                    logo: 'NativLikud.png',
+                    logo: 'NativLikud.jpg',
                     info: `
                     ליכוד לאומי ליברלי
                     <br>
