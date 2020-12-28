@@ -1369,6 +1369,27 @@ body.layoutRTL {
         animation-duration: 1500ms;
         animation-iteration-count: infinite;
     }
+    #featuredVideos .watchIFCvideos #watchVideosWrapper .watchVideoContainer.recentlyDeleted {
+        opacity: .3;
+    }
+    #featuredVideos .removeFromRecentlyDeleted {
+        display: inline-block;
+        position: absolute;
+        background: url(../images/icons/close-roundBtn-black.png) center center / auto 100% no-repeat;
+        top: 5px;
+        left: 5px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 1;
+    }
+    #featuredVideos .removeFromRecentlyDeleted:hover {
+        background: url(../images/icons/close-roundBtn-white.png) center center / auto 100% no-repeat;
+    }
+    .layoutRTL #featuredVideos .removeFromRecentlyDeleted {
+        left: auto;
+        right: 5px;
+    }
     #featuredVideos .watchIFCvideos .watchVideoContainer .watchVideoPoster {
         position: relative;
         background-position: left top;
@@ -1386,6 +1407,17 @@ body.layoutRTL {
         right: 0px;
         background-color: rgba(0, 0, 0, .6);
     }
+    #featuredVideos .watchIFCvideos .watchVideoContainer.recentlyDeleted:hover .watchVideoPoster::before {
+        content: "";
+        position: absolute;
+        background: url(../images/icons/undoDelete.png) center center / auto 50% no-repeat;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: rgba(0, 0, 0, .8);
+    }
+
     #featuredVideos .watchIFCvideos #watchVideosWrapper.dumbiePlaceholder .watchVideoContainer:hover .watchVideoPoster::before {
         content: "";
         position: absolute;

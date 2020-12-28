@@ -2,7 +2,8 @@ const References = {
     Events: {
         userStateChangd: 'userStateChangd',
         updateUserItems: 'updateUserItems',
-        newVideoAdded: 'newVideoAdded'
+        newVideoAdded: 'newVideoAdded',
+        videoDeleted: 'videoDeleted'
     },
     DataStructure: {
         videos: '/Videos'
@@ -10,6 +11,10 @@ const References = {
     ModuleNames: {
         VideoCarousel: 'VideoCarousel',
         AddEditPopup: 'AddEditPopup'
+    },
+    Sort: {
+        oldestFirst: 'oldestFirst',
+        newestFirst: 'newestFirst'
     }
 };
 

@@ -1,6 +1,3 @@
-import { Config } from '../global/config.js';
-import { References } from '../global/references.js';
-
 class Home {
 
   constructor (global) {
@@ -8,7 +5,7 @@ class Home {
     this.global = global;
     this.utils = global.utils;
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang);
+    this.uiLang = this.global.config.uiLang.get.call(this.global.config.uiLang);
   }
 
   init () {
@@ -159,7 +156,7 @@ class Home {
     rootEl.insertAdjacentHTML('beforeend', html);
 
     const divFeaturedVideos = document.querySelector('#featuredVideos');
-    this.global.modules[References.ModuleNames.VideoCarousel].updateFeaturedVideos(divFeaturedVideos);
+    this.global.modules[this.global.references.ModuleNames.VideoCarousel].updateFeaturedVideos(divFeaturedVideos);
 
     this.utils.readMoreTruncate(rootEl.querySelectorAll('.groupItemDesc'), '.groupItemDescText', 5);
   }
@@ -171,11 +168,6 @@ class Home {
     homePromoBoxFooter.addEventListener('click', function () {
       window.open(eventDirections, '_blank');
     });
-  }
-
-  onUpdatesJJJ () {
-    const divFeaturedVideos = document.querySelector('#featuredVideos');
-    this.global.modules[References.ModuleNames.VideoCarousel].updateFeaturedVideos(divFeaturedVideos);
   }
 }
 

@@ -1,8 +1,9 @@
 const DateModel = {
-    Video: (key, dataObj) => {
+    Video: (videoId, uploadDate, dataObj) => {
         // categoryEng, categoryHeb, titleEng, titleHeb, titleFooterEng, titleFooterHeb, videoLink
         // links_FB, links_Web, links_Spotify, links_Insta, links_YouTube, links_LinkedIn, links_Twitter
         return {
+            uploadDate: uploadDate,
             eng: {
                 category: dataObj.categoryEng.value,
                 title: dataObj.titleEng.value,
@@ -15,7 +16,7 @@ const DateModel = {
             },
             media:{
                 videoLink: dataObj.inputYouTubeLink.value,
-                videoEmbed: `<iframe id="video${key}" style="width:100%;height:400px;" src="${dataObj.inputYouTubeLink.value}?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                videoEmbed: `<iframe id="video${videoId}" style="width:100%;height:400px;" src="${dataObj.inputYouTubeLink.value}?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
             },
             socialLinks: {
                 website: dataObj.links_Web.value,
@@ -32,6 +33,9 @@ const DateModel = {
         return {
             videos: {
                 featuredVideos: null
+            },
+            recentlyDeleted: {
+                videos: {}
             }
         };
     }

@@ -110,9 +110,15 @@ const Resources = {
                     add: 'Add'
                 }
             },
+            popupConfirm: {
+                confirmBtn: 'Do it',
+                cancelBtn: 'Cancel'
+            },
             addEditPopup: {
                 buttonTextAdd: 'Add Video',
                 buttonTextEdit: 'Edit Video',
+                buttonTextDelete: 'Delete Video',
+                confirmDelete: 'Are you sure you would like to delete this video?',
                 header: {
                     addFeaturedVideo: 'Add Featured Video',
                     editFeaturedVideo: 'Edit Featured Video'
@@ -886,9 +892,15 @@ const Resources = {
                     add: 'הוסף'
                 }
             },
+            popupConfirm: {
+                confirmBtn: 'לבצע',
+                cancelBtn: 'בטל'
+            },
             addEditPopup: {
                 buttonTextAdd: 'הוסף סרטון',
                 buttonTextEdit: 'ערוך סרטון',
+                buttonTextDelete: 'מחק סרטון',
+                confirmDelete: 'האם ברצונך למחוק את הסרטון הזה?',
                 header: {
                     addFeaturedVideo: 'הוסף סרטון למומלצים',
                     editFeaturedVideo: 'ערוך סרטון מומלץ'

@@ -1,5 +1,3 @@
-import { Config } from '../global/config.js';
-
 class VideoCarousel {
 
   constructor (global) {
@@ -7,7 +5,7 @@ class VideoCarousel {
     this.global = global;
     this.utils = global.utils;
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang);
+    this.uiLang = this.global.config.uiLang.get.call(this.global.config.uiLang);
   } 
 
   init () {
@@ -17,6 +15,7 @@ class VideoCarousel {
   eventHandler (eventName) {
     switch (eventName) {
       case this.global.references.Events.newVideoAdded:
+      case this.global.references.Events.videoDeleted:
         const divFeaturedVideos = document.querySelector('#featuredVideos');
         if (divFeaturedVideos) {
           this.updateFeaturedVideos(divFeaturedVideos);
@@ -52,11 +51,28 @@ class VideoCarousel {
 
     this.global.modules.Firebase.readData(this.global.references.DataStructure.videos, (videos) => {
 
+      const arrVideos = [];
+      for (let prop in videos) {
+        arrVideos.push({ id: prop, videoData: videos[prop]});
+      }
+      this.global.config.videoSort.set.call(this.global.config, this.global.references.Sort.newestFirst);
+      const sortType = this.global.config.videoSort.get.call(this.global.config);
+      switch (sortType) {
+        case this.global.references.Sort.oldestFirst:
+          arrVideos.sort(function(a, b){
+            return a.videoData.uploadDate - b.videoData.uploadDate
+          });
+          break;
+        case this.global.references.Sort.newestFirst:
+          arrVideos.sort(function(a, b){ return b.videoData.uploadDate - a.videoData.uploadDate });
+          break;
+      }
+
       this.global.retrievedData.videos.featuredVideos = videos;
       const videosWrapper = document.querySelector('.watchIFCvideos');
       const videosHTML = [];
       let videoInfo = null; 
-      const imageUrl = (videoId) => { return Config.firebase.storage.url.get.call(Config.firebase.storage.url, videoId); };
+      const imageUrl = (videoId) => { return that.global.config.firebase.storage.url.get.call(that.global.config.firebase.storage.url, videoId); };
 
       // TODO - change 'watch' to 'featured' in all locations
 
@@ -65,13 +81,30 @@ class VideoCarousel {
         <div id="watchVideosWrapper">`
       );
       videosHTML.push('<div id="addVideoBtn" class="hidden adminOnly">+</div>');
-      for (let prop in videos) {
-        videoInfo = videos[prop];
-        console.log(imageUrl(prop));
+
+      // Recently Deleted
+      const deletedVideos = this.global.retrievedData.recentlyDeleted.videos;
+      for (let prop in deletedVideos) {
+        videoInfo = deletedVideos[prop];
         videosHTML.push(`
-          <div class="watchVideoContainer" data-video-id="${prop}">
-            <div class="editVideoBtn hidden adminOnly"></div>
+          <div class="watchVideoContainer recentlyDeleted" data-video-id="${prop}"c>
+            <div class="removeFromRecentlyDeleted"></div>
             <div class="watchVideoPoster" style="background-image: url(${imageUrl(prop)});"></div>
+            <div class="watchVideoCategory">${videoInfo[this.uiLang].category}</div>
+            <div class="watchVideoTitle">${videoInfo[this.uiLang].title}</div>
+            <div class="watchVideoFooter">${videoInfo[this.uiLang].title2}</div>
+          </div>
+        `);
+      }
+
+      // Videos
+      for (let i = 0; i < arrVideos.length; i++) {
+        videoInfo = arrVideos[i].videoData;
+
+        videosHTML.push(`
+          <div class="watchVideoContainer" data-video-id="${arrVideos[i].id}" data-upload-date="${videoInfo.uploadDate}">
+            <div class="editVideoBtn hidden adminOnly"></div>
+            <div class="watchVideoPoster" style="background-image: url(${imageUrl(arrVideos[i].id)});"></div>
             <div class="watchVideoCategory">${videoInfo[this.uiLang].category}</div>
             <div class="watchVideoTitle">${videoInfo[this.uiLang].title}</div>
             <div class="watchVideoFooter">${videoInfo[this.uiLang].title2}</div>
@@ -87,34 +120,35 @@ class VideoCarousel {
 
       // Bind video clicks
       const onVideoSelect = (el, event) => {
-
         const editIcon = el.querySelector('.editVideoBtn');
         const videoId = el.getAttribute('data-video-id');
+        const uploadDate = el.getAttribute('data-upload-date');
         const videoData = videos[videoId];
 
-        // TEMP !!!!!!!!!!!!!!!!!!!!!
-        // TEMP !!!!!!!!!!!!!!!!!!!!!
-        // const example = '"<iframe id=\"video-MOWbquSbbUFJTI5MwLq\" style=\"width:100%;height:400px;\" src=\"https://www.youtube.com/embed/CP6M5Rqa-U8?enablejsapi=1\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"';
-        // const videoSrc = videoData.media.videoEmbed;
-        // const link = videoSrc.split('src');
-        // const link2 = link[1].split('?enablejsapi=1');
-        // const link3 = link2[0].split('https');
-        // const finalLink = 'https' + link3[1];
-        // this.global.modules.Firebase.tempAddItem(videoId, finalLink);
-        // return;
-        // TEMP !!!!!!!!!!!!!!!!!!!!!
-        // TEMP !!!!!!!!!!!!!!!!!!!!!
-
-        if (editIcon.classList.contains('hidden') || event.target !== editIcon && !editIcon.contains(event.target)) {
+        if(el.classList.contains('recentlyDeleted')) {
+          const removeDeleted = el.querySelector('.removeFromRecentlyDeleted');
+          const deletedData = this.global.retrievedData.recentlyDeleted.videos[videoId];
+          delete this.global.retrievedData.recentlyDeleted.videos[videoId];
+          if (event.target !== removeDeleted && !removeDeleted.contains(event.target)) {
+            // undo delete
+            this.global.modules.Firebase.addEditVideo(deletedData, null, true, true, videoId, uploadDate, true);
+          }
+          else {
+            // remove from carousel and deleted List
+            this.updateFeaturedVideos(divFeaturedVideos);
+          }
+        }
+        else if (editIcon.classList.contains('hidden') || event.target !== editIcon && !editIcon.contains(event.target)) {
           that.utils.openVideoPlayer(videoId, videoData, that.resources);
         }
         else {
           // open edit popup
           const popup = this.global.modules[that.global.references.ModuleNames.AddEditPopup];
-          popup.onAddEditVideoClick(true, videoId, videoData)();
+          popup.onAddEditVideoClick(true, videoId, videoData, uploadDate)();
         }
 
       };
+
       const watchVideoContainer = document.querySelectorAll('.watchVideoContainer');
       watchVideoContainer.forEach((el) => {
         that.utils.attachEventListeners('click', onVideoSelect, [el]);

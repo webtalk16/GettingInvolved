@@ -6,7 +6,7 @@ class Header {
     this.global = global;
     this.utils = global.utils;
     this.resources = this.global.getResources();
-    this.config = this.global.getConfig();
+    this.config = this.global.config;
     this.homepage = this.setHomePage();
   } 
 

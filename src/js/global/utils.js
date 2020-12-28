@@ -1,5 +1,3 @@
-import { References } from './references';
-
 class Utils {
 
     constructor (global) {
@@ -84,7 +82,7 @@ class Utils {
         // Only check 900ms after last scroll
         if (currentTime - 900 > (lastScrolledTime)) {
           if(scrollingUp) {
-            if (passedMinThreshold && !utils.global.modules[References.ModuleNames.AddEditPopup].isActive) {
+            if (passedMinThreshold && !utils.global.modules[utils.global.references.ModuleNames.AddEditPopup].isActive) {
               header.classList.add('sticky');
             }
           }
@@ -164,14 +162,29 @@ class Utils {
       }
     }
 
-    openLightBox (contentHTML, onClose) {
+    openLightBox (contentHTML, onClose, onConfirm, resources) {
       const popupText = this.popupContainer.querySelector('#lightBoxPopupText');
+      if (onConfirm && typeof onConfirm === 'function') {
+        contentHTML += `
+          <div id="popupConfirmButtons">
+            <div class="confirmBtn">${resources.popupConfirm.confirmBtn}</div>
+            <div class="cancelBtn">${resources.popupConfirm.cancelBtn}</div>
+          </div>
+        `;
+      }
       popupText.innerHTML = contentHTML;
       this.popupContainer.classList.add('show');
-      const onCloseCallback = onClose ? () => { onClose(); this.popupContainer.classList.remove('show'); } : () => { this.popupContainer.classList.remove('show') };
+      const onCloseCallback = onClose ? () => { onClose(); this.popupContainer.classList.remove('show'); popupText.innerHTML = ''; } : () => { this.popupContainer.classList.remove('show'); popupText.innerHTML = ''; };
       
       const closeBtn = this.popupContainer.querySelector('.closeBtn');
       this.attachEventListeners('click', onCloseCallback, [closeBtn]);
+      if (onConfirm && typeof onConfirm === 'function') {
+        const confirmBtn = this.popupContainer.querySelector('.confirmBtn');
+        const cancelBtn = this.popupContainer.querySelector('.cancelBtn');
+        // TODO - on delete close also addEdit popup
+        this.attachEventListeners('click', () => { onConfirm(); onCloseCallback(); } , [confirmBtn]);
+        this.attachEventListeners('click', onCloseCallback, [cancelBtn]);
+      }
     }
 
     attachEventListeners (eventName, callback, arrElements) {

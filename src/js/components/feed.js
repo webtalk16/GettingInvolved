@@ -1,5 +1,3 @@
-import { Config } from '../global/config.js';
-
 class Feed {
 
   constructor (global) {
@@ -7,7 +5,7 @@ class Feed {
     this.global = global;
     this.resources = this.global.getResources();
     this.posts = this.global.getPosts();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang);
+    this.uiLang = this.global.config.uiLang.get.call(this.global.config.uiLang);
   } 
 
   init () {

@@ -1,4 +1,3 @@
-import { Config } from './config.js';
 import { Login } from '../components/login.js';
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -17,15 +16,12 @@ class Firebase {
         this.storage = null;
         this.dataRoot = null;
         this.storageRoot = null;
-        this.firebaseConfig = Config.firebase.firebaseConfig.get.call();
+        this.firebaseConfig = this.global.config.firebase.firebaseConfig.get.call();
         this.firebase = firebase;
     }
 
     init () {
         const that = this;
-
-        console.log('this.global.retrievedData')
-        console.log(this.global.retrievedData)
 
         // Initialize Firebase
         const app = firebase.initializeApp(this.firebaseConfig);
@@ -146,8 +142,15 @@ class Firebase {
         });
     }
 
-    delete (dataRef) {
-        dataRef.remove();
+    delete (dataRef, callback) {
+        dataRef.remove()
+            .then(function() {
+                console.log("Delete succeeded");
+                if (callback && typeof callback === 'function') { callback(); }
+            })
+            .catch(function(error) {
+                console.log("Delete failed: " + error.message)
+            });
     }
 
     writeUserData(newKey, newVal) {
@@ -184,36 +187,60 @@ class Firebase {
         this.updateAdd(addPostRef, updates, message);
     }
 
-    addNewVideo(dataObj, inputCoverImage, keepOriginalCover, isEdit, videoId) {
+    deleteVideo (videoId) {
+        const that = this;
+        const videoData = this.global.retrievedData.videos.featuredVideos[videoId];
+        
+        const updates = {};
+        updates['/Deleted/Videos/' + videoId] = videoData;
+        const message = 'deleted video ' + videoId;
+        this.updateAdd(this.dataRoot, updates, message);
+
+        this.storageDeleteRecoverVideoCover(videoId);
+
+        const afterDelete = () => {
+            that.global.retrievedData.recentlyDeleted.videos[videoId] = videoData;
+            setTimeout(() => { that.global.relayEvent(that.global.references.Events.videoDeleted); }, 0);
+        };
+        
+        const deleteRef = this.dataRoot.child('/Videos/' + videoId);
+        this.delete(deleteRef, afterDelete);
+    }
+
+    addEditVideo(dataObj, inputCoverImage, keepOriginalCover, isEdit, videoId, uploadDate, isRecover) {
         // TODO - Adds video to the end - change order
         
-        const addPostRef = this.dataRoot;
-        const newVideoKey = isEdit ? videoId : this.addItemByKey(addPostRef, 'Videos');
-        const videoData = new DateModel.Video(newVideoKey, dataObj);
-        const message = 'new video ' + newVideoKey;
+        const addVideoRef = this.dataRoot;
+        const videoKey = isEdit ? videoId : this.addItemByKey(addVideoRef, 'Videos');
+        const videoData = isRecover ? dataObj : new DateModel.Video(videoKey, uploadDate, dataObj);
+        const message = 'new video ' + videoKey;
         const updates = {};
 
         const addVideo = () => {
-            updates['/Videos/' + newVideoKey] = videoData;
-            this.updateAdd(addPostRef, updates, message);
+            updates['/Videos/' + videoKey] = videoData;
+            this.updateAdd(addVideoRef, updates, message);
             setTimeout(() => { this.global.relayEvent(this.global.references.Events.newVideoAdded); }, 0);
         };
 
         if (keepOriginalCover) {
             addVideo();
+            if (isRecover) {
+                this.storageDeleteRecoverVideoCover(videoId, isRecover);
+            }
         }
         else {
-            this.storageUploadVideoCover(inputCoverImage, newVideoKey, () => {
+            this.storageUploadVideoCover(inputCoverImage, videoKey, () => {
                 addVideo();
             });
         }
     }
 
-    tempAddItem (videoId, link) {
+    tempAddItem (videoId) {
+        // const uploadDate = (new Date()).getTime();
         // const addPostRef = this.dataRoot;
         // const updates = {};
-        // updates['/Videos/' + videoId + '/media/videoLink'] = link;
-        // const message = 'new temp Item added: ' + '/Videos/' + videoId + '/media/videoLink' + link;
+        // updates['/Videos/' + videoId + '/uploadDate'] = uploadDate;
+        // const message = 'new temp Item added: ' + '/Videos/' + videoId + '/uploadDate/' + uploadDate;
 
         // this.updateAdd(addPostRef, updates, message);
     }
@@ -222,15 +249,40 @@ class Firebase {
         return inputFile.files[0];
     }
 
-    storageUploadVideoCover (imageFile, videoId, doVideoAdd) {
+    storageDeleteRecoverVideoCover (videoId, isRecover) {
+        // mark metadata as Deleted
+        const isDeleted = isRecover ? null : true;
+        const updtedmetadata = {
+            customMetadata: {
+                isDeleted: isDeleted,
+                forVideoId: videoId
+            }
+        };
+        const message = 'isDeleted';
+        const imageRef = this.storageRoot.child('/public/videos/' + videoId + '/placeholder.jpg');
+        this.storageUpdateMetaData(imageRef, updtedmetadata, message);
+    }
+
+    storageUpdateMetaData (ref, updtedmetadata, message) {
+        ref.updateMetadata(updtedmetadata).then(function(metadata) {
+            console.log(`Successfully updated the storage file's ${message} metadata`);
+            console.log(metadata);
+        }).catch(function(error) {
+            console.log(`There was an error in updating the storage file's ${message} metadata - Error ${error}`);
+        });
+    }
+
+    storageUploadVideoCover (inputImage, videoId, doVideoAdd) {
         // TODO - new image only shows after refresh - need to wait or clear cache
 
-        const image = this.handleFiles(imageFile);
+        const image = this.handleFiles(inputImage);
         const metadata = {
-            contentType: image.type,
-            name: image.name,
-            size: image.size,
-            forVideoId: videoId
+            customMetadata: {
+                contentType: image.type,
+                name: image.name,
+                size: image.size,
+                forVideoId: videoId
+            }
         };
 
         const ref = this.storageRoot.child('/public/videos/' + videoId + '/placeholder.jpg'); //' + image.name);
@@ -315,7 +367,7 @@ class Firebase {
     createDataStructure () {
         // upload videos from JSON
         // for (let prop in Videos) {
-        //     this.addNewVideo(Videos[prop]);
+        //     this.addEditVideo(Videos[prop]);
         // }
 
 

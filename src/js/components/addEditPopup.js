@@ -1,5 +1,3 @@
-import { Config } from '../global/config.js';
-
 class AddEditPopup {
 
   constructor (global) {
@@ -8,7 +6,7 @@ class AddEditPopup {
     this.global = global;
     this.utils = global.utils;
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang);
+    this.uiLang = this.global.config.uiLang.get.call(this.global.config.uiLang);
     this.addEditPopup = document.querySelector('#addEditPopup');
     this.onCloseCallback = null;
   } 
@@ -20,6 +18,7 @@ class AddEditPopup {
   eventHandler (eventName) {
     switch (eventName) {
       case this.global.references.Events.newVideoAdded:
+      case this.global.references.Events.videoDeleted:
         this.closePopup();
         break;
       default:
@@ -39,7 +38,7 @@ class AddEditPopup {
     if (this.onCloseCallback && typeof this.onCloseCallback === 'function') this.onCloseCallback();
   }
 
-  onAddEditVideoClick (isEdit, videoId, videoData) {
+  onAddEditVideoClick (isEdit, videoId, videoData, uploadDate) {
     const that = this;
     return () => {
 
@@ -59,11 +58,12 @@ class AddEditPopup {
       const inputSocialLinks_LinkedIn = !isEdit ? '' : videoData.socialLinks.linkedIn || '';
       const inputSocialLinks_Twitter = !isEdit ? '' : videoData.socialLinks.twiter || '';
 
-      const imageUrl =  !isEdit ? '' : Config.firebase.storage.url.get.call(Config.firebase.storage.url, videoId);
+      const imageUrl =  !isEdit ? '' : that.global.config.firebase.storage.url.get.call(that.global.config.firebase.storage.url, videoId);
       const coverImageClass = !isEdit ? 'class="hidden"' : '';
       const coverPreviewForEdit = `<div id="videoCoverImagePreview" ${coverImageClass}><img src="${imageUrl}"></div>`;
 
       const buttonText = !isEdit ? that.resources.addEditPopup.buttonTextAdd : that.resources.addEditPopup.buttonTextEdit;
+      const deleteVideoBtn = !isEdit ? '' : `<div id="addEditDeleteVideo"><span id="addEditDeleteVideoBtn">${that.resources.addEditPopup.buttonTextDelete}</span></div>`;
 
       // open add/edit popup
       const socialIcons = that.utils.getSocialIcons('color');
@@ -192,13 +192,14 @@ class AddEditPopup {
         <div id="errorTxt"></div>
         <div class="addEditItem">
           <button id="addEditSubmitBtn" type="submit">${buttonText}</button>
+          ${deleteVideoBtn}
         </div>
       `;
-      that.openAddEditPopup(header, content, that.onSubmitAddEditVideo, isEdit, videoId, null);
+      that.openAddEditPopup(header, content, that.onSubmitAddEditVideo, that.onSubmitDeleteVideo, isEdit, videoId, uploadDate, null);
     }
   }
 
-  openAddEditPopup (header, content, onSubmit, isEdit, videoId, onClose) {
+  openAddEditPopup (header, content, onSubmit, onDelete, isEdit, videoId, uploadDate, onClose) {
     const that = this;
     const popupContent = this.addEditPopup.querySelector('#addEditContent');
     const popupHeader = this.addEditPopup.querySelector('#addEditHeader');
@@ -209,9 +210,13 @@ class AddEditPopup {
     popupHeader.innerHTML = header;
     popupContent.innerHTML = content;
 
-    // on add video form submit (add video)
-    const onSubmitNewVideo = document.querySelector('#addEditSubmitBtn');
-    this.utils.attachEventListeners('click', onSubmit(isEdit, videoId, popupContent, this.global), [onSubmitNewVideo]);
+    // on add/edit video form submit (add video)
+    const addEditSubmitBtn = document.querySelector('#addEditSubmitBtn');
+    this.utils.attachEventListeners('click', onSubmit(isEdit, videoId, uploadDate, popupContent, this.global), [addEditSubmitBtn]);
+    if (isEdit) {
+      const onSubmitDeleteVideo = document.querySelector('#addEditDeleteVideoBtn');
+      this.utils.attachEventListeners('click', onDelete(videoId, this.global), [onSubmitDeleteVideo]);
+    }
 
     this.openPopup();
     popupContent.scrollTop = 0;
@@ -221,9 +226,26 @@ class AddEditPopup {
     this.utils.attachEventListeners('click', function () { that.closePopup.call(that) }, [closeBtn]);
   }
 
-  onSubmitAddEditVideo (isEdit, videoId, popupContent, global) {
-    const onAddVideo = () => {
-      console.log('add video button clicked');
+  onSubmitDeleteVideo(videoId, global) {
+    const onDeleteVideo = () => {
+      const onConfirm = () => { global.modules.Firebase.deleteVideo(videoId); };
+
+      const imageUrl =  global.config.firebase.storage.url.get.call(global.config.firebase.storage.url, videoId);
+      const contentHTML = `
+        <div class='deleteVideoConfirmContent'>
+          <div class="deleteVideoImagePreview"><img src="${imageUrl}"></div>
+          <div class="deleteVideoConfirmText">${global.resources.addEditPopup.confirmDelete}</div>
+        <div>
+      `;
+      
+      global.utils.openLightBox(contentHTML, null, onConfirm, global.resources);
+      
+    };
+    return onDeleteVideo;
+  }
+
+  onSubmitAddEditVideo (isEdit, videoId, uploadDate, popupContent, global, isDelete) {
+    const onAddEditVideo = () => {
       // validate form
       const errorTxt = popupContent.querySelector('#errorTxt');
       const categoryEng = popupContent.querySelector('#inputCategoryEnglish');
@@ -270,12 +292,13 @@ class AddEditPopup {
 
       //  TODO - write error text - errorTxt.innerHTML = resources.addEditPopup.errorTxt.missingTitle;
 
-      // get form vals
+      uploadDate = !isEdit ? (new Date()).getTime() : uploadDate;
+      
       const videoData = { categoryEng, categoryHeb, titleEng, titleHeb, titleFooterEng, titleFooterHeb, inputYouTubeLink, links_FB, links_Web, links_Spotify, links_Insta, links_YouTube, links_LinkedIn, links_Twitter };
-      global.modules.Firebase.addNewVideo(videoData, inputCoverImage, keepOriginalCover, isEdit, videoId);
+      global.modules.Firebase.addEditVideo(videoData, inputCoverImage, keepOriginalCover, isEdit, videoId, uploadDate);
       
     };
-    return onAddVideo;
+    return onAddEditVideo;
   }
 
 }

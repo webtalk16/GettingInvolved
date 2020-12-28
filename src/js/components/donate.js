@@ -1,12 +1,10 @@
-import { Config } from '../global/config.js';
-
 class Donate {
 
   constructor (global) {
     this.name = 'Donate';
     this.global = global;
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang);
+    this.uiLang = this.global.config.uiLang.get.call(this.global.config.uiLang);
   } 
 
   init () {

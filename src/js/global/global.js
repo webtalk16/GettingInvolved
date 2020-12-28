@@ -9,13 +9,13 @@ class Global {
       this.utils = new Utils(this);
       this.references = References;
       this.resourceLangs = Resources.lang;
+      this.config = (new Config(this)).config;
       this.resources = this.getResources();
-      this.resourceNavItems = Resources.lang[Config.uiLang.get.call(Config.uiLang)].nav;
+      this.resourceNavItems = Resources.lang[this.config .uiLang.get.call(this.config.uiLang)].nav;
       this.user = null;
       this.modules = {};
       this.functions = null;
       this.retrievedData = null;
-      // this.config = Config;
     }
 
     // TODO - make larger text, buttons, inputs for mobile
@@ -35,11 +35,11 @@ class Global {
     }
 
     getResources () {
-        return Resources.lang[Config.uiLang.get.call(Config.uiLang)];
+        return Resources.lang[this.config.uiLang.get.call(this.config.uiLang)];
     }
 
     getPosts () {
-      return Posts.lang[Config.uiLang.get.call(Config.uiLang)];
+      return Posts.lang[this.config.uiLang.get.call(this.config.uiLang)];
     }
 
     getResourceLangs () {
@@ -50,9 +50,9 @@ class Global {
         return this.resourceNavItems;
     }
 
-    getConfig () {
-        return Config;
-    }
+    // getConfig () {
+    //     return this.config;
+    // }
 
     checkPwa (rootEl) {
       setTimeout(() => {

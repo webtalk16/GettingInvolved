@@ -1,5 +1,3 @@
-import { Config } from '../global/config.js';
-
 class Settings {
 
   constructor (global) {
@@ -7,7 +5,7 @@ class Settings {
     this.global = global;
     this.utils = global.utils;
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang);
+    this.uiLang = this.global.config.uiLang.get.call(this.global.config.uiLang);
   } 
 
   init () {

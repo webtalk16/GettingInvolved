@@ -312,7 +312,22 @@
     cursor: pointer;
 }
 #addEditPopup .addEditContainer .addEditItem #addEditSubmitBtn:hover {
-    background-color: aliceblue;
+    background-color: #246ea6;
+    color: #FFFFFF;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditDeleteVideo {
+    text-align: center;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditDeleteVideo #addEditDeleteVideoBtn {
+    display: inline-block;
+    margin-top: 15px;
+    padding-bottom: 3px;
+    color: darkgoldenrod;
+    cursor: pointer;
+}
+#addEditPopup .addEditContainer .addEditItem #addEditDeleteVideo #addEditDeleteVideoBtn:hover {
+    color: crimson;
+    border-bottom: 1px solid crimson;
 }
 #addEditPopup .addEditContainer .addEditItem .formInput.err {
     border-color: red;
@@ -332,7 +347,7 @@
     left: 0px;
     right: 0px;
     background: rgba(0,0,0,.8);
-    z-index: 3;
+    z-index: 4;
 }
 #lightBoxContainer.show {
     display: block;
@@ -358,4 +373,42 @@
     margin-bottom: 15px;
     opacity: .8;
     cursor: pointer;
+}
+#lightBoxContainer #popupConfirmButtons {
+    margin-top: 30px;
+}
+#lightBoxContainer #popupConfirmButtons .confirmBtn,
+#lightBoxContainer #popupConfirmButtons .cancelBtn {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 50px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+#lightBoxContainer #popupConfirmButtons .confirmBtn {
+    background-color: darkred;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 8px 8px 8px 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#lightBoxContainer #popupConfirmButtons .confirmBtn:hover {
+    background-color: #246ea6;
+}
+#lightBoxContainer #popupConfirmButtons .cancelBtn {
+    margin: 0px 10px;
+    color: darkgoldenrod;
+}
+#lightBoxContainer #popupConfirmButtons .cancelBtn:hover {
+    border-bottom: 1px solid darkgoldenrod;
+}
+#lightBoxContainer .deleteVideoConfirmContent {
+    text-align: center;
+}
+#lightBoxContainer .deleteVideoImagePreview {
+    margin-bottom: 30px;
+}
+#lightBoxContainer .deleteVideoConfirmText {
+    font-size: 1.3em;
 }

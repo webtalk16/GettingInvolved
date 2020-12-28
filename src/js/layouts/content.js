@@ -1,4 +1,3 @@
-import { Config } from '../global/config.js';
 import { VideoCarousel } from '../components/videoCarousel.js';
 import { AddEditPopup } from '../components/addEditPopup.js';
 import { Home } from '../components/home.js';
@@ -15,7 +14,7 @@ class Content {
     this.name = 'Content';
     this.global = global;
     this.resources = this.global.getResources();
-    this.uiLang = Config.uiLang.get.call(Config.uiLang);
+    this.uiLang = this.global.config.uiLang.get.call(this.global.config.uiLang);
   } 
 
   init () {
