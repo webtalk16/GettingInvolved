@@ -50,6 +50,18 @@ class Firebase {
                     // console.log(getIdTokenResult.claims)
                     // console.log('---- claim logs ----');
 
+                    // TODO - check why getIdTokenResult.claims.email_verified = false
+                    // also user.emailVerified = false
+                    // need to verify email?
+
+                    // providerData: Array(1)
+                    //     displayName: null
+                    //     email: "jimmyjlevy@gmail.com"
+                    //     phoneNumber: null
+                    //     photoURL: null
+                    //     providerId: "password"
+                    //     uid: "jimmyjlevy@gmail.com"
+
                     let providerData = null;
                     if (user.providerData && user.providerData.length) {
                         user.providerData[0].accessLevel = getIdTokenResult.claims.accessLevel;
